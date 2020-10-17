@@ -9,12 +9,12 @@ helpviewer_keywords:
 - versions, determining for .NET Framework
 - .NET Framework, determining version
 ms.assetid: 40a67826-e4df-4f59-a651-d9eb0fdc755d
-ms.openlocfilehash: accc85f04514822233bc5df3a76eb99775fee529
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: faeb2c14b9c1d93b558c67a42c223702178407c0
+ms.sourcegitcommit: b59237ca4ec763969a0dd775a3f8f39f8c59fe24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90553735"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91955585"
 ---
 # <a name="how-to-determine-which-net-framework-versions-are-installed"></a>如何：确定已安装的 .NET Framework 版本
 
@@ -36,7 +36,7 @@ ms.locfileid: "90553735"
 
   PowerShell 2.0 模块。
 
-有关检测已安装的每个 .NET Framework 版本更新的信息，请参阅[如何：确定已安装的 .NET Framework 更新](how-to-determine-which-net-framework-updates-are-installed.md)。
+要了解如何检测已安装的每个 .NET Framework 版本的更新，请参阅[操作说明：确定已安装的 .NET Framework 更新](how-to-determine-which-net-framework-updates-are-installed.md)。
 
 ## <a name="detect-net-framework-45-and-later-versions"></a>检测 .NET Framework 4.5 及更高版本
 
@@ -85,13 +85,13 @@ ms.locfileid: "90553735"
 
 01. 在“开始”菜单中，选择“运行”，输入“regedit”，然后选择“确定” 。
 
-    必须具有管理凭据才能运行 regedit。
+   （必须具有管理凭据才能运行 regedit。）
 
 01. 在注册表编辑器中，打开以下子项：HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\NET Framework Setup\\NDP\\v4\\Full。 如果“Full”子项不存在，则表示尚未安装 .NET Framework 4.5 或更高版本。
 
 01. 请检查名为“Release”的 REG_DWORD 条目。 如果存在，则已安装 .NET Framework 4.5 或更高版本。 其值对应于 .NET Framework 的特定版本。 以下图为例，“Release”条目的值为 528040，这是 .NET Framework 4.8 的版本密钥。
 
-    ![.NET Framework 4.5 的注册表项](./media/clr-installdir.png ".NET Framework 4.5 的注册表项")
+   ![.NET Framework 4.5 的注册表项](./media/clr-installdir.png )
 
 ### <a name="use-powershell-to-check-for-a-minimum-version"></a>使用 PowerShell 检查最低版本
 
@@ -112,10 +112,17 @@ ms.locfileid: "90553735"
 
 01. 检查 Release REG_DWORD 值以确定已安装的版本。 为了向前兼容，可检查是否有一个值大于或等于 [.NET Framework 版本表](#version_table)中所列的值。
 
-下例检查注册表中“Release”条目的值，以查找已安装的 .NET Framework 4.5 及更高版本：
+以下示例检查注册表中“Release”条目的值，以查找已安装的 .NET Framework 4.5-4.8：
 
-[!code-csharp[ListVersions#5](../../../samples/snippets/csharp/framework/migration-guide/versions-installed3.cs)]
-[!code-vb[ListVersions#5](../../../samples/snippets/visualbasic/framework/migration-guide/versions-installed3.vb)]
+:::code language="csharp" source="snippets/csharp/versions-installed.cs" id="2":::
+
+:::code language="vb" source="snippets/visual-basic/versions-installed.vb" id="2":::
+
+此示例显示类似以下内容的输出：
+
+```output
+.NET Framework Version: 4.6.1
+```
 
 此示例遵循版本检查的建议做法：
 
@@ -124,7 +131,7 @@ ms.locfileid: "90553735"
 
 ## <a name="detect-net-framework-10-through-40"></a>检测 .NET Framework 1.0 到 4.0
 
-.NET Framework 1.1 到 4.0 的每个版本都作为子项列出在 HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\NET Framework Setup\\NDP。 下表列出了每个 .NET Framework 版本的路径。 对于大多数版本，都有 Install REG_DWORD 值 `1`指示已安装此版本。 在这些子项中，还有一个包含版本字符串的 Version REG_SZ 值。
+.NET Framework 1.1 到 4.0 的每个版本都作为子项列出在 HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\NET Framework Setup\\NDP。 下表列出了每个 .NET Framework 版本的路径。 对于大多数版本，都有 Install REG_DWORD 值 `1`，指示已安装此版本。 在这些子项中，还有一个包含版本字符串的 Version REG_SZ 值。
 
 > [!NOTE]
 > 注册表路径中的 .NET Framework Setup 子项不以句点开头。
@@ -163,10 +170,21 @@ ms.locfileid: "90553735"
 > [!IMPORTANT]
 > 如果运行的应用是 32 位且在 64 位 Windows 中运行，则注册表路径与前面列出的不同。 可在 HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\ 子项中找到 64 位注册表。 例如，.NET Framework 3.5 的注册表子项为 HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\NET Framework Setup\\NDP\\v3.5。
 
-以下示例查找已安装的 .NET Framework 1-4 版本：
+以下示例查找已安装的 .NET Framework 1-4：
 
-[!code-csharp[ListVersions](../../../samples/snippets/csharp/framework/migration-guide/versions-installed1.cs)]
-[!code-vb[ListVersions](../../../samples/snippets/visualbasic/framework/migration-guide/versions-installed1.vb)]
+:::code language="csharp" source="snippets/csharp/versions-installed.cs" id="1":::
+
+:::code language="vb" source="snippets/visual-basic/versions-installed.vb" id="1":::
+
+该示例显示类似于以下内容的输出：
+
+```output
+v2.0.50727  2.0.50727.4927  SP2
+v3.0  3.0.30729.4926  SP2
+v3.5  3.5.30729.4926  SP1
+v4.0
+  Client  4.0.0.0
+```
 
 ## <a name="find-clr-versions"></a>查找 CLR 版本
 
@@ -188,25 +206,36 @@ ms.locfileid: "90553735"
 
   > [!IMPORTANT]
   > 对于 .NET Framework 4.5 及更高版本，请勿使用 <xref:System.Environment.Version%2A?displayProperty=nameWithType> 属性来检测 CLR 的版本。 而应按照[检测 .NET Framework 4.5 及更高版本](#detect-net-framework-45-and-later-versions)中所述查询注册表。
-  
-  01. 查询 <xref:System.Environment.Version?displayProperty=nameWithType> 属性以检索 <xref:System.Version> 对象。
-  
-      返回的 `System.Version` 对象标识当前正在执行代码的运行时版本。 它不返回可能已安装在计算机上的程序集版本或其他运行时版本。
-  
-      对于 .NET Framework 版本 4、4.5、4.5.1 和 4.5.2，返回的 <xref:System.Version>  对象的字符串表示形式为 4.0.30319.xxxxx，其中 xxxxx 小于 42000。 对于 .NET Framework 4.6 及更高版本，它的格式为 4.0.30319.42000。
-  
-  01. 获得 Version 对象后，按如下方式查询：
-  
-      - 对于主要版本标识符（例如，4 表示版本 4.0），请使用 <xref:System.Version.Major%2A?displayProperty=nameWithType> 属性。
-  
-      - 对于次要版本标识符（例如，0 表示版本 4.0），请使用 <xref:System.Version.Minor%2A?displayProperty=nameWithType> 属性
-  
-      - 对于整个版本字符串（例如，4.0.30319.18010），请使用 <xref:System.Version.ToString%2A?displayProperty=nameWithType> 方法。 此方法返回一个值，该值反映正在执行代码的运行时的版本。 它不返回可能安装在计算机上的程序集版本或其他运行时版本。
+
+  1. 查询 <xref:System.Environment.Version?displayProperty=nameWithType> 属性以检索 <xref:System.Version> 对象。
+
+     返回的 `System.Version` 对象标识当前正在执行代码的运行时版本。 它不返回可能已安装在计算机上的程序集版本或其他运行时版本。
+
+     对于 .NET Framework 版本 4、4.5、4.5.1 和 4.5.2，返回的 <xref:System.Version>  对象的字符串表示形式为 4.0.30319.xxxxx，其中 xxxxx 小于 42000。 对于 .NET Framework 4.6 及更高版本，它的格式为 4.0.30319.42000。
+
+  1. 获得 Version 对象后，按如下方式查询：
+
+     - 对于主要版本标识符（例如，4 表示版本 4.0），请使用 <xref:System.Version.Major%2A?displayProperty=nameWithType> 属性。
+
+     - 对于次要版本标识符（例如，0 表示版本 4.0），请使用 <xref:System.Version.Minor%2A?displayProperty=nameWithType> 属性
+
+     - 对于整个版本字符串（例如，4.0.30319.18010），请使用 <xref:System.Version.ToString%2A?displayProperty=nameWithType> 方法。 此方法返回一个值，该值反映正在执行代码的运行时的版本。 它不返回可能安装在计算机上的程序集版本或其他运行时版本。
 
   以下示例使用 <xref:System.Environment.Version%2A?displayProperty=nameWithType> 属性检索 CLR 版本信息：
-  
-  [!code-csharp[ListVersions](../../../samples/snippets/csharp/framework/migration-guide/versions-installed2.cs)]
-  [!code-vb[ListVersions](../../../samples/snippets/visualbasic/framework/migration-guide/versions-installed2.vb)]
+
+  ```csharp
+  Console.WriteLine($"Version: {Environment.Version}");
+  ```
+
+  ```vb
+  Console.WriteLine($"Version: {Environment.Version}")
+  ```
+
+  该示例显示类似于以下内容的输出：
+
+  ```output
+  Version: 4.0.30319.18010
+  ```
 
 ## <a name="see-also"></a>请参阅
 

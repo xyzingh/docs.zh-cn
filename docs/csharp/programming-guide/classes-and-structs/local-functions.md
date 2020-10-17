@@ -1,15 +1,15 @@
 ---
 title: 本地函数 - C# 编程指南
 description: C# 中的本地函数是嵌套在另一成员中并且可以从其包含成员中调用的私有方法。
-ms.date: 10/02/2020
+ms.date: 10/09/2020
 helpviewer_keywords:
 - local functions [C#]
-ms.openlocfilehash: a91995757048c8c54253d7f4b923d5194f69bc7b
-ms.sourcegitcommit: 4d45bda8cd9558ea8af4be591e3d5a29360c1ece
+ms.openlocfilehash: a2d389c8b1c687dc4885004fcdc33e0ed7ada977
+ms.sourcegitcommit: b59237ca4ec763969a0dd775a3f8f39f8c59fe24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91654915"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91955676"
 ---
 # <a name="local-functions-c-programming-guide"></a>本地函数（C# 编程指南）
 
@@ -50,33 +50,37 @@ ms.locfileid: "91654915"
 
 与方法定义不同，本地函数定义不能包含成员访问修饰符。 因为所有本地函数都是私有的，包括访问修饰符（如 `private` 关键字）会生成编译器错误 CS0106“修饰符‘private’对于此项无效”。
 
-此外，属性不能应用于本地函数或其参数和类型参数。
-
 以下示例定义了一个名为 `AppendPathSeparator` 的本地函数，该函数对于名为 `GetText` 的方法是私有的：
 
-[!code-csharp[LocalFunctionExample](~/samples/snippets/csharp/programming-guide/classes-and-structs/local-functions1.cs)]  
+:::code language="csharp" source="snippets/local-functions/Program.cs" id="Basic" :::
+
+从 C# 9.0 开始，你可以将属性应用于本地函数、其参数和类型参数，如以下示例所示：
+
+:::code language="csharp" source="snippets/local-functions/Program.cs" id="WithAttributes" :::
+
+前面的示例使用[特殊属性](../../language-reference/attributes/nullable-analysis.md)来帮助编译器在可为空的上下文中进行静态分析。
 
 ## <a name="local-functions-and-exceptions"></a>本地函数和异常
 
 本地函数的一个实用功能是可以允许立即显示异常。 对于方法迭代器，仅在枚举返回的序列时才显示异常，而非在检索迭代器时。 对于异步方法，在等待返回的任务时，将观察到异步方法中引发的任何异常。
 
-以下示例定义 `OddSequence` 方法，用于枚举指定范围之间的奇数。 因为它会将一个大于 100 的数字传递到 `OddSequence` 迭代器方法，该方法将引发 <xref:System.ArgumentOutOfRangeException>。 如示例中的输出所示，仅当循环访问数字时才显示异常，而非检索迭代器时。
+以下示例定义 `OddSequence` 方法，用于枚举指定范围中的奇数。 因为它会将一个大于 100 的数字传递到 `OddSequence` 迭代器方法，该方法将引发 <xref:System.ArgumentOutOfRangeException>。 如示例中的输出所示，仅当循环访问数字时才显示异常，而非检索迭代器时。
 
-[!code-csharp[LocalFunctionIterator1](~/samples/snippets/csharp/programming-guide/classes-and-structs/local-functions-iterator1.cs)]
+:::code language="csharp" source="snippets/local-functions/IteratorWithoutLocal.cs" :::
 
-相反，可以在执行验证时和通过从本地函数返回迭代器检索迭代器之前引发异常，如以下示例所示。
+如果将迭代器逻辑放入本地函数，则在检索枚举器时会引发参数验证异常，如下面的示例所示：
 
-[!code-csharp[LocalFunctionIterator2](~/samples/snippets/csharp/programming-guide/classes-and-structs/local-functions-iterator2.cs)]
+:::code language="csharp" source="snippets/local-functions/IteratorWithLocal.cs" :::
 
-可以通过类似的方式使用本地函数来处理异步操作之外的异常。 异步方法中引发的异常通常都需要检查 <xref:System.AggregateException> 的内部异常。 本地函数允许代码快速失败，并允许同步引发和观察异常。
+你可以通过类似于异步操作的方式来使用本地函数。 等待相应的任务时，异步方法图面中引发的异常。 本地函数允许代码快速失败，并允许同步引发和观察异常。
 
-以下示例使用名为 `GetMultipleAsync` 的异步方法暂停指定的秒数并返回一个值，该值是该秒数的任意倍数。 最大延迟为 5 秒；如果该值大于 5，则结果为 <xref:System.ArgumentOutOfRangeException>。 如以下示例所示，开始执行 `GetMultipleAsync` 方法后，将值 6 传递到 `GetMultipleAsync` 方法时引发的异常将在 <xref:System.AggregateException> 中进行包装。
+以下示例使用名为 `GetMultipleAsync` 的异步方法暂停指定的秒数并返回一个值，该值是该秒数的任意倍数。 最大延迟为 5 秒；如果该值大于 5，则结果为 <xref:System.ArgumentOutOfRangeException>。 如下面的示例所示，仅当任务处于等待状态时，才会观察到将值 6 传递到 `GetMultipleAsync` 方法时引发的异常。
 
-[!code-csharp[LocalFunctionAsync](~/samples/snippets/csharp/programming-guide/classes-and-structs/local-functions-async1.cs)]
+:::code language="csharp" source="snippets/local-functions/AsyncWithoutLocal.cs" :::
 
-正如处理方法迭代器一样，可以在调用异步方法之前重构本示例中的代码以执行验证。 如以下示例中的输出所示，<xref:System.ArgumentOutOfRangeException> 不在 <xref:System.AggregateException> 中进行包装。
+与方法迭代器类似，你可以重构前面的示例，将异步操作的代码放入本地函数。 如以下示例中的输出所示，调用 `GetMultiple` 方法后，会引发 <xref:System.ArgumentOutOfRangeException>。
 
-[!code-csharp[LocalFunctionAsync](~/samples/snippets/csharp/programming-guide/classes-and-structs/local-functions-async2.cs)]
+:::code language="csharp" source="snippets/local-functions/AsyncWithLocal.cs" :::
 
 ## <a name="local-functions-vs-lambda-expressions"></a>本地函数与 Lambda 表达式
 
@@ -84,11 +88,11 @@ ms.locfileid: "91654915"
 
 让我们检查一下阶乘算法的本地函数实现和 lambda 表达式实现之间的差异。 首先使用本地函数的版本：
 
-[!code-csharp[LocalFunctionFactorial](../../../../samples/snippets/csharp/new-in-7/MathUtilities.cs#37_LocalFunctionFactorial "Recursive factorial using local function")]
+:::code language="csharp" source="snippets/local-functions/Program.cs" id="FactorialWithLocal" :::
 
 将该实现与使用 Lambda 表达式的版本对比：
 
-[!code-csharp[26_LambdaFactorial](../../../../samples/snippets/csharp/new-in-7/MathUtilities.cs#38_LambdaFactorial "Recursive factorial using lambda expressions")]
+:::code language="csharp" source="snippets/local-functions/Program.cs" id="FactorialWithLambda" :::
 
 本地函数具有名称。 Lambda 表达式是赋给 `Func` 或 `Action` 类型变量的匿名方法。 在声明本地函数时，参数类型和返回类型是函数声明的一部分。 参数类型和返回类型不是 Lambda 表达式主体的一部分，而是 Lambda 表达式变量类型声明的一部分。 这两种差别可以产生跟清楚的代码。
 
@@ -115,16 +119,16 @@ int M()
 
 请看以下异步示例：
 
-[!code-csharp[TaskLambdaExample](../../../../samples/snippets/csharp/new-in-7/AsyncWork.cs#36_TaskLambdaExample "Task returning method with lambda expression")]
+:::code language="csharp" source="snippets/local-functions/Program.cs" id="AsyncWithLambda" :::
 
 该 lambda 表达式的闭包包含 `address`、`index` 和 `name` 变量。 就本地函数而言，实现闭包的对象可能为 `struct` 类型。 该结构类型将通过引用传递给本地函数。 实现中的这个差异将保存在分配上。
 
-Lambda 表达式所需的实例化意味着额外的内存分配，后者可能是时间关键代码路径中的性能因素。 本地函数不会产生这种开销。 在以上示例中，本地函数版本具有的分配比 lambda 表达式版本少 2 个。
+Lambda 表达式所需的实例化意味着额外的内存分配，后者可能是时间关键代码路径中的性能因素。 本地函数不会产生这种开销。 在以上示例中，本地函数版本具有的分配比 Lambda 表达式版本少 2 个。
 
 > [!NOTE]
 > 等效于此方法的本地函数还将类用于闭包。 实现详细信息包括本地函数的闭包是作为 `class` 还是 `struct` 实现。 本地函数可能使用 `struct`，而 lambda 将始终使用 `class`。
 
-[!code-csharp[TaskLocalFunctionExample](../../../../samples/snippets/csharp/new-in-7/AsyncWork.cs#TaskExample "Task returning method with local function")]
+:::code language="csharp" source="snippets/local-functions/Program.cs" id="AsyncWithLocal" :::
 
 在本示例中尚未演示的最后一个优点是，可将本地函数作为迭代器实现，使用 `yield return` 语法生成一系列值。 Lambda 表达式中不允许使用 `yield return` 语句。
 

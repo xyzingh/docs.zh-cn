@@ -8,12 +8,12 @@ f1_keywords:
 helpviewer_keywords:
 - continue keyword [C#]
 ms.assetid: 8a5ac96f-f98a-4519-b32d-345847ed7be0
-ms.openlocfilehash: 76578b0ad7e2b969609fbf50df1f9ab7de6e5097
-ms.sourcegitcommit: d579fb5e4b46745fd0f1f8874c94c6469ce58604
+ms.openlocfilehash: 6c70934c3b861e1a1433e5c0b95bb32e9d717c53
+ms.sourcegitcommit: eb7e87496f42361b1da98562dd75b516c9d58bbc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89128434"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91877647"
 ---
 # <a name="continue-c-reference"></a>continue（C# 参考）
 
@@ -21,7 +21,7 @@ ms.locfileid: "89128434"
 
 ## <a name="example"></a>示例
 
-在本示例中，计数器最初是从 1 到 10 进行计数。 通过结合使用 `continue` 语句和表达式 `(i < 9)`，跳过 `continue` 和 `for` 主体末尾之间的语句。
+在本示例中，计数器最初是从 1 到 10 进行计数。 通过结合使用 `continue` 语句和表达式 `(i < 9)`，在 `i` 小于 9 的迭代中跳过 `continue` 和 `for` 主体末尾之间的语句。 在 `for` 循环的最后两次迭代（其中 i == 9，i == 10）中，不执行 `continue` 语句，且 `i` 的值将输出到控制台。
 
 [!code-csharp[csrefKeywordsJump#3](~/samples/snippets/csharp/VS_Snippets_VBCSharp/csrefKeywordsJump/CS/csrefKeywordsJump.cs#3)]
 

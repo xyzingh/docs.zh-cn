@@ -4,12 +4,12 @@ description: 本高级教程介绍了可为空引用类型。 你将学习在引
 ms.date: 02/19/2019
 ms.technology: csharp-null-safety
 ms.custom: mvc
-ms.openlocfilehash: 54cf9d812999cae837483b48cdedd89d9dc40fc9
-ms.sourcegitcommit: 99b153b93bf94d0fecf7c7bcecb58ac424dfa47c
+ms.openlocfilehash: bd575b226a2ff61e938719b064ff5ede0cf66013
+ms.sourcegitcommit: 636af37170ae75a11c4f7d1ecd770820e7dfe7bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80249124"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91805175"
 ---
 # <a name="tutorial-express-your-design-intent-more-clearly-with-nullable-and-non-nullable-reference-types"></a>教程：使用可为空和不可为空引用类型更清晰地表达设计意图
 
@@ -221,3 +221,6 @@ namespace NullableIntroduction
 要了解更多信息，请迁移现有应用程序以使用可为空引用类型：
 > [!div class="nextstepaction"]
 > [升级应用程序以使用可为空引用类型](upgrade-to-nullable-references.md)
+
+了解如何在使用实体框架时使用可为空引用类型：
+> [Entity Framework Core 基础知识：使用可为空引用类型](/ef/core/miscellaneous/nullable-reference-types)

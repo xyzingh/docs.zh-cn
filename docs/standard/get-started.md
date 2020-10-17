@@ -1,41 +1,61 @@
 ---
-title: .NET 入门
-description: 从语言和平台角度，列出了多个有关 .NET 入门的文章。
-author: cartermp
-ms.date: 01/21/2020
+title: .NET 入门教程
+description: 选择一个教程以学习 .NET 应用开发或选择一种 .NET 编程语言。
+author: tdykstra
+ms.date: 09/30/2020
 ms.technology: dotnet-standard
-ms.assetid: 81c07080-acdf-4aef-a66d-0ab52fab2c04
-ms.openlocfilehash: f1d5854d8bddea21bbb8a0a7fa032c9fbd15f3d5
-ms.sourcegitcommit: 2ff49dcf9ddf107d139b4055534681052febad62
+ms.openlocfilehash: da98bda4a6a2d637a8a899c9d7315d5cbfcb18fa
+ms.sourcegitcommit: a8a205034eeffc7c3e1bdd6f506a75b0f7099ebf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80438178"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91755871"
 ---
-# <a name="get-started"></a>入门
+# <a name="tutorials-for-getting-started-with-net"></a>.NET 入门教程
 
-有多种方法可以实现 .NET 入门。 由于.NET 是一个巨大的平台，本文档中有多篇文章从不同的角度进行了介绍，可帮助你开始使用 .NET。
+以下分布教程会在 Windows、Linux 或 macOS 上运行，除非有特别说明。
 
-## <a name="get-started-using-net-languages"></a>开始使用 .NET 语言
+## <a name="tutorials-for-creating-apps"></a>创建应用的教程
 
-有关 C#、Visual Basic 和 F# 的入门教程，请参阅：
+* 创建控制台应用
+  * [使用 Visual Studio Code](../core/tutorials/with-visual-studio-code.md)
+  * [使用 Visual Studio](../core/tutorials/with-visual-studio.md) (Windows)
+  * [使用 Visual Studio for Mac](../core/tutorials/with-visual-studio-mac.md) (macOS)
+* 创建 Web 应用
+  * [使用服务器端 Web UI](/aspnet/core/tutorials/razor-pages/razor-pages-start)
+  * [使用客户端 Web UI](https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/intro)
+* [创建 Web API](/aspnet/core/tutorials/first-web-api)
+* [创建远程过程调用 Web 应用](/aspnet/core/tutorials/grpc/grpc-start)
+* [创建实时 Web 应用](/aspnet/core/tutorials/signalr)
+* [在云中创建无服务器函数](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-csharp)
+* [创建适用于 Android 和 iOS 的移动应用](https://dotnet.microsoft.com/learn/xamarin/hello-world-tutorial/intro) (Windows)
+* 创建 Windows 桌面应用
+  * [WPF](/visualstudio/get-started/csharp/tutorial-wpf)
+  * [Windows 窗体](/visualstudio/ide/create-csharp-winform-visual-studio)
+  * [通用 Windows 平台 (UWP)](/visualstudio/get-started/csharp/tutorial-uwp)
+* [使用 Unity 创建游戏](https://dotnet.microsoft.com/learn/games/unity-tutorial/intro)
+* [创建 Windows 服务](/aspnet/core/host-and-deploy/windows-service)
 
-* [通过 C# 开始使用](../csharp/getting-started/index.md)
-* [C# 教程](../csharp/tutorials/index.md)
-* [F# 入门教程](../fsharp/get-started/index.md)
+## <a name="tutorials-for-creating-class-libraries"></a>类库创建教程
+
+* 创建类库
+  * [使用 Visual Studio Code](../core/tutorials/library-with-visual-studio-code.md)
+  * [使用 Visual Studio](../core/tutorials/library-with-visual-studio.md) (Windows)
+  * [使用 Visual Studio for Mac](../core/tutorials/library-with-visual-studio-mac.md) (macOS)
+
+## <a name="resources-for-learning-net-languages"></a>.NET 语言学习资源
+
+* [C# 入门](../csharp/getting-started/index.md)
+* [F# 入门](../fsharp/get-started/index.md)
 * [Visual Basic 入门](../visual-basic/getting-started/index.md)
 
-## <a name="get-started-using-net-core"></a>.NET Core 入门
+## <a name="other-get-started-resources"></a>其他入门资源
 
-有关特定于 .NET Core 的指导，请参阅：
+以下资源适用于 .NET 应用开发入门，但不是分步教程：
 
-* [.NET Core 入门](../core/get-started.md)
-* [.NET Core 教程](../core/tutorials/index.md)
+* [物联网 (IoT)](https://dotnet.microsoft.com/apps/iot)
+* [机器学习](../machine-learning/index.yml)
 
-## <a name="get-started-using-net-standard"></a>.NET Standard 入门
+## <a name="next-steps"></a>后续步骤
 
-有关介绍性教程，请参阅[在 Visual Studio 中生成 .NET Standard 库](../core/tutorials/library-with-visual-studio.md)。
-
-## <a name="get-started-using-net-core-on-docker"></a>开始在 Docker 上使用 .NET Core
-
-[.NET 和 Docker 简介](../core/docker/introduction.md)展示了如何在 Windows Docker 容器上使用 .NET Core。
+若要详细了解 .NET，请参阅 [.NET 简介](../core/introduction.md)。

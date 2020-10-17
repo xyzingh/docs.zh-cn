@@ -2,12 +2,12 @@
 title: C# 9.0 中的新增功能 - C# 指南
 description: 简要介绍 C# 9.0 中提供的新功能。
 ms.date: 09/04/2020
-ms.openlocfilehash: c165ca764d93b74aac21028ed3e55e80f2a23ee0
-ms.sourcegitcommit: 4d45bda8cd9558ea8af4be591e3d5a29360c1ece
+ms.openlocfilehash: 0ac3b410cd9ba886ee55aede952700f145f1b31b
+ms.sourcegitcommit: b59237ca4ec763969a0dd775a3f8f39f8c59fe24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91654902"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91955162"
 ---
 # <a name="whats-new-in-c-90"></a>C# 9.0 中的新增功能
 
@@ -232,7 +232,7 @@ if (e is not null)
 
 接下来，可使用弃元作为 Lambda 表达式的参数。 这样可免于为参数命名，并且编译器也可避免使用它。 可将 `_` 用于任何参数。 有关详细信息，请参阅 [Lambda 表达式](../language-reference/operators/lambda-expressions.md)一文中的 [Lambda 表达式的输入参数](../language-reference/operators/lambda-expressions.md#input-parameters-of-a-lambda-expression)一节。
 
-最后，现在可将属性应用于本地函数。 例如，可将可为空的属性注释应用于本地函数。
+最后，现在可将属性应用于[本地函数](../programming-guide/classes-and-structs/local-functions.md)。 例如，可将[可为空的属性注释](../language-reference/attributes/nullable-analysis.md)应用于本地函数。
 
 ## <a name="support-for-code-generators"></a>支持代码生成器
 

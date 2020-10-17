@@ -3,12 +3,12 @@ title: 平台兼容性分析器
 description: 可帮助检测跨平台应用和库中的平台兼容性问题的 Roslyn 分析器。
 author: buyaa-n
 ms.date: 09/17/2020
-ms.openlocfilehash: 4e842e5bbe90dd5006d9b27d0365f908b6441997
-ms.sourcegitcommit: 1274a1a4a4c7e2eaf56b38da76ef7cec789726ef
+ms.openlocfilehash: 44c2c2d9674b13f314a057f847df2d4d474cc2be
+ms.sourcegitcommit: 636af37170ae75a11c4f7d1ecd770820e7dfe7bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91406584"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91805293"
 ---
 # <a name="platform-compatibility-analyzer"></a>平台兼容性分析器
 
@@ -25,7 +25,7 @@ ms.locfileid: "91406584"
 
 ## <a name="prerequisites"></a>先决条件
 
-平台兼容性分析器是 Roslyn 代码质量分析器之一。 从 .NET 5.0 开始，这些分析器[包含在 .NET SDK 中](../../fundamentals/productivity/code-analysis.md)。 默认情况下，仅为面向 `net5.0` 或更高版本的项目启用平台兼容性分析器。 但是，可以为面向其他框架的项目[启用](/visualstudio/code-quality/ca1416.md#configurability)该分析器。
+平台兼容性分析器是 Roslyn 代码质量分析器之一。 从 .NET 5.0 开始，这些分析器[包含在 .NET SDK 中](../../fundamentals/code-analysis/overview.md)。 默认情况下，仅为面向 `net5.0` 或更高版本的项目启用平台兼容性分析器。 但是，可以为面向其他框架的项目[启用](/visualstudio/code-quality/ca1416.md#configurability)该分析器。
 
 ## <a name="how-the-analyzer-determines-platform-dependency"></a>分析器如何确定平台依赖关系
 
@@ -70,7 +70,7 @@ ms.locfileid: "91406584"
     ```
 
   - 仅不受支持的列表。 如果每个 OS 平台的最低版本是 `[UnsupportedOSPlatform]` 属性，则 API 会被视为仅在列出的平台上不受支持，但在所有其他平台上受支持。 此列表可能具有包含相同平台但版本较高的 `[SupportedOSPlatform]` 属性，这表示从该版本开始支持 API。
-  
+
     ```csharp
     // The API was unsupported on Windows until version 10.0.19041.0.
     // The API is considered supported everywhere else without constraints.
@@ -81,14 +81,14 @@ ms.locfileid: "91406584"
 
   - 不一致的列表。 如果某些平台的最低版本为 `[SupportedOSPlatform]`，而其他平台的最低版本为 `[UnsupportedOSPlatform]`，则会被视为不一致，不受分析器支持。
   - 如果 `[SupportedOSPlatform]` 和 `[UnsupportedOSPlatform]` 属性的最低版本相同，则分析器会将平台视为“仅受支持的列表”的一部分。
-- 平台属性可应用于类型、成员（方法、字段、属性和事件）以及具有不同平台名称和/或版本的程序集。
+- 平台属性可应用于类型、成员（方法、字段、属性和事件）以及具有不同平台名称或版本的程序集。
   - 在顶级 `target` 应用的属性会影响其所有成员和类型。
   - 仅当遵守规则“子批注可以缩小平台支持范围，但无法将其扩大”时才会应用子级属性。
-    - 当父级具有仅受支持的列表时，子成员属性无法添加新的平台支持，因为这会扩大父级支持，因此只能将新平台支持添加到父级本身。 但对于具有更高版本的同一平台，它可以有 `Supported` 属性，因为这会缩小支持。 此外，对于同一平台，它还可以有 `Unsupported` 属性，因为这也会缩小父级支持。
-    - 当父级具有仅不受支持的列表时，子成员属性可以添加新的平台支持，因为这会缩小父级支持，但对于与父级相同的平台，它不能有 `Supported` 属性，这会扩大父级支持。 只能将对同一平台的支持添加到应用了原始 `Unsupported` 属性的父级。
-  - 如果对具有相同 `platform` 名称的 API 应用 `[SupportedOSPlatform("platformVersion")]` 一次以上，则分析器仅考虑具有最低版本的那个 API。
-  - 如果对具有相同 `platform` 名称的 API 应用 `[UnsupportedOSPlatform("platformVersion")]` 两次以上，则分析器仅考虑具有最低版本的两个 API。
-  
+    - 当父级具有仅受支持的列表时，子成员属性无法添加新的平台支持，因为这会扩大父级支持。 只能将新平台支持添加到父级本身。 但对于具有更高版本的同一平台，子级可以有 `Supported` 属性，因为这会缩小支持。 另外，子级可以有同一平台的 `Unsupported` 属性，因为这也会缩小父级支持。
+    - 当父级有仅限不支持的列表时，子成员属性可以添加对新平台的支持，因为这会缩小父级支持。 但它不能具有与父级所在平台相同的 `Supported` 属性，因为这会扩大父级支持。 只能将对同一平台的支持添加到应用了原始 `Unsupported` 属性的父级。
+  - 如果对具有相同 `platform` 名称的 API 应用 `[SupportedOSPlatform("platformVersion")]` 一次以上，则分析器仅考虑最低版本的 API。
+  - 如果对具有相同 `platform` 名称的 API 应用 `[UnsupportedOSPlatform("platformVersion")]` 两次以上，则分析器仅考虑最早版本的两个 API。
+
   > [!NOTE]
   > 最初受支持但在更高版本中不受支持（删除）的 API 并不希望在更高版本中重新受支持。
 
@@ -123,7 +123,7 @@ ms.locfileid: "91406584"
       // warns: 'SupportedOnWindowsAndLinuxOnly' is supported on 'Linux'
       SupportedOnWindowsAndLinuxOnly();
 
-      // warns: 'ApiSupportedFromWindows8UnsupportFromWindows10' is supported on 'windows' 8.0 and later  
+      // warns: 'ApiSupportedFromWindows8UnsupportFromWindows10' is supported on 'windows' 8.0 and later
       // warns: 'ApiSupportedFromWindows8UnsupportFromWindows10' is unsupported on 'windows' 10.0.19041.0 and later
       ApiSupportedFromWindows8UnsupportFromWindows10();
 
@@ -133,7 +133,7 @@ ms.locfileid: "91406584"
   }
 
   // an API not supported on android but supported on all other.
-  [UnsupportedOSPlatform("android")]  
+  [UnsupportedOSPlatform("android")]
   public void DoesNotWorkOnAndroid() { }
 
   // an API was unsupported on Windows until version 8.0.
@@ -154,11 +154,11 @@ ms.locfileid: "91406584"
   {
       DoesNotWorkOnAndroid(); // warns 'DoesNotWorkOnAndroid' is unsupported on 'android'
 
-      // warns:'StartedWindowsSupportFromVersion8' is unsupported on 'windows'  
+      // warns:'StartedWindowsSupportFromVersion8' is unsupported on 'windows'
       // warns:'StartedWindowsSupportFromVersion8' is supported on 'windows' 8.0 and later
       StartedWindowsSupportFromVersion8();
 
-      // warns:'StartedWindowsSupportFrom8UnsupportedFrom10' is unsupported on 'windows'  
+      // warns:'StartedWindowsSupportFrom8UnsupportedFrom10' is unsupported on 'windows'
       // warns:'StartedWindowsSupportFrom8UnsupportedFrom10' is supported on 'windows' 8.0 and later
       // even there were 3 diagnostics found analyzer warn only for the first 2.
       StartedWindowsSupportFrom8UnsupportedFrom10();
@@ -177,7 +177,7 @@ ms.locfileid: "91406584"
 
 - 删除代码。 通常不是你想要的，因为这意味着当 Windows 用户使用代码时将失真。 对于存在跨平台替代方法的情况，更好的做法可能是在特定于平台的 API 上使用此方法。
 
-- 禁止显示警告。 只通过 editor.config 或 `#pragma warning disable ca1416` 也可禁止显示警告。 但是，当使用特定于平台的 API 时，如非绝对必要，请勿使用此选项。
+- 禁止显示警告。 通过 EditorConfig 条目或 `#pragma warning disable ca1416` 即可禁止显示警告。 但是，当使用特定于平台的 API 时，如非绝对必要，请勿使用此选项。
 
 ### <a name="guard-platform-specific-apis-with-guard-methods"></a>使用保护方法保护特定于平台的 API
 
@@ -231,7 +231,7 @@ ms.locfileid: "91406584"
   }
   ```
 
-- 如果需要保护面向新 <xref:System.OperatingSystem> API 不可用的 netstandard 或 netcoreapp 的代码，则可以使用 <xref:System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform%2A?displayProperty=nameWithType> API 并由分析器遵守。 但不如 <xref:System.OperatingSystem> 中添加的新 API 那样优化。 如果在 <xref:System.Runtime.InteropServices.OSPlatform> 结构中不支持该平台，则可以使用分析器也遵守的 <xref:System.Runtime.InteropServices.OSPlatform.Create%2A?displayProperty=nameWithType>（"平台"）。
+- 如果需要保护面向新 <xref:System.OperatingSystem> API 不可用的 `netstandard` 或 `netcoreapp` 的代码，则可以使用 <xref:System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform%2A?displayProperty=nameWithType> API 并由分析器遵守。 但不如 <xref:System.OperatingSystem> 中添加的新 API 那样优化。 如果平台在 <xref:System.Runtime.InteropServices.OSPlatform> 结构中不受支持，则可以调用 <xref:System.Runtime.InteropServices.OSPlatform.Create(System.String)?displayProperty=nameWithType> 并传入平台名称（分析器也会遵循此名称）。
 
   ```csharp
   public void CallingSupportedOnlyApis()
@@ -316,7 +316,7 @@ ms.locfileid: "91406584"
   }
 
   // an API not supported on Android but supported on all other.
-  [UnsupportedOSPlatform("android")]  
+  [UnsupportedOSPlatform("android")]
   public void DoesNotWorkOnAndroid() { }
 
   // an API was unsupported on Windows until version 8.0.
@@ -381,5 +381,5 @@ ms.locfileid: "91406584"
 - [.NET 5 中的目标框架名称](https://github.com/dotnet/designs/blob/master/accepted/2020/net5/net5.md)
 - [批注特定于平台的 API 并检测其用法](https://github.com/dotnet/designs/blob/master/accepted/2020/platform-checks/platform-checks.md)
 - [在特定平台上将 API 批注为不受支持](https://github.com/dotnet/designs/blob/master/accepted/2020/platform-exclusion/platform-exclusion.md)
-- [CA1416 平台兼容性分析器](/visualstudio/code-quality/ca1416)
+- [CA1416 平台兼容性分析器](../../fundamentals/code-analysis/quality-rules/ca1416.md)
 - [.NET API 分析器](../../standard/analyzers/api-analyzer.md)

@@ -2,12 +2,12 @@
 title: 构建作为 Linux 容器部署到 AKS/Kubernetes 群集中的 ASP.NET Core 应用程序
 description: 使用 Microsoft 平台和工具的容器化 Docker 应用程序的生命周期
 ms.date: 08/06/2020
-ms.openlocfilehash: 4b04e5d56c73918c665ad6e2825205870aac9606
-ms.sourcegitcommit: ef50c99928183a0bba75e07b9f22895cd4c480f8
+ms.openlocfilehash: 8b3141d79eeb252ec3721d57293bed0e335b41d3
+ms.sourcegitcommit: a6bd4cad438fe479cbd112eae10f2cd449f06e40
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87916384"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91844558"
 ---
 # <a name="build-aspnet-core-applications-deployed-as-linux-containers-into-an-akskubernetes-orchestrator"></a>构建作为 Linux 容器部署到 AKS/Kubernetes 业务流程协调程序中的 ASP.NET Core 应用程序
 
@@ -198,6 +198,9 @@ docker images
 ```powershell
 az acr create --name exploredocker --resource-group explore-docker-aks-rg --sku basic --admin-enabled
 ```
+
+> [!NOTE]
+> 容器注册表名称（例如 `exploredocker`）在 Azure 中必须唯一，并且必须包含 5-50 个字母数字字符。 如需了解详情，请参阅[创建容器注册表](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli#create-a-container-registry)
 
 ### <a name="create-the-image-in-release-mode"></a>在发布模式下创建映像
 

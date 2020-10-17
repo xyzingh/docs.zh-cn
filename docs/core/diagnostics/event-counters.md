@@ -2,12 +2,12 @@
 title: .NET Core 中的 EventCounters
 description: 本文将介绍什么是 EventCounters，如何实现它们，以及如何使用它们。
 ms.date: 08/07/2020
-ms.openlocfilehash: fc2f945e3de732a81b9ce3fd82eff10e455cae87
-ms.sourcegitcommit: 7476c20d2f911a834a00b8a7f5e8926bae6804d9
+ms.openlocfilehash: be273776b888f13893fc694a111093cca1fa8a5e
+ms.sourcegitcommit: b59237ca4ec763969a0dd775a3f8f39f8c59fe24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88062959"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91955312"
 ---
 # <a name="eventcounters-in-net-core"></a>.NET Core 中的 EventCounters
 
@@ -144,6 +144,16 @@ var monitorContentionCounter = new IncrementingPollingCounter(
 
 ```csharp
 public void AddRequest() => Interlocked.Increment(ref _requestCount);
+```
+
+若要防止破坏（在 32 位体系结构上）对 `long` 字段 `_requestCount` 的读取，请使用 <xref:System.Threading.Interlocked.Read%2A?displayProperty=nameWithType>。
+
+```csharp
+_requestRateCounter = new IncrementingPollingCounter("request-rate", this, () => Interlocked.Read(ref _requestCount))
+{
+    DisplayName = "Request Rate",
+    DisplayRateTimeScale = TimeSpan.FromSeconds(1)
+};
 ```
 
 ## <a name="consume-eventcounters"></a>使用 EventCounters

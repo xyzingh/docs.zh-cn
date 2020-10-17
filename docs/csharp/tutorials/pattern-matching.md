@@ -1,19 +1,19 @@
 ---
 title: 教程：使用模式匹配构建算法
 description: 本高级教程展示了如何使用模式匹配技术，通过单独创建的数据和算法来创建功能。
-ms.date: 03/13/2019
+ms.date: 10/06/2020
 ms.technology: csharp-whats-new
 ms.custom: contperfq1
-ms.openlocfilehash: 9fff9f286bd0aa7baf7632f9144dfe693bab0c32
-ms.sourcegitcommit: b4a46f6d7ebf44c0035627d00924164bcae2db30
+ms.openlocfilehash: ee8b3a90a06fabd4e9d73d7682efecda6cbfd23e
+ms.sourcegitcommit: b59237ca4ec763969a0dd775a3f8f39f8c59fe24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91437982"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91955624"
 ---
 # <a name="tutorial-use-pattern-matching-to-build-type-driven-and-data-driven-algorithms"></a>教程：使用模式匹配来构建类型驱动和数据驱动的算法。
 
-C# 7 引入了基本模式匹配功能。 C# 8 通过新增表达式和模式，扩展了这些功能。 可以编写行为类似于扩展其他库中可能有的类型的功能。 模式的另一个用途是，创建应用程序需要的功能，但此功能不是要扩展的类型的基本功能。
+C# 7 引入了基本模式匹配功能。 C# 8 和 C# 9 通过新增表达式和模式，扩展了这些功能。 可以编写行为类似于扩展其他库中可能有的类型的功能。 模式的另一个用途是，创建应用程序需要的功能，但此功能不是要扩展的类型的基本功能。
 
 本教程介绍以下操作：
 
@@ -25,7 +25,7 @@ C# 7 引入了基本模式匹配功能。 C# 8 通过新增表达式和模式，
 
 ## <a name="prerequisites"></a>先决条件
 
-需要将计算机设置为运行 .NET Core，包括 C# 8.0 编译器。 自 [Visual Studio 2019 版本 16.3](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) 或 [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download) 起，开始随附 C# 8 编译器。
+需要将计算机设置为运行 .NET 5，其中包括 C# 9 编译器。 自 [Visual Studio 2019 版本 16.9 预览 1](https://visualstudio.microsoft.com/vs/preview/) 或 [.NET 5.0 SDK](https://dot.net/get-dotnet5) 起，开始随附 C# 9 编译器。
 
 本教程假设你熟悉 C# 和 .NET，包括 Visual Studio 或 .NET Core CLI。
 
@@ -127,7 +127,7 @@ namespace toll_calculator
             }
             try
             {
-                tollCalc.CalculateToll(null);
+                tollCalc.CalculateToll(null!);
             }
             catch (ArgumentNullException e)
             {
@@ -157,10 +157,10 @@ namespace toll_calculator
 ```csharp
 vehicle switch
 {
-    Car { Passengers: 0}        => 2.00m + 0.50m,
-    Car { Passengers: 1 }       => 2.0m,
-    Car { Passengers: 2}        => 2.0m - 0.50m,
-    Car c                       => 2.00m - 1.0m,
+    Car {Passengers: 0}        => 2.00m + 0.50m,
+    Car {Passengers: 1}        => 2.0m,
+    Car {Passengers: 2}        => 2.0m - 0.50m,
+    Car c                      => 2.00m - 1.0m,
 
     // ...
 };
@@ -175,10 +175,10 @@ vehicle switch
 {
     // ...
 
-    Taxi { Fares: 0}  => 3.50m + 1.00m,
-    Taxi { Fares: 1 } => 3.50m,
-    Taxi { Fares: 2}  => 3.50m - 0.50m,
-    Taxi t            => 3.50m - 1.00m,
+    Taxi {Fares: 0}  => 3.50m + 1.00m,
+    Taxi {Fares: 1}  => 3.50m,
+    Taxi {Fares: 2}  => 3.50m - 0.50m,
+    Taxi t           => 3.50m - 1.00m,
 
     // ...
 };
@@ -219,20 +219,20 @@ vehicle switch
 };
 ```
 
-以上代码展示了 switch 臂的 `when` 子句。 `when` 子句用于对属性测试条件（相等性除外）。 完成后的方法如下所示：
+以上代码展示了 switch 臂的 `when` 子句。 `when` 子句用于对属性测试条件（相等性除外）。 完成后的方法如以下代码所示：
 
 ```csharp
 vehicle switch
 {
-    Car { Passengers: 0}        => 2.00m + 0.50m,
-    Car { Passengers: 1}        => 2.0m,
-    Car { Passengers: 2}        => 2.0m - 0.50m,
-    Car c                       => 2.00m - 1.0m,
+    Car {Passengers: 0}        => 2.00m + 0.50m,
+    Car {Passengers: 1}        => 2.0m,
+    Car {Passengers: 2}        => 2.0m - 0.50m,
+    Car c                      => 2.00m - 1.0m,
 
-    Taxi { Fares: 0}  => 3.50m + 1.00m,
-    Taxi { Fares: 1 } => 3.50m,
-    Taxi { Fares: 2}  => 3.50m - 0.50m,
-    Taxi t            => 3.50m - 1.00m,
+    Taxi {Fares: 0}  => 3.50m + 1.00m,
+    Taxi {Fares: 1}  => 3.50m,
+    Taxi {Fares: 2}  => 3.50m - 0.50m,
+    Taxi t           => 3.50m - 1.00m,
 
     Bus b when ((double)b.Riders / (double)b.Capacity) < 0.50 => 5.00m + 2.00m,
     Bus b when ((double)b.Riders / (double)b.Capacity) > 0.90 => 5.00m - 1.00m,
@@ -288,9 +288,11 @@ public decimal CalculateToll(object vehicle) =>
 
 ## <a name="add-peak-pricing"></a>添加高峰时段定价
 
-对于最后一个功能，通行费收取机构希望添加有时效性的高峰时段定价。 在早晚高峰时段，通行费翻倍。 此规则只影响一个方向的交通：早高峰时段入城和晚高峰时段出城。 在工作日的其他时段，通行费增加 50%。 在深夜和清晨，通行费减少 25%。 在周末，无论什么时间，都按正常费率收费。
+对于最后一个功能，通行费收取机构希望添加有时效性的高峰时段定价。 在早晚高峰时段，通行费翻倍。 此规则只影响一个方向的交通：早高峰时段入城和晚高峰时段出城。 在工作日的其他时段，通行费增加 50%。 在深夜和清晨，通行费减少 25%。 在周末，无论什么时间，都按正常费率收费。 如果 `if` 和 `else` 语句使用以下代码表达此内容，则可以使用系列：
 
-虽然将对此功能使用模式匹配，但要将它与其他技术集成。 可以生成一个模式匹配表达式，将方向、周几和时间所有这一切都考虑在内。 生成的结果是一个复杂的表达式。 它既难读取，也难理解。 这就加大了确保正确性的难度。 请改为将这些方法合并为生成值元组，用于简要描述所有这些状态。 然后，使用模式匹配来计算通行费乘数。 元组包含以下三个离散条件：
+[!code-csharp[FullTuplePattern](~/samples/snippets/csharp/tutorials/patterns/finished/toll-calculator/TollCalculator.cs#SnippetPremiumWithoutPattern)]
+
+前面的代码可以正常工作，但无法读取。 必须链接所有输入事例和嵌套的 `if` 语句，才能对代码进行推理。 相反，虽然将对此功能使用模式匹配，但要将它与其他技术集成。 可以生成一个模式匹配表达式，将方向、周几和时间所有这一切都考虑在内。 生成的结果是一个复杂的表达式。 它既难读取，也难理解。 这就加大了确保正确性的难度。 请改为将这些方法合并为生成值元组，用于简要描述所有这些状态。 然后，使用模式匹配来计算通行费乘数。 元组包含以下三个离散条件：
 
 - 是工作日，还是周末。
 - 收取通行费时所处的时间带区。
@@ -335,7 +337,7 @@ private static bool IsWeekDay(DateTime timeOfToll) =>
     };
 ```
 
-此方法虽起作用，但是重复的。 可以简化它，如下面的代码所示：
+此方法虽然正确，但是具有重复性。 可以简化它，如下面的代码所示：
 
 [!code-csharp[IsWeekDay](~/samples/snippets/csharp/tutorials/patterns/finished/toll-calculator/TollCalculator.cs#IsWeekDay)]
 
@@ -343,7 +345,7 @@ private static bool IsWeekDay(DateTime timeOfToll) =>
 
 [!code-csharp[GetTimeBand](~/samples/snippets/csharp/tutorials/patterns/finished/toll-calculator/TollCalculator.cs#GetTimeBand)]
 
-上面的方法不使用模式匹配。 使用熟悉的 `if` 语句级联将更为清楚。 你确实添加将每个时间范围转换为离散值的专用 `enum`。
+添加将每个时间范围转换为离散值的专用 `enum`。 然后，`GetTimeBand` 方法使用“关系模式”和“联合或模式”，两者都添加到了 C# 9.0 中 。 通过关系模式，可以使用 `<`、`>`、`<=` 或 `>=` 来测试数值。 `or` 模式测试表达式是否与一个或多个模式匹配。 还可以使用 `and` 模式来确保表达式匹配两个不同的模式，并使用 `not` 模式来测试表达式是否与模式不匹配。
 
 创建这些方法后，可以结合使用另一个 `switch` 表达式和元组模式****，以计算定价附加费。 可以生成包含所有 16 个臂的 `switch` 表达式：
 

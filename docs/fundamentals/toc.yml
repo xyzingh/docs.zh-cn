@@ -133,7 +133,7 @@ items:
             href: ../core/tutorials/index.md
   - name: 新增功能
     items:
-      - name: .NET Core 到 .NET 5 的演变
+      - name: .NET 5 的新变化
         href: ../core/dotnet-five.md
       - name: .NET Core 3.1 的新增功能
         href: ../core/whats-new/dotnet-core-3-1.md
@@ -155,6 +155,12 @@ items:
             href: ../core/sdk.md
           - name: 错误消息
             items:
+              - name: NETSDK1005 和 NETSDK1047
+                href: ../core/tools/sdk-errors/netsdk1005.md
+              - name: NETSDK1059
+                href: ../core/tools/sdk-errors/netsdk1059.md
+              - name: NETSDK1073
+                href: ../core/tools/sdk-errors/netsdk1073.md
               - name: NETSDK1145
                 href: ../core/tools/sdk-errors/netsdk1145.md
       - name: .NET Core CLI
@@ -199,6 +205,8 @@ items:
                     href: ../core/tools/dotnet-nuget-remove-source.md
                   - name: dotnet nuget update source
                     href: ../core/tools/dotnet-nuget-update-source.md
+                  - name: dotnet nuget verify
+                    href: ../core/tools/dotnet-nuget-verify.md
               - name: dotnet pack
                 href: ../core/tools/dotnet-pack.md
               - name: dotnet publish
@@ -954,7 +962,9 @@ items:
                         href: code-analysis/style-rules/language-rules.md
                       - name: this 和 Me 首选项
                         items:
-                          - name: IDE0003 和 IDE0009
+                          - name: IDE0003
+                            href: code-analysis/style-rules/ide0003-ide0009.md
+                          - name: IDE0009
                             href: code-analysis/style-rules/ide0003-ide0009.md
                       - name: 对类型使用语言关键字
                         items:
@@ -972,6 +982,8 @@ items:
                             href: code-analysis/style-rules/ide0044.md
                           - name: IDE0062
                             href: code-analysis/style-rules/ide0062.md
+                          - name: IDE0064
+                            href: code-analysis/style-rules/ide0064.md
                       - name: 括号首选项
                         items:
                           - name: IDE0047 和 IDE0048
@@ -980,6 +992,8 @@ items:
                         items:
                           - name: 概述
                             href: code-analysis/style-rules/expression-level-preferences.md
+                          - name: IDE0010
+                            href: code-analysis/style-rules/ide0010.md
                           - name: IDE0017
                             href: code-analysis/style-rules/ide0017.md
                           - name: IDE0018
@@ -1000,16 +1014,28 @@ items:
                             href: code-analysis/style-rules/ide0045.md
                           - name: IDE0046
                             href: code-analysis/style-rules/ide0046.md
+                          - name: IDE0050
+                            href: code-analysis/style-rules/ide0050.md
                           - name: IDE0054
-                            href: code-analysis/style-rules/ide0054.md
+                            href: code-analysis/style-rules/ide0054-ide0074.md
                           - name: IDE0056
                             href: code-analysis/style-rules/ide0056.md
                           - name: IDE0057
                             href: code-analysis/style-rules/ide0057.md
-                          - name: IDE0058
-                            href: code-analysis/style-rules/ide0058.md
-                          - name: IDE0059
-                            href: code-analysis/style-rules/ide0059.md
+                          - name: IDE0070
+                            href: code-analysis/style-rules/ide0070.md
+                          - name: IDE0071
+                            href: code-analysis/style-rules/ide0071.md
+                          - name: IDE0072
+                            href: code-analysis/style-rules/ide0072.md
+                          - name: IDE0074
+                            href: code-analysis/style-rules/ide0054-ide0074.md
+                          - name: IDE0075
+                            href: code-analysis/style-rules/ide0075.md
+                          - name: IDE0082
+                            href: code-analysis/style-rules/ide0082.md
+                          - name: IDE0090
+                            href: code-analysis/style-rules/ide0090.md
                       - name: Null 检查首选项
                         items:
                           - name: 概述
@@ -1017,20 +1043,20 @@ items:
                           - name: IDE0016
                             href: code-analysis/style-rules/ide0016.md
                           - name: IDE0029
-                            href: code-analysis/style-rules/ide0029.md
+                            href: code-analysis/style-rules/ide0029-ide0030.md
+                          - name: IDE0030
+                            href: code-analysis/style-rules/ide0029-ide0030.md
                           - name: IDE0031
                             href: code-analysis/style-rules/ide0031.md
                           - name: IDE0041
                             href: code-analysis/style-rules/ide0041.md
                           - name: IDE1005
                             href: code-analysis/style-rules/ide1005.md
-                      - name: 参数首选项
-                        items:
-                          - name: IDE0060
-                            href: code-analysis/style-rules/ide0060.md
                       - name: var 首选项
                         items:
-                          - name: IDE0007 和 IDE0008
+                          - name: IDE0007
+                            href: code-analysis/style-rules/ide0007-ide0008.md
+                          - name: IDE0008
                             href: code-analysis/style-rules/ide0007-ide0008.md
                       - name: Expression-Bodied 成员
                         items:
@@ -1040,7 +1066,9 @@ items:
                             href: code-analysis/style-rules/ide0021.md
                           - name: IDE0022
                             href: code-analysis/style-rules/ide0022.md
-                          - name: IDE0023 和 IDE0024
+                          - name: IDE0023
+                            href: code-analysis/style-rules/ide0023-ide0024.md
+                          - name: IDE0024
                             href: code-analysis/style-rules/ide0023-ide0024.md
                           - name: IDE0025
                             href: code-analysis/style-rules/ide0025.md
@@ -1059,9 +1087,17 @@ items:
                           - name: IDE0019
                             href: code-analysis/style-rules/ide0019.md
                           - name: IDE0020
-                            href: code-analysis/style-rules/ide0020.md
+                            href: code-analysis/style-rules/ide0020-ide0038.md
+                          - name: IDE0038
+                            href: code-analysis/style-rules/ide0020-ide0038.md
                           - name: IDE0066
                             href: code-analysis/style-rules/ide0066.md
+                          - name: IDE0078
+                            href: code-analysis/style-rules/ide0078.md
+                          - name: IDE0083
+                            href: code-analysis/style-rules/ide0083.md
+                          - name: IDE0084
+                            href: code-analysis/style-rules/ide0084.md
                       - name: 代码块首选项
                         items:
                           - name: 概述
@@ -1074,6 +1110,48 @@ items:
                         items:
                           - name: IDE0065
                             href: code-analysis/style-rules/ide0065.md
+                      - name: 文件头首选项
+                        items:
+                          - name: IDE0073
+                            href: code-analysis/style-rules/ide0073.md
+                  - name: 不必要的代码规则
+                    items:
+                      - name: 概述
+                        href: code-analysis/style-rules/unnecessary-code-rules.md
+                      - name: IDE0001
+                        href: code-analysis/style-rules/ide0001.md
+                      - name: IDE0002
+                        href: code-analysis/style-rules/ide0002.md
+                      - name: IDE0004
+                        href: code-analysis/style-rules/ide0004.md
+                      - name: IDE0005
+                        href: code-analysis/style-rules/ide0005.md
+                      - name: IDE0035
+                        href: code-analysis/style-rules/ide0035.md
+                      - name: IDE0051
+                        href: code-analysis/style-rules/ide0051.md
+                      - name: IDE0052
+                        href: code-analysis/style-rules/ide0052.md
+                      - name: IDE0058
+                        href: code-analysis/style-rules/ide0058.md
+                      - name: IDE0059
+                        href: code-analysis/style-rules/ide0059.md
+                      - name: IDE0060
+                        href: code-analysis/style-rules/ide0060.md
+                      - name: IDE0079
+                        href: code-analysis/style-rules/ide0079.md
+                      - name: IDE0080
+                        href: code-analysis/style-rules/ide0080.md
+                      - name: IDE0081
+                        href: code-analysis/style-rules/ide0081.md
+                      - name: IDE0100
+                        href: code-analysis/style-rules/ide0100.md
+                  - name: 杂项规则
+                    items:
+                      - name: IDE0076
+                        href: code-analysis/style-rules/ide0076.md
+                      - name: IDE0077
+                        href: code-analysis/style-rules/ide0077.md
                   - name: 格式设置规则
                     items:
                       - name: 概述
@@ -1425,44 +1503,42 @@ items:
             href: ../standard/attributes/retrieving-information-stored-in-attributes.md
       - name: 在匿名类型和元组类型之间进行选择
         href: ../standard/base-types/choosing-between-anonymous-and-tuple.md
-  - name: Microsoft 扩展
+  - name: 依赖关系注入
     items:
-      - name: Configuration
-        items:
-          - name: 概述
-            href: ../core/extensions/configuration.md
-            displayName: 'configuration,config,configuration sources,config sources'
-          - name: 配置提供程序
-            href: ../core/extensions/configuration-providers.md
-            displayName: 'configuration providers,config providers'
-          - name: 实现自定义配置提供程序
-            href: ../core/extensions/custom-configuration-provider.md
-            displayName: 'custom configuration,custom config,custom configuration provider,custom config provider'
-      - name: 依赖关系注入
-        items:
-          - name: 概述
-            href: ../core/extensions/dependency-injection.md
-            displayName: 'dependency injection,di,ioc,ioc container,dependency container,inversion of control'
-          - name: 使用依赖关系注入
-            href: ../core/extensions/dependency-injection-usage.md
-            displayName: 'use dependency injection,di,di examples,ioc,ioc container,dependency container,inversion of control'
-          - name: 依赖关系注入指南
-            href: ../core/extensions/dependency-injection-guidelines.md
-            displayName: 'dependency injection best practices,guidelines,di,ioc,ioc container,dependency container,inversion of control'
-      - name: 泛型主机
-        href: ../core/extensions/generic-host.md
-      - name: Logging
-        items:
-          - name: 概述
-            href: ../core/extensions/logging.md
-          - name: 日志记录提供程序
-            href: ../core/extensions/logging-providers.md
-          - name: 实现自定义日志记录提供程序
-            href: ../core/extensions/custom-logging-provider.md
-          - name: 高性能日志记录
-            href: ../core/extensions/high-performance-logging.md
+      - name: 概述
+        href: ../core/extensions/dependency-injection.md
+        displayName: 'dependency injection,di,ioc,ioc container,dependency container,inversion of control'
+      - name: 使用依赖关系注入
+        href: ../core/extensions/dependency-injection-usage.md
+        displayName: 'use dependency injection,di,di examples,ioc,ioc container,dependency container,inversion of control'
+      - name: 依赖关系注入指南
+        href: ../core/extensions/dependency-injection-guidelines.md
+        displayName: 'dependency injection best practices,guidelines,di,ioc,ioc container,dependency container,inversion of control'
+  - name: Configuration
+    items:
+      - name: 概述
+        href: ../core/extensions/configuration.md
+        displayName: 'configuration,config,configuration sources,config sources'
+      - name: 配置提供程序
+        href: ../core/extensions/configuration-providers.md
+        displayName: 'configuration providers,config providers'
+      - name: 实现自定义配置提供程序
+        href: ../core/extensions/custom-configuration-provider.md
+        displayName: 'custom configuration,custom config,custom configuration provider,custom config provider'
       - name: 选项模式
         href: ../core/extensions/options.md
+  - name: Logging
+    items:
+      - name: 概述
+        href: ../core/extensions/logging.md
+      - name: 日志记录提供程序
+        href: ../core/extensions/logging-providers.md
+      - name: 实现自定义日志记录提供程序
+        href: ../core/extensions/custom-logging-provider.md
+      - name: 高性能日志记录
+        href: ../core/extensions/high-performance-logging.md
+  - name: HostBuilder（泛型主机）
+    href: ../core/extensions/generic-host.md
   - name: 数据访问
     items:
       - name: LINQ
@@ -1471,6 +1547,77 @@ items:
         href: ../standard/data/xml/
       - name: Microsoft.Data.Sqlite
         href: ../standard/data/sqlite/
+  - name: 文件和流 I/O
+    items:
+      - name: 概述
+        href: ../standard/io/index.md
+      - name: Windows 系统中的文件路径格式
+        href: ../standard/io/file-path-formats.md
+      - name: 通用 I/O 任务
+        href: ../standard/io/common-i-o-tasks.md
+        items:
+          - name: 如何：复制目录
+            href: ../standard/io/how-to-copy-directories.md
+          - name: 如何：枚举目录和文件
+            href: ../standard/io/how-to-enumerate-directories-and-files.md
+          - name: 如何：对新建的数据文件进行读取和写入
+            href: ../standard/io/how-to-read-and-write-to-a-newly-created-data-file.md
+          - name: 如何：打开并追加到日志文件
+            href: ../standard/io/how-to-open-and-append-to-a-log-file.md
+          - name: 如何：将文本写入文件
+            href: ../standard/io/how-to-write-text-to-a-file.md
+          - name: 如何：从文件中读取文本
+            href: ../standard/io/how-to-read-text-from-a-file.md
+          - name: 如何：从字符串中读取字符
+            href: ../standard/io/how-to-read-characters-from-a-string.md
+          - name: 如何：向字符串写入字符
+            href: ../standard/io/how-to-write-characters-to-a-string.md
+          - name: 如何：添加或删除访问控制列表条目
+            href: ../standard/io/how-to-add-or-remove-access-control-list-entries.md
+          - name: 如何：压缩和解压缩文件
+            href: ../standard/io/how-to-compress-and-extract-files.md
+          - name: 编写流
+            href: ../standard/io/composing-streams.md
+          - name: 如何：在 .NET Framework 流和 Windows 运行时流之间进行转换
+            href: ../standard/io/how-to-convert-between-dotnet-streams-and-winrt-streams.md
+      - name: 异步文件 I/O
+        href: ../standard/io/asynchronous-file-i-o.md
+      - name: 处理 I/O 错误
+        href: ../standard/io/handling-io-errors.md
+      - name: 独立存储
+        href: ../standard/io/isolated-storage.md
+        items:
+          - name: 隔离的类型
+            href: ../standard/io/types-of-isolation.md
+          - name: 如何：获取独立存储的存储区
+            href: ../standard/io/how-to-obtain-stores-for-isolated-storage.md
+          - name: 如何：枚举独立存储的存储区
+            href: ../standard/io/how-to-enumerate-stores-for-isolated-storage.md
+          - name: 如何：删除独立存储中的存储区
+            href: ../standard/io/how-to-delete-stores-in-isolated-storage.md
+          - name: 如何：预见独立存储中的空间不足条件
+            href: ../standard/io/how-to-anticipate-out-of-space-conditions-with-isolated-storage.md
+          - name: 如何：在独立存储中创建文件和目录
+            href: ../standard/io/how-to-create-files-and-directories-in-isolated-storage.md
+          - name: 如何：在独立存储中查找现有文件和目录
+            href: ../standard/io/how-to-find-existing-files-and-directories-in-isolated-storage.md
+          - name: 如何：在独立存储中读取和写入文件
+            href: ../standard/io/how-to-read-and-write-to-files-in-isolated-storage.md
+          - name: 如何：在独立存储中删除文件和目录
+            href: ../standard/io/how-to-delete-files-and-directories-in-isolated-storage.md
+      - name: 管道
+        href: ../standard/io/pipe-operations.md
+        items:
+          - name: 如何：使用匿名管道进行本地进程间通信
+            href: ../standard/io/how-to-use-anonymous-pipes-for-local-interprocess-communication.md
+          - name: 如何：使用命名管道进行网络进程间通信
+            href: ../standard/io/how-to-use-named-pipes-for-network-interprocess-communication.md
+      - name: 管道
+        href: ../standard/io/pipelines.md
+      - name: 使用缓冲区
+        href: ../standard/io/buffers.md
+      - name: 内存映射文件
+        href: ../standard/io/memory-mapped-files.md
   - name: 并行处理、并发和异步
     items:
       - name: 概述
@@ -1720,77 +1867,6 @@ items:
                 href: ../standard/serialization/xml-serializer-generator-tool-sgen-exe.md
               - name: XML 架构定义工具 (Xsd.exe)
                 href: ../standard/serialization/xml-schema-definition-tool-xsd-exe.md
-  - name: 文件和流 I/O
-    items:
-      - name: 概述
-        href: ../standard/io/index.md
-      - name: Windows 系统中的文件路径格式
-        href: ../standard/io/file-path-formats.md
-      - name: 通用 I/O 任务
-        href: ../standard/io/common-i-o-tasks.md
-        items:
-          - name: 如何：复制目录
-            href: ../standard/io/how-to-copy-directories.md
-          - name: 如何：枚举目录和文件
-            href: ../standard/io/how-to-enumerate-directories-and-files.md
-          - name: 如何：对新建的数据文件进行读取和写入
-            href: ../standard/io/how-to-read-and-write-to-a-newly-created-data-file.md
-          - name: 如何：打开并追加到日志文件
-            href: ../standard/io/how-to-open-and-append-to-a-log-file.md
-          - name: 如何：将文本写入文件
-            href: ../standard/io/how-to-write-text-to-a-file.md
-          - name: 如何：从文件中读取文本
-            href: ../standard/io/how-to-read-text-from-a-file.md
-          - name: 如何：从字符串中读取字符
-            href: ../standard/io/how-to-read-characters-from-a-string.md
-          - name: 如何：向字符串写入字符
-            href: ../standard/io/how-to-write-characters-to-a-string.md
-          - name: 如何：添加或删除访问控制列表条目
-            href: ../standard/io/how-to-add-or-remove-access-control-list-entries.md
-          - name: 如何：压缩和解压缩文件
-            href: ../standard/io/how-to-compress-and-extract-files.md
-          - name: 编写流
-            href: ../standard/io/composing-streams.md
-          - name: 如何：在 .NET Framework 流和 Windows 运行时流之间进行转换
-            href: ../standard/io/how-to-convert-between-dotnet-streams-and-winrt-streams.md
-      - name: 异步文件 I/O
-        href: ../standard/io/asynchronous-file-i-o.md
-      - name: 处理 I/O 错误
-        href: ../standard/io/handling-io-errors.md
-      - name: 独立存储
-        href: ../standard/io/isolated-storage.md
-        items:
-          - name: 隔离的类型
-            href: ../standard/io/types-of-isolation.md
-          - name: 如何：获取独立存储的存储区
-            href: ../standard/io/how-to-obtain-stores-for-isolated-storage.md
-          - name: 如何：枚举独立存储的存储区
-            href: ../standard/io/how-to-enumerate-stores-for-isolated-storage.md
-          - name: 如何：删除独立存储中的存储区
-            href: ../standard/io/how-to-delete-stores-in-isolated-storage.md
-          - name: 如何：预见独立存储中的空间不足条件
-            href: ../standard/io/how-to-anticipate-out-of-space-conditions-with-isolated-storage.md
-          - name: 如何：在独立存储中创建文件和目录
-            href: ../standard/io/how-to-create-files-and-directories-in-isolated-storage.md
-          - name: 如何：在独立存储中查找现有文件和目录
-            href: ../standard/io/how-to-find-existing-files-and-directories-in-isolated-storage.md
-          - name: 如何：在独立存储中读取和写入文件
-            href: ../standard/io/how-to-read-and-write-to-files-in-isolated-storage.md
-          - name: 如何：在独立存储中删除文件和目录
-            href: ../standard/io/how-to-delete-files-and-directories-in-isolated-storage.md
-      - name: 管道
-        href: ../standard/io/pipe-operations.md
-        items:
-          - name: 如何：使用匿名管道进行本地进程间通信
-            href: ../standard/io/how-to-use-anonymous-pipes-for-local-interprocess-communication.md
-          - name: 如何：使用命名管道进行网络进程间通信
-            href: ../standard/io/how-to-use-named-pipes-for-network-interprocess-communication.md
-      - name: 管道
-        href: ../standard/io/pipelines.md
-      - name: 使用缓冲区
-        href: ../standard/io/buffers.md
-      - name: 内存映射文件
-        href: ../standard/io/memory-mapped-files.md
   - name: 单元测试
     displayName: 'xUnit,NUnit,MSTest,unit testing,testing'
     items:
@@ -2086,5 +2162,5 @@ items:
             href: /dotnet/desktop/wpf/migration/convert-project-from-net-framework
           - name: 端口 C++/CLI 项目
             href: ../core/porting/cpp-cli.md
-      - name: 为服务器应用选择 .NET Core 或 .NET Framework
+      - name: 为服务器应用选择 .NET 5 或 .NET Framework
         href: ../standard/choosing-core-framework-server.md

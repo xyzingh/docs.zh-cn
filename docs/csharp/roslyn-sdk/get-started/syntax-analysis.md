@@ -3,12 +3,12 @@ title: 语法分析 (Roslyn API) 入门
 description: 介绍如何遍历、查询及浏览语法树。
 ms.date: 02/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 22d1303c9daa2ae35cf130b0c857cd7a5efdbe76
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.openlocfilehash: 8b9dd909a83877755dc1ebafd58aae892e460b93
+ms.sourcegitcommit: a8a205034eeffc7c3e1bdd6f506a75b0f7099ebf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "78240502"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91756151"
 ---
 # <a name="get-started-with-syntax-analysis"></a>语法分析入门
 
@@ -51,7 +51,7 @@ namespace HelloWorld
 
 语法树的四个主要构建基块为：
 
-* <xref:Microsoft.CodeAnalysis.SyntaxTree?displayProperty=nameWithType> 类，它的实例代表整个分析树。 <xref:Microsoft.CodeAnalysis.SyntaxTree> 是一种带有语言特定派生类的抽象类。 使用 <xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree?displayProperty=nameWithType>（或 <xref:Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxTree?displayProperty=nameWithType>）类的分析方法对 C# 或 Visual Basic 中的文本进行分析。
+* <xref:Microsoft.CodeAnalysis.SyntaxTree?displayProperty=nameWithType> 类，它的实例代表整个分析树。 <xref:Microsoft.CodeAnalysis.SyntaxTree> 是一种带有语言特定派生类的抽象类。 使用 <xref:Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree?displayProperty=nameWithType>（或 <xref:Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxTree?displayProperty=nameWithType>）类的分析方法对 C#（或 Visual Basic）中的文本进行分析。
 * <xref:Microsoft.CodeAnalysis.SyntaxNode?displayProperty=nameWithType> 类，它的实例表示声明、语句、子句和表达式等语法构造。
 * <xref:Microsoft.CodeAnalysis.SyntaxToken?displayProperty=nameWithType> 结构，它代表独立的关键词、标识符、运算符或标点。
 * 最后是 <xref:Microsoft.CodeAnalysis.SyntaxTrivia?displayProperty=nameWithType> 结构，它代表语法上不重要的信息，例如标记、预处理指令和注释之间的空格。

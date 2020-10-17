@@ -2,18 +2,18 @@
 title: C# 保留的特性：可为空的静态分析
 ms.date: 04/14/2020
 description: 编译器会解释这些属性，以便为可为 null 和不可为 null 的引用类型提供更好的静态分析。
-ms.openlocfilehash: d2405162ece3df209111de65fdef54f70cc86d45
-ms.sourcegitcommit: 1e8382d0ce8b5515864f8fbb178b9fd692a7503f
+ms.openlocfilehash: 6678cd21de23d4ed391eff089e33939b5adff0fa
+ms.sourcegitcommit: b59237ca4ec763969a0dd775a3f8f39f8c59fe24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89656298"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91955598"
 ---
 # <a name="reserved-attributes-contribute-to-the-compilers-null-state-static-analysis"></a>保留的特性有助于编译器的 null 状态静态分析
 
 在可为 null 的上下文中，编译器对代码执行静态分析，以确定所有引用类型变量的 null 状态：
 
-- 非 null  ：静态分析确定将变量分配给非 null 值。
+- 非 null：静态分析确定将变量分配给非 null 值。
 - 可能为 null  ：静态分析无法确定为变量分配非 null 值。
 
 可以应用多个特性，以向编译器提供有关 API 语义的信息。 这些信息有助于编译器执行静态分析并确定变量何时不为 null。 本文提供每个特性的简要说明以及它们的使用方法。 所有示例都假设使用 C# 8.0 或更高版本，并且代码处于可为 null 的上下文中。
