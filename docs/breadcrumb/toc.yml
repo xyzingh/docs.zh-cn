@@ -317,6 +317,10 @@ items:
               - name: 入门
                 tocHref: /dotnet/csharp/getting-started/
                 topicHref: /dotnet/csharp/getting-started/index
+                items:
+                  - name: C# 教程
+                    tocHref: /dotnet/csharp/tour-of-csharp/
+                    topicHref: /dotnet/csharp/tour-of-csharp/index
               - name: 教程
                 tocHref: /dotnet/csharp/tutorials/
                 topicHref: /dotnet/csharp/tutorials/index

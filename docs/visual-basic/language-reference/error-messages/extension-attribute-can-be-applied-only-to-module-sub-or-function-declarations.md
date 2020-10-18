@@ -7,14 +7,14 @@ f1_keywords:
 helpviewer_keywords:
 - BC36550
 ms.assetid: 4387a51f-733c-45d7-abdb-eb64d4f51078
-ms.openlocfilehash: 9b8f49c498699a8f7d1c4b329e82258501aa0c47
-ms.sourcegitcommit: f8c270376ed905f6a8896ce0fe25b4f4b38ff498
+ms.openlocfilehash: bd4d14721b93800831dbce897535b4f5956fe9c7
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84363093"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92160745"
 ---
-# <a name="extension-attribute-can-be-applied-only-to-module-sub-or-function-declarations"></a>“Extension”特性只能应用于“Module”、“Sub”或“Function”声明。
+# <a name="bc36550-extension-attribute-can-be-applied-only-to-module-sub-or-function-declarations"></a>BC36550： "Extension" 特性只能应用于 "Module"、"Sub" 或 "Function" 声明
 
 在 Visual Basic 中扩展数据类型的唯一方法是在标准模块内定义扩展方法。 扩展方法可以是 `Sub` 过程或 `Function` 过程。 必须用 `<Extension()>` 命名空间中的扩展属性标记所有扩展方法 <xref:System.Runtime.CompilerServices?displayProperty=nameWithType> 。 或者，包含扩展方法的模块可以用相同的方式进行标记。 扩展属性的其他使用无效。
 

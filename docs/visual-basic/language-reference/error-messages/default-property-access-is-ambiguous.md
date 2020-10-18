@@ -7,14 +7,14 @@ f1_keywords:
 helpviewer_keywords:
 - BC30686
 ms.assetid: 784fefec-ef57-48cf-b960-957df419b439
-ms.openlocfilehash: f76163d58f3f11d3ca946525a1604abc3ebba68d
-ms.sourcegitcommit: d7c298f6c2e3aab0c7498bfafc0a0a94ea1fe23e
+ms.openlocfilehash: b7c4c9c75de1b3777f34a70470b89f323a5699f9
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72250371"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92162058"
 ---
-# <a name="default-property-access-is-ambiguous-between-the-inherited-interface-members-defaultpropertyname-of-interface-interfacename1-and-defaultpropertyname-of-interface-interfacename2"></a>默认属性访问在接口 "\<interfacename1 >" 的继承接口成员 "\<defaultpropertyname >" 与接口 "\<interfacename2 >" 的 "\<defaultpropertyname >" 之间不明确。
+# <a name="bc30686-default-property-access-is-ambiguous-between-the-inherited-interface-members-defaultpropertyname-of-interface-interfacename1-and-defaultpropertyname-of-interface-interfacename2"></a>BC30686：默认属性访问在接口 "" 的继承接口成员 "" \<defaultpropertyname> \<interfacename1> 和 \<defaultpropertyname> 接口 "" 的 " \<interfacename2> " 之间不明确
 
 接口继承自两个接口，每个接口都声明一个具有相同名称的默认属性。 编译器无法解析对此默认属性的访问，无需进行限定。 下面的示例阐释了这一点。
 
@@ -36,13 +36,13 @@ Public Class testClass
 End Class
 ```
 
-当指定 `testObj(1)` 时，编译器会尝试将其解析为默认属性。 不过，由于继承了接口，有两个可能的默认属性，因此编译器会发出此错误信号。
+指定时 `testObj(1)` ，编译器会尝试将其解析为默认属性。 不过，由于继承了接口，有两个可能的默认属性，因此编译器会发出此错误信号。
 
 **错误 ID：** BC30686
 
 ## <a name="to-correct-this-error"></a>更正此错误
 
-- 避免继承任何具有相同名称的成员。 在前面的示例中，如果 `testObj` 不需要的任何成员（例如，`Iface2`），则按如下方式声明：
+- 避免继承任何具有相同名称的成员。 在前面的示例中，如果 `testObj` 不需要的任何成员（例如），请按 `Iface2` 如下所示声明：
 
   ```vb
   Dim testObj As Iface1
@@ -64,6 +64,6 @@ End Class
   End Class
   ```
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [接口](../../programming-guide/language-features/interfaces/index.md)

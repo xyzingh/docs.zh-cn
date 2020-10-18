@@ -7,14 +7,14 @@ f1_keywords:
 helpviewer_keywords:
 - BC42319
 ms.assetid: 62eeeba3-6811-48be-b1ef-c2e4feda3177
-ms.openlocfilehash: c498675ab6ae616fb63d3d76ef60bcac7e247145
-ms.sourcegitcommit: f8c270376ed905f6a8896ce0fe25b4f4b38ff498
+ms.openlocfilehash: 18e7aa5f6905eaa9c509aa21fe6f5bfcd54d46f0
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84406503"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92163293"
 ---
-# <a name="xml-comment-exception-must-have-a-cref-attribute"></a>XML 注释异常必须具有“cref”特性
+# <a name="bc42319-xml-comment-exception-must-have-a-cref-attribute"></a>BC42319： XML 注释异常必须具有 "cref" 特性
 
 \<exception>标记提供了一种方法来记录可由方法引发的异常。 必需的 `cref` 属性指定由文档生成器检查的成员的名称。 如果该成员存在，则将其转换为文档文件中的规范元素名称。
 

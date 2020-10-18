@@ -7,37 +7,37 @@ f1_keywords:
 helpviewer_keywords:
 - BC40057
 ms.assetid: 4ae3506e-2ebe-4ff3-995d-14ac60db5e9f
-ms.openlocfilehash: e0be18509d0d4b1b4f5eadfadce7a0785e9309f0
-ms.sourcegitcommit: d2db216e46323f73b32ae312c9e4135258e5d68e
+ms.openlocfilehash: 54ee046cda998be8bd70e531918d6ab2a67d0494
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90871501"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92160114"
 ---
-# <a name="namespace-or-type-specified-in-the-project-level-imports-qualifiedelementname-doesnt-contain-any-public-member-or-cannot-be-found"></a>在项目级 Imports“\<qualifiedelementname>”中指定的命名空间或类型不包含任何公共成员，或者找不到该命名空间或类型
+# <a name="bc40057-namespace-or-type-specified-in-the-project-level-imports-qualifiedelementname-doesnt-contain-any-public-member-or-cannot-be-found"></a>BC40057：在项目级 Imports "" 中指定的命名空间或类型 \<qualifiedelementname> 不包含任何公共成员，或者找不到该命名空间或类型
 
-项目级 Imports "" 中指定的命名空间或类型 \<qualifiedelementname> 不包含任何公共成员，或者找不到该命名空间或类型。 请确保定义命名空间或类型，并且至少包含一个公共成员。 请确保别名不包含其他别名。  
-  
- 项目的导入属性指定的包含元素无法找到或未定义任何 `Public` 成员。  
-  
- *包含元素*可以是命名空间、类、结构、模块、接口或枚举。 包含元素包含变量、过程或其他包含元素等成员。  
-  
- 导入的目的是允许你的代码访问命名空间或类型成员，而无需对其进行限定。 你的项目可能还需要添加对命名空间或类型的引用。 有关详细信息，请参阅对已 [声明元素的引用](../../programming-guide/language-features/declared-elements/references-to-declared-elements.md)中的 "导入包含元素"。  
-  
- 如果编译器找不到指定的包含元素，则它无法解析使用它的引用。 如果找到元素但元素未公开任何 `Public` 成员，则不会成功进行引用。 在这两种情况下，导入元素是毫无意义的。  
-  
- 使用 " **项目设计器** " 可以指定要导入的元素。 使用 "**引用**" 页的 "**导入的命名空间**" 部分。 可以通过双击 "**解决方案资源管理器**中的 **" 我的项目**"图标来转到"**项目设计器**"。  
-  
- **错误 ID：** BC40057  
-  
-## <a name="to-correct-this-error"></a>更正此错误  
-  
-1. 打开 " **项目设计器** "，并切换到 " **引用** " 页。  
-  
-2. 在 " **导入的命名空间** " 部分中，验证是否可以从项目访问包含元素。  
-  
-3. 验证包含元素是否至少公开一个 `Public` 成员。  
-  
+项目级 Imports "" 中指定的命名空间或类型 \<qualifiedelementname> 不包含任何公共成员，或者找不到该命名空间或类型。 请确保定义命名空间或类型，并且至少包含一个公共成员。 请确保别名不包含其他别名。
+
+ 项目的导入属性指定的包含元素无法找到或未定义任何 `Public` 成员。
+
+ *包含元素*可以是命名空间、类、结构、模块、接口或枚举。 包含元素包含变量、过程或其他包含元素等成员。
+
+ 导入的目的是允许你的代码访问命名空间或类型成员，而无需对其进行限定。 你的项目可能还需要添加对命名空间或类型的引用。 有关详细信息，请参阅对已 [声明元素的引用](../../programming-guide/language-features/declared-elements/references-to-declared-elements.md)中的 "导入包含元素"。
+
+ 如果编译器找不到指定的包含元素，则它无法解析使用它的引用。 如果找到元素但元素未公开任何 `Public` 成员，则不会成功进行引用。 在这两种情况下，导入元素是毫无意义的。
+
+ 使用 " **项目设计器** " 可以指定要导入的元素。 使用 "**引用**" 页的 "**导入的命名空间**" 部分。 可以通过双击 "**解决方案资源管理器**中的 **" 我的项目**"图标来转到"**项目设计器**"。
+
+ **错误 ID：** BC40057
+
+## <a name="to-correct-this-error"></a>更正此错误
+
+1. 打开 " **项目设计器** "，并切换到 " **引用** " 页。
+
+2. 在 " **导入的命名空间** " 部分中，验证是否可以从项目访问包含元素。
+
+3. 验证包含元素是否至少公开一个 `Public` 成员。
+
 ## <a name="see-also"></a>另请参阅
 
 - [项目设计器 -&gt;“引用”页 (Visual Basic)](/visualstudio/ide/reference/references-page-project-designer-visual-basic)

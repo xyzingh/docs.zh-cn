@@ -7,14 +7,14 @@ f1_keywords:
 helpviewer_keywords:
 - BC40056
 ms.assetid: b59f5754-444f-4378-9272-9678b437e84a
-ms.openlocfilehash: 8675d9c3b202200c89e12e7a5f51a19d9e3e0e64
-ms.sourcegitcommit: f8c270376ed905f6a8896ce0fe25b4f4b38ff498
+ms.openlocfilehash: 284a8c71fee8835f78ca5435932819fded1b1f30
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84409460"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92160127"
 ---
-# <a name="namespace-or-type-specified-in-the-imports-qualifiedelementname-doesnt-contain-any-public-member-or-cannot-be-found"></a>Imports“\<qualifiedelementname>”中指定的命名空间或类型不包含任何公共成员，或者找不到该命名空间或类型
+# <a name="bc40056-namespace-or-type-specified-in-the-imports-qualifiedelementname-doesnt-contain-any-public-member-or-cannot-be-found"></a>BC40056：在导入 "" 中指定的命名空间或类型 \<qualifiedelementname> 不包含任何公共成员，或者找不到该命名空间或类型
 
 导入 "" 中指定的命名空间或类型 \<qualifiedelementname> 不包含任何公共成员或找不到该命名空间或类型。 请确保定义命名空间或类型，并且至少包含一个公共成员。 请确保别名不包含其他别名。
 
@@ -22,7 +22,7 @@ ms.locfileid: "84409460"
 
 *包含元素*可以是命名空间、类、结构、模块、接口或枚举。 包含元素包含变量、过程或其他包含元素等成员。
 
-导入的目的是允许你的代码访问命名空间或类型成员，而无需对其进行限定。 你的项目可能还需要添加对命名空间或类型的引用。 有关详细信息，请参阅对已[声明元素的引用](../../programming-guide/language-features/declared-elements/references-to-declared-elements.md)中的 "导入包含元素"。
+导入的目的是允许你的代码访问命名空间或类型成员，而无需对其进行限定。 你的项目可能还需要添加对命名空间或类型的引用。 有关详细信息，请参阅对已 [声明元素的引用](../../programming-guide/language-features/declared-elements/references-to-declared-elements.md)中的 "导入包含元素"。
 
 如果编译器找不到指定的包含元素，则它无法解析使用它的引用。 如果找到元素但元素未公开任何 `Public` 成员，则不会成功进行引用。 在这两种情况下，导入元素是毫无意义的。
 

@@ -7,25 +7,25 @@ f1_keywords:
 helpviewer_keywords:
 - BC30561
 ms.assetid: 761091f7-1018-4299-b481-3966a4a2c126
-ms.openlocfilehash: fe67dc70c18297319225c3d2ae97f1ce949603d6
-ms.sourcegitcommit: d2db216e46323f73b32ae312c9e4135258e5d68e
+ms.openlocfilehash: 73cc604f1e3a06687ca93779a01e698512be198b
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90871528"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92160179"
 ---
-# <a name="name1-is-ambiguous-imported-from-the-namespaces-or-types-name2"></a>“\<name1>”不明确，从命名空间或类型“\<name2>”导入
+# <a name="bc30561-name1-is-ambiguous-imported-from-the-namespaces-or-types-name2"></a>BC30561： " \<name1> " 不明确，从命名空间或类型 "" 导入 \<name2>
 
-你提供的名称不明确，因此与另一个名称冲突。 Visual Basic 编译器没有任何冲突解决规则;你必须自己区分名称。  
-  
- **错误 ID：** BC30561  
-  
-## <a name="to-correct-this-error"></a>更正此错误  
-  
-1. 删除命名空间导入，消除名称歧义。  
-  
-2. 完全限定名称。  
-  
+你提供的名称不明确，因此与另一个名称冲突。 Visual Basic 编译器没有任何冲突解决规则;你必须自己区分名称。
+
+ **错误 ID：** BC30561
+
+## <a name="to-correct-this-error"></a>更正此错误
+
+- 删除命名空间导入，消除名称歧义。
+
+- 完全限定名称。
+
 ## <a name="see-also"></a>另请参阅
 
 - [Imports 语句（.NET 命名空间和类型）](../statements/imports-statement-net-namespace-and-type.md)

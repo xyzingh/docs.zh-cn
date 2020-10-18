@@ -2,11 +2,19 @@
   href: index.yml
 - name: 入门
   items:
-    - name: 概述
+    - name: C# 语言和 .NET 简介
       displayName: get started
       href: getting-started/index.md
-    - name: C# 语言和 .NET 简介
-      href: getting-started/introduction-to-the-csharp-language-and-the-net-framework.md
+    - name: C# 教程
+      items:
+        - name: 简介
+          href: tour-of-csharp/index.md
+        - name: 类型
+          href: tour-of-csharp/types.md
+        - name: 程序构建基块
+          href: tour-of-csharp/program-building-blocks.md
+        - name: 主要语言区域
+          href: tour-of-csharp/features.md
 - name: 教程
   items:
     - name: 概述
@@ -70,16 +78,6 @@
       href: tutorials/working-with-linq.md
     - name: 使用特性
       href: tutorials/attributes.md
-- name: C# 教程
-  items:
-    - name: 简介
-      href: tour-of-csharp/index.md
-    - name: 类型
-      href: tour-of-csharp/types.md
-    - name: 程序构建基块
-      href: tour-of-csharp/program-building-blocks.md
-    - name: 主要语言区域
-      href: tour-of-csharp/features.md
 - name: C# 中的新增功能
   items:
     - name: C# 9.0
@@ -1106,7 +1104,7 @@
               href: language-reference/keywords/extern-alias.md
         - name: 类型测试关键字
           items:
-            - name: is
+            - name: 是
               href: language-reference/keywords/is.md
         - name: 泛型类型约束关键字
           items:

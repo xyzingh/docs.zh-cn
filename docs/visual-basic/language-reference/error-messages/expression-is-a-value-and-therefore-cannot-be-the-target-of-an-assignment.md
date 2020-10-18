@@ -7,14 +7,14 @@ f1_keywords:
 helpviewer_keywords:
 - BC30068
 ms.assetid: d65141e1-f31e-4ac5-a3b8-0b2e02a71ebf
-ms.openlocfilehash: 9e4dbaf2f2800454c673cd58ddec4cf0f6e5c6b9
-ms.sourcegitcommit: f8c270376ed905f6a8896ce0fe25b4f4b38ff498
+ms.openlocfilehash: cd23e6c2beb2f93578a350bc41a780c9ab785f26
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84409502"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92160888"
 ---
-# <a name="expression-is-a-value-and-therefore-cannot-be-the-target-of-an-assignment"></a>表达式是一个值，因此不能作为赋值目标
+# <a name="bc30068-expression-is-a-value-and-therefore-cannot-be-the-target-of-an-assignment"></a>BC30068： Expression 是一个值，因此不能作为赋值的目标
 
 语句尝试向表达式赋值。 可以在运行时将值仅分配给可写的变量、属性或数组元素。 下面的示例说明了如何发生此错误。
 
@@ -52,9 +52,9 @@ exitButton.Location = exitLocation
 
 - 如果语句将值分配给表达式，请将表达式替换为单个可写的变量、属性或数组元素。
 
-- 如果语句通过值类型（通常是结构）进行间接访问，则创建一个变量来保存值类型。
+- 如果语句通过值类型间接访问 (通常是结构) ，请创建一个变量来保存值类型。
 
-- 将适当的结构（或其他值类型）分配给该变量。
+- 向变量分配适当的结构 (或其他值类型) 。
 
 - 使用变量访问属性，为其赋值。
 

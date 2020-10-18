@@ -7,25 +7,25 @@ f1_keywords:
 helpviewer_keywords:
 - BC30481
 ms.assetid: 583f3029-bc3a-4e06-866f-92dbecc46f19
-ms.openlocfilehash: d67f0e71dbdbf97420ec5b5ba4b6f06acfba1bd9
-ms.sourcegitcommit: d2db216e46323f73b32ae312c9e4135258e5d68e
+ms.openlocfilehash: 6889e97aad913f6911ce438892752542de0d10f0
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90874618"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92163189"
 ---
-# <a name="class-statement-must-end-with-a-matching-end-class"></a>“Class”语句必须以匹配的“End Class”结束
+# <a name="bc30481-class-statement-must-end-with-a-matching-end-class"></a>BC30481： "Class" 语句必须以匹配的 "End Class" 结束
 
-`Class` 用于启动 `Class` 块; 因此它只能出现在块的开头，并以匹配的 `End Class` 语句结束块。 您有冗余的 `Class` 语句，或者您没有 `Class` 用结束块 `End Class` 。  
-  
- **错误 ID：** BC30481  
-  
-## <a name="to-correct-this-error"></a>更正此错误  
-  
-- 找到并删除不必要的 `Class` 语句。  
-  
-- `Class`使用匹配的结束块 `End Class` 。  
-  
+`Class` 用于启动 `Class` 块; 因此它只能出现在块的开头，并以匹配的 `End Class` 语句结束块。 您有冗余的 `Class` 语句，或者您没有 `Class` 用结束块 `End Class` 。
+
+ **错误 ID：** BC30481
+
+## <a name="to-correct-this-error"></a>更正此错误
+
+- 找到并删除不必要的 `Class` 语句。
+
+- `Class`使用匹配的结束块 `End Class` 。
+
 ## <a name="see-also"></a>另请参阅
 
 - [End \<keyword> 语句](../statements/end-keyword-statement.md)

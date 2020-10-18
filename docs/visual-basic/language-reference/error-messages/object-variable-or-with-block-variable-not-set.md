@@ -4,16 +4,16 @@ ms.date: 07/20/2015
 f1_keywords:
 - vbrID91
 ms.assetid: 2f03e611-f0ed-465c-99a2-a816e034faa3
-ms.openlocfilehash: 0264a4235a056c93edb703ec2ef70e7124e0df4e
-ms.sourcegitcommit: d2db216e46323f73b32ae312c9e4135258e5d68e
+ms.openlocfilehash: 5eff7622ce2a35cf2846c5141cede98ea033d708
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90873631"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92159880"
 ---
 # <a name="object-variable-or-with-block-variable-not-set"></a>未设置对象变量或 With 块变量
 
-正在引用无效的对象变量。   出现此错误的原因可能有多种：
+正在引用无效的对象变量。 出现此错误的原因可能有多种：
 
 - 声明了变量，但未指定类型。 如果在未指定类型的情况下声明了变量，则默认为类型 `Object` 。
 
@@ -31,7 +31,7 @@ ms.locfileid: "90873631"
 - 在初始化块之前，您正尝试访问代码块中的代码 `With...End With` 。   `With...End With`必须通过执行 `With` 语句入口点初始化块。
 
 > [!NOTE]
-> 在 Visual Basic 或 VBA 的早期版本中，还会通过在不使用 `Set` 关键字 (`x = "name"` 而不是) 的情况下将值赋给变量来触发此错误 `Set x = "name"` 。 `Set`关键字在 Visual Basic .net 中不再有效。
+> 在 Visual Basic 或 VBA 的早期版本中，通过将值分配给变量而不使用 `Set` 关键字 (`x = "name"` 而不是) ，也会触发此错误 `Set x = "name"` 。 `Set`关键字在 Visual Basic .net 中不再有效。
 
 ## <a name="to-correct-this-error"></a>更正此错误
 

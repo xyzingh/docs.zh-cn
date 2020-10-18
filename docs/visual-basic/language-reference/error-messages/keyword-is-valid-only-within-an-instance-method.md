@@ -7,23 +7,23 @@ f1_keywords:
 helpviewer_keywords:
 - BC30043
 ms.assetid: 7973aa82-a681-440c-9bca-242627d7ba86
-ms.openlocfilehash: af436b8fd57ff0d2747c766a64af175760931009
-ms.sourcegitcommit: d2db216e46323f73b32ae312c9e4135258e5d68e
+ms.openlocfilehash: ad39ade294b362b20f2dfb93455445bf41d056cd
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90873894"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92163319"
 ---
-# <a name="keyword-is-valid-only-within-an-instance-method"></a>“\<keyword>”只在实例方法中有效
+# <a name="bc30043-keyword-is-valid-only-within-an-instance-method"></a>BC30043： " \<keyword> " 仅在实例方法中有效
 
-`Me`、 `MyClass` 和 `MyBase` 关键字引用特定的类实例。 不能在共享或过程中使用它们 `Function` `Sub` 。  
-  
- **错误 ID：** BC30043  
-  
-## <a name="to-correct-this-error"></a>更正此错误  
-  
-- 从过程中删除关键字，或 `Shared` 从过程声明中删除关键字。  
-  
+`Me`、 `MyClass` 和 `MyBase` 关键字引用特定的类实例。 不能在共享或过程中使用它们 `Function` `Sub` 。
+
+*错误 ID：** BC30043
+
+## <a name="to-correct-this-error"></a>更正此错误
+
+- 从过程中删除关键字，或 `Shared` 从过程声明中删除关键字。
+
 ## <a name="see-also"></a>另请参阅
 
 - [对象变量赋值](../../programming-guide/language-features/variables/object-variable-assignment.md)
