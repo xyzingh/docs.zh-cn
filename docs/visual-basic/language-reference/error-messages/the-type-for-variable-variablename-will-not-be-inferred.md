@@ -7,14 +7,14 @@ f1_keywords:
 helpviewer_keywords:
 - BC42110
 ms.assetid: ef4442eb-08d1-434f-a03b-4aa2ed4e4414
-ms.openlocfilehash: 1ad7b9d0a610842dd6c50ee198f5bb5fa3eb68cf
-ms.sourcegitcommit: d2db216e46323f73b32ae312c9e4135258e5d68e
+ms.openlocfilehash: 3e76ffea283de2843fc5586179074c01a053ece8
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90870477"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92161278"
 ---
-# <a name="the-type-for-variable-variablename-will-not-be-inferred-because-it-is-bound-to-a-field-in-an-enclosing-scope"></a>无法推断出变量“\<variablename>”的类型，因为它绑定到封闭范围中的某个字段
+# <a name="bc42110-the-type-for-variable-variablename-will-not-be-inferred-because-it-is-bound-to-a-field-in-an-enclosing-scope"></a>BC42110：不会推断变量 "" 的类型， \<variablename> 因为它绑定到封闭范围中的某个字段
 
 不会推断变量 "" 的类型， \<variablename> 因为它绑定到封闭范围中的某个字段。 更改 "" 的名称 \<variablename> ，或使用完全限定名称 (例如 "variablename" 或 "variablename" ) 。
 
@@ -43,7 +43,7 @@ End Class
 
 **错误 ID：** BC42110
 
-### <a name="to-address-this-warning"></a>解决此警告
+## <a name="to-address-this-warning"></a>解决此警告
 
 - 将循环控制变量的名称更改为不属于类的字段名称的标识符，使该循环控制变量成为局部变量。
 

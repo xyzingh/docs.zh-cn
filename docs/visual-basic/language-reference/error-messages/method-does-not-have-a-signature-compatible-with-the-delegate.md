@@ -7,19 +7,19 @@ f1_keywords:
 helpviewer_keywords:
 - BC36563
 ms.assetid: 3ca8b873-e98d-419b-95f2-d75bd2a9eb6c
-ms.openlocfilehash: 45df056b71e3536dabc9f7725f623e818c10075d
-ms.sourcegitcommit: d2db216e46323f73b32ae312c9e4135258e5d68e
+ms.openlocfilehash: 62801552a39d29983c322e9a95a0494f155a2633
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90873767"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92160413"
 ---
-# <a name="method-does-not-have-a-signature-compatible-with-the-delegate"></a>方法没有与委托兼容的签名
+# <a name="bc36563-method-does-not-have-a-signature-compatible-with-the-delegate"></a>BC36563：方法没有与委托兼容的签名
 
-方法的签名与你尝试使用的委托的签名不兼容。 `Delegate` 语句定义参数类型和委托类的返回类型。 任何具有匹配的兼容类型参数和返回类型的过程都可以用于创建此委托类型的实例。  
-  
- **错误 ID**： BC36563  
-  
+方法的签名与你尝试使用的委托的签名不兼容。 `Delegate` 语句定义参数类型和委托类的返回类型。 任何具有匹配的兼容类型参数和返回类型的过程都可以用于创建此委托类型的实例。
+
+ **错误 ID：** BC36563
+
 ## <a name="see-also"></a>另请参阅
 
 - [AddressOf 运算符](../operators/addressof-operator.md)

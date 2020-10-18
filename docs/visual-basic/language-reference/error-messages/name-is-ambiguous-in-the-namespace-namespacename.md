@@ -7,23 +7,23 @@ f1_keywords:
 helpviewer_keywords:
 - BC30560
 ms.assetid: 7f032293-054b-4eae-8d97-3db8e7ddde3b
-ms.openlocfilehash: af8bab62f1fe81f0397e5d91cd11e12931b10c36
-ms.sourcegitcommit: d2db216e46323f73b32ae312c9e4135258e5d68e
+ms.openlocfilehash: 7607e4cd9d5b628d3dd6404e9329594143b9beef
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90873716"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92160283"
 ---
-# <a name="name-is-ambiguous-in-the-namespace-namespacename"></a>“\<name>”在命名空间“\<namespacename>”中不明确
+# <a name="bc30560-name-is-ambiguous-in-the-namespace-namespacename"></a>BC30560： "" \<name> 在命名空间 "" 中不明确 \<namespacename>
 
-你提供的名称不明确，因此与另一个名称冲突。 Visual Basic 编译器没有任何冲突解决规则;你必须自己区分名称。  
-  
- **错误 ID：** BC30560  
-  
-## <a name="to-correct-this-error"></a>更正此错误  
-  
-- 完全限定名称。  
-  
+你提供的名称不明确，因此与另一个名称冲突。 Visual Basic 编译器没有任何冲突解决规则;你必须自己区分名称。
+
+ **错误 ID：** BC30560
+
+## <a name="to-correct-this-error"></a>更正此错误
+
+- 完全限定名称。
+
 ## <a name="see-also"></a>另请参阅
 
 - [Visual Basic 中的命名空间](../../programming-guide/program-structure/namespaces.md)

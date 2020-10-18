@@ -8,14 +8,14 @@ helpviewer_keywords:
 - overload resolution [Visual Basic], with late-bound argument
 - BC30933
 ms.assetid: 8182eea0-dd34-4d6e-9ca0-41d8713e9dc4
-ms.openlocfilehash: 4500a177c7a4729fe5131af1b007fd38e77afe07
-ms.sourcegitcommit: f8c270376ed905f6a8896ce0fe25b4f4b38ff498
+ms.openlocfilehash: 090ec6f3bbf56350fda2ab15c974b0bc6b15e3d3
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84397332"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92162513"
 ---
-# <a name="latebound-overload-resolution-cannot-be-applied-to-procedurename-because-the-accessing-instance-is-an-interface-type"></a>后期绑定重载决策不能应用于“\<procedurename>”，因为访问实例是一个接口类型
+# <a name="bc30933-latebound-overload-resolution-cannot-be-applied-to-procedurename-because-the-accessing-instance-is-an-interface-type"></a>BC30933：后期绑定重载决策不能应用于 " \<procedurename> "，因为访问实例是一个接口类型
 
 编译器尝试解析对重载属性或过程的引用，但引用失败，因为参数的类型为 `Object` ，而引用对象具有接口的数据类型。 `Object`参数强制编译器将引用解析为晚期绑定。
 

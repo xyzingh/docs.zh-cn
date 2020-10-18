@@ -7,14 +7,14 @@ f1_keywords:
 helpviewer_keywords:
 - BC36599
 ms.assetid: 17763dbe-f74f-4ccb-8086-cb7e45ec4d12
-ms.openlocfilehash: d6b155de0bb62f667ca76ec9454dec1466976a9b
-ms.sourcegitcommit: f8c270376ed905f6a8896ce0fe25b4f4b38ff498
+ms.openlocfilehash: 63990b7d37388057ff2cdb430d29878a1c7b39ba
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84400404"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92162357"
 ---
-# <a name="range-variable-name-can-be-inferred-only-from-a-simple-or-qualified-name-with-no-arguments"></a>只能根据不带自变量的简单名称或限定名称推断范围变量名称
+# <a name="bc36599-range-variable-name-can-be-inferred-only-from-a-simple-or-qualified-name-with-no-arguments"></a>BC36599：只能通过不带参数的简单名称或限定名称推断范围变量名称
 
 采用一个或多个自变量的编程元素包含在 LINQ 查询中。 编译器无法从该编程元素推断范围变量。
 
