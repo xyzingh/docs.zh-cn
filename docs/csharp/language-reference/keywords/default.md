@@ -4,16 +4,15 @@ title: default - C# 参考
 ms.date: 08/04/2017
 f1_keywords:
 - default
-- default_CSharpKeyword
 helpviewer_keywords:
 - default keyword [C#]
 ms.assetid: 14c48aaa-7d35-4058-a1a4-f53353050579
-ms.openlocfilehash: 51735b818ba05b7d83c7a391136ef97e9b903021
-ms.sourcegitcommit: d579fb5e4b46745fd0f1f8874c94c6469ce58604
+ms.openlocfilehash: ccf12936a66466c57fefb174528448440cf29f2c
+ms.sourcegitcommit: e078b7540a8293ca1b604c9c0da1ff1506f0170b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89138236"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997666"
 ---
 # <a name="default-c-reference"></a>default（C# 参考）
 

@@ -5,14 +5,16 @@ ms.date: 04/15/2020
 f1_keywords:
 - whereconstraint
 - whereconstraint_CSharpKeyword
+- classconstraint_CSharpKeyword
+- structconstraint_CSharpKeyword
 helpviewer_keywords:
 - where (generic type constraint) [C#]
-ms.openlocfilehash: 78f784135c6bf01ea9724fcf92be234e6b86ff07
-ms.sourcegitcommit: d579fb5e4b46745fd0f1f8874c94c6469ce58604
+ms.openlocfilehash: 75885e21173d31ff0a4ba34fbbd3558f934ae5b7
+ms.sourcegitcommit: 39b1d5f2978be15409c189a66ab30781d9082cd8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89141902"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92050313"
 ---
 # <a name="where-generic-type-constraint-c-reference"></a>where（泛型类型约束）（C# 参考）
 

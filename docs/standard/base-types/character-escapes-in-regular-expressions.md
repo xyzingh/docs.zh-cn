@@ -15,12 +15,12 @@ helpviewer_keywords:
 - .NET Framework regular expressions, character escapes
 - constructs, character escapes
 ms.assetid: f49cc9cc-db7d-4058-8b8a-422bc08b29b0
-ms.openlocfilehash: 1c260c349f035de67257adbca06fb447ff993329
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 4491b83db195a8d0f5bbf4f4326d92ed9ebd24e7
+ms.sourcegitcommit: 39b1d5f2978be15409c189a66ab30781d9082cd8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84277669"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92050437"
 ---
 # <a name="character-escapes-in-regular-expressions"></a>正则表达式中的字符转义
 正则表达式中的反斜杠 (\\) 指示以下值之一：  
@@ -58,7 +58,7 @@ ms.locfileid: "84277669"
  [!code-csharp[RegularExpressions.Language.Escapes#1](../../../samples/snippets/csharp/VS_Snippets_CLR/regularexpressions.language.escapes/cs/escape1.cs#1)]
  [!code-vb[RegularExpressions.Language.Escapes#1](../../../samples/snippets/visualbasic/VS_Snippets_CLR/regularexpressions.language.escapes/vb/escape1.vb#1)]  
   
- 正则表达式 `\G(.+)[\t|\u007c](.+)\r?\n` 可以解释为下表中所示内容。  
+ 正则表达式 `\G(.+)[\t\u007c](.+)\r?\n` 可以解释为下表中所示内容。  
   
 |模式|描述|  
 |-------------|-----------------|  

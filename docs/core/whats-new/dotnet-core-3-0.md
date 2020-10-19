@@ -6,12 +6,12 @@ dev_langs:
 author: adegeo
 ms.author: adegeo
 ms.date: 01/27/2020
-ms.openlocfilehash: 8ba64a6e3bee4a5d27a07ab4ad4ef3a3f0749778
-ms.sourcegitcommit: 636af37170ae75a11c4f7d1ecd770820e7dfe7bd
+ms.openlocfilehash: b0b1f4492d68ff2f2218b7c977f57cad3f582bb0
+ms.sourcegitcommit: 39b1d5f2978be15409c189a66ab30781d9082cd8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804627"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92050275"
 ---
 # <a name="whats-new-in-net-core-30"></a>.NET Core 3.0 的新增功能
 
@@ -395,7 +395,7 @@ GPIO 包包括用于 *GPIO*、*SPI*、*I2C* 和 *PWM* 设备的 API。 IoT 绑�
 .NET Core 3.0 在 Linux 系统上使用 **OpenSSL 1.1.1**、**OpenSSL 1.1.0** 或 **OpenSSL 1.0.2**（如果可用）。 当 **OpenSSL 1.1.1** 可用时，<xref:System.Net.Security.SslStream?displayProperty=nameWithType> 和 <xref:System.Net.Http.HttpClient?displayProperty=nameWithType> 类型都将使用 **TLS 1.3**（假定客户端和服务器都支持 **TLS 1.3**）。
 
 > [!IMPORTANT]
-> Windows 和 macOS 尚不支持 TLS 1.3。 当支持可用时，.NET Core 3.0 将在这些操作系统上支持 TLS 1.3。
+> Windows 和 macOS 尚不支持 TLS 1.3。
 
 下面的 C# 8.0 示例演示在 Ubuntu 18.10 上 .NET Core 3.0 如何连接到 <https://www.cloudflare.com>：
 
