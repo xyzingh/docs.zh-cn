@@ -153,9 +153,9 @@
         - name: 泛型类型
           href: programming-guide/language-features/data-types/generic-types.md
           items:
-            - name: 如何：定义可对不同数据类型提供相同功能的类
+            - name: 定义可对不同类型提供相同功能的类
               href: programming-guide/language-features/data-types/how-to-define-a-class-that-can-provide-identical-functionality.md
-            - name: 如何：使用泛型类
+            - name: 使用泛型类
               href: programming-guide/language-features/data-types/how-to-use-a-generic-class.md
         - name: 泛型过程
           href: programming-guide/language-features/data-types/generic-procedures.md
@@ -875,14 +875,18 @@
         - name: XML 处理指令文本
           href: language-reference/xml-literals/xml-processing-instruction-literal.md
     - name: 错误消息
-      href: language-reference/error-messages/index.md
       items:
+        - name: 概述
+          displayName: 'error messages, compiler errors'
+          href: language-reference/error-messages/index.md
+        - name: BC30663
+          href: language-reference/error-messages/attribute-attributename-cannot-be-applied-multiple-times.md
+        - name: BC32500
+          href: language-reference/error-messages/attribute-cannot-be-applied-because-the-format-of-the-guid-is-not-correct.md
         - name: “#ElseIf”前面必须是匹配的“#If”或“#ElseIf”
           href: language-reference/error-messages/elseif-must-be-preceded-by-a-matching-if-or-elseif.md
         - name: “#Region”和“#End Region”语句在方法体/多行 lambda 内无效
           href: language-reference/error-messages/region-and-end-region-are-not-valid-within-method-bodies-multiline-lambdas.md
-        - name: GUID“<attribute>”的格式不正确，因此无法应用“<number>”
-          href: language-reference/error-messages/attribute-cannot-be-applied-because-the-format-of-the-guid-is-not-correct.md
         - name: “<classname>”不符合 CLS，因为它所实现的接口“<interfacename>”不符合 CLS
           href: language-reference/error-messages/classname-is-not-cls-compliant-because-the-interface-is-not-cls-compliant.md
         - name: “<elementname>”已过时（Visual Basic 警告）
@@ -949,8 +953,6 @@
           href: language-reference/error-messages/bc31043.md
         - name: “Declare”语句中不支持“As Any”
           href: language-reference/error-messages/bc30828.md
-        - name: 特性“<attributename>”不能应用多次
-          href: language-reference/error-messages/attribute-attributename-cannot-be-applied-multiple-times.md
         - name: 自动错误
           href: language-reference/error-messages/automation-error.md
         - name: 错误的校验和值、非十六进制数字或奇数个十六进制数字

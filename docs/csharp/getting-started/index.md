@@ -1,57 +1,53 @@
 ---
-title: 入门 - C# 指南
-description: 查看简短教程，快速了解介绍性 C# 概念并编写 .NET Core 应用程序。
-helpviewer_keywords:
-- Visual C#, getting started
-- getting started, Visual C#
-ms.date: 04/05/2019
-ms.openlocfilehash: 769098134799800d45a31c22f4390734545ff6ff
-ms.sourcegitcommit: e7acba36517134238065e4d50bb4a1cfe47ebd06
+title: 入门 - C# 语言和 .NET 简介
+description: 了解 C# 和 .NET 的基础知识。 概述了 C# 语言和 .NET 生态系统。
+ms.date: 10/13/2020
+ms.openlocfilehash: 94d49be28fbdba8f58ca16e959a10643d6467c63
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89465242"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92160953"
 ---
-# <a name="get-started-with-c"></a>C\# 入门
+# <a name="introduction-to-the-c-language-and-net"></a>C# 语言和 .NET 简介
 
-此部分包含简短的教程，可帮助你快速生成 C# .NET Core 应用程序。 其中包括有关 Visual Studio 和 Visual Studio Code 的入门主题。 这些文章假定你具有一些编程体验。 如果不熟悉编程，请尝试我们的交互式教程 [C# 简介](../tutorials/intro-to-csharp/index.md)。
+C# 是一种简洁精炼且类型安全的面向对象的语言。 开发人员利用 C# 能够生成在 .NET 生态系统中运行的多种安全可靠的应用程序。
 
-具体包含以下主题：
+## <a name="c-language"></a>C# 语言
 
-- [C# 语言和 .NET 简介](introduction-to-the-csharp-language-and-the-net-framework.md)
+C# 语法高度重视表达，但学习起来也很简单轻松。 任何熟悉 C、C++、Java 或 JavaScript 的人都可以立即认出 C# 的大括号语法。 通常情况下，了解上述任何一种语言的开发者都可在短时间内使用 C# 高效工作。 C# 可提供强大的功能，例如可以为 null 的类型、委托、Lambda 表达式、模式匹配和安全直接内存访问。 C# 支持泛型方法和类型，因此增强了类型安全性和性能。 C# 可提供迭代器，使集合类的实现者可以定义客户端代码的自定义行为。 语言集成查询 (LINQ) 表达式让强类型查询成为最高级的语言构造。
 
-     概述了 C# 语言和 .NET。
+作为面向对象的语言，C# 支持封装、继承和多态性这些概念。 虽然类可能会直接继承一个父类，但可以实现任意数量的接口。 若要用方法重写父类中的虚方法，必须使用 `override` 关键字，以免发生意外重定义。 在 C# 中，结构就像是轻量级类，是可以实现接口但不支持继承的堆栈分配类型。 C# 还可提供记录，这些记录是主要用于存储数据值的类类型。
 
-- [在 Visual Studio 中使用 .NET Core 创建 C# Hello World 应用程序](../../core/tutorials/with-visual-studio.md)
+使用 C# 还可以通过以下多个创新语言构造轻松地开发软件组件：
 
-   Visual Studio 使你能够在适用于 Windows 或 Mac 的集成开发环境中执行应用程序的代码编写、编译、运行、调试、分析和发布。
+- 封装的方法签名（名为“*委托*”），可实现类型安全事件通知。
+- 用作私有成员变量的访问器的属性。
+- 在运行时提供有关类型的声明性元数据的特性。
+- 内联的 XML 文档注释。
+- 语言集成查询 (LINQ)，提供跨各种数据源的内置查询功能。
+- 模式匹配，通过检查数据类型和值启用控制流。
 
-   此主题介绍了如何创建并运行简单的 Hello World 应用程序，然后将其修改为更具交互性的 Hello World 应用程序。 完成应用程序生成和运行后，还可以了解如何[调试](../../core/tutorials/debugging-with-visual-studio.md)和[发布](../../core/tutorials/publishing-with-visual-studio.md)应用程序，使其能够在 .NET Code 支持的任意平台上运行。
+可以通过名为“互操作”的过程与本机组件交互。 借助互操作，C# 程序可以执行本机 C++ 应用程序可以执行的几乎任何操作。 在直接内存访问关键的情况下，C# 甚至支持指针和“不安全”代码的概念。
 
-- [在 Visual Studio 中使用 C# 和 .NET Standard 生成类库](../../core/tutorials/library-with-visual-studio.md)
+C# 生成过程比 C 和 C++ 更简单，比 Java 更灵活。 没有单独的头文件，也不要求按特定顺序声明方法和类型。 C# 源文件可以定义任意数量的类、结构、接口和事件。
 
-   使用类库，可以定义能够从另一应用程序调用的类型和类型成员。 此主题介绍了如何创建类库，其中包含一个用于确定字符串是否以大写字母开头的方法。 生成完类库后，便可以开发[单元测试](../../core/tutorials/testing-library-with-visual-studio.md)来确保类库按预期运行，然后就是使其可供[要使用它的应用程序](/nuget/quickstart/install-and-use-a-package-in-visual-studio)使用。
+可参阅下面的其他 C# 资源：
 
-- [C# 和 Visual Studio Code 入门](../../core/tutorials/with-visual-studio-code.md)
+- 有关该语言的总体介绍，请参阅 [C# 教程](../tour-of-csharp/index.md)。
+- 有关 C# 语言特定方面的详细信息，请参阅 [C# 参考](../language-reference/index.md)。
+- 有关 LINQ 的详细信息，请参阅 [LINQ（语言集成查询）](../programming-guide/concepts/linq/index.md)。
 
-   Visual Studio Code 是免费的代码编辑器，已针对构建和调试现代 Web 和云应用程序而优化。 它支持 IntelliSense，并可在 Linux、macOS 和 Windows 上使用。
+## <a name="net-platform-architecture"></a>.NET 平台体系结构
 
-   此主题介绍了如何使用 Visual Studio Code 和 .NET Core 创建并运行简单的 Hello World 应用程序。
+C# 程序在 .NET 上运行，而 .NET 是名为公共语言运行时 (CLR) 的虚执行系统和一组统一的类库。 CLR 是 Microsoft 对公共语言基础结构 (CLI) 国际标准的商业实现。 CLI 是创建执行和开发环境的基础，语言和库可以在其中无缝地协同工作。
 
-## <a name="related-sections"></a>相关章节
+用 C# 编写的源代码被编译成符合 CLI 规范的[中间语言 (IL)](../../standard/managed-code.md)。 IL 代码和资源（如位图和字符串）存储在程序集中，扩展名通常为 .dll。 程序集包含一个介绍程序集的类型、版本和区域性的清单。
 
-- [C# 编程指南](../programming-guide/index.md)
+执行 C# 程序时，程序集将加载到 CLR。 CLR 会直接执行实时 (JIT) 编译，将 IL 代码转换成本机指令。 CLR 可提供其他与自动垃圾回收、异常处理和资源管理相关的服务。 CLR 执行的代码有时称为“托管代码”（而不是“非托管代码”），被编译成面向特定系统的本机语言。
 
-    提供关于 C# 编程概念的信息并描述如何用 C# 执行各种任务。
+语言互操作性是 .NET 的一项重要功能。 C# 编译器生成的 IL 代码符合公共类型规范 (CTS)。 通过 C# 生成的 IL 代码可以与通过 .NET 版本的 F#、Visual Basic、C++ 或其他 20 多种与 CTS 兼容的任何语言所生成的代码进行交互。 一个程序集可能包含多个用不同 .NET 语言编写的模块，且类型可以相互引用，就像是用同一种语言编写的一样。
 
-- [C# 参考](../language-reference/index.md)
+除了运行时服务之外，.NET 还包含大量库。 这些库支持多种不同的工作负载。 它们已整理到命名空间中，这些命名空间提供各种实用功能，包括文件输入输出、字符串控制、XML 分析、Web 应用程序框架和 Windows 窗体控件。 典型的 C# 应用程序广泛使用 .NET 类库来处理常见的“管道”零碎工作。
 
-    提供关于 C# 关键字、运算符、预处理器指令、编译器选项以及编译器错误与警告的详细参考信息。
-
-- [演练](../walkthroughs.md)
-
-    提供指向使用 C# 的编程演练和每个演练的简要概述的链接。
-
-## <a name="see-also"></a>请参阅
-
-- [使用 Visual Studio 进行 C# 开发](/visualstudio/get-started/csharp/)
+有关 .NET 的详细信息，请参阅 [.NET 概述](../../core/introduction.md)。

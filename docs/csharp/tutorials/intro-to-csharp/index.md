@@ -3,12 +3,12 @@ title: C# 简介 - 交互式教程
 description: 通过浏览器了解 C#，并开始使用自己的开发环境
 ms.date: 08/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 52b680ffe8c477624f3b5e085b7f2de13c271d81
-ms.sourcegitcommit: 97405ed212f69b0a32faa66a5d5fae7e76628b68
+ms.openlocfilehash: 6037862c52fd59ba540e1f65297d787f0a964762
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91609175"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92162149"
 ---
 # <a name="introduction-to-c"></a>C\# 简介
 
@@ -62,3 +62,7 @@ ms.locfileid: "91609175"
 本教程介绍在面向对象的编程中使用的概念。 你将通过 C# 示例了解“抽象”、“封装”“继承”和“多形性”的概念。
 
 本教程假定你已完成联机入门教程，并且已在开发计算机上安装 [.NET Core SDK](https://dotnet.microsoft.com/download) 和 [Visual Studio Code](https://code.visualstudio.com/) 或 [Visual Studio](https://visualstudio.com)。
+
+## <a name="101-linq-samples"></a>[101 Linq 示例](https://github.com/dotnet/try-samples/tree/master/101-linq-samples)
+
+此示例需要 [dotnet-try](https://github.com/dotnet/try/blob/main/README.md#setup) 全局工具。 安装该工具并克隆 [try-samples](https://github.com/dotnet/try-samples) 存储库后，可以通过一组以交互方式运行的 101 示例来了解语言集成查询 (LINQ)。 你可以探索用于查询、浏览和转换数据序列的各种方法。
