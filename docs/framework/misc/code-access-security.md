@@ -16,17 +16,20 @@ helpviewer_keywords:
 - user authentication, code access security
 - code access security
 ms.assetid: 859af632-c80d-4736-8d6f-1e01b09ce127
-ms.openlocfilehash: b5c32afb26c7b4bf7f8585c43ac11e57ebb5d015
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 528824e2d1b5d854f9eef816d3f7b20ba0f2b7db
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90554861"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92224346"
 ---
 # <a name="code-access-security"></a>代码访问安全性
 
 [!INCLUDE[net_security_note](../../../includes/net-security-note-md.md)]  
-  
+
+> [!NOTE]
+> 由于不推荐使用代码访问安全性，.NET 生态系统中的大多数新式代码都不能在部分信任环境中运行。 依赖于 CAS 的应用程序不应期望新式库在这些环境中正常运行，除非库开发人员已采取明确的措施来确保 CA 沙盒中的兼容性。  
+
  当今高度连接的计算机系统频繁地暴露来自各种可能未知源的代码中。 可以将代码附加到电子邮件，包含在文档中或通过 Internet 下载。 不幸的是，许多计算机用户都亲身经历了恶意移动代码（包括病毒和蠕虫）所带来的影响，这些代码可能损坏或破坏数据、花费时间和资金。  
   
  最常见的安全机制会根据用户的凭据向用户授予权限 (通常是密码) 并将资源 (通常是允许用户访问的) 目录和文件。 然而，这种方法无法解决以下几个问题：用户从许多来源获取代码，其中一些来源可能不可靠；代码包含 bug 或漏洞，被恶意代码所利用；代码有时会执行一些用户不知道的操作。 因此，当谨慎且值得信赖的用户运行恶意或有错的软件时，计算机系统可能会受到损坏并泄露私有数据。 大多数操作系统安全机制要求每个代码段必须是受信任的，才能运行，但 Web 页面上的脚本除外。 因此，仍需要一个广泛适用的安全机制来允许源自一个计算机系统的代码在另一个系统中受保护运行，即使这两个系统之间没有信任关系。  
