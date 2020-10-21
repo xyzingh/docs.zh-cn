@@ -1867,8 +1867,8 @@ items:
                 href: ../standard/serialization/xml-serializer-generator-tool-sgen-exe.md
               - name: XML 架构定义工具 (Xsd.exe)
                 href: ../standard/serialization/xml-schema-definition-tool-xsd-exe.md
-  - name: 单元测试
-    displayName: 'xUnit,NUnit,MSTest,unit testing,testing'
+  - name: 正在测试
+    displayName: 'xUnit,NUnit,MSTest,unit test,test,integration test,load test,smoke test, web test'
     items:
       - name: 概述
         href: ../core/testing/index.md
