@@ -13,18 +13,18 @@ helpviewer_keywords:
 - metadata, about metadata
 - common language runtime, metadata
 - PE files, metadata
-- components [.NET Framework], metadata
+- components [.NET], metadata
 ms.assetid: 3dd13c5d-a508-455b-8dce-0a852882a5a7
-ms.openlocfilehash: 5327bd70b05bac8970fa9802fb15e94ba5f686c8
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 2ed09882ba722ace0b7f7be2a35fffc362af2742
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84290053"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92159347"
 ---
 # <a name="metadata-and-self-describing-components"></a>元数据和自描述组件
 
-在过去，以一种语言编写的软件组件（.exe 或 .dll）不能方便地使用以另一种语言编写的软件组件。 在这个问题的解决上，COM 向前迈进了一步。 .NET Framework 允许编译器向所有的模块和程序集发出附加的说明性信息，从而使组件互用更加简单。 这种叫做“元数据”的信息有助于组件无缝交互。
+在过去，以一种语言编写的软件组件（.exe 或 .dll）不能方便地使用以另一种语言编写的软件组件。 在这个问题的解决上，COM 向前迈进了一步。 .NET 允许编译器向所有的模块和程序集发出附加的说明性信息，从而使组件互用更加简单。 这种叫做“元数据”的信息有助于组件无缝交互。
 
  元数据是一种二进制信息，用以对存储在公共语言运行时可迁移可执行文件 (PE) 文件或存储在内存中的程序进行描述。 将您的代码编译为 PE 文件时，便会将元数据插入到该文件的一部分中，而将代码转换为 Microsoft 中间语言 (MSIL) 并将其插入到该文件的另一部分中。 在模块或程序集中定义和引用的每个类型和成员都将在元数据中进行说明。 当执行代码时，运行时将元数据加载到内存中，并引用它来发现有关代码的类、成员、继承等信息。
 
@@ -52,7 +52,7 @@ ms.locfileid: "84290053"
 
 ## <a name="benefits-of-metadata"></a>元数据的优点
 
-对于一种更简单的编程模型来说，元数据是关键，该模型不再需要接口定义语言 (IDL) 文件、头文件或任何外部组件引用方法。 元数据使 .NET Framework 语言能够自动以非特定语言的方式对其自身进行描述，而这是开发人员和用户都无法看见的。 另外，通过使用特性，可以对元数据进行扩展。 元数据具有以下主要优点：
+对于一种更简单的编程模型来说，元数据是关键，该模型不再需要接口定义语言 (IDL) 文件、头文件或任何外部组件引用方法。 元数据使 .NET 语言能够自动以非特定语言的方式对其自身进行描述，而这是开发人员和用户都无法看见的。 另外，通过使用特性，可以对元数据进行扩展。 元数据具有以下主要优点：
 
 - 自描述文件。
 
@@ -64,11 +64,11 @@ ms.locfileid: "84290053"
 
 - 特性。
 
-  .NET Framework 允许您在编译文件中声明特定种类的元数据（称为特性）。 特性在 .NET Framework 中处处可见，用于更精确地控制您的程序在运行时的行为。 另外，您可以通过用户定义的自定义特性，向 .NET Framework 文件发出您自己的自定义元数据。 有关更多信息，请参阅[特性](attributes/index.md)。
+  .NET 允许在编译文件中声明特定种类的元数据（称为特性）。 特性在 .NET 中处处可见，用于更精确地控制程序在运行时的行为。 另外，还可以通过用户定义的自定义特性，向 .NET 文件发出自己的自定义元数据。 有关更多信息，请参阅[特性](attributes/index.md)。
 
 ## <a name="metadata-and-the-pe-file-structure"></a>元数据和 PE 文件结构
 
-元数据存储在 .NET Framework 可迁移可执行文件 (PE) 文件的一个部分中，而 Microsoft 中间语言 (MSIL) 则存储在 PE 文件的另一部分中。 文件的元数据部分包含一系列的表和堆数据结构。 MSIL 部分包含 MSIL 和引用 PE 文件元数据部分的元数据标记。 例如，使用 [MSIL 反汇编程序 (Ildasm.exe)](../framework/tools/ildasm-exe-il-disassembler.md) 等工具查看代码的 MSIL 时，可能会遇到元数据标记。
+元数据存储在 .NET 可迁移可执行文件 (PE) 文件的一个部分中，而 Microsoft 中间语言 (MSIL) 则存储在 PE 文件的另一部分中。 文件的元数据部分包含一系列的表和堆数据结构。 MSIL 部分包含 MSIL 和引用 PE 文件元数据部分的元数据标记。 例如，使用 [MSIL 反汇编程序 (Ildasm.exe)](../framework/tools/ildasm-exe-il-disassembler.md) 等工具查看代码的 MSIL 时，可能会遇到元数据标记。
 
 ### <a name="metadata-tables-and-heaps"></a>元数据表和堆
 
@@ -134,7 +134,7 @@ public class MyApp
 
 当代码运行时，运行时将模块加载到内存并向元数据咨询该类的信息。 加载后，运行时对方法的 Microsoft 中间语言 (MSIL) 流执行广泛的分析，将其转换为快速本机指令。 运行时根据需要使用实时 (JIT) 编译器将 MSIL 指令转换为本机代码，每次转换一个方法。
 
-下面的示例显示了从以前代码的 `Main` 功能生成的部分 MSIL。 可使用 [MSIL 反汇编程序 (Ildasm.exe)](../framework/tools/ildasm-exe-il-disassembler.md) 从任何 .NET Framework 应用程序中查看 MSIL 和元数据。
+下面的示例显示了从以前代码的 `Main` 功能生成的部分 MSIL。 可使用 [MSIL 反汇编程序 (Ildasm.exe)](../framework/tools/ildasm-exe-il-disassembler.md) 从任何 .NET 应用程序中查看 MSIL 和元数据。
 
 ```console
 .entrypoint

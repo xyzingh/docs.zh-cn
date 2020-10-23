@@ -7,12 +7,12 @@ dev_langs:
 - vb
 ms.technology: dotnet-standard
 ms.assetid: 2dbed1bc-86f5-43cd-9a57-adbb1c5efba4
-ms.openlocfilehash: 813558299b40e0b90e8047f22b788c8f1419eb5e
-ms.sourcegitcommit: da21fc5a8cce1e028575acf31974681a1bc5aeed
+ms.openlocfilehash: 524f8dc9838d7c438e8155da683c4fa5b01f36a3
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84504649"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92162981"
 ---
 # <a name="language-independence-and-language-independent-components"></a>语言独立性和与语言无关的组件
 
@@ -184,7 +184,7 @@ End Class
 
 ### <a name="types-and-type-member-signatures"></a>类型和类型成员签名
 
-[System.Object](xref:System.Object) 类型符合 CLS，是 .NET Framework 类型系统中所有对象类型的基础类型。 .NET Framework 中的继承要么是隐式的（例如，[String](xref:System.String) 类从 `Object` 类隐式继承），要么是显式的（例如，[CultureNotFoundException](xref:System.Globalization.CultureNotFoundException) 类从 [ArgumentException](xref:System.ArgumentException) 类显式继承，后者又从 [Exception](xref:System.Exception) 类显式继承。 对于要符合 CLS 的派生类型，其基本类型也必须符合 CLS。
+[System.Object](xref:System.Object) 类型符合 CLS，是 .NET 类型系统中所有对象类型的基础类型。 .NET 中的继承要么是隐式的（例如，[String](xref:System.String) 类从 `Object` 类隐式继承），要么是显式的（例如，[CultureNotFoundException](xref:System.Globalization.CultureNotFoundException) 类从 [ArgumentException](xref:System.ArgumentException) 类显式继承，后者又从 [Exception](xref:System.Exception) 类显式继承。 对于要符合 CLS 的派生类型，其基本类型也必须符合 CLS。
 
 下面的示例显示基本类型不符合 CLS 的派生类型。 它定义使用无符号 32 位整数作为计数器的基本 `Counter` 类。 由于类通过对无符号整数进行换行来提供计数器功能，因此类标记为不符合 CLS。 因此，派生类 `NonZeroCounter` 也不符合 CLS。
 
@@ -319,7 +319,7 @@ End Class
 [UInt64](xref:System.UInt64) | 64 位无符号整数 | [Int64](xref:System.Int64)（可能溢出）、[BigInteger](xref:System.Numerics.BigInteger) 或 [Double](xref:System.Double)
 [UIntPtr](xref:System.UIntPtr) | 未签名的指针或句柄 | [IntPtr](xref:System.IntPtr)
 
-.NET Framework 类库或任何其他类库可能包含不符合 CLS 的其他类型；例如：
+.NET 类库或任何其他类库可能包含不符合 CLS 的其他类型；例如：
 
 * 装箱的值类型。 下面的 C# 示例创建一个具有名为 `int*` 的 `Value` 类型的公共属性的类。 由于 `int*` 是一个装箱的值类型，因此编译器将其标记为不符合 CLS。
 
@@ -2479,7 +2479,7 @@ End Module
 
 ### <a name="attributes"></a>特性
 
-在 .NET Framework 程序集中，自定义特性提供了一个可扩展机制，用于存储自定义特性和检索有关编程对象（如程序集、类型、成员和方法参数）的元数据。 自定义特性必须从 [System.Attribute](xref:System.Attribute) 派生或从派生自 `System.Attribute` 的类型派生。
+在 .NET 程序集中，自定义特性提供了一个可扩展机制，用于存储自定义特性和检索有关编程对象（如程序集、类型、成员和方法参数）的元数据。 自定义特性必须从 [System.Attribute](xref:System.Attribute) 派生或从派生自 `System.Attribute` 的类型派生。
 
 下面的示例与此规则冲突。 它定义了不是从 `NumericAttribute` 派生的 `System.Attribute` 类。 编译器错误仅当应用不符合 CLS 的特性时会出现，而在定义类时不会出现。
 
@@ -2636,7 +2636,7 @@ End Class
 
 组件开发人员可以通过两种方法使用 `CLSCompliantAttribute` 特性：
 
-* 定义由组件公开的公共接口的符合 CLS 的部件以及不符合 CLS 的部件。 如果特性用于将特定程序元素标记为符合 CLS，则使用该特性可保证能通过面向 .NET Framework 的所有语言和工具访问这些元素。
+* 定义由组件公开的公共接口的符合 CLS 的部件以及不符合 CLS 的部件。 如果特性用于将特定程序元素标记为符合 CLS，则使用该特性可保证能通过面向 .NET 的所有语言和工具访问这些元素。
 
 * 确保组件库的公共接口仅公开符合 CLS 的程序元素。 如果元素不符合 CLS，则编译器通常会发出一个警告。
 
@@ -2788,7 +2788,7 @@ End Class
 
 ## <a name="cross-language-interoperability"></a>跨语言互操作性
 
-语言独立性可能有许多含义。 其中一种含义涉及到从使用一种语言编写的应用取用以另一种语言编写的类型。 本文介绍第二个含义，涉及将用多种语言编写的代码组合到一个 .NET Framework 程序集。
+语言独立性可能有许多含义。 其中一种含义涉及到从使用一种语言编写的应用取用以另一种语言编写的类型。 本文介绍第二个含义，涉及将用多种语言编写的代码组合到一个 .NET 程序集。
 
 以下示例通过创建一个名为 Utilities.dll 的包含两个类（`NumericLib` 和 `StringLib`）的类库演示了跨语言互操作性。 `NumericLib` 类用 C# 编写类，`StringLib` 类用 Visual Basic 编写。 以下是 `StringUtil.vb` 的源代码，该源代码在其 `StringLib` 类中包含单个成员 `ToTitleCase`。
 

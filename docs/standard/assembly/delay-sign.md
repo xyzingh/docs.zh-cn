@@ -5,7 +5,7 @@ ms.date: 08/19/2019
 helpviewer_keywords:
 - deferring assembly signing
 - signing assemblies
-- assemblies [.NET Framework], signing
+- assemblies [.NET], signing
 - strong-named assemblies, delaying assembly signing
 - partial assembly signing
 ms.assetid: 9d300e17-5bf1-4360-97da-2aa55efd9070
@@ -13,12 +13,12 @@ dev_langs:
 - csharp
 - vb
 - cpp
-ms.openlocfilehash: 7b5c8c8463fdc573782fa457bf5671c72a7e25f7
-ms.sourcegitcommit: d6bd7903d7d46698e9d89d3725f3bb4876891aa3
+ms.openlocfilehash: 704ddbec3ddd179622fdc7289036247763449256
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83378507"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92162890"
 ---
 # <a name="delay-sign-an-assembly"></a>延迟为程序集签名
 
@@ -63,7 +63,7 @@ ms.locfileid: "83378507"
    sn –Vr myAssembly.dll
    ```
 
-   若要在无法运行强名称工具的平台上（如高级 RISC 计算机 (ARM) 微处理器）关闭验证，请使用 –Vk 选项创建注册表文件。 将该注册表文件导入到要关闭验证的计算机上的注册表中。 下面的示例为 `myAssembly.dll` 创建了一个注册表文件。
+   若要在无法运行强名称工具的平台上（如高级 RISC 计算机 (ARM) 微处理器）关闭验证，请使用“–Vk”选项创建注册表文件。 将该注册表文件导入到要关闭验证的计算机上的注册表中。 下面的示例为 `myAssembly.dll` 创建了一个注册表文件。
 
    ```console
    sn –Vk myRegFile.reg myAssembly.dll

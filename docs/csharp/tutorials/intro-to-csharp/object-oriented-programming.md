@@ -2,12 +2,12 @@
 title: 面向对象的编程 (C#)
 description: C# 提供针对面向对象的编程（包括抽象、封装、继承和多态性）的完整支持。
 ms.date: 09/30/2020
-ms.openlocfilehash: 8a8dc8dc6d40c539b988ea203654d994e88c357a
-ms.sourcegitcommit: 97405ed212f69b0a32faa66a5d5fae7e76628b68
+ms.openlocfilehash: 6e0155621be544b01453b8c107debb3a9b6c38f9
+ms.sourcegitcommit: e078b7540a8293ca1b604c9c0da1ff1506f0170b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614658"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997661"
 ---
 # <a name="object-oriented-programming-c"></a>面向对象的编程 (C#)
 
@@ -162,7 +162,7 @@ public void MakeWithdrawal(decimal amount, DateTime date, string note)
 
 :::code language="csharp" source="./snippets/object-oriented-programming/BankAccount.cs" ID="RefactoredMakeWithdrawal":::
 
-添加的方法是，这意味着只能从派生类中调用它。 该声明会阻止其他客户端调用该方法。 它还是 `virtual` 的，因此派生类可以更改行为。 返回类型为 `Transaction?`。 `?` 批注指示该方法可能返回 `null`。 在 `LineOfCreditAccount` 中添加以下实现，以在超过取款限额时收取费用：
+添加的方法是 `protected`，这意味着只能从派生类中调用它。 该声明会阻止其他客户端调用该方法。 它还是 `virtual` 的，因此派生类可以更改行为。 返回类型为 `Transaction?`。 `?` 批注指示该方法可能返回 `null`。 在 `LineOfCreditAccount` 中添加以下实现，以在超过取款限额时收取费用：
 
 :::code language="csharp" source="./snippets/object-oriented-programming/LineOfCreditAccount.cs" ID="AddOverdraftFee":::
 

@@ -2,12 +2,12 @@
 title: 网络中断性变更
 description: 列出 .NET Core 中网络的中断性变更。
 ms.date: 05/05/2020
-ms.openlocfilehash: fa5807c882c3bc6f66e8a27361ccc14254e90b3e
-ms.sourcegitcommit: e7acba36517134238065e4d50bb4a1cfe47ebd06
+ms.openlocfilehash: fdbd3f3bdcae5048b4f01e4d827f8a0e876c5c15
+ms.sourcegitcommit: 39b1d5f2978be15409c189a66ab30781d9082cd8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89465504"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92050504"
 ---
 # <a name="networking-breaking-changes"></a>网络中断性变更
 
@@ -15,6 +15,8 @@ ms.locfileid: "89465504"
 
 | 重大更改 | 引入的版本 |
 | - | - |
+| [NegotiateStream 和 SslStream 允许连续的“开始”操作](#negotiatestream-and-sslstream-allow-successive-begin-operations) | 5.0 |
+| [调用 SendToAsync 后更新 Socket.LocalEndPoint](#socketlocalendpoint-is-updated-after-calling-sendtoasync) | 5.0 |
 | [已从 .NET 运行时中删除 WinHttpHandler](#winhttphandler-removed-from-net-runtime) | 5.0 |
 | [MulticastOption.Group 不接受 Null 值](#multicastoptiongroup-doesnt-accept-a-null-value) | 5.0 |
 | [Cookie 路径处理现在符合 RFC 6265](#cookie-path-handling-now-conforms-to-rfc-6265) | 5.0 |
@@ -22,6 +24,14 @@ ms.locfileid: "89465504"
 | [WebClient.CancelAsync 并不总是立即取消](#webclientcancelasync-doesnt-always-cancel-immediately) | 2.0 |
 
 ## <a name="net-50"></a>.NET 5.0
+
+[!INCLUDE [negotiatestream-sslstream-dont-fail-on-successive-begin-calls](../../../includes/core-changes/networking/5.0/negotiatestream-sslstream-dont-fail-on-successive-begin-calls.md)]
+
+***
+
+[!INCLUDE [localendpoint-updated-on-sendtoasync](../../../includes/core-changes/networking/5.0/localendpoint-updated-on-sendtoasync.md)]
+
+***
 
 [!INCLUDE [winhttphandler-removed-from-runtime](../../../includes/core-changes/networking/5.0/winhttphandler-removed-from-runtime.md)]
 

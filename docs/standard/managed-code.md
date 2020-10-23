@@ -4,18 +4,18 @@ description: 了解托管代码为何是其执行由运行时（公共语言运�
 ms.date: 06/20/2016
 ms.technology: dotnet-standard
 ms.assetid: 20bb7ea8-192e-4a96-8ef3-e10e1950fd3d
-ms.openlocfilehash: 2d89fd48e4c05dc7ec7c27846a3580ee36b1886f
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 950dd5c32663b0716247c2a31a2f729fcf85f97b
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84290079"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92163098"
 ---
 # <a name="what-is-managed-code"></a>什么是“托管代码”？
 
-使用 .NET Framework 时，我们经常会遇到“托管代码”这个术语。 本文档解释这个术语的含义及其更多相关信息。
+使用 .NET 时，我们经常会遇到“托管代码”这个术语。 本文档解释这个术语的含义及其更多相关信息。
 
-简而言之，托管代码就是执行过程交由运行时管理的代码。 在这种情况下，相关的运行时称为**公共语言运行时** (CLR)，不管使用的是哪种实现（[Mono](https://www.mono-project.com/)、.NET Framework 或.NET Core）。 CLR 负责提取托管代码、将其编译成机器代码，然后执行它。 除此之外，运行时还提供多个重要服务，例如自动内存管理、安全边界、类型安全，等等。
+简而言之，托管代码就是执行过程交由运行时管理的代码。 在这种情况下，相关的运行时称为公共语言运行时 (CLR)，不管使用的是哪种实现（例如 [Mono](https://www.mono-project.com/)、.NET Framework 或 .NET Core/.NET 5+）。 CLR 负责提取托管代码、将其编译成机器代码，然后执行它。 除此之外，运行时还提供多个重要服务，例如自动内存管理、安全边界、类型安全，等等。
 
 相反，如果运行 C/C++ 程序，则运行的代码也称为“非托管代码”。 在非托管环境中，程序员需要亲自负责处理相当多的事情。 实际的程序在本质上是操作系统 (OS) 载入内存，然后启动的二进制代码。 其他任何工作 - 从内存管理到安全考虑因素 - 对于程序员来说是一个不小的负担。
 

@@ -2,12 +2,12 @@
 title: 基类库的重大更改
 description: 列出核心 .NET 库中的重大更改。
 ms.date: 07/27/2020
-ms.openlocfilehash: d4deef295479b1f32bd72a69369a11c7375835f4
-ms.sourcegitcommit: b59237ca4ec763969a0dd775a3f8f39f8c59fe24
+ms.openlocfilehash: 3ecf0e81a3adef097aafb760dc44498d7263f0b6
+ms.sourcegitcommit: 39b1d5f2978be15409c189a66ab30781d9082cd8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91955548"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92050555"
 ---
 # <a name="core-net-libraries-breaking-changes"></a>核心 .NET 库重大更改
 
@@ -17,6 +17,7 @@ ms.locfileid: "91955548"
 
 | 重大更改 | 引入的版本 |
 | - | :-: |
+| [FrameworkDescription 的值是 .NET 而不是 .NET Core](#frameworkdescriptions-value-is-net-instead-of-net-core) | 5.0 |
 | [针对单个文件发布格式的与程序集相关的 API 行为更改](#assembly-related-api-behavior-changes-for-single-file-publishing-format) | 5.0 |
 | [ 中的标记顺序是相反的](#order-of-tags-in-activitytags-is-reversed) | 5.0 |
 | [RC1 中的参数名称已更改](#parameter-names-changed-in-rc1) | 5.0 |
@@ -57,6 +58,10 @@ ms.locfileid: "91955548"
 | [Process.StartInfo 对未启动的进程引发 InvalidOperationException](#processstartinfo-throws-invalidoperationexception-for-processes-you-didnt-start) | 1.0 |
 
 ## <a name="net-50"></a>.NET 5.0
+
+[!INCLUDE [frameworkdescription-returns-net-not-net-core](../../../includes/core-changes/corefx/5.0/frameworkdescription-returns-net-not-net-core.md)]
+
+***
 
 [!INCLUDE [assembly-api-behavior-changes-for-single-file-publish](../../../includes/core-changes/corefx/5.0/assembly-api-behavior-changes-for-single-file-publish.md)]
 

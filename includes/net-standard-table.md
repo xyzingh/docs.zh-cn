@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: 9e95db8a1530fabd30b5344c87728b9210c0ad69
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.openlocfilehash: 72b371dc2a6475efa2e0353f87dbdfa96c4c7c0e
+ms.sourcegitcommit: 39b1d5f2978be15409c189a66ab30781d9082cd8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2020
-ms.locfileid: "74802842"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92050386"
 ---
 | .NET Standard              | [1.0]  | [1.1]  | [1.2] | [1.3] | [1.4] | [1.5]              | [1.6]              | [2.0]               | [2.1] |
 |----------------------------|--------|--------|-------|-------|-------|--------------------|--------------------|---------------------|---------------------
-| .NET Core                  | 1.0    | 1.0    | 1.0   | 1.0   | 1.0   | 1.0                | 1.0                | 2.0                 | 3.0 |
+| .NET Core 和 .NET 5       | 1.0    | 1.0    | 1.0   | 1.0   | 1.0   | 1.0                | 1.0                | 2.0                 | 3.0 |
 | .NET Framework <sup>1</sup>| 4.5    | 4.5    | 4.5.1 | 4.6   | 4.6.1 | 4.6.1 <sup>2</sup> | 4.6.1 <sup>2</sup> | 4.6.1 <sup>2</sup>  | N/A<sup>3</sup> |
 | Mono                       | 4.6    | 4.6    | 4.6   | 4.6   | 4.6   | 4.6                | 4.6                | 5.4                 | 6.4 |
 | Xamarin.iOS                | 10.0   | 10.0   | 10.0  | 10.0  | 10.0  | 10.0               | 10.0               | 10.14               | 12.16 |
@@ -21,7 +21,7 @@ ms.locfileid: "74802842"
 
 <sup>2 此处所列的版本表示 NuGet 用于确定给定 .NET Standard 库是否适用的规则。虽然 NuGet 将 .NET Framework 4.6.1 视为支持 .NET Standard 1.5 到 2.0，但使用为从 .NET Framework 4.6.1 项目构建的 .NET Standard 库存在一系列问题。对于需要使用此类库的 .NET Framework 项目，建议将项目升级到面向 .NET Framework 4.7.2 或更高版本。</sup>
 
-<sup>3 .NET Framework 不支持 .NET Standard 2.1 或更高版本。有关更多详细信息，请参阅 [.NET Standard 2.1 公告](https://devblogs.microsoft.com/dotnet/announcing-net-standard-2-1/)。</sup>
+<sup>3 .NET Framework 不支持 .NET Standard 2.1。有关详细信息，请参阅 [.NET Standard 2.1 公告](https://devblogs.microsoft.com/dotnet/announcing-net-standard-2-1/)。</sup>
 
 - 列表示 .NET Standard 版本。 每个标题单元格都是一个文档链接，其中介绍了相应版本的 .NET Standard 中新增了哪些 API。
 - 行表示不同的 .NET 实现。

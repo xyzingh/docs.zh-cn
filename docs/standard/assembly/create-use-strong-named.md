@@ -7,18 +7,18 @@ helpviewer_keywords:
 - strong-named assemblies, about strong-named assemblies
 - strong-named assemblies
 - signing assemblies
-- assemblies [.NET Framework], signing
+- assemblies [.NET], signing
 - strong-named assemblies, scenarios
-- assemblies [.NET Framework], strong-named
+- assemblies [.NET], strong-named
 - strong-named assemblies, loading into trusted application domains
 - assembly binding, strong-named
 ms.assetid: ffbf6d9e-4a88-4a8a-9645-4ce0ee1ee5f9
-ms.openlocfilehash: 79c8cf2c21210fd80392a8aacf92840c11a36e43
-ms.sourcegitcommit: d6bd7903d7d46698e9d89d3725f3bb4876891aa3
+ms.openlocfilehash: 1d87edde97e77011b678662f61500c7acd8293b0
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83378522"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92162708"
 ---
 # <a name="create-and-use-strong-named-assemblies"></a>创建和使用具有强名称的程序集
 
@@ -46,7 +46,7 @@ ms.locfileid: "83378522"
 
 3. 程序集 B 是程序集 A 的一个使用者。程序集 B 清单的引用部分包含表示程序集 A 公钥的标记。 标记是完整公钥的一部分，并且使用它而不是密钥本身以节省空间。
 
-4. 当程序集放置在全局程序集缓存中时，公共语言运行时验证强名称签名。 在运行时按强名称绑定时，公共语言运行时会将存储在程序集 B 的清单中的密钥与为程序集 A 生成强名称的密钥进行比较。如果 .NET Framework 安全检查通过且绑定成功，程序集 B 就可保证程序集 A 的位未被篡改，且这些位确实来自程序集 A 的开发人员。
+4. 当程序集放置在全局程序集缓存中时，公共语言运行时验证强名称签名。 在运行时按强名称绑定时，公共语言运行时会将存储在程序集 B 的清单中的密钥与为程序集 A 生成强名称的密钥进行比较。如果 .NET 安全检查通过且绑定成功，程序集 B 就可保证程序集 A 的位未被篡改，且这些位确实来自程序集 A 的开发人员。
 
 > [!NOTE]
 > 此方案不解决信任问题。 除强名称外，程序集可携带完整的 Microsoft Authenticode 签名。 Authenticode 签名包括建立信任的证书。 请务必注意强名称不要求代码以这种方式进行签名。 强名称仅提供唯一的标识。

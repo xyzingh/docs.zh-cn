@@ -1,14 +1,14 @@
 ---
 title: .NET 术语表
 description: 了解 .NET 文档中所用的选定术语的含义。
-ms.date: 01/22/2019
+ms.date: 10/13/2020
 ms.technology: dotnet-standard
-ms.openlocfilehash: b79580baa12cc8081346678f06d49a9d0455375c
-ms.sourcegitcommit: b1f4756120deaecb8b554477bb040620f69a4209
+ms.openlocfilehash: 1d9330b68f80da934777cb3aee6d2b3cb52c8256
+ms.sourcegitcommit: 39b1d5f2978be15409c189a66ab30781d9082cd8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89415003"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92050339"
 ---
 # <a name="net-glossary"></a>.NET 术语表
 
@@ -21,6 +21,18 @@ ms.locfileid: "89415003"
 与 [JIT](#jit) 类似，此编译器还可将 [IL](#il) 转换为机器代码。 与 JIT 编译相比，AOT 编译在应用程序执行前进行并且通常在不同计算机上执行。 AOT 工具不会在运行时进行编译，因此它们不需要最大程度地减少编译所花费的时间。 这意味着它们可花更多的时间进行优化。 由于 AOT 的上下文是整个应用程序，因此 AOT 编译器还会执行跨模块链接和全程序分析，这意味着之后会进行所有引用并会生成单个可执行文件。
 
 请参阅 [CoreRT](#corert) 和 [.NET Native](#net-native)。
+
+## <a name="app-model"></a>应用模型
+
+特定于[工作负载](#workload)的 API。 下面是一些示例：
+
+* ASP.NET
+* ASP.NET Web API
+* 实体框架 (EF)
+* Windows Presentation Foundation (WPF)
+* Windows Communication Foundation (WCF)
+* Windows Workflow Foundation (WF)
+* Windows 窗体 (WinForms)
 
 ## <a name="aspnet"></a>ASP.NET
 
@@ -291,6 +303,12 @@ NuGet 包 &mdash; 或只是一个包 &mdash; 是一个 .zip 文件，其中具�
 通用 Windows 平台。
 
 用于为物联网 (IoT) 生成新式触控 Windows 应用程序和软件的 .NET 实现。 它旨在统一可能想要以其为目标的不同类型的设备，包括电脑、平板电脑、电话，甚至 Xbox。 UWP 提供许多服务，如集中式应用商店、执行环境 (AppContainer) 和一组 Windows API（用于代替 Win32 (WinRT)）。 应用可采用 C++、C#、Visual Basic 和 JavaScript 编写。 使用 C# 和 Visual Basic 时，.NET API 由 .NET 5（和 .NET Core）及更高版本提供。
+
+## <a name="workload"></a>workload
+
+某人正在构建的一种类型的应用。 比[应用模型](#app-model)更通用。 例如，在每个 .NET 文档页（包括此页）的顶部都有一个“工作负载”下拉列表，你可以通过该列表切换到针对“Web”、“移动”、“云”、“桌面”和“机器学习 \& 数据”的文档     。
+
+在某些上下文中，工作负载是指 Visual Studio 功能的集合，可以选择安装这些功能以支持特定类型的应用。 有关示例，请参阅[选择工作负载](../core/install/windows.md#select-a-workload)。
 
 ## <a name="see-also"></a>请参阅
 

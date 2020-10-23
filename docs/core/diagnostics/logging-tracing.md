@@ -1,13 +1,13 @@
 ---
 title: 日志记录和跟踪 - .NET Core
 description: .NET Core 日志记录和跟踪简介。
-ms.date: 08/05/2019
-ms.openlocfilehash: 392b88c9ea3c31c919a605ac0a5c886f7d63f79a
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.date: 10/12/2020
+ms.openlocfilehash: 33c78ecc839b552267ad43dd00b7d627e756a939
+ms.sourcegitcommit: e078b7540a8293ca1b604c9c0da1ff1506f0170b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "75714412"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997692"
 ---
 # <a name="net-core-logging-and-tracing"></a>.NET Core 日志记录和跟踪
 
@@ -78,10 +78,10 @@ ms.locfileid: "75714412"
 
 <xref:Microsoft.Extensions.Logging.ILogger> 接口已用于创建一个公共日志记录接口，可在其中通过依赖项注入插入记录器。
 
-例如，为了使你能够为应用程序做出最佳选择，`ASP.NET` 为选择的内置和第三方框架提供支持：
+例如，为了使你能够为应用程序做出最佳选择，.NET 提供了对选择的内置和第三方框架的支持：
 
-- [ASP.NET 内置日志记录提供程序](/aspnet/core/fundamentals/logging/#built-in-logging-providers)
-- [ASP.NET 第三方日志记录提供程序](/aspnet/core/fundamentals/logging/#third-party-logging-providers)
+- [.NET 内置日志记录提供程序](../extensions/logging-providers.md#built-in-logging-providers)
+- [.NET 第三方日志记录提供程序](../extensions/logging-providers.md#third-party-logging-providers)
 
 ## <a name="logging-related-references"></a>与日志记录相关的引用
 
@@ -89,7 +89,7 @@ ms.locfileid: "75714412"
 
 - [如何：向应用程序代码添加跟踪语句](../../framework/debug-trace-profile/how-to-add-trace-statements-to-application-code.md)
 
-- [ASP.NET 日志记录](/aspnet/core/fundamentals/logging)提供它所支持的日志记录技术的概述。
+- [.NET 中的日志记录](../extensions/logging.md)提供它所支持的日志记录技术的概述。
 
 - [C# 字符串内插](../../csharp/language-reference/tokens/interpolated.md)可以简化日志记录代码的编写。
 

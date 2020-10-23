@@ -3,12 +3,12 @@ title: 可为空引用类型
 description: 本文概述了在 C# 8.0 中添加的可为空引用类型。 你将了解该功能如何为新项目和现有项目提供针对空引用异常的安全性。
 ms.technology: csharp-null-safety
 ms.date: 04/21/2020
-ms.openlocfilehash: 6d068760805a21e41712a4f70735bef41ce2052f
-ms.sourcegitcommit: b16c00371ea06398859ecd157defc81301c9070f
+ms.openlocfilehash: 9c253d02c287d7a113536ac148b352486d450cc2
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84446667"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92160875"
 ---
 # <a name="nullable-reference-types"></a>可为空引用类型
 
@@ -124,6 +124,84 @@ name!.Length;
 ## <a name="attributes-describe-apis"></a>属性描述 API
 
 可以向 API 添加属性，以向编译器提供有关参数或返回值何时可以为 null 或不可为 null 的更多信息。 可在涉及[可为 null 属性](language-reference/attributes/nullable-analysis.md)的语言参考中的文章中了解有关这些属性的更多信息。 这些属性将通过当前和即将发布的版本添加到 .NET 库中。 首先更新最常用的 API。
+
+## <a name="known-pitfalls"></a>已知缺陷
+
+包含引用类型的数组和结构是可为 null 的引用类型功能中的已知缺陷。
+
+### <a name="structs"></a>结构
+
+包含不可为 null 的引用类型的结构允许为其分配 `default`，而不会出现任何警告。 请考虑以下示例：
+
+```csharp
+using System;
+
+#nullable enable
+
+public struct Student
+{
+    public string FirstName;
+    public string? MiddleName;
+    public string LastName;
+}
+
+public static class Program
+{
+    public static void PrintStudent(Student student)
+    {
+        Console.WriteLine($"First name: {student.FirstName.ToUpper()}");
+        Console.WriteLine($"Middle name: {student.MiddleName.ToUpper()}");
+        Console.WriteLine($"Last name: {student.LastName.ToUpper()}");
+    }
+
+    public static void Main() => PrintStudent(default);
+}
+```
+
+在前面的示例中，不可为 null 的引用类型 `FirstName` 和 `LastName` 为 null 时，`PrintStudent(default)` 中未出现警告。
+
+另一种较为常见的情况是处理泛型结构。 请考虑以下示例：
+
+```csharp
+#nullable enable
+
+public struct Foo<T>
+{
+    public T Bar { get; set; }
+}
+
+public static class Program
+{
+    public static void Main()
+    {
+        string s = default(Foo<string>).Bar;
+    }
+}
+```
+
+在前面的示例中，属性 `Bar` 在运行时将为 `null`，并被分配给不可为 null 的字符串，而未出现任何警告。
+
+### <a name="arrays"></a>数组
+
+数组也是可为 null 的引用类型中的已知缺陷。 请考虑以下示例，该示例不会生成任何警告：
+
+```csharp
+using System;
+
+#nullable enable
+
+public static class Program
+{
+    public static void Main()
+    {
+        string[] values = new string[10];
+        string s = values[0];
+        Console.WriteLine(s.ToUpper());
+    }
+}
+```
+
+在前面的示例中，数组的声明显示它保留不可为 null 的字符串，而其元素都已初始化为 null。 然后，为变量 `s` 分配一个 null 值（数组的第一个元素）。 最后，取消引用变量 `s`，从而导致运行时异常。
 
 ## <a name="see-also"></a>请参阅
 

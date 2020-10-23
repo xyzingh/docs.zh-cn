@@ -3,12 +3,12 @@ title: 什么是模型生成器，它的工作原理是怎样的？
 description: 如何使用 ML.NET 模型生成器自动训练机器学习模型
 ms.date: 06/01/2020
 ms.custom: overview, mlnet-tooling
-ms.openlocfilehash: 80f5f5d064c4e0c4097dacc6022d4624c1516ab9
-ms.sourcegitcommit: aa6d8a90a4f5d8fe0f6e967980b8c98433f05a44
+ms.openlocfilehash: da6348fb5dde83827558b66b6115d681f08948db
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90679672"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92161135"
 ---
 # <a name="what-is-model-builder-and-how-does-it-work"></a>什么是模型生成器，它的工作原理是怎样的？
 
@@ -54,9 +54,15 @@ ML.NET 模型生成器是一个直观的图形化 Visual Studio 扩展，用于�
 
 #### <a name="image-classification"></a>图像分类
 
-图像分类可用于标识不同类别的图像。 例如，不同类型的地形或动物或制造缺陷。
+图像分类用于标识不同类别的图像。 例如，不同类型的地形或动物或制造缺陷。
 
 如果你有一组图像，并且想要将图像分为不同的类别，则可以使用图像分类方案。
+
+#### <a name="object-detection"></a>对象检测
+
+对象检测用于定位图像中的实体并对其进行分类。  例如，定位和识别图像中的汽车和人。
+
+如果图像包含多个不同类型的对象，可使用对象检测。
 
 #### <a name="recommendation"></a>建议
 
@@ -66,13 +72,15 @@ ML.NET 模型生成器是一个直观的图形化 Visual Studio 扩展，用于�
 
 ## <a name="environment"></a>环境
 
-可以在本地计算机上或在 Azure 上的云中训练机器学习模型。
+可以在本地计算机上或在 Azure 上的云中训练机器学习模型，具体取决于相应方案。
 
 在本地训练模型时，你将在计算机资源（CPU、内存和磁盘）的约束下工作。 在云中训练模型时，你可以扩展资源来满足你的方案的需求，尤其是对于大型数据集。
 
-所有方案都支持本地训练。
+除对象检测外，所有方案都支持本地 CPU 训练。
 
-图像分类支持 Azure 训练。
+图像分类支持本地 GPU 训练。
+
+图像分类和对象检测支持 Azure 训练。
 
 ## <a name="data"></a>数据
 

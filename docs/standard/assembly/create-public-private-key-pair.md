@@ -5,7 +5,7 @@ ms.date: 08/20/2019
 helpviewer_keywords:
 - key pairs for strong-named assemblies
 - signing assemblies
-- assemblies [.NET Framework], signing
+- assemblies [.NET], signing
 - cryptographic key pairs
 - snk files (key pair files)
 - public-private key pairs
@@ -16,12 +16,12 @@ dev_langs:
 - csharp
 - vb
 - cpp
-ms.openlocfilehash: 675871170e7fd4171f0fe09b04d1dbb8906beda4
-ms.sourcegitcommit: d6bd7903d7d46698e9d89d3725f3bb4876891aa3
+ms.openlocfilehash: c42e98a7e27ded9a21445fae35ade843e834076a
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83378555"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92163488"
 ---
 # <a name="how-to-create-a-public-private-key-pair"></a>如何：创建公钥/私钥对
 
@@ -34,7 +34,7 @@ ms.locfileid: "83378555"
 
 要创建密钥对，请在命令提示符处键入以下命令：
 
-sn –k file name\<>
+sn –k \<*file name*>
 
 此命令中，“文件名”是包含密钥对的输出文件的名称。
 

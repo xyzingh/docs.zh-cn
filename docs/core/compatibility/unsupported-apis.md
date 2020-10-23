@@ -1,25 +1,25 @@
 ---
-title: .NET Core 上不支持的 API
+title: .NET Core 和 .NET 5+ 上不支持的 API
 titleSuffix: ''
-description: 了解 .NET Framework 中始终在 .NET Core 上引发异常的 API。
-ms.date: 12/23/2019
-ms.openlocfilehash: 94f334d7e4b7daf407f489ba274172ced9eefa81
-ms.sourcegitcommit: b1f4756120deaecb8b554477bb040620f69a4209
+description: 了解哪些 .NET API 始终在 .NET Core 和 .NET 5.0 及更高版本上引发异常。
+ms.date: 10/13/2020
+ms.openlocfilehash: 0164ebff51de82d548a02f9fde754c1052a9c2b5
+ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414430"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92159334"
 ---
-# <a name="apis-that-always-throw-exceptions-on-net-core"></a>始终在 .NET Core 上引发异常的 API
+# <a name="apis-that-always-throw-exceptions-on-net-core-and-net-5"></a>始终在 .NET Core 和 .NET 5+ 上引发异常的 API
 
-以下 API 将始终在所有或部分平台上的 .NET Core 中引发 <xref:System.PlatformNotSupportedException>。
+以下 API 将始终在所有或部分平台上的 .NET 5.0 及更高版本（包括所有 .NET Core 版本）中引发 <xref:System.PlatformNotSupportedException>。
 
-本文按命名空间组织受影响的 API 成员。
+本文按命名空间组织受影响的 API。
 
 > [!NOTE]
 >
-> - 本文是当前正在进行的工作。 它不是在 .NET Core 上引发异常的 API 的完整列表。
-> - 本文不包括在 .NET Core 上引发的二进制序列化的显式接口实现。 有关详细信息，请参阅 [.NET Core 中的二进制序列化](../../standard/serialization/binary-serialization.md#net-core)。
+> - 本文是当前正在进行的工作。 它不是在 .NET 5+ 上引发异常的 API 的完整列表。
+> - 本文不包括在 .NET 5+ 上引发的二进制序列化的显式接口实现。 有关详细信息，请参阅 [.NET Core 中的二进制序列化](../../standard/serialization/binary-serialization.md#net-core)。
 
 ## <a name="system"></a>系统
 

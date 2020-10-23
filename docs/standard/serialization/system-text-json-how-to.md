@@ -1,7 +1,7 @@
 ---
 title: 如何使用 C# 对 JSON 进行序列化和反序列化 - .NET
-description: 本文演示如何使用 System.Text.Json 命名空间在 .NET 中对 JSON 进行序列化和反序列化。 文中包含示例代码。
-ms.date: 05/13/2020
+description: 了解如何使用 System.Text.Json 命名空间在 .NET 中向/从 JSON 进行序列化和反序列化。 文中包含示例代码。
+ms.date: 10/09/2020
 no-loc:
 - System.Text.Json
 - Newtonsoft.Json
@@ -10,16 +10,16 @@ helpviewer_keywords:
 - serializing objects
 - serialization
 - objects, serializing
-ms.openlocfilehash: 72ba79784d3eb1beb43eab8db0a448a7e3b18eb6
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 0fda248b7d2e5a7cfa748447d0265565cb160b7e
+ms.sourcegitcommit: e078b7540a8293ca1b604c9c0da1ff1506f0170b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90557835"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997781"
 ---
 # <a name="how-to-serialize-and-deserialize-marshal-and-unmarshal-json-in-net"></a>如何在 .NET 中对 JSON 进行序列化和反序列化（封送和拆收）
 
-本文演示如何使用 <xref:System.Text.Json> 命名空间对 JavaScript 对象表示法 (JSON) 进行序列化和反序列化。 如果要从 `Newtonsoft.Json` 移植现有代码，请参阅[如何迁移到 `System.Text.Json`](system-text-json-migrate-from-newtonsoft-how-to.md)。
+本文演示如何使用 <xref:System.Text.Json?displayProperty=fullName> 命名空间向/从 JavaScript 对象表示法 (JSON) 进行序列化和反序列化。 如果要从 `Newtonsoft.Json` 移植现有代码，请参阅[如何迁移到 `System.Text.Json`](system-text-json-migrate-from-newtonsoft-how-to.md)。
 
 方向和示例代码直接使用库，而不是通过框架（如 [ASP.NET Core](/aspnet/core/)）。
 
@@ -62,9 +62,12 @@ using System.Text.Json.Serialization;
 
 ### <a name="serialization-example"></a>序列化示例
 
-下面是包含集合和嵌套类的示例类：
+下面是一个包含集合类型属性和用户定义类型的示例类：
 
 [!code-csharp[](snippets/system-text-json-how-to/csharp/WeatherForecast.cs?name=SnippetWFWithPOCOs)]
+
+> [!TIP]
+> “POCO”代表[普通旧 CLR 对象](https://en.wikipedia.org/wiki/Plain_old_CLR_object)。 POCO 是一种 .NET 类型，它不通过继承或特性等依赖于任何框架特定类型。
 
 序列化以上类型的实例的 JSON 输出类似于下面的示例。 默认情况下，JSON 输出会缩小：
 
@@ -72,7 +75,7 @@ using System.Text.Json.Serialization;
 {"Date":"2019-08-01T00:00:00-07:00","TemperatureCelsius":25,"Summary":"Hot","DatesAvailable":["2019-08-01T00:00:00-07:00","2019-08-02T00:00:00-07:00"],"TemperatureRanges":{"Cold":{"High":20,"Low":-10},"Hot":{"High":60,"Low":20}},"SummaryWords":["Cool","Windy","Humid"]}
 ```
 
-下面的示例演示进行了格式设置的相同 JSON（即，使用空格和缩进进行优质打印）：
+下面的示例演示相同的 JSON，但进行了格式设置（即，具有空格和缩进的优质打印版本）：
 
 ```json
 {
@@ -123,7 +126,7 @@ using System.Text.Json.Serialization;
 支持的类型包括：
 
 * 映射到 JavaScript 基元的 .NET 基元，如数值类型、字符串和布尔。
-* 用户定义的 [普通旧 CLR 对象 (POCO)](https://stackoverflow.com/questions/250001/poco-definition)。
+* 用户定义的[普通旧 CLR 对象 (POCO)](https://en.wikipedia.org/wiki/Plain_old_CLR_object)。
 * 一维和交错数组 (`ArrayName[][]`)。
 * `Dictionary<string,TValue>`其中 `TValue` 是 `object`、`JsonElement` 或 POCO。
 * 以下命名空间中的集合。
@@ -137,7 +140,7 @@ using System.Text.Json.Serialization;
 
 若要从字符串或文件进行反序列化，请调用 <xref:System.Text.Json.JsonSerializer.Deserialize%2A?displayProperty=nameWithType> 方法。
 
-下面的示例从字符串读取 JSON，并创建前面为[序列化示例](#serialization-example)显示的 `WeatherForecast` 类的实例：
+下面的示例从字符串读取 JSON，并创建前面为[序列化示例](#serialization-example)显示的 `WeatherForecastWithPOCOs` 类的实例：
 
 [!code-csharp[](snippets/system-text-json-how-to/csharp/RoundtripToString.cs?name=SnippetDeserialize)]
 
@@ -159,9 +162,13 @@ using System.Text.Json.Serialization;
 
 ## <a name="deserialization-behavior"></a>反序列化行为
 
+对 JSON 进行反序列化时，以下行为适用：
+
 * 默认情况下，属性名称匹配区分大小写。 可以[指定不区分大小写](#case-insensitive-property-matching)。
 * 如果 JSON 包含只读属性的值，则会忽略该值，并且不引发异常。
-* 不支持在不使用无参数构造函数的情况下反序列化为引用类型。
+* 用于反序列化的构造函数：
+  - 在 .NET Core 3.0 和 3.1 上，无参数构造函数（可以是公共的、内部的或专用的）用于反序列化。
+  - 在 .NET 5.0 和更高版本中，序列化程序会忽略非公共构造函数。 但是，如果无参数构造函数不可用，则可以使用参数化构造函数。
 * 不支持反序列化为不可变对象或只读属性。
 * 默认情况下，支持将枚举作为数字。 可以[将枚举名称序列化为字符串](#enums-as-strings)。
 * 不支持字段。
