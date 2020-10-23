@@ -3,12 +3,12 @@ title: 关系与NoSQL 数据
 description: 了解云本机应用程序中的关系数据和 NoSQL 数据
 author: robvet
 ms.date: 05/17/2020
-ms.openlocfilehash: 6e7725c2d67452218d1c6bda89c2fec6aa4a2b96
-ms.sourcegitcommit: 5b475c1855b32cf78d2d1bbb4295e4c236f39464
+ms.openlocfilehash: 11db5cdca06b9c2c8ce12598456c4b147ac379ba
+ms.sourcegitcommit: 98d20cb038669dca4a195eb39af37d22ea9d008e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91163630"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92434869"
 ---
 # <a name="relational-vs-nosql-data"></a>关系与NoSQL 数据
 
@@ -30,7 +30,7 @@ NoSQL 数据库包含用于访问和管理数据的多个不同的模型，每�
 | :-------- | :-------- |
 | 文档存储 | 数据和元数据以分层形式存储在数据库中基于 JSON 的文档中。 |
 | 键值存储 | 最简单的 NoSQL 数据库数据以键值对的集合表示。 |
-| 宽列存储 | 相关数据以一组嵌套键/值对的形式存储在单个列中。 |
+| Wide-Column 存储 | 相关数据以一组嵌套键/值对的形式存储在单个列中。 |
 | 图形存储 | 数据作为节点、边缘和数据属性存储在图形结构中。 |
 
 ## <a name="the-cap-theorem"></a>CAP 定理
@@ -65,7 +65,7 @@ NoSQL 数据库通常支持高可用性和分区容差。 它们通常跨商用�
 
 高可用性和巨大的可伸缩性通常比强一致性更为重要。 开发人员可以实现多种方法和模式，如 Sagas、CQRS 和异步消息传递，以实现最终一致性。
 
-> 如今，conidering 上限定理约束时必须小心谨慎。 新类型的数据库（称为 NewSQL）已发生，它扩展了关系数据库引擎，以支持 NoSQL 系统的水平可扩展性和可缩放的性能。
+> 如今，在考虑 CAP 定理约束时必须小心谨慎。 新类型的数据库（称为 NewSQL）已发生，它扩展了关系数据库引擎，以支持 NoSQL 系统的水平可扩展性和可缩放的性能。
 
 ## <a name="considerations-for-relational-vs-nosql-systems"></a>关系与 NoSQL 系统的注意事项
 
@@ -107,7 +107,7 @@ NoSQL 数据库通常支持高可用性和分区容差。 它们通常跨商用�
 这些功能对于预配大量数据库的组织尤其重要，但对于管理这些数据库的资源有限。
 通过选择处理核心、内存和基础存储量，你可以在数分钟内预配 Azure 数据库。 你可以动态缩放数据库，并动态调整资源，只需很少的停机时间。
 
-## <a name="azure-sql-database"></a>Azure SQL Database
+## <a name="azure-sql-database"></a>Azure SQL 数据库
 
 Microsoft SQL Server 的专业技能的开发团队应考虑 [AZURE SQL 数据库](/azure/sql-database/)。 这是一种完全托管的关系数据库即服务 (DBaaS) 基于 Microsoft SQL Server 的数据库引擎。 该服务共享 SQL Server 的本地版本中发现的许多功能，并运行 SQL Server 数据库引擎的最新稳定版本。
 
@@ -131,7 +131,7 @@ Microsoft SQL Server 的专业技能的开发团队应考虑 [AZURE SQL 数据�
 
 ### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
 
-[MySQL](https://en.wikipedia.org/wiki/MySQL)  是一个开源关系数据库和一个支柱，适用于在[灯泡软件堆栈](https://en.wikipedia.org/wiki/LAMP_(software_bundle))上构建的应用程序。 广泛地选择用于 *读取繁重* 的工作负荷，许多大型组织（包括 Facebook、Twitter 和 YouTube）都将使用它。 社区版免费提供，而 enterprise edition 需要购买许可证。 最初在1995中创建，该产品由的 Sun 2008 Microsystems 购买。 Oracle 在2010中获取 Sun 和 MySQL。
+[MySQL](https://en.wikipedia.org/wiki/MySQL) 是一种开源关系数据库，是针对 [灯泡软件堆栈](https://en.wikipedia.org/wiki/LAMP_(software_bundle))构建的应用程序的支柱。 广泛地选择用于 *读取繁重* 的工作负荷，许多大型组织（包括 Facebook、Twitter 和 YouTube）都将使用它。 社区版免费提供，而 enterprise edition 需要购买许可证。 最初在1995中创建，该产品由的 Sun 2008 Microsystems 购买。 Oracle 在2010中获取 Sun 和 MySQL。
 
 [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) 是基于开源 MySQL Server 引擎的托管关系数据库服务。 它使用 MySQL 社区版。 Azure MySQL 服务器是服务的管理点。 它是用于本地部署的相同 MySQL 服务器引擎。 引擎可以为每个服务器创建一个数据库，也可以为每个共享资源的服务器创建多个数据库。 您可以使用相同的开源工具继续管理数据，而不必学习新技能或管理虚拟机。
 
@@ -228,7 +228,7 @@ Azure Cosmos DB 提供了五个明确定义的 [一致性模型](/azure/cosmos-d
 
  利用这些选项，您可以针对数据的一致性、可用性和性能做出精确的选择和细化的权衡。 下表中显示了这些级别。
 
-| 一致性级别 | 描述  |
+| 一致性级别 | 说明  |
 | :-------- | :-------- |
 | 最终 | 不保证读取的顺序。 副本最终将聚合。 |
 | 常量前缀 | 读取仍是最终的，但会按写入数据的顺序返回数据。 |
@@ -258,7 +258,7 @@ Azure Cosmos DB 采用自动 [分区](/azure/cosmos-db/partitioning-overview) �
 
 ## <a name="newsql-databases"></a>NewSQL 数据库
 
-*NewSQL*  是一种新兴数据库技术，它结合了 NoSQL 的分布式可扩展性和关系数据库的 ACID 保证。 NewSQL 数据库对于必须在跨分布式环境中处理大量数据的业务系统非常重要，具有完整的事务性支持和 ACID 遵从性。 虽然 NoSQL 数据库可以提供巨大的可伸缩性，但它不保证数据一致性。 不一致数据的间歇问题会给开发团队带来负担。 开发人员必须在其微服务代码中构建安全措施，以管理由不一致数据导致的问题。
+*NewSQL* 是一种新兴的数据库技术，它结合了 NoSQL 的分布式可扩展性与关系型数据库的 ACID 保证。 NewSQL 数据库对于必须在跨分布式环境中处理大量数据的业务系统非常重要，具有完整的事务性支持和 ACID 遵从性。 虽然 NoSQL 数据库可以提供巨大的可伸缩性，但它不保证数据一致性。 不一致数据的间歇问题会给开发团队带来负担。 开发人员必须在其微服务代码中构建安全措施，以管理由不一致数据导致的问题。
 
 云本机计算基础 (CNCF) 功能 NewSQL 多个数据库项目。
 
@@ -279,13 +279,13 @@ Kubernetes 使用 *服务构造* 来允许客户端从单个 DNS 条目寻址一
 
 在这种情况下，所有数据库实例都相等。 没有主要关系或次要关系。 CockroachDB 中的 *共识复制* 等技术允许任何数据库节点处理任何请求。 如果接收负载平衡请求的节点在本地具有所需的数据，则该节点会立即响应。 如果不是，则该节点将成为网关，并将请求转发到相应的节点以获得正确的答案。 从客户端的角度来看，每个数据库节点都是相同的：它们显示为单一的 *逻辑* 数据库，具有单计算机系统的一致性保证，尽管在幕后甚至有数百个节点在幕后工作。
 
-有关 NewSQL 数据库背后的机制的详细信息，请参阅 [Kubernetes-本机数据库的四个属性一](https://thenewstack.io/dash-four-properties-of-kubernetes-native-databases/) 文。
+有关 NewSQL 数据库背后的机制的详细信息，请参阅 " [Kubernetes-Native 数据库的四个属性" 一](https://thenewstack.io/dash-four-properties-of-kubernetes-native-databases/) 文。
 
 ## <a name="data-migration-to-the-cloud"></a>数据迁移到云
 
 一个耗时的任务就是将数据从一个数据平台迁移到另一个数据平台。 [Azure 数据迁移服务](https://azure.microsoft.com/services/database-migration/)可帮助加快此类工作。 它可以将数据从多个外部数据库源迁移到 Azure 数据平台，并且停机时间最短。 目标平台包括以下服务：
 
-- Azure SQL Database
+- Azure SQL 数据库
 - Azure Database for MySQL
 - Azure Database for MariaDB
 - Azure Database for PostgreSQL
