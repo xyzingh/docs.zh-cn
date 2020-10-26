@@ -149,9 +149,13 @@ items:
         href: ../standard/whats-new/whats-new-in-dotnet-standard.md
   - name: 工具和诊断
     items:
+      - name: 概述
+        displayName: 'diagnostics,tools,tooling,productivity,instrumentation'
+        href: tools-and-productivity.md
       - name: .NET Core SDK
         items:
           - name: 概述
+            displayName: '.net sdk,software development kit,software dev kit,tool'
             href: ../core/sdk.md
           - name: 错误消息
             items:
@@ -166,6 +170,7 @@ items:
       - name: .NET Core CLI
         items:
           - name: 概述
+            displayName: '.net cli,command-line interface,cli,tool'
             href: ../core/tools/index.md
           - name: 参考
             items:
@@ -255,23 +260,6 @@ items:
                     href: ../core/tools/dotnet-list-package.md
                   - name: dotnet remove package
                     href: ../core/tools/dotnet-remove-package.md
-          - name: 全局和本地工具
-            items:
-              - name: 管理工具
-                href: ../core/tools/global-tools.md
-              - name: 排查工具问题
-                href: ../core/tools/troubleshoot-usage-issues.md
-              - name: 为 CLI 创建工具
-                items:
-                  - name: 1 - 创建工具
-                    displayName: 'tools, tutorials, cli'
-                    href: ../core/tools/global-tools-how-to-create.md
-                  - name: 2 - 使用全局工具
-                    displayName: 'tools, tutorials, cli'
-                    href: ../core/tools/global-tools-how-to-use.md
-                  - name: 3 - 使用本地工具
-                    href: ../core/tools/local-tools-how-to-use.md
-                    displayName: 'tools, tutorials, cli'
           - name: global.json 概述
             href: ../core/tools/global-json.md
           - name: 遥测
@@ -297,6 +285,17 @@ items:
               - name: 3 - 创建模板包
                 href: ../core/tutorials/cli-templates-create-template-pack.md
                 displayName: 'tutorials, cli'
+      - name: 集成开发环境 (IDE)
+        items:
+          - name: Visual Studio
+            displayName: 'ide,integrated development environment,vs'
+            href: /visualstudio/windows/
+          - name: Visual Studio for Mac
+            displayName: 'ide,integrated development environment,vs for mac,macOS,Mac'
+            href: /visualstudio/mac/
+          - name: Visual Studio Code
+            displayName: 'ide,integrated development environment,code,vs code,oss ide,'
+            href: 'https://code.visualstudio.com/docs'
       - name: MSBuild 和项目文件
         items:
           - name: 项目 SDK
@@ -317,21 +316,43 @@ items:
             href: ../core/tools/csproj.md
           - name: 依赖项管理
             href: ../core/tools/dependencies.md
-      - name: 其他 .NET Core 工具
+      - name: 全局和本地工具
+        items:
+          - name: 管理工具
+            displayName: 'global tool,local tool'
+            href: ../core/tools/global-tools.md
+          - name: 排查工具问题
+            displayName: 'global tool troubleshooting,local tool troubleshooting,'
+            href: ../core/tools/troubleshoot-usage-issues.md
+          - name: 为 CLI 创建工具
+            items:
+              - name: 1 - 创建工具
+                displayName: 'tools,tutorials,cli,create global tool,create local tool'
+                href: ../core/tools/global-tools-how-to-create.md
+              - name: 2 - 使用全局工具
+                displayName: 'tools,tutorials,cli,understand global tool'
+                href: ../core/tools/global-tools-how-to-use.md
+              - name: 3 - 使用本地工具
+                href: ../core/tools/local-tools-how-to-use.md
+                displayName: 'tools,tutorials,cli,local tool'
+      - name: 其他工具
         items:
           - name: 概述
             href: ../core/additional-tools/index.md
-          - name: .NET Core 卸载工具
+          - name: .NET 卸载工具
             href: ../core/additional-tools/uninstall-tool.md
           - name: WCF Web 服务引用提供程序
             href: ../core/additional-tools/wcf-web-service-reference-guide.md
-          - name: dotnet-svcutil
+          - name: WCF 服务实用工具
+            displayName: dotnet-svcutil
             href: ../core/additional-tools/dotnet-svcutil-guide.md
-          - name: dotnet-svcutil.xmlserializer
+          - name: WCF 服务 XML 序列化程序
+            displayName: dotnet-svcutil.xmlserializer
             href: ../core/additional-tools/dotnet-svcutil.xmlserializer-guide.md
           - name: XML 序列化程序生成器
+            displayName: 'sgen,sgen.exe,Microsoft.XmlSerializer.Generator,XmlSerializer'
             href: ../core/additional-tools/xml-serializer-generator.md
-      - name: 诊断工具
+      - name: 诊断和检测
         items:
           - name: 概述
             href: ../core/diagnostics/index.md

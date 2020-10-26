@@ -1,24 +1,23 @@
 ---
 title: .NET Framework 入门
-description: 介绍 .NET 入门知识，它是管理应用的运行时执行环境。 它包含公共语言运行时 (CLR) 和全面的类库。
-ms.date: 04/02/2019
+description: 介绍 .NET Framework 入门知识，它是管理应用的运行时执行环境。 它包含公共语言运行时 (CLR) 和全面的类库。
+ms.date: 10/21/2020
 helpviewer_keywords:
 - .NET Framework, getting started
 - getting started [.NET Framework]
 ms.assetid: c693fd34-88fe-4d90-b332-19eeadf3b7e7
-ms.openlocfilehash: 85ba856fd695f264f75a6dab2dca3aded4e5cdc1
-ms.sourcegitcommit: b1f4756120deaecb8b554477bb040620f69a4209
+ms.openlocfilehash: 02480641af5ad2c973f7dbbbc233d3d89ff4617e
+ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89414963"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471661"
 ---
 # <a name="get-started-with-net-framework"></a>.NET Framework 入门
 
 .NET Framework 是管理面向 .NET Framework 的应用的运行时执行环境。 它包括公共语言运行时（提供内存管理和其他系统服务）和一个全面的类库（使程序员能利用强大可靠的代码实现所有主要领域的应用开发）。
 
-> [!NOTE]
-> .NET Framework 仅适用于 Windows 系统。 可使用 [.NET Core](../../core/introduction.md) 在 Windows、MacOS 和 Linux 上开发和运行应用。
+[!INCLUDE [net-framework-future](../../../includes/net-framework-future.md)]
 
 ## <a name="what-is-net-framework"></a>什么是 .NET Framework？
 
@@ -41,7 +40,7 @@ ms.locfileid: "89414963"
 - 多定向。 通过面向 [.NET Standard](../../standard/net-standard.md)，开发人员可创建适用于该标准版本支持的多种 .NET Framework 平台的类库。 例如，面向 .NET Framework 4.6.1、NET Core 2.0 和 UWP 10.0.16299 的应用可以使用面向 .NET Standard 2.0 的库。
 
 <a name="ForUsers"></a>
-## <a name="the-net-framework-for-users"></a>面向用户的 .NET Framework
+## <a name="net-framework-for-users"></a>面向用户的 .NET Framework
 
 如果你不开发 .NET Framework 应用，而只需要使用它们，则不需要掌握有关 .NET Framework 或其操作的特定知识。 大多数情况下，框架对用户是完全透明的。
 
@@ -76,7 +75,7 @@ ms.locfileid: "89414963"
 | Title | 描述 |
 | ----- |------------ |
 | [概述](overview.md) | 为构建面向 .NET Framework 的应用的开发人员提供详细信息。 |
-| [安装指南](../install/index.md) | 提供有关安装 .NET Framework 的信息。 |  
+| [安装指南](../install/index.md) | 提供有关安装 .NET Framework 的信息。 |
 | [.NET Framework 和带外版本](the-net-framework-and-out-of-band-releases.md) | 描述 .NET Framework 带外版本以及如何在应用程序中使用它们。 |
 | [系统要求](system-requirements.md) | 列出运行 .NET Framework 的硬件和软件要求。 |
 | [.NET Core 和开放源代码](net-core-and-open-source.md) | 介绍 .NET Core 与 .NET Framework 的关系，以及如何访问开放源代码 .NET Core 项目。 |

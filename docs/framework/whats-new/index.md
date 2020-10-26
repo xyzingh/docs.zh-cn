@@ -1,21 +1,23 @@
 ---
 title: .NET Framework 中的新增功能
 description: 了解不同版本 .NET Framework 中的新变化。 阅读每个版本的主要新功能和改进的摘要。
-ms.date: 04/18/2019
+ms.date: 10/21/2020
 dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
 - what's new [.NET Framework]
 ms.assetid: 1d971dd7-10fc-4692-8dac-30ca308fc0fa
-ms.openlocfilehash: 1e9657c60ef2ff0ef30ae1607a0e7f2cedd01187
-ms.sourcegitcommit: a8a205034eeffc7c3e1bdd6f506a75b0f7099ebf
+ms.openlocfilehash: 6bbadd05187946cfdc601f9c026d685609251193
+ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756073"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471938"
 ---
 # <a name="whats-new-in-net-framework"></a>.NET Framework 中的新增功能
+
+[!INCLUDE [net-framework-future](../../../includes/net-framework-future.md)]
 
 本文总结了以下版本的 .NET Framework 中的主要新功能和改进：
 
@@ -84,7 +86,7 @@ ms.locfileid: "91756073"
 
 **使用 ZLib 的更新版本**
 
-从 .NET Framework 4.5 开始，clrcompression.dll 程序集使用 [ZLib](https://www.zlib.net)（即，数据压缩的本机外部库），以便提供 deflate 算法实现。 在 .NET Framework 4.8 中，clrcompression.dll 更新为使用 ZLib 版本 1.2.11，其中包括几个主要的改进和修补程序。
+从 .NET Framework 4.5 开始，clrcompression.dll 程序集使用 [ZLib](https://www.zlib.net)（即，数据压缩的本机外部库），以便提供 deflate 算法实现。 在 .NET Framework 4.8 版本中，clrcompression.dll 更新为使用 ZLib 版本 1.2.11，其中包括几个主要的改进和修补程序。
 
 <a name="wcf48"></a>
 
@@ -141,6 +143,7 @@ ServiceHealthBehavior 是一个 WCF 服务行为，该行为可扩展 <xref:Syst
 - OnServiceFailure：`https://contoso:81/Service1?health&OnServiceFailure=450`
 
   当 [ServiceHost.State](xref:System.ServiceModel.Channels.CommunicationObject.State) 大于 <xref:System.ServiceModel.CommunicationState.Opened?displayProperty=nameWithType> 时，将返回 450 HTTP 响应状态代码。
+
 查询参数和示例：
 
 - OnDispatcherFailure：`https://contoso:81/Service1?health&OnDispatcherFailure=455`
@@ -308,7 +311,7 @@ End Function
 
 **临时密钥支持**
 
-PFX 导入可以选择绕过硬盘直接从内存加载私钥。 如果在 <xref:System.Security.Cryptography.X509Certificates.X509Certificate2> 构造函数或 <xref:System.Security.Cryptography.X509Certificates.X509Certificate2.Import%2A?displayProperty=nameWithType> 方法的其中一个重载中指定了新的 <xref:System.Security.Cryptography.X509Certificates.X509KeyStorageFlags.EphemeralKeySet?displayProperty=nameWithType> 标记，则私钥将加载为临时密钥。 这能防止密钥在磁盘上可见。 但是：
+PFX 导入可以选择绕过硬盘直接从内存加载私钥。  如果在 <xref:System.Security.Cryptography.X509Certificates.X509Certificate2> 构造函数或 <xref:System.Security.Cryptography.X509Certificates.X509Certificate2.Import%2A?displayProperty=nameWithType> 方法的其中一个重载中指定了新的 <xref:System.Security.Cryptography.X509Certificates.X509KeyStorageFlags.EphemeralKeySet?displayProperty=nameWithType> 标记，则私钥将加载为临时密钥。 这能防止密钥在磁盘上可见。 但是：
 
 - 由于密钥不会保留到磁盘，最好不要将通过此标记加载的证书添加到 X509Store。
 
@@ -328,7 +331,7 @@ PFX 导入可以选择绕过硬盘直接从内存加载私钥。 如果在 <xre
 
 **在 CryptoStream 释放后保持包装流打开**
 
-从 .NET Framework 4.7.2 开始，<xref:System.Security.Cryptography.CryptoStream> 类有了一个额外的构造函数可允许 <xref:System.Security.Cryptography.CryptoStream.Dispose%2A> 不关闭包装流。 若要在释放 <xref:System.Security.Cryptography.CryptoStream> 实例后保持包装流的打开状态，请调用新的 <xref:System.Security.Cryptography.CryptoStream> 构造函数，如下所示：
+从 .NET Framework 4.7.2 开始，<xref:System.Security.Cryptography.CryptoStream> 类有了一个额外的构造函数可允许 <xref:System.Security.Cryptography.CryptoStream.Dispose%2A> 不关闭包装流。  若要在释放 <xref:System.Security.Cryptography.CryptoStream> 实例后保持包装流的打开状态，请调用新的 <xref:System.Security.Cryptography.CryptoStream> 构造函数，如下所示：
 
 ```csharp
 var cStream = new CryptoStream(stream, transform, mode, leaveOpen: true);
@@ -471,15 +474,15 @@ NET Framework 4.7.2 为基于 enclave 的 Always Encrypted 添加支持。 Alway
 
 ```xml
 <configuration>
-  <configSections>
-    <section name="SqlColumnEncryptionEnclaveProviders" type="System.Data.SqlClient.SqlColumnEncryptionEnclaveProviderConfigurationSection,System.Data,Version=4.0.0.0,Culture=neutral,PublicKeyToken=b77a5c561934e089"/>
-  </configSections>
-  <SqlColumnEncryptionEnclaveProviders>
-    <providers>
+  <configSections>
+    <section name="SqlColumnEncryptionEnclaveProviders" type="System.Data.SqlClient.SqlColumnEncryptionEnclaveProviderConfigurationSection,System.Data,Version=4.0.0.0,Culture=neutral,PublicKeyToken=b77a5c561934e089"/>
+  </configSections>
+  <SqlColumnEncryptionEnclaveProviders>
+    <providers>
       <add name="Azure" type="Microsoft.SqlServer.Management.AlwaysEncrypted.AzureEnclaveProvider,MyApp"/>
       <add name="HGS" type="Microsoft.SqlServer.Management.AlwaysEncrypted.HGSEnclaveProvider,MyApp" />
-    </providers>
-  </SqlColumnEncryptionEnclaveProviders >
+    </providers>
+  </SqlColumnEncryptionEnclaveProviders >
 </configuration>
 ```
 
@@ -497,13 +500,13 @@ NET Framework 4.7.2 为基于 enclave 的 Always Encrypted 添加支持。 Alway
 
 **按源查找 ResourceDictionaries**
 
-从 .NET Framework 4.7.2 开始，诊断助手可以找到从给定源 URI 创建的  <xref:System.Windows.Xps.Packaging.IXpsFixedPageReader.ResourceDictionaries>。 （此功能通过诊断助手使用，而非生产应用程序。）通过诊断助手（例如 Visual Studio 的“编辑并继续”），用户可编辑 ResourceDictionary，将更改应用于正在运行的应用程序。 要实现这一点，其中一个步骤是从被编辑的字典中找到正在运行的应用程序创建的所有 ResourceDictionary。 例如，应用程序可以声明某个从给定源 URI 复制内容的 ResourceDictionary：
+从 .NET Framework 4.7.2 开始，诊断助手可以找到从给定源 URI 创建的 <xref:System.Windows.Xps.Packaging.IXpsFixedPageReader.ResourceDictionaries>。  （此功能通过诊断助手使用，而非生产应用程序。）通过诊断助手（例如 Visual Studio 的“编辑并继续”），用户可编辑 ResourceDictionary，将更改应用于正在运行的应用程序。 要实现这一点，其中一个步骤是从被编辑的字典中找到正在运行的应用程序创建的所有 ResourceDictionary。 例如，应用程序可以声明某个从给定源 URI 复制内容的 ResourceDictionary：
 
 ```xml
 <ResourceDictionary Source="MyRD.xaml" />
 ```
 
-编辑 MyRD.xaml  中的原始标记的诊断助手可以使用新功能来找到字典。 此功能通过新的静态方法 <xref:System.Windows.Diagnostics.ResourceDictionaryDiagnostics.GetResourceDictionariesForSource%2A?displayProperty=nameWithType> 实现。 诊断助手使用标识原始标记的绝对 URI 调用新方法，如以下代码所示：
+编辑 MyRD.xaml 中的原始标记的诊断助手可以使用新功能来找到字典**。  此功能通过新的静态方法 <xref:System.Windows.Diagnostics.ResourceDictionaryDiagnostics.GetResourceDictionariesForSource%2A?displayProperty=nameWithType> 实现。 诊断助手使用标识原始标记的绝对 URI 调用新方法，如以下代码所示：
 
 ```csharp
 IEnumerable<ResourceDictionary> dictionaries = ResourceDictionaryDiagnostics.GetResourceDictionariesForSource(new Uri("pack://application:,,,/MyApp;component/MyRD.xaml"));
@@ -513,11 +516,11 @@ IEnumerable<ResourceDictionary> dictionaries = ResourceDictionaryDiagnostics.Get
 Dim dictionaries As IEnumerable(Of ResourceDictionary) = ResourceDictionaryDiagnostics.GetResourceDictionariesForSource(New Uri("pack://application:,,,/MyApp;component/MyRD.xaml"))
 ```
 
-该方法返回空的枚举值，除非启用了  <xref:System.Windows.Diagnostics.VisualDiagnostics> 并且设置了 [`ENABLE_XAML_DIAGNOSTICS_SOURCE_INFO`](xref:System.Windows.Diagnostics.VisualDiagnostics.GetXamlSourceInfo%2A)  环境变量。
+该方法返回空的枚举值，除非启用了 <xref:System.Windows.Diagnostics.VisualDiagnostics> 并且设置了 [`ENABLE_XAML_DIAGNOSTICS_SOURCE_INFO`](xref:System.Windows.Diagnostics.VisualDiagnostics.GetXamlSourceInfo%2A) 环境变量。
 
 **查找 ResourceDictionary 所有者**
 
-从 .NET Framework 4.7.2 开始，诊断助手可以找到给定 <xref:Windows.UI.Xaml.ResourceDictionary> 的所有者。 （此功能供诊断助手，而非生产应用程序使用。）每当对 <xref:Windows.UI.Xaml.ResourceDictionary> 做出更改时，WPF 会自动查找所有可能会受此更改影响的 [DynamicResource](/dotnet/desktop/wpf/advanced/dynamicresource-markup-extension) 引用。
+从 .NET Framework 4.7.2 开始，诊断助手可以找到给定 <xref:Windows.UI.Xaml.ResourceDictionary> 的所有者。  （此功能供诊断助手，而非生产应用程序使用。）每当对 <xref:Windows.UI.Xaml.ResourceDictionary> 做出更改时，WPF 会自动查找所有可能会受此更改影响的 [DynamicResource](/dotnet/desktop/wpf/advanced/dynamicresource-markup-extension) 引用。
 
 诊断助手（例如 Visual Studio 的“编辑并继续”）可能想对此进行扩展以处理 [StaticResource](/dotnet/desktop/wpf/advanced/staticresource-markup-extension) 引用。 此过程的第一步是找到字典的所有者，也就是找到其 `Resources` 属性引用该字典（不管是直接引用，还是通过 <xref:System.Windows.ResourceDictionary.MergedDictionaries?displayProperty=nameWithType> 属性间接引用）的所有对象。 <xref:System.Windows.Diagnostics.ResourceDictionaryDiagnostics?displayProperty=nameWithType> 类上实现的三个新的静态方法（每个对应具有 `Resources` 属性的基类型）支持此步骤：
 
@@ -527,11 +530,11 @@ Dim dictionaries As IEnumerable(Of ResourceDictionary) = ResourceDictionaryDiagn
 
 - [`public static IEnumerable<Application> GetApplicationOwners(ResourceDictionary dictionary);`](xref:System.Windows.Diagnostics.ResourceDictionaryDiagnostics.GetApplicationOwners%2A)
 
-这些方法返回空的枚举值，除非启用了  <xref:System.Windows.Diagnostics.VisualDiagnostics> 并且设置了 [`ENABLE_XAML_DIAGNOSTICS_SOURCE_INFO`](xref:System.Windows.Diagnostics.VisualDiagnostics.GetXamlSourceInfo%2A)  环境变量。
+这些方法返回空的枚举值，除非启用了 <xref:System.Windows.Diagnostics.VisualDiagnostics> 并且设置了 [`ENABLE_XAML_DIAGNOSTICS_SOURCE_INFO`](xref:System.Windows.Diagnostics.VisualDiagnostics.GetXamlSourceInfo%2A) 环境变量。
 
 **查找 StaticResource 引用**
 
-现在，每当一个 [StaticResource](/dotnet/desktop/wpf/advanced/staticresource-markup-extension) 引用被解析时，诊断助手都能收到通知。 （此功能供诊断助手，而非生产应用程序使用。）诊断助手（例如 Visual Studio 的“编辑并继续”）可能想在 <xref:Windows.UI.Xaml.ResourceDictionary> 中某个资源的值发生更改时更新该资源的所有使用。 WPF 为 [DynamicResource](/dotnet/desktop/wpf/advanced/dynamicresource-markup-extension) 引用自动完成此操作，但不会为 [StaticResource](/dotnet/desktop/wpf/advanced/staticresource-markup-extension) 引用有意执行该操作。 从 .NET Framework 4.7.2 开始，诊断助手可以利用这些通知来查找静态资源的使用情况。
+现在，每当一个 [StaticResource](/dotnet/desktop/wpf/advanced/staticresource-markup-extension) 引用被解析时，诊断助手都能收到通知。  （此功能供诊断助手，而非生产应用程序使用。）诊断助手（例如 Visual Studio 的“编辑并继续”）可能想在 <xref:Windows.UI.Xaml.ResourceDictionary> 中某个资源的值发生更改时更新该资源的所有使用。 WPF 为 [DynamicResource](/dotnet/desktop/wpf/advanced/dynamicresource-markup-extension) 引用自动完成此操作，但不会为 [StaticResource](/dotnet/desktop/wpf/advanced/staticresource-markup-extension) 引用有意执行该操作。 从 .NET Framework 4.7.2 开始，诊断助手可以利用这些通知来查找静态资源的使用情况。
 
 该通知由新的 <xref:System.Windows.Diagnostics.ResourceDictionaryDiagnostics.StaticResourceResolved?displayProperty=nameWithType> 事件实现：
 
@@ -543,7 +546,7 @@ public static event EventHandler<StaticResourceResolvedEventArgs> StaticResource
 Public Shared Event StaticResourceResolved As EventHandler(Of StaticResourceResolvedEventArgs)
 ```
 
-每当运行时解析 [StaticResource](/dotnet/desktop/wpf/advanced/staticresource-markup-extension) 引用时，都会引发此事件。 <xref:System.Windows.Diagnostics.StaticResourceResolvedEventArgs> 参数描述解析，并指示托管 [StaticResource](/dotnet/desktop/wpf/advanced/staticresource-markup-extension) 引用的对象和属性及用于解析的  <xref:Windows.UI.Xaml.ResourceDictionary> 和密钥：
+每当运行时解析 [StaticResource](/dotnet/desktop/wpf/advanced/staticresource-markup-extension) 引用时，都会引发此事件。 <xref:System.Windows.Diagnostics.StaticResourceResolvedEventArgs> 参数描述解析，并指示托管 [StaticResource](/dotnet/desktop/wpf/advanced/staticresource-markup-extension) 引用的对象和属性及用于解析的 <xref:Windows.UI.Xaml.ResourceDictionary> 和密钥：
 
 ```csharp
 public class StaticResourceResolvedEventArgs : EventArgs
@@ -567,7 +570,7 @@ Public Class StaticResourceResolvedEventArgs : Inherits EventArgs
 End Class
 ```
 
-除非启用  <xref:System.Windows.Diagnostics.VisualDiagnostics> 并设置了 [`ENABLE_XAML_DIAGNOSTICS_SOURCE_INFO`](xref:System.Windows.Diagnostics.VisualDiagnostics.GetXamlSourceInfo%2A)  环境变量，否则不会引发该事件（且忽略它的 `add` 访问器）。
+除非启用 <xref:System.Windows.Diagnostics.VisualDiagnostics> 并设置了 [`ENABLE_XAML_DIAGNOSTICS_SOURCE_INFO`](xref:System.Windows.Diagnostics.VisualDiagnostics.GetXamlSourceInfo%2A) 环境变量，否则不会引发该事件（且忽略它的 `add` 访问器）。
 
 #### <a name="clickonce"></a>ClickOnce
 
@@ -575,7 +578,7 @@ Windows 窗体的 HDPI 感知应用程序、Windows Presentation Foundation (WPF
 
 ```xml
 <windowsSettings>
-   <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true</dpiAware>
+   <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true</dpiAware>
 </windowsSettings>
 ```
 
@@ -685,7 +688,7 @@ ASP.NET 处理包括 23 个事件的预定义管道中的请求。 ASP.NET 执�
 
 .NET Framework 4.7 通过 <xref:System.Runtime.Serialization.Json.DataContractJsonSerializer> 改进了序列化：
 
-**借助椭圆曲线加密 (ECC) 增强了功能***
+**借助椭圆曲线加密 (ECC) 增强了功能**_
 
 在 .NET Framework 4.7 中，`ImportParameters(ECParameters)` 方法已添加到 <xref:System.Security.Cryptography.ECDsa> 和 <xref:System.Security.Cryptography.ECDiffieHellman> 类，以允许对象表示已经建立的密钥。 此外，还添加了 `ExportParameters(Boolean)` 方法，以便于使用显式曲线参数导出密钥。
 
@@ -693,7 +696,7 @@ ASP.NET 处理包括 23 个事件的预定义管道中的请求。 ASP.NET 执�
 
 有关 [.NET Framework 4.7 加密改进示例](https://gist.github.com/richlander/5a182899895a87a296c21ada97f7a54e)，请访问 GitHub。
 
-**通过 DataContractJsonSerializer 提供更出色的控制字符支持**
+_*DataContractJsonSerializer 提供更出色的控制字符支持**
 
 在 .NET Framework 4.7 中，<xref:System.Runtime.Serialization.Json.DataContractJsonSerializer> 类会将符合 ECMAScript 6 标准的控制字符串行化。 面向 .NET Framework 4.7 的应用程序默认启用此行为，而对于在 .NET Framework 4.7 下运行但面向 .NET Framework 先前版本的应用程序来说，可选择启用此功能。 有关详细信息，请参阅[应用程序兼容性](../migration-guide/application-compatibility.md)部分。
 
@@ -703,7 +706,7 @@ ASP.NET 处理包括 23 个事件的预定义管道中的请求。 ASP.NET 执�
 
 .NET Framework 4.7 新增了以下网络相关功能：
 
-**提供对 TLS 协议的默认操作系统支持***
+**提供对 TLS 协议的默认操作系统支持**_
 
 借助 <xref:System.Net.Security.SslStream?displayProperty=nameWithType> 和上托堆栈组件（如 HTTP、FTP 和 SMTP）使用的 TLS 堆栈，开发者可以使用操作系统支持的默认 TLS 协议。 开发者再也不需要对 TLS 版本进行硬编码。
 
@@ -713,7 +716,7 @@ ASP.NET 处理包括 23 个事件的预定义管道中的请求。 ASP.NET 执�
 
 在 .NET Framework 4.7 中，ASP.NET 新增了以下功能：
 
-**对象缓存扩展性**
+_*对象缓存扩展性**
 
 自 .NET Framework 4.7 起，ASP.NET 新增了一组 API，以便开发者可以替换内存中对象缓存和内存监视的默认 ASP.NET 实现代码。 现在，如果 ASP.NET 实现代码不充分，开发者可以替换以下三个组件中的任意一个：
 
