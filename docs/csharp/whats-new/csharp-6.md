@@ -3,11 +3,11 @@ title: C# 6 中的新增功能 - C# 指南
 description: 了解 C# 版本 6 中的新增功能
 ms.date: 12/12/2018
 ms.openlocfilehash: da40b4c9d4af0094fdd907c542e971ba55086e0f
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79398153"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92224231"
 ---
 # <a name="whats-new-in-c-6"></a>C# 6 中的新增功能
 

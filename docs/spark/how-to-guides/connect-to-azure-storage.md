@@ -1,15 +1,17 @@
 ---
 title: 从本地计算机连接到远程存储
 description: 使用 .NET for Apache Spark 从本地计算机连接到 Azure 存储帐户。
+ms.author: nidutta
+author: Niharikadutta
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: mvc,how-to
-ms.openlocfilehash: 09e92b0cae848f9c98b691a11842f131f613396b
-ms.sourcegitcommit: eb7e87496f42361b1da98562dd75b516c9d58bbc
+ms.openlocfilehash: dc0c3b44279756596f3d456616821e690710ae04
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877981"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92224018"
 ---
 # <a name="connect-to-azure-data-lake-storage-gen-2-or-wasb-account"></a>连接到 Azure Data Lake Storage Gen 2 或 WASB 帐户
 

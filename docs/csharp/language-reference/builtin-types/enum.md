@@ -11,12 +11,12 @@ helpviewer_keywords:
 - enumeration type [C#]
 - bit flags [C#]
 ms.assetid: bbeb9a0f-e9b3-41ab-b0a6-c41b1a08974c
-ms.openlocfilehash: 617c5ec037ad7a47b43cca2c13da4a77aa682997
-ms.sourcegitcommit: 465547886a1224a5435c3ac349c805e39ce77706
+ms.openlocfilehash: 930efdbdc6a20ea301331c1ce6fc664da43bfc5f
+ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81739091"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471845"
 ---
 # <a name="enumeration-types-c-reference"></a>枚举类型（C# 参考）
 
@@ -54,7 +54,7 @@ enum ErrorCode : ushort
 
 如果希望枚举类型表示选项组合，请为这些选项定义枚举成员，以便单个选项成为位字段。 也就是说，这些枚举成员的关联值应该是 2 的幂。 然后，可以使用[按位逻辑运算符`|`或 `&`](../operators/bitwise-and-shift-operators.md#enumeration-logical-operators) 分别合并选项或交叉组合选项。 若要指示枚举类型声明位字段，请对其应用 [Flags](xref:System.FlagsAttribute) 属性。 如下面的示例所示，还可以在枚举类型的定义中包含一些典型组合。
 
-[!code-csharp[enum flags](snippets/EnumType.cs#Flags)]
+[!code-csharp[enum flags](snippets/shared/EnumType.cs#Flags)]
 
 有关详细信息和示例，请参阅 <xref:System.FlagsAttribute?displayProperty=nameWithType> API 参考页和 <xref:System.Enum?displayProperty=nameWithType> API 参考页的[非独占成员和 Flags 属性](/dotnet/api/system.enum#non-exclusive-members-and-the-flags-attribute)部分。
 
@@ -68,7 +68,7 @@ enum ErrorCode : ushort
 
 对于任何枚举类型，枚举类型与其基础整型类型之间存在显式转换。 如果将枚举值[转换](../operators/type-testing-and-cast.md#cast-expression)为其基础类型，则结果为枚举成员的关联整数值。
 
-[!code-csharp[enum conversions](snippets/EnumType.cs#Conversions)]
+[!code-csharp[enum conversions](snippets/shared/EnumType.cs#Conversions)]
 
 使用 <xref:System.Enum.IsDefined%2A?displayProperty=nameWithType> 方法来确定枚举类型是否包含具有特定关联值的枚举成员。
 

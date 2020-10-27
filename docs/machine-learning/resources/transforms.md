@@ -3,11 +3,11 @@ title: 数据转换
 description: 了解在 ML.NET 中受支持的特征工程组件。
 ms.date: 04/02/2019
 ms.openlocfilehash: ca410b475c556db5ad4c3862fb79755b455d6830
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2020
-ms.locfileid: "79397751"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92224214"
 ---
 # <a name="data-transformations"></a>数据转换
 
@@ -25,7 +25,7 @@ ms.locfileid: "79397751"
 
 ## <a name="column-mapping-and-grouping"></a>列映射和分组
 
-| Transform | 定义 |
+| 转换 | 定义 |
 | --- | --- |
 | <xref:Microsoft.ML.TransformExtensionsCatalog.Concatenate%2A> | 将一个或多个输入列连接到新输出列中 |
 | <xref:Microsoft.ML.TransformExtensionsCatalog.CopyColumns%2A> | 复制和重命名一个或多个输入列 |
@@ -34,7 +34,7 @@ ms.locfileid: "79397751"
 
 ## <a name="normalization-and-scaling"></a>规范化和缩放
 
-| Transform | 定义 |
+| 转换 | 定义 |
 | --- | --- |
 | <xref:Microsoft.ML.NormalizationCatalog.NormalizeMeanVariance%2A> | 减去（定型数据的）平均值，再除以（定型数据的）方差 |
 | <xref:Microsoft.ML.NormalizationCatalog.NormalizeLogMeanVariance%2A> | 根据定型数据的对数进行规范化 |
@@ -46,7 +46,7 @@ ms.locfileid: "79397751"
 
 ## <a name="conversions-between-data-types"></a>数据类型转换
 
-| Transform | 定义 |
+| 转换 | 定义 |
 | --- | --- |
 | <xref:Microsoft.ML.ConversionsExtensionsCatalog.ConvertType%2A> | 将输入列的类型转换为新类型 |
 | <xref:Microsoft.ML.ConversionsExtensionsCatalog.MapValue%2A> | 根据提供的映射字典将值映射到键（类别） |
@@ -58,7 +58,7 @@ ms.locfileid: "79397751"
 
 ## <a name="text-transformations"></a>文本转换
 
-| Transform | 定义 |
+| 转换 | 定义 |
 | --- | --- |
 | <xref:Microsoft.ML.TextCatalog.FeaturizeText%2A> | 将文本列转换为规范化 ngram 和 char-gram 计数的浮点数组 |
 | <xref:Microsoft.ML.TextCatalog.TokenizeIntoWords%2A> | 将一个或多个文本列拆分为各个字词 |
@@ -75,7 +75,7 @@ ms.locfileid: "79397751"
 
 ## <a name="image-transformations"></a>图像转换
 
-| Transform | 定义 |
+| 转换 | 定义 |
 | --- | --- |
 | <xref:Microsoft.ML.ImageEstimatorsCatalog.ConvertToGrayscale%2A> | 将图像转换为灰度图像 |
 | <xref:Microsoft.ML.ImageEstimatorsCatalog.ConvertToImage%2A> | 将像素向量转换为 <xref:Microsoft.ML.Transforms.Image.ImageDataViewType> |
@@ -86,14 +86,14 @@ ms.locfileid: "79397751"
 
 ## <a name="categorical-data-transformations"></a>分类数据转换
 
-| Transform | 定义 |
+| 转换 | 定义 |
 | --- | --- |
 | <xref:Microsoft.ML.CategoricalCatalog.OneHotEncoding%2A> | 将一个或多个文本列转换为[单热](https://en.wikipedia.org/wiki/One-hot)编码向量 |
 | <xref:Microsoft.ML.CategoricalCatalog.OneHotHashEncoding%2A> | 将一个或多个文本列转换为基于哈希的单热编码向量 |
 
 ## <a name="time-series-data-transformations"></a>时序数据转换
 
-| Transform | 定义 |
+| 转换 | 定义 |
 | --- | --- |
 | <xref:Microsoft.ML.TimeSeriesCatalog.DetectAnomalyBySrCnn%2A> | 使用 Spectral Residual (SR) 算法检测输入时序数据中的异常 |
 | <xref:Microsoft.ML.TimeSeriesCatalog.DetectChangePointBySsa%2A> | 使用奇异谱分析 (SSA) 检测时序数据中的更改点 |
@@ -102,36 +102,36 @@ ms.locfileid: "79397751"
 | <xref:Microsoft.ML.TimeSeriesCatalog.DetectSpikeBySsa%2A> | 使用奇异谱分析 (SSA) 检测时序数据中的峰值 |
 | <xref:Microsoft.ML.TimeSeriesCatalog.DetectIidSpike%2A> | 使用自适应内核密度估计和鞅评分检测独立同分布 (IID) 的时序数据中的峰值 |
 
-## <a name="missing-values"></a>缺失值
+## <a name="missing-values"></a>缺少值
 
-| Transform | 定义 |
+| 转换 | 定义 |
 | --- | --- |
 | <xref:Microsoft.ML.ExtensionsCatalog.IndicateMissingValues%2A> | 新建布尔输出列：如果输入列中缺少值，输出列的值为 true |
 | <xref:Microsoft.ML.ExtensionsCatalog.ReplaceMissingValues%2A> | 新建输出列：如果输入列中缺少值，输出列的值设置为默认值，否则设置为输入值 |
 
 ## <a name="feature-selection"></a>功能选择
 
-| Transform | 定义 |
+| 转换 | 定义 |
 | --- | --- |
 | <xref:Microsoft.ML.FeatureSelectionCatalog.SelectFeaturesBasedOnCount%2A> | 选择非默认值大于阈值的功能 |
 | <xref:Microsoft.ML.FeatureSelectionCatalog.SelectFeaturesBasedOnMutualInformation%2A> | 选择标签列中的数据最依赖的功能 |
 
 ## <a name="feature-transformations"></a>功能转换
 
-| Transform | 定义 |
+| 转换 | 定义 |
 | --- | --- |
 | <xref:Microsoft.ML.KernelExpansionCatalog.ApproximatedKernelMap%2A> | 将每个输入向量映射到较低维度的特征空间，在该特征空间中，内积近似于内核函数，这样就可以将特征用作线性算法的输入 |
 | <xref:Microsoft.ML.PcaCatalog.ProjectToPrincipalComponents%2A> | 通过应用主成分分析算法来降低输入特征向量的维度 |
 
 ## <a name="explainability-transformations"></a>解释能力转换
 
-| Transform | 定义 |
+| 转换 | 定义 |
 | --- | --- |
 | <xref:Microsoft.ML.ExplainabilityCatalog.CalculateFeatureContribution%2A> | 计算特征向量的每个元素的贡献分数 |
 
 ## <a name="calibration-transformations"></a>校准转换
 
-| Transform | 定义 |
+| 转换 | 定义 |
 | --- | --- |
 |<xref:Microsoft.ML.BinaryClassificationCatalog.CalibratorsCatalog.Platt%28System.String%2CSystem.String%2CSystem.String%29> | 使用带有使用训练数据的参数估计的逻辑回归将二元分类器原始分数转换为类概率 |
 | <xref:Microsoft.ML.BinaryClassificationCatalog.CalibratorsCatalog.Platt%28System.Double%2CSystem.Double%2CSystem.String%29> | 使用带有固定参数的逻辑回归将二元分类器原始分数转换为类概率 |
@@ -140,13 +140,13 @@ ms.locfileid: "79397751"
 
 ## <a name="deep-learning-transformations"></a>深度学习转换
 
-| Transform | 定义 |
+| 转换 | 定义 |
 | --- | --- |
 | <xref:Microsoft.ML.OnnxCatalog.ApplyOnnxModel%2A> | 使用导入的 ONNX 模型转换输入数据 |
 | <xref:Microsoft.ML.TensorflowCatalog.LoadTensorFlowModel%2A> | 使用导入的 TensorFlow 模型转换输入数据 |
 
 ## <a name="custom-transformations"></a>自定义转换
 
-| Transform | 定义 |
+| 转换 | 定义 |
 | --- | --- |
 | <xref:Microsoft.ML.CustomMappingCatalog.CustomMapping%2A> | 使用用户定义映射将现有列转换为新列 |

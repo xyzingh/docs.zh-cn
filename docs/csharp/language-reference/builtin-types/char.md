@@ -8,12 +8,12 @@ f1_keywords:
 helpviewer_keywords:
 - char data type [C#]
 ms.assetid: b51cf4fb-124c-4067-af48-afbac122b228
-ms.openlocfilehash: 636e032ac22b48ebc471780ffa85148bf952cdd2
-ms.sourcegitcommit: e7acba36517134238065e4d50bb4a1cfe47ebd06
+ms.openlocfilehash: 1cb40759b81a1fcedcf5962b57d79cf3a64df561
+ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89465086"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471871"
 ---
 # <a name="char-c-reference"></a>char（C# 参考）
 
@@ -37,7 +37,7 @@ ms.locfileid: "89465086"
 - Unicode 转义序列，它是 `\u` 后跟字符代码的十六进制表示形式（四个符号）。
 - 十六进制转义序列，它是 `\x` 后跟字符代码的十六进制表示形式。
 
-[!code-csharp-interactive[char literals](snippets/CharType.cs#Literals)]
+[!code-csharp-interactive[char literals](snippets/shared/CharType.cs#Literals)]
 
 如前面的示例所示，你还可以将字符代码的值转换为相应的 `char` 值。
 

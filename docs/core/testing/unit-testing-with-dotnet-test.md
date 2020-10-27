@@ -3,13 +3,13 @@ title: 使用 dotnet test 和 xUnit 在 .NET Core 中进行 C# 代码单元测�
 description: 通过使用 dotnet test 和 xUnit 分步生成示例解决方案的交互体验，了解 C# 和 .NET Core 中的单元测试概念。
 author: ardalis
 ms.author: wiwagn
-ms.date: 12/04/2019
-ms.openlocfilehash: feff4cabbd10064ef4acca12d4f960f2a40a2b12
-ms.sourcegitcommit: c4a15c6c4ecbb8a46ad4e67d9b3ab9b8b031d849
+ms.date: 10/21/2020
+ms.openlocfilehash: e1972858be00e8a884efbd66b618ddb9ab77e9ba
+ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88656379"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471532"
 ---
 # <a name="unit-testing-c-in-net-core-using-dotnet-test-and-xunit"></a>使用 dotnet test 和 xUnit 在 .NET Core 中进行 C# 单元测试
 
@@ -48,7 +48,7 @@ ms.locfileid: "88656379"
   ```
 
    [`dotnet new classlib`](../tools/dotnet-new.md) 命令用于在 PrimeService 文件夹中创建新的类库项目。 新的类库将包含要测试的代码。
-* 将 *Class1.cs* 重命名为 *PrimeService.cs*。
+* 将 *Class1.cs* 重命名为 *PrimeService.cs* 。
 * 将 PrimeService.cs 中的代码替换为以下代码：
   
   ```csharp
@@ -142,17 +142,11 @@ namespace Prime.UnitTests.Services
 {
     public class PrimeService_IsPrimeShould
     {
-        private readonly PrimeService _primeService;
-
-        public PrimeService_IsPrimeShould()
-        {
-            _primeService = new PrimeService();
-        }
-
         [Fact]
         public void IsPrime_InputIs1_ReturnFalse()
         {
-            var result = _primeService.IsPrime(1);
+            var primeService = new PrimeService();
+            bool result = primeService.IsPrime(1);
 
             Assert.False(result, "1 should not be prime");
         }
@@ -182,7 +176,8 @@ public bool IsPrime(int candidate)
 为 0 和 -1 添加素数测试。 你可以复制上述测试并将以下代码更改为使用 0 和 -1：
 
 ```csharp
-var result = _primeService.IsPrime(1);
+var primeService = new PrimeService();
+bool result = primeService.IsPrime(1);
 
 Assert.False(result, "1 should not be prime");
 ```
@@ -198,7 +193,8 @@ Assert.False(result, "1 should not be prime");
 [Fact]
 public void IsPrime_InputIs1_ReturnFalse()
 {
-    var result = _primeService.IsPrime(1);
+    var primeService = new PrimeService();
+    bool result = primeService.IsPrime(1);
 
     Assert.False(result, "1 should not be prime");
 }

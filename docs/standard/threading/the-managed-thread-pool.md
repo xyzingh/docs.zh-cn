@@ -10,11 +10,11 @@ helpviewer_keywords:
 - threading [.NET], pooling
 ms.assetid: 2be05b06-a42e-4c9d-a739-96c21d673927
 ms.openlocfilehash: 2671ce7c9721b15de8a3805da27040e973a62804
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2020
-ms.locfileid: "79398555"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223788"
 ---
 # <a name="the-managed-thread-pool"></a>托管线程池
 

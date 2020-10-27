@@ -1,15 +1,17 @@
 ---
 title: 将 .NET for Apache Spark 连接到 Azure 事件中心
 description: 了解如何从本地 .NET for Apache Spark 实例连接到 Azure 事件中心。
+ms.author: nidutta
+author: Niharikadutta
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: mvc,how-to
-ms.openlocfilehash: 4de4836ba2b63429e29ae819afac09c7a3998480
-ms.sourcegitcommit: b59237ca4ec763969a0dd775a3f8f39f8c59fe24
+ms.openlocfilehash: c8fd10992e63674032af4148e0673a5330d9086c
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91954966"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223968"
 ---
 # <a name="connect-net-for-apache-spark-to-azure-event-hubs"></a>将 .NET for Apache Spark 连接到 Azure 事件中心
 

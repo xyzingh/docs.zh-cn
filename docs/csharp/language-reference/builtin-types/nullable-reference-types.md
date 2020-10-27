@@ -2,12 +2,12 @@
 title: 可为 null 的引用类型 - C# 引用
 description: 了解 C# 中可为 null 的引用类型及其使用方法
 ms.date: 04/06/2020
-ms.openlocfilehash: cb61b162b06faa51faabbcdd91e55618cdeaca73
-ms.sourcegitcommit: 73aa9653547a1cd70ee6586221f79cc29b588ebd
+ms.openlocfilehash: 274a613a8381a2b7718c9025f51aadb2eb32af36
+ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82102692"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471858"
 ---
 # <a name="nullable-reference-types-c-reference"></a>可为 null 的引用类型（C# 引用）
 
@@ -24,7 +24,7 @@ ms.locfileid: "82102692"
 
 不可为 null 的引用类型 `T` 和可为 null 的引用类型 `T?` 之间的区别按照编译器对上述规则的解释强制执行的。 类型为 `T` 的变量和类型为 `T?` 的变量由相同的 .NET 类型表示。 下面的示例声明了一个不可为 null 的字符串和一个可为 null 的字符串，然后使用 null 包容运算符将一个值分配给不可为 null 的字符串：
 
-:::code language="csharp" source="snippets/NullableReferenceTypes.cs" id="SnippetCoreSyntax":::
+:::code language="csharp" source="snippets/shared/NullableReferenceTypes.cs" id="SnippetCoreSyntax":::
 
 变量 `notNull` 和 `nullable` 都由 <xref:System.String> 类型表示。 因为不可为 null 的类型和可为 null 的类型都存储为相同的类型，所以有几个位置不允许使用可为 null 的引用类型。 通常，可为 null 的引用类型不能用作基类或实现的接口。 可为 null 的引用类型不能用于任何对象创建或类型测试表达式。 可为 null 的引用类型不能是成员访问表达式的类型。 下面的示例说明了这些构造：
 
@@ -55,11 +55,11 @@ try
 
 可为 null 的引用类型可以进行初始化或分配给 `null`。 因此，静态分析必须在取消对变量的引用之前确定该变量为“非 null”  。 如果可为 null 的引用被确定为“可能为 null”，则不能将其分配给不可为 null 的引用变量  。 以下类显示了这些警告的示例：
 
-:::code language="csharp" source="snippets/NullableReferenceTypes.cs" id="SnippetClassWithNullable":::
+:::code language="csharp" source="snippets/shared/NullableReferenceTypes.cs" id="SnippetClassWithNullable":::
 
 以下代码段显示了编译器在使用此类时发出警告的位置：
 
-:::code language="csharp" source="snippets/NullableReferenceTypes.cs" id="SnippetLocalWarnings":::
+:::code language="csharp" source="snippets/shared/NullableReferenceTypes.cs" id="SnippetLocalWarnings":::
 
 前面的示例演示编译器的静态分析，以确定引用变量的 null 状态。 编译器对 null 检查和分配应用语言规则以通知其分析。  编译器无法对方法或属性的语义进行假设。 如果调用执行 null 检查的方法，则编译器无法得知这些方法会影响变量的 null 状态。 可以将许多属性添加到 API，以通知编译器有关参数和返回值的语义。 这些属性已应用于 .NET Core 库中的许多常见 API。 例如，<xref:System.String.IsNullOrEmpty%2A> 已经更新，编译器正确地将该方法解释为 null 检查。 有关应用于 null 状态静态分析的属性的更多信息，请参阅[可为 null 属性](../attributes/nullable-analysis.md)的文章。
 

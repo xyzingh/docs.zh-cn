@@ -1,15 +1,17 @@
 ---
 title: 在 .NET for Apache Spark 交互环境中编写和调用 UDF。
 description: 了解如何在 .NET for Apache Spark 交互 shell 中编写和调用 UDF。
+ms.author: nidutta
+author: Niharikadutta
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: mvc,how-to
-ms.openlocfilehash: 7f050b39b1d2f0e2f506c522259485d87c7a185a
-ms.sourcegitcommit: b59237ca4ec763969a0dd775a3f8f39f8c59fe24
+ms.openlocfilehash: d07d757f9e47a84c75f46b190bdb613b8d2db7c1
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91955005"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92224131"
 ---
 # <a name="write-and-call-udfs-in-net-for-apache-spark-interactive-environments"></a>在 .NET for Apache Spark 交互环境中编写和调用 UDF
 

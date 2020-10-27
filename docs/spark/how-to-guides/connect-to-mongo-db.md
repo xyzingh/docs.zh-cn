@@ -1,15 +1,17 @@
 ---
 title: 将 .NET for Apache Spark 连接到 MongoDB
 description: 了解如何从 .NET for Apache Spark 应用程序连接到 MongoDB 实例。
+ms.author: nidutta
+author: Niharikadutta
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: mvc,how-to
-ms.openlocfilehash: 4cb78998ddb54621a84e9d224a814047e3c40246
-ms.sourcegitcommit: eb7e87496f42361b1da98562dd75b516c9d58bbc
+ms.openlocfilehash: 928cc8e3559e13af66268f3d1b3766cf2df9041f
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877983"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223981"
 ---
 # <a name="connect-net-for-apache-spark-to-mongodb"></a>将 .NET for Apache Spark 连接到 MongoDB
 
@@ -41,17 +43,17 @@ ms.locfileid: "91877983"
 ## <a name="configure-your-net-for-apache-spark-application"></a>配置 .NET for Apache Spark 应用程序
 
 1. 设置以下变量，将应用程序配置为与 MongoDB 实例通信并从集合中读取。
-    1. **authURI**："授权应用程序连接到所需 MongoDB 实例的连接字符串"。 其格式如下：
+    1. **authURI** ："授权应用程序连接到所需 MongoDB 实例的连接字符串"。 其格式如下：
 
         ```
         "mongodb+srv://<username>:<password>@<cluster_address>/<database>.<collection>"
         ```
 
-    2. **username**：在上一部分的步骤 1 中创建的帐户用户名
-    3. **password**：创建的用户帐户的密码
-    4. **cluster_address**：MongoDB 群集的主机名/地址
-    5. **database**：要连接到的 MongoDB 数据库
-    6. **collection**：要读取的 MongoDB 集合。 （在本例中，我们将使用每个 Apache Spark 安装中提供的标准 [`people.json`](https://github.com/apache/spark/blob/master/examples/src/main/resources/people.json) 示例文件。）
+    2. **username** ：在上一部分的步骤 1 中创建的帐户用户名
+    3. **password** ：创建的用户帐户的密码
+    4. **cluster_address** ：MongoDB 群集的主机名/地址
+    5. **database** ：要连接到的 MongoDB 数据库
+    6. **collection** ：要读取的 MongoDB 集合。 （在本例中，我们将使用每个 Apache Spark 安装中提供的标准 [`people.json`](https://github.com/apache/spark/blob/master/examples/src/main/resources/people.json) 示例文件。）
 
 2. 使用的 `com.mongodb.spark.sql.DefaultSource` 格式为 `spark.Read()`，如下面简单的代码片段中所示：
 

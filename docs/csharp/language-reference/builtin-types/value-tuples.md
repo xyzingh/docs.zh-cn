@@ -4,22 +4,22 @@ description: 了解 C# 元组：轻型数据结构，可用于对相关的数据
 ms.date: 07/09/2020
 helpviewer_keywords:
 - value tuples [C#]
-ms.openlocfilehash: 3d79ab19117847e2364b154db33a1521416bb3f4
-ms.sourcegitcommit: cb27c01a8b0b4630148374638aff4e2221f90b22
+ms.openlocfilehash: d996c7afecba1b58bfd8337fa444fd71790dd482
+ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86174972"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471767"
 ---
 # <a name="tuple-types-c-reference"></a>元组类型（C# 参考）
 
 元组功能在 C# 7.0 及更高版本中可用，它提供了简洁的语法，用于将多个数据元素分组成一个轻型数据结构。 下面的示例演示了如何声明元组变量、对它进行初始化并访问其数据成员：
 
-[!code-csharp-interactive[tuple intro](snippets/ValueTuples.cs#Introduction)]
+[!code-csharp-interactive[tuple intro](snippets/shared/ValueTuples.cs#Introduction)]
 
 如前面的示例所示，若要定义元组类型，需要指定其所有数据成员的类型，或者，可以指定[字段名称](#tuple-field-names)。 虽然不能在元组类型中定义方法，但可以使用 .NET 提供的方法，如下面的示例所示：
 
-[!code-csharp-interactive[tuple methods](snippets/ValueTuples.cs#MethodOnTuples)]
+[!code-csharp-interactive[tuple methods](snippets/shared/ValueTuples.cs#MethodOnTuples)]
 
 从 C# 7.3 开始，元组类型支持[相等运算符](../operators/equality-operators.md) `==` 和 `!=`。 有关详细信息，请参阅[元组相等](#tuple-equality)部分。
 
@@ -30,13 +30,13 @@ ms.locfileid: "86174972"
 
 可以使用任意数量的元素定义元组：
 
-[!code-csharp-interactive[large tuple](snippets/ValueTuples.cs#LargeTuple)]
+[!code-csharp-interactive[large tuple](snippets/shared/ValueTuples.cs#LargeTuple)]
 
 ## <a name="use-cases-of-tuples"></a>元组的用例
 
 元组最常见的用例之一是作为方法返回类型。 也就是说，你可以将方法结果分组为元组返回类型，而不是定义 [`out` 方法参数](../keywords/out-parameter-modifier.md)，如以下示例所示：
 
-[!code-csharp-interactive[multiple method outputs](snippets/ValueTuples.cs#MultipleReturns)]
+[!code-csharp-interactive[multiple method outputs](snippets/shared/ValueTuples.cs#MultipleReturns)]
 
 如前面的示例所示，可以直接使用返回的元组实例，或者可以在单独的变量中[析构](#tuple-assignment-and-deconstruction)它。
 
@@ -48,11 +48,11 @@ ms.locfileid: "86174972"
 
 可以在元组初始化表达式中或元组类型的定义中显式指定元组字段的名称，如下面的示例所示：
 
-[!code-csharp-interactive[explicit field names](snippets/ValueTuples.cs#ExplicitFieldNames)]
+[!code-csharp-interactive[explicit field names](snippets/shared/ValueTuples.cs#ExplicitFieldNames)]
 
 从 C# 7.1 开始，如果未指定字段名称，则可以根据元组初始化表达式中相应变量的名称推断出此名称，如下面的示例所示：
 
-[!code-csharp-interactive[inferred field names](snippets/ValueTuples.cs#InferFieldNames)]
+[!code-csharp-interactive[inferred field names](snippets/shared/ValueTuples.cs#InferFieldNames)]
 
 这称为元组投影初始值设定项。 在以下情况下，变量名称不会被投影到元组字段名称中：
 
@@ -63,7 +63,7 @@ ms.locfileid: "86174972"
 
 元组字段的默认名称为 `Item1`、`Item2`、`Item3` 等。 始终可以使用字段的默认名称，即使字段名称是显式指定的或推断出的，如下面的示例所示：
 
-[!code-csharp-interactive[default field names](snippets/ValueTuples.cs#DefaultFieldNames)]
+[!code-csharp-interactive[default field names](snippets/shared/ValueTuples.cs#DefaultFieldNames)]
 
 [元组赋值](#tuple-assignment-and-deconstruction)和[元组相等比较](#tuple-equality)不会考虑字段名称。
 
@@ -78,21 +78,21 @@ C# 支持满足以下两个条件的元组类型之间的赋值：
 
 元组元素是按照元组元素的顺序赋值的。 元组字段的名称会被忽略且不会被赋值，如下面的示例所示：
 
-[!code-csharp-interactive[tuple assignment](snippets/ValueTuples.cs#Assignment)]
+[!code-csharp-interactive[tuple assignment](snippets/shared/ValueTuples.cs#Assignment)]
 
 还可以使用赋值运算符 `=` 在单独的变量中析构元组实例。 为此，可以使用以下方式之一进行操作：
 
 - 在括号内显式声明每个变量的类型：
 
-  [!code-csharp-interactive[specify types of variables](snippets/ValueTuples.cs#DeconstructExplicit)]
+  [!code-csharp-interactive[specify types of variables](snippets/shared/ValueTuples.cs#DeconstructExplicit)]
 
 - 在括号外使用 `var` 关键字来声明隐式类型化变量，并让编译器推断其类型：
 
-  [!code-csharp-interactive[implicitly typed variables](snippets/ValueTuples.cs#DeconstructVar)]
+  [!code-csharp-interactive[implicitly typed variables](snippets/shared/ValueTuples.cs#DeconstructVar)]
 
 - 使用现有变量：
 
-  [!code-csharp-interactive[existing variables](snippets/ValueTuples.cs#DeconstructExisting)]
+  [!code-csharp-interactive[existing variables](snippets/shared/ValueTuples.cs#DeconstructExisting)]
 
 有关析构元组和其他类型的详细信息，请参阅[析构元组和其他类型](../../deconstruct.md)。
 
@@ -100,7 +100,7 @@ C# 支持满足以下两个条件的元组类型之间的赋值：
 
 从 C# 7.3 开始，元组类型支持 `==` 和 `!=` 运算符。 这些运算符按照元组元素的顺序将左侧操作数的成员与相应的右侧操作数的成员进行比较。
 
-[!code-csharp-interactive[tuple equality](snippets/ValueTuples.cs#TupleEquality)]
+[!code-csharp-interactive[tuple equality](snippets/shared/ValueTuples.cs#TupleEquality)]
 
 如前面的示例所示，`==` 和 `!=` 操作不会考虑元组字段名称。
 
@@ -111,13 +111,13 @@ C# 支持满足以下两个条件的元组类型之间的赋值：
 
 `==` 和 `!=` 运算符将以短路方式对元组进行比较。 也就是说，一旦遇见一对不相等的元素或达到元组的末尾，操作将立即停止。 但是，在进行任何比较之前，将对所有元组元素进行计算，如以下示例所示：
 
-[!code-csharp-interactive[tuple element evaluation](snippets/ValueTuples.cs#TupleEvaluationForEquality)]
+[!code-csharp-interactive[tuple element evaluation](snippets/shared/ValueTuples.cs#TupleEvaluationForEquality)]
 
 ## <a name="tuples-as-out-parameters"></a>元组作为 out 参数
 
 通常，你会将具有 [`out` 参数](../keywords/out-parameter-modifier.md)的方法重构为返回元组的方法。 但是，在某些情况下，`out` 参数可以是元组类型。 下面的示例演示了如何将元组作为 `out` 参数使用：
 
-[!code-csharp-interactive[tuple as out parameter](snippets/ValueTuples.cs#TupleAsOutParameter)]
+[!code-csharp-interactive[tuple as out parameter](snippets/shared/ValueTuples.cs#TupleAsOutParameter)]
 
 ## <a name="tuples-vs-systemtuple"></a>元组与 `System.Tuple`
 

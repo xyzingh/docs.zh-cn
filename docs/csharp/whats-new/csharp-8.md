@@ -2,12 +2,12 @@
 title: C# 8.0 中的新增功能 - C# 指南
 description: 简要介绍 C# 8.0 中提供的新功能。
 ms.date: 04/07/2020
-ms.openlocfilehash: 43b9c69c649b83d4cf78ef4c7d131ce900a49d11
-ms.sourcegitcommit: 4d45bda8cd9558ea8af4be591e3d5a29360c1ece
+ms.openlocfilehash: 1d6d33a36092ba685247f894375888da278b7e6e
+ms.sourcegitcommit: 98d20cb038669dca4a195eb39af37d22ea9d008e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91654863"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92434801"
 ---
 # <a name="whats-new-in-c-80"></a>C# 8.0 中的新增功能
 
@@ -271,7 +271,6 @@ using 声明是前面带 `using` 关键字的变量声明。 它指示编译器�
 static int WriteLinesToFile(IEnumerable<string> lines)
 {
     using var file = new System.IO.StreamWriter("WriteLines2.txt");
-    // Notice how we declare skippedLines after the using statement.
     int skippedLines = 0;
     foreach (string line in lines)
     {
@@ -295,11 +294,9 @@ static int WriteLinesToFile(IEnumerable<string> lines)
 ```csharp
 static int WriteLinesToFile(IEnumerable<string> lines)
 {
-    // We must declare the variable outside of the using block
-    // so that it is in scope to be returned.
-    int skippedLines = 0;
     using (var file = new System.IO.StreamWriter("WriteLines2.txt"))
     {
+        int skippedLines = 0;
         foreach (string line in lines)
         {
             if (!line.Contains("Second"))

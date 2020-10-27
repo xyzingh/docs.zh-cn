@@ -2,12 +2,12 @@
 title: 面向对象的编程 (C#)
 description: C# 提供针对面向对象的编程（包括抽象、封装、继承和多态性）的完整支持。
 ms.date: 09/30/2020
-ms.openlocfilehash: 6e0155621be544b01453b8c107debb3a9b6c38f9
-ms.sourcegitcommit: e078b7540a8293ca1b604c9c0da1ff1506f0170b
+ms.openlocfilehash: 353edf8fc68f495f3d875fa678aaaf91f1fd6406
+ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997661"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471590"
 ---
 # <a name="object-oriented-programming-c"></a>面向对象的编程 (C#)
 
@@ -140,7 +140,7 @@ if (Balance - amount < minimumBalance)
 
 要添加的最后一项功能让 `LineOfCreditAccount` 可以对超过限额的取款进行收费，而不是拒绝交易。
 
-一种方法是定义一个虚函数，并在其中实现所需的行为。 `Bank Account` 类将 `MakeWithdrawal` 方法重构为两个方法。 当取款使余额低于最小值时，新方法将执行指定的操作。 现有的 `MakeWithdrawal` 方法具有以下代码：
+一种方法是定义一个虚函数，并在其中实现所需的行为。 `BankAccount` 类将 `MakeWithdrawal` 方法重构为两个方法。 当取款使余额低于最小值时，新方法将执行指定的操作。 现有的 `MakeWithdrawal` 方法具有以下代码：
 
 ```csharp
 public void MakeWithdrawal(decimal amount, DateTime date, string note)

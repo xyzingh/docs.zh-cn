@@ -3,13 +3,13 @@ title: 重大更改和 .NET 库
 description: 有关在创建 .NET 库时浏览重大更改的最佳做法建议。
 ms.date: 10/02/2018
 ms.openlocfilehash: 2cbd9e0a818b52aede6c9b1f60fdf52dcbd7b96f
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2020
-ms.locfileid: "79398507"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223326"
 ---
-# <a name="breaking-changes"></a>重大更改
+# <a name="breaking-changes"></a>中断性变更
 
 对于 .NET 库而言，在现有用户的稳定性与未来的创新之间找到平衡点非常重要。 库创建者倾向于重构和重新考虑代码，直到达到完美，但是使现有用户中断会造成负面影响，尤其是对于低级库。
 

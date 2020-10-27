@@ -3,13 +3,13 @@ title: 使用 MSTest 和 .NET Core 进行 C# 单元测试
 description: 通过使用 dotnet test 和 MSTest 分步生成示例解决方案的交互体验，了解 C# 和 .NET Core 中的单元测试概念。
 author: ncarandini
 ms.author: wiwagn
-ms.date: 09/08/2017
-ms.openlocfilehash: 765b57dce323c10dc5fcbf395cb7d52be76046c2
-ms.sourcegitcommit: c4a15c6c4ecbb8a46ad4e67d9b3ab9b8b031d849
+ms.date: 10/21/2020
+ms.openlocfilehash: c6132251ecc4f453189937f93cf8024dcb8b91f5
+ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88656353"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471604"
 ---
 # <a name="unit-testing-c-with-mstest-and-net-core"></a>使用 MSTest 和 .NET Core 进行 C# 单元测试
 
@@ -27,7 +27,7 @@ ms.locfileid: "88656353"
     /PrimeService
 ```
 
-将 *PrimeService* 作为当前目录，然后运行 [`dotnet new classlib`](../tools/dotnet-new.md) 以创建源项目。 将 *Class1.cs* 重命名为 *PrimeService.cs*。 创建 `PrimeService` 类的失败实现：
+将 *PrimeService* 作为当前目录，然后运行 [`dotnet new classlib`](../tools/dotnet-new.md) 以创建源项目。 将 *Class1.cs* 重命名为 *PrimeService.cs* 。 创建 `PrimeService` 类的失败实现：
 
 ```csharp
 using System;
@@ -94,7 +94,7 @@ dotnet add reference ../PrimeService/PrimeService.csproj
 
 ## <a name="create-the-first-test"></a>创建第一个测试
 
-编写一个失败测试，使其通过，然后重复此过程。 从 *PrimeService.Tests* 目录删除 *UnitTest1.cs*，并创建一个名为 *PrimeService_IsPrimeShould.cs* 且包含以下内容的新 C# 文件：
+编写一个失败测试，使其通过，然后重复此过程。 从 *PrimeService.Tests* 目录删除 *UnitTest1.cs* ，并创建一个名为 *PrimeService_IsPrimeShould.cs* 且包含以下内容的新 C# 文件：
 
 ```csharp
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -105,17 +105,11 @@ namespace Prime.UnitTests.Services
     [TestClass]
     public class PrimeService_IsPrimeShould
     {
-        private readonly PrimeService _primeService;
-
-        public PrimeService_IsPrimeShould()
-        {
-            _primeService = new PrimeService();
-        }
-
         [TestMethod]
         public void IsPrime_InputIs1_ReturnFalse()
         {
-            var result = _primeService.IsPrime(1);
+            var primeService = new PrimeService();
+            bool result = primeService.IsPrime(1);
 
             Assert.IsFalse(result, "1 should not be prime");
         }

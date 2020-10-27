@@ -3,12 +3,12 @@ title: dotnet new 自定义模板
 description: 了解任意类型 .NET 项目或文件的自定义模板。
 author: adegeo
 ms.date: 05/20/2020
-ms.openlocfilehash: 55091ef9bb9f7a2aa24f585c94aa2a47960b1829
-ms.sourcegitcommit: d2db216e46323f73b32ae312c9e4135258e5d68e
+ms.openlocfilehash: 62d98adab0122936957301ee737c366541b0cfe6
+ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90874718"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471545"
 ---
 # <a name="custom-templates-for-dotnet-new"></a>dotnet new 自定义模板
 
@@ -25,7 +25,7 @@ ms.locfileid: "90874718"
 
 ### <a name="net-default-templates"></a>.NET 默认模板
 
-安装 [.NET Core SDK](https://dotnet.microsoft.com/download) 时，将获取十多个用于创建项目和文件的内置模板，包括控制台应用程序、类库、单元测试项目、ASP.NET Core 应用程序（包括 [Angular](https://angular.io/) 和 [React](https://facebook.github.io/react/) 项目）和配置文件。 若要列出内置模板，请运行带有 `-l|--list` 选项的 `dotnet new` 命令：
+安装 [.NET Core SDK](https://dotnet.microsoft.com/download) 时，将获取十多个用于创建项目和文件的内置模板，包括控制台应用程序、类库、单元测试项目、ASP.NET Core 应用程序（包括 [Angular](https://angular.io/) 和 [React](https://reactjs.org/) 项目）和配置文件。 若要列出内置模板，请运行带有 `-l|--list` 选项的 `dotnet new` 命令：
 
 ```dotnetcli
 dotnet new --list

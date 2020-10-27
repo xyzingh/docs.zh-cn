@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 2c8a5c1ec87918a91600a3557c679a42cae74896
-ms.sourcegitcommit: b7a8b09828bab4e90f66af8d495ecd7024c45042
+ms.openlocfilehash: d9526055041f036958699aa935aa6cfef494b520
+ms.sourcegitcommit: 98d20cb038669dca4a195eb39af37d22ea9d008e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87556318"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92434941"
 ---
 ### <a name="principalpermissionattribute-is-obsolete-as-error"></a>PrincipalPermissionAttribute 已过时，报告为错误
 
@@ -34,7 +34,7 @@ public void MyMethod()
 
 5.0 预览版 7
 
-#### <a name="recommended-action"></a>建议操作
+#### <a name=""></a><a id="permission-action">建议的操作</a>
 
 如果遇到过时错误，则必须采取措施。
 
