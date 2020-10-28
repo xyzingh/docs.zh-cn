@@ -725,24 +725,20 @@ items:
         href: misc/using-libraries-from-partially-trusted-code.md
       - name: 使用 Assert 方法
         href: misc/using-the-assert-method.md
-  - name: 创建控制台应用
-    href: ../standard/building-console-apps.md
-  - name: 在 Web 窗体应用中使用事件
-    href: ../standard/events/how-to-consume-events-in-a-web-forms-application.md
-  - name: .NET Framework 代码分析器
-    href: ../standard/analyzers/framework-analyzer.md
+  - name: 代码分析
+    href: code-analyzers.md
   - name: 多平台开发
     items:
       - name: 概述
-        href: ../standard/cross-platform/index.md
+        href: cross-platform/index.md
         displayName: cross platform
       - name: 可移植类库
-        href: ../standard/cross-platform/cross-platform-development-with-the-portable-class-library.md
+        href: cross-platform/portable-class-library.md
       - name: 将可移植类库与 MVVM 配合使用
-        href: ../standard/cross-platform/using-portable-class-library-with-model-view-view-model.md
+        href: cross-platform/using-portable-class-library-with-model-view-view-model.md
       - name: 面向多个平台的库的应用程序资源
-        href: ../standard/cross-platform/app-resources-for-libraries-that-target-multiple-platforms.md
+        href: cross-platform/app-resources-for-libraries-that-target-multiple-platforms.md
       - name: .NET Framework 对 Microsoft Store 应用和 Windows 运行时的支持
-        href: ../standard/cross-platform/support-for-windows-store-apps-and-windows-runtime.md
+        href: cross-platform/support-for-windows-store-apps-and-windows-runtime.md
       - name: 向 Windows 运行时传递 URI
-        href: ../standard/cross-platform/passing-a-uri-to-the-windows-runtime.md
+        href: cross-platform/passing-a-uri-to-the-windows-runtime.md
