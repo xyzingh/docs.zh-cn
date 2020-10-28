@@ -8,12 +8,12 @@ dev_langs:
 helpviewer_keywords:
 - what's new [.NET Framework]
 ms.assetid: 1d971dd7-10fc-4692-8dac-30ca308fc0fa
-ms.openlocfilehash: 6bbadd05187946cfdc601f9c026d685609251193
-ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
+ms.openlocfilehash: 13346836b6cc1c9db4a1b6fd93a11615c2a843c0
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471938"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687566"
 ---
 # <a name="whats-new-in-net-framework"></a>.NET Framework 中的新增功能
 
@@ -71,7 +71,7 @@ ms.locfileid: "92471938"
 
 #### <a name="base-classes"></a>基类
 
-**减少 FIPS 对加密的影响**。 在 .NET framework 的早期版本中，当在“FIPS 模式”下配置系统加密库时，<xref:System.Security.Cryptography.SHA256Managed> 等托管加密提供程序类会引发 <xref:System.Security.Cryptography.CryptographicException>。 引发这些异常的原因是加密提供程序类的托管版本尚未进行 FIPS（联邦信息处理标准）140-2 认证，这与系统加密库不同。 由于几个开发人员使其开发计算机处于 FIPS 模式，因此通常会在生产系统中引发异常。
+**减少 FIPS 对加密的影响** 。 在 .NET framework 的早期版本中，当在“FIPS 模式”下配置系统加密库时，<xref:System.Security.Cryptography.SHA256Managed> 等托管加密提供程序类会引发 <xref:System.Security.Cryptography.CryptographicException>。 引发这些异常的原因是加密提供程序类的托管版本尚未进行 FIPS（联邦信息处理标准）140-2 认证，这与系统加密库不同。 由于几个开发人员使其开发计算机处于 FIPS 模式，因此通常会在生产系统中引发异常。
 
 默认情况下，在面向 .NET Framework 4.8 的应用程序中，以下托管加密类在这种情况下不再引发 <xref:System.Security.Cryptography.CryptographicException>：
 
@@ -190,11 +190,11 @@ ServiceHealthBehavior 是一个 WCF 服务行为，该行为可扩展 <xref:Syst
 
 .NET Framework 4.8 中的运行时包含以下更改和改进：
 
-**JIT 编译器的改进**。 .NET Framework 4.8 中的实时 (JIT) 编译器基于 .NET Core 2.1 中的 JIT 编译器。 对 .NET Core 2.1 JIT 编译器所做的多个优化和所有 bug 修复都包含在 .NET Framework 4.8 JIT 编译器中。
+**JIT 编译器的改进** 。 .NET Framework 4.8 中的实时 (JIT) 编译器基于 .NET Core 2.1 中的 JIT 编译器。 对 .NET Core 2.1 JIT 编译器所做的多个优化和所有 bug 修复都包含在 .NET Framework 4.8 JIT 编译器中。
 
-**NGEN 改进**。 运行时改进了[本机映像生成器](../tools/ngen-exe-native-image-generator.md) (NGEN) 映像的内存管理，以便从 NGEN 映像映射的数据不驻留在内存中。 这将缩减可受到攻击的外围应用，攻击方法为试图通过修改将执行的内存来执行任意代码。
+**NGEN 改进** 。 运行时改进了[本机映像生成器](../tools/ngen-exe-native-image-generator.md) (NGEN) 映像的内存管理，以便从 NGEN 映像映射的数据不驻留在内存中。 这将缩减可受到攻击的外围应用，攻击方法为试图通过修改将执行的内存来执行任意代码。
 
-**所有程序集的反恶意软件扫描**。 在 .NET Framework 的早期版本中，运行时使用 Windows Defender 或第三方反恶意软件扫描从磁盘加载的所有程序集。 但是，从其他源加载的程序集（例如，通过 <xref:System.Reflection.Assembly.Load(System.Byte[])?displayProperty=nameWithType> 方法）不会进行扫描，并且可能包含未检测到的恶意软件。 从 Windows 10 上运行的 .NET Framework 4.8 开始，运行时通过实现[反恶意软件扫描界面 (AMSI)](/windows/desktop/AMSI/antimalware-scan-interface-portal) 的反恶意软件解决方案来触发扫描。
+**所有程序集的反恶意软件扫描** 。 在 .NET Framework 的早期版本中，运行时使用 Windows Defender 或第三方反恶意软件扫描从磁盘加载的所有程序集。 但是，从其他源加载的程序集（例如，通过 <xref:System.Reflection.Assembly.Load(System.Byte[])?displayProperty=nameWithType> 方法）不会进行扫描，并且可能包含未检测到的恶意软件。 从 Windows 10 上运行的 .NET Framework 4.8 开始，运行时通过实现[反恶意软件扫描界面 (AMSI)](/windows/desktop/AMSI/antimalware-scan-interface-portal) 的反恶意软件解决方案来触发扫描。
 
 <a name="v472"></a>
 
@@ -506,7 +506,7 @@ NET Framework 4.7.2 为基于 enclave 的 Always Encrypted 添加支持。 Alway
 <ResourceDictionary Source="MyRD.xaml" />
 ```
 
-编辑 MyRD.xaml 中的原始标记的诊断助手可以使用新功能来找到字典**。  此功能通过新的静态方法 <xref:System.Windows.Diagnostics.ResourceDictionaryDiagnostics.GetResourceDictionariesForSource%2A?displayProperty=nameWithType> 实现。 诊断助手使用标识原始标记的绝对 URI 调用新方法，如以下代码所示：
+编辑 MyRD.xaml 中的原始标记的诊断助手可以使用新功能来找到字典  。  此功能通过新的静态方法 <xref:System.Windows.Diagnostics.ResourceDictionaryDiagnostics.GetResourceDictionariesForSource%2A?displayProperty=nameWithType> 实现。 诊断助手使用标识原始标记的绝对 URI 调用新方法，如以下代码所示：
 
 ```csharp
 IEnumerable<ResourceDictionary> dictionaries = ResourceDictionaryDiagnostics.GetResourceDictionariesForSource(new Uri("pack://application:,,,/MyApp;component/MyRD.xaml"));
@@ -688,7 +688,7 @@ ASP.NET 处理包括 23 个事件的预定义管道中的请求。 ASP.NET 执�
 
 .NET Framework 4.7 通过 <xref:System.Runtime.Serialization.Json.DataContractJsonSerializer> 改进了序列化：
 
-**借助椭圆曲线加密 (ECC) 增强了功能**_
+**借助椭圆曲线加密 (ECC) 增强了功能** _
 
 在 .NET Framework 4.7 中，`ImportParameters(ECParameters)` 方法已添加到 <xref:System.Security.Cryptography.ECDsa> 和 <xref:System.Security.Cryptography.ECDiffieHellman> 类，以允许对象表示已经建立的密钥。 此外，还添加了 `ExportParameters(Boolean)` 方法，以便于使用显式曲线参数导出密钥。
 
@@ -696,7 +696,7 @@ ASP.NET 处理包括 23 个事件的预定义管道中的请求。 ASP.NET 执�
 
 有关 [.NET Framework 4.7 加密改进示例](https://gist.github.com/richlander/5a182899895a87a296c21ada97f7a54e)，请访问 GitHub。
 
-_*DataContractJsonSerializer 提供更出色的控制字符支持**
+_ *DataContractJsonSerializer 提供更出色的控制字符支持**
 
 在 .NET Framework 4.7 中，<xref:System.Runtime.Serialization.Json.DataContractJsonSerializer> 类会将符合 ECMAScript 6 标准的控制字符串行化。 面向 .NET Framework 4.7 的应用程序默认启用此行为，而对于在 .NET Framework 4.7 下运行但面向 .NET Framework 先前版本的应用程序来说，可选择启用此功能。 有关详细信息，请参阅[应用程序兼容性](../migration-guide/application-compatibility.md)部分。
 
@@ -706,7 +706,7 @@ _*DataContractJsonSerializer 提供更出色的控制字符支持**
 
 .NET Framework 4.7 新增了以下网络相关功能：
 
-**提供对 TLS 协议的默认操作系统支持**_
+**提供对 TLS 协议的默认操作系统支持** _
 
 借助 <xref:System.Net.Security.SslStream?displayProperty=nameWithType> 和上托堆栈组件（如 HTTP、FTP 和 SMTP）使用的 TLS 堆栈，开发者可以使用操作系统支持的默认 TLS 协议。 开发者再也不需要对 TLS 版本进行硬编码。
 
@@ -716,15 +716,15 @@ _*DataContractJsonSerializer 提供更出色的控制字符支持**
 
 在 .NET Framework 4.7 中，ASP.NET 新增了以下功能：
 
-_*对象缓存扩展性**
+_ *对象缓存扩展性**
 
 自 .NET Framework 4.7 起，ASP.NET 新增了一组 API，以便开发者可以替换内存中对象缓存和内存监视的默认 ASP.NET 实现代码。 现在，如果 ASP.NET 实现代码不充分，开发者可以替换以下三个组件中的任意一个：
 
-- **对象缓存存储**： 在新的缓存提供程序配置部分中，开发者可以使用新接口 **ICacheStoreProvider** 为 ASP.NET 应用程序插入对象缓存的新实现代码。
+- **对象缓存存储** ： 在新的缓存提供程序配置部分中，开发者可以使用新接口 **ICacheStoreProvider** 为 ASP.NET 应用程序插入对象缓存的新实现代码。
 
-- **内存监视**： 当运行的应用程序接近所配置的专用字节进程限制，或计算机的可用总物理内存不足时，ASP.NET 中的默认内存监视器就会通知应用程序。 接近这些限制时，就会触发通知。 对于某些应用程序，通知的触发点与限制过近，无法及时响应。 开发人员现在可以编写自己的内存监视器，以通过使用 <xref:System.Web.Hosting.ApplicationMonitors.MemoryMonitor%2A?displayProperty=nameWithType> 属性替换默认的内存监视器。
+- **内存监视** ： 当运行的应用程序接近所配置的专用字节进程限制，或计算机的可用总物理内存不足时，ASP.NET 中的默认内存监视器就会通知应用程序。 接近这些限制时，就会触发通知。 对于某些应用程序，通知的触发点与限制过近，无法及时响应。 开发人员现在可以编写自己的内存监视器，以通过使用 <xref:System.Web.Hosting.ApplicationMonitors.MemoryMonitor%2A?displayProperty=nameWithType> 属性替换默认的内存监视器。
 
-- **内存限制响应**： 默认情况下，当接近专用字节进程限制时，ASP.NET 会尝试释放对象缓存，并定期调用 <xref:System.GC.Collect%2A?displayProperty=nameWithType>。 对于某些应用程序，<xref:System.GC.Collect%2A?displayProperty=nameWithType> 调用频率或缓存释放量的效率低下。 开发者现在可以向应用程序的内存监视器添加 **IObserver** 实现代码，从而替换或补充默认行为。
+- **内存限制响应** ： 默认情况下，当接近专用字节进程限制时，ASP.NET 会尝试释放对象缓存，并定期调用 <xref:System.GC.Collect%2A?displayProperty=nameWithType>。 对于某些应用程序，<xref:System.GC.Collect%2A?displayProperty=nameWithType> 调用频率或缓存释放量的效率低下。 开发者现在可以向应用程序的内存监视器添加 **IObserver** 实现代码，从而替换或补充默认行为。
 
 <a name="wcf47"></a>
 
@@ -1201,7 +1201,7 @@ WCF 包含可以在客户端应用程序上设置以确保它们始终连接到�
 
 自 .NET Framework 4.5 起，WF 支持在 Visual Studio 设计器和代码工作流中使用 C# 表达式。 重新托管的工作流设计器是 WF 的一项重要功能，允许工作流设计器位于 Visual Studio 外部的应用程序中（如 WPF 中）。  Windows Workflow Foundation 提供在重新托管的工作流设计器中支持 C# 表达式和 IntelliSense 的功能。 有关详细信息，请参阅 [Windows Workflow Foundation 博客](/archive/blogs/workflowteam/building-c-expressions-support-and-intellisense-in-the-rehosted-workflow-designer)。
 
-`Availability of IntelliSense when a customer rebuilds a workflow project from Visual Studio` 在低于 4.6.2 的 .NET Framework 版本中，客户从 Visual Studio 重新生成工作流项目时，WF 设计器 IntelliSense 会中断。 虽然项目生成成功，但在设计器中找不到该工作流类型，并且来自 IntelliSense 的缺少工作流类型的警告会出现在**错误列表**窗口中。 .NET Framework 4.6.2 解决了这个问题，并让 IntelliSense 可供使用。
+`Availability of IntelliSense when a customer rebuilds a workflow project from Visual Studio` 在低于 4.6.2 的 .NET Framework 版本中，客户从 Visual Studio 重新生成工作流项目时，WF 设计器 IntelliSense 会中断。 虽然项目生成成功，但在设计器中找不到该工作流类型，并且来自 IntelliSense 的缺少工作流类型的警告会出现在 **错误列表** 窗口中。 .NET Framework 4.6.2 解决了这个问题，并让 IntelliSense 可供使用。
 
 **启用了工作流跟踪的工作流 V1 应用程序现以 FIPS 模式运行**
 
@@ -1303,7 +1303,7 @@ ADO.NET 现在支持以本机方式在硬件安全模块 (HSM) 中存储始终�
 
 **改进了 AlwaysOn 的 <xref:System.Data.SqlClient.SqlConnectionStringBuilder.MultiSubnetFailover%2A> 连接行为**
 
-SqlClient 现在可自动提供与 AlwaysOn 可用性组 (AG) 之间的更快连接。 它以透明方式检测应用程序是否连接到不同子网上的 AlwaysOn 可用性组 (AG)，快速发现当前的活动服务器并提供与服务器之间的连接。 在此版本之前，应用程序必须将连接字符串设置为包括 `"MultisubnetFailover=true"`，以指示它已连接到 AlwaysOn 可用性组。 如果未将连接关键字设置为 `true`，则应用程序可能会在连接到 AlwaysOn 可用性组时遇到超时。 使用此版本时，应用程序*无需*再将 <xref:System.Data.SqlClient.SqlConnectionStringBuilder.MultiSubnetFailover%2A> 设置为 `true`。 有关对 Always On 可用性组的 SqlClient 支持的详细信息，请参阅[对高可用性、灾难恢复的 SqlClient 支持](../data/adonet/sql/sqlclient-support-for-high-availability-disaster-recovery.md)。
+SqlClient 现在可自动提供与 AlwaysOn 可用性组 (AG) 之间的更快连接。 它以透明方式检测应用程序是否连接到不同子网上的 AlwaysOn 可用性组 (AG)，快速发现当前的活动服务器并提供与服务器之间的连接。 在此版本之前，应用程序必须将连接字符串设置为包括 `"MultisubnetFailover=true"`，以指示它已连接到 AlwaysOn 可用性组。 如果未将连接关键字设置为 `true`，则应用程序可能会在连接到 AlwaysOn 可用性组时遇到超时。 使用此版本时，应用程序 *无需* 再将 <xref:System.Data.SqlClient.SqlConnectionStringBuilder.MultiSubnetFailover%2A> 设置为 `true`。 有关对 Always On 可用性组的 SqlClient 支持的详细信息，请参阅[对高可用性、灾难恢复的 SqlClient 支持](../data/adonet/sql/sqlclient-support-for-high-availability-disaster-recovery.md)。
 
 <a name="WPF461"></a>
 
@@ -1585,9 +1585,9 @@ WPF 包括一个 [NuGet 包](https://www.nuget.org/packages/Microsoft.Wpf.Intero
 
     使用一致的开关格式是有益的，因为它们是由库公开的正式协定。 以下是两种明显的格式。
 
-    - *Switch*.*namespace*.*switchname*
+    - *Switch* . *namespace* . *switchname*
 
-    - *Switch*.*library*.*switchname*
+    - *Switch* . *library* . *switchname*
 
   - **更改为基于任务的异步模式 (TAP)**
 
@@ -1837,13 +1837,13 @@ WPF 包括一个 [NuGet 包](https://www.nuget.org/packages/Microsoft.Wpf.Intero
                                           enlistmentOptions As EnlistmentOptions) As Enlistment
   ```
 
-  该方法可能会由登记使用，该登记先前通过 <xref:System.Transactions.Transaction.EnlistPromotableSinglePhase%2A?displayProperty=nameWithType> 创建以响应 <xref:System.Transactions.ITransactionPromoter.Promote%2A?displayProperty=nameWithType> 方法。 它要求 `System.Transactions` 将事务提升为 MSDTC 事务，并将可提升的登记“转换”为持久登记。 此方法成功完成后，`System.Transactions` 将不再引用 <xref:System.Transactions.IPromotableSinglePhaseNotification> 接口，将来的所有通知都将到达所提供的 <xref:System.Transactions.ISinglePhaseNotification> 接口。 相关登记必须作为持久登记，以支持事务日志记录和恢复。 请参阅 <xref:System.Transactions.Transaction.EnlistDurable%2A?displayProperty=nameWithType> 了解详细信息。 此外，登记必须支持 <xref:System.Transactions.ISinglePhaseNotification>。  此方法*只能*在处理 <xref:System.Transactions.ITransactionPromoter.Promote%2A?displayProperty=nameWithType> 调用时调用。 如果不是这种情况，则会引发 <xref:System.Transactions.TransactionException> 异常。
+  该方法可能会由登记使用，该登记先前通过 <xref:System.Transactions.Transaction.EnlistPromotableSinglePhase%2A?displayProperty=nameWithType> 创建以响应 <xref:System.Transactions.ITransactionPromoter.Promote%2A?displayProperty=nameWithType> 方法。 它要求 `System.Transactions` 将事务提升为 MSDTC 事务，并将可提升的登记“转换”为持久登记。 此方法成功完成后，`System.Transactions` 将不再引用 <xref:System.Transactions.IPromotableSinglePhaseNotification> 接口，将来的所有通知都将到达所提供的 <xref:System.Transactions.ISinglePhaseNotification> 接口。 相关登记必须作为持久登记，以支持事务日志记录和恢复。 请参阅 <xref:System.Transactions.Transaction.EnlistDurable%2A?displayProperty=nameWithType> 了解详细信息。 此外，登记必须支持 <xref:System.Transactions.ISinglePhaseNotification>。  此方法 *只能* 在处理 <xref:System.Transactions.ITransactionPromoter.Promote%2A?displayProperty=nameWithType> 调用时调用。 如果不是这种情况，则会引发 <xref:System.Transactions.TransactionException> 异常。
 
 <a name="v451"></a>
 
 ## <a name="whats-new-in-net-framework-451"></a>.NET Framework 4.5.1 中的新增功能
 
-**2014 年 4 月版更新**：
+**2014 年 4 月版更新** ：
 
 - [Visual Studio 2013 Update 2](https://go.microsoft.com/fwlink/p/?LinkId=393658) 包括对可移植类库模板的更新，以支持以下方案：
 
@@ -1855,7 +1855,7 @@ WPF 包括一个 [NuGet 包](https://www.nuget.org/packages/Microsoft.Wpf.Intero
 
   - 你可以重定 Windows 应用商店或 Windows Phone 应用商店类库（例如可移植类库）的目标。
 
-  有关这些更改的详细信息，请参阅[可移植类库](../../standard/cross-platform/cross-platform-development-with-the-portable-class-library.md)。
+  有关这些更改的详细信息，请参阅[可移植类库](../cross-platform/portable-class-library.md)。
 
 - .NET Framework 内容集现在包括 .NET Native 相关文档，这是一种用于生成和部署 Windows 应用程序的预编译技术。 为了提升性能，.NET Native 将应用程序直接编译为本机代码，而不是中间语言 (IL)。 有关详细信息，请参阅[使用 .NET Native 编译应用](../net-native/index.md)。
 
@@ -2125,13 +2125,12 @@ Windows 8.x 应用商店应用专为特定外形规格而设计，并利用 Wind
 
 ### <a name="portable-class-libraries"></a>可移植类库<a name="portable"></a>
 
-利用 Visual Studio 2012（及更高版本）中的可移植类库项目，可以编写和生成在多个 .NET Framework 平台上运行的托管程序集。 使用可移植类库项目，可以选择目标平台（如 Windows Phone 和适用于 Windows 8.x 应用商店应用的 .NET）。 项目中的可用类型和成员自动限制为这些平台中的公共类型和成员。 有关详细信息，请参阅[可移植类库](../../standard/cross-platform/cross-platform-development-with-the-portable-class-library.md)。
+利用 Visual Studio 2012（及更高版本）中的可移植类库项目，可以编写和生成在多个 .NET Framework 平台上运行的托管程序集。 使用可移植类库项目，可以选择目标平台（如 Windows Phone 和适用于 Windows 8.x 应用商店应用的 .NET）。 项目中的可用类型和成员自动限制为这些平台中的公共类型和成员。 有关详细信息，请参阅[可移植类库](../cross-platform/portable-class-library.md)。
 
 ## <a name="see-also"></a>请参阅
 
 - [.NET Framework 和带外版本](../get-started/the-net-framework-and-out-of-band-releases.md)
 - [.NET Framework 中辅助功能的新增功能](whats-new-in-accessibility.md)
-- [Visual Studio 2017 中的新增功能](/visualstudio/ide/whats-new-visual-studio-2017)
 - [Visual Studio 2019 中的新增功能](/visualstudio/ide/whats-new-visual-studio-2019)
 - [ASP.NET](/aspnet)
 - [Visual Studio 中的 C++ 新变化](/cpp/what-s-new-for-visual-cpp-in-visual-studio)
