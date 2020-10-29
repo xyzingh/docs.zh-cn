@@ -3,12 +3,12 @@ title: 从 .NET Framework 移植到 .NET Core
 description: 了解移植过程以及发现在将 .NET Framework 项目移植到 .NET Core 时可能有用的工具。
 author: cartermp
 ms.date: 10/22/2019
-ms.openlocfilehash: 74fe4519e41a07bc78a4dc346f8d1b52b5c7d092
-ms.sourcegitcommit: da21fc5a8cce1e028575acf31974681a1bc5aeed
+ms.openlocfilehash: c206e56e095d1ca068fa2aa6f60e891895f7f999
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84502764"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888569"
 ---
 # <a name="overview-of-porting-from-net-framework-to-net-core"></a>从 .NET Framework 移植到 .NET Core 的概述
 
@@ -113,5 +113,10 @@ ms.locfileid: "84502764"
 
 > [!div class="nextstepaction"]
 > [分析依赖项](third-party-deps.md)
-> [对 NuGet 包打包](../deploying/creating-nuget-packages.md)
-> [ASP.NET 到 ASP.NET Core 迁移](/aspnet/core/migration/proper-to-2x)
+> [打包 NuGet 包](../deploying/creating-nuget-packages.md)
+
+## <a name="see-also"></a>请参阅
+
+- [ASP.NET 到 ASP.NET Core 迁移](/aspnet/core/migration/proper-to-2x)
+- [将 WPF 应用迁移到 .NET Core](/dotnet/desktop/wpf/migration/convert-project-from-net-framework)
+- [将 Windows 窗体应用迁移到 .NET Core](winforms.md)

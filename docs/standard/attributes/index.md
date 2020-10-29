@@ -13,12 +13,12 @@ helpviewer_keywords:
 - runtime, attributes
 - extending metadata
 ms.assetid: 30386922-1e00-4602-9ebf-526b271a8b87
-ms.openlocfilehash: 5678e904afae4d348fbb56b189c95cd59b8e7a4d
-ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
+ms.openlocfilehash: 9a83c0e8ee3476f43ccc2e88c21ccbbc0661bd19
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92162838"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889213"
 ---
 # <a name="extend-metadata-using-attributes"></a>利用特性扩展元数据
 
@@ -33,7 +33,7 @@ ms.locfileid: "92162838"
 |[应用特性](applying-attributes.md)|描述如何将特性应用于代码的元素。|
 |[编写自定义特性](writing-custom-attributes.md)|描述如何设计自定义特性类。|
 |[检索存储在特性中的信息](retrieving-information-stored-in-attributes.md)|描述如何检索加载到执行上下文中的代码的自定义特性。|
-|[元数据和自描述组件](../metadata-and-self-describing-components.md)|提供元数据的概述，并说明它是如何在 .NET Framework 可移植可执行 (PE) 文件中实现的。|
+|[元数据和自描述组件](../metadata-and-self-describing-components.md)|提供元数据的概述，并说明它是如何在 .NET 可移植可执行 (PE) 文件中实现的。|
 |[如何：将程序集加载到仅反射上下文中](../../framework/reflection-and-codedom/how-to-load-assemblies-into-the-reflection-only-context.md)|说明如何检索仅反射上下文中的自定义特性信息。|
 
 ## <a name="reference"></a>参考
