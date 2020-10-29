@@ -15,18 +15,16 @@ helpviewer_keywords:
 - events [.NET Core]
 - events [.NET Framework]
 ms.assetid: b6f65241-e0ad-4590-a99f-200ce741bb1f
-ms.openlocfilehash: 83799b0f4c6d6503825ce271fed4bffa7a9775b9
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 47021873956f971709b49c1b224e43e4c7f482d0
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90545698"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687289"
 ---
-# <a name="handling-and-raising-events"></a>处理和引发事件
+# <a name="handle-and-raising-events"></a>处理和引发事件
 
-.NET 中的事件基于委托模型。 委托模型遵循[观察者设计模式](observer-design-pattern.md)，使订阅者能够向提供方注册并接收相关通知。 事件发送方推送事件发生的通知，事件接收器接收该通知并定义对它的响应。 本文介绍委托模型的主要组件、如何在应用程序中使用事件以及如何在你的代码中实现事件。  
-  
- 有关在 Windows 8.x Store 应用中处理事件的信息，请参阅[事件和路由事件概述](/previous-versions/windows/apps/hh758286(v=win.10))。  
+.NET 中的事件基于委托模型。 委托模型遵循[观察者设计模式](observer-design-pattern.md)，使订阅者能够向提供方注册并接收相关通知。 事件发送方推送事件发生的通知，事件接收器接收该通知并定义对它的响应。 本文介绍委托模型的主要组件、如何在应用程序中使用事件以及如何在你的代码中实现事件。
   
 ## <a name="events"></a>事件
 
@@ -34,7 +32,7 @@ ms.locfileid: "90545698"
   
 若要定义一个事件，可以在事件类签名中使用 [`event`](../../csharp/language-reference/keywords/event.md)（在 C# 中）或 [`Event`](../../visual-basic/language-reference/statements/event-statement.md)（在 Visual Basic 中）关键字，并指定事件的委托类型。 委托在下一节中介绍。  
   
-通常，为了引发事件，您可以在 C# 中添加一个标记为 `protected` 和 `virtual` 或在 Visual Basic 中标记为 `Protected` 和 `Overridable` 的方法。 将此方法命名为 `On`*EventName*；例如，`OnDataReceived`。 此方法应接受一个指定事件数据对象（<xref:System.EventArgs> 类型或派生类型）的参数。 您提供此方法以允许派生类重写引发事件的逻辑。 派生类应始终调用基类的 `On`*EventName* 方法，以确保注册的委托接收事件。  
+通常，为了引发事件，您可以在 C# 中添加一个标记为 `protected` 和 `virtual` 或在 Visual Basic 中标记为 `Protected` 和 `Overridable` 的方法。 将此方法命名为 `On`*EventName* ；例如，`OnDataReceived`。 此方法应接受一个指定事件数据对象（<xref:System.EventArgs> 类型或派生类型）的参数。 您提供此方法以允许派生类重写引发事件的逻辑。 派生类应始终调用基类的 `On`*EventName* 方法，以确保注册的委托接收事件。  
 
 下面的示例显示如何声明名为 `ThresholdReached` 事件。 该事件与 <xref:System.EventHandler> 委托相关联并且由 `OnThresholdReached` 方法引发。  
   
@@ -82,19 +80,19 @@ ms.locfileid: "90545698"
 
 借助 .NET，订阅者可以进行静态或动态注册以获得事件通知。 对于其事件由静态事件处理程序进行处理的类，静态事件处理程序对其整个生命周期有效。 通常为响应某些条件程序逻辑，会在程序执行期间显式激活和停用动态事件处理程序。 例如，如果仅在特定条件下需要事件通知，或如果应用程序提供多个事件处理程序且由运行时条件定义要使用的适当事件处理程序，则可以使用动态事件处理程序。 上一节中的示例演示如何动态添加事件处理程序。 有关详细信息，请查看 Visual Basic 中的[事件](../../visual-basic/programming-guide/language-features/events/index.md)和 C# 中的[事件](../../csharp/programming-guide/events/index.md)。  
   
-## <a name="raising-multiple-events"></a>引发多个事件  
+## <a name="raising-multiple-events"></a>引发多个事件
+
  如果您的类引发多个事件，编译器会为每一个事件委托实例生成一个字段。 如果事件数量很大，则可能无法接受按一个委托计算一个字段的存储成本。 对于这些情况，.NET 提供一个事件属性，可以将其与选择的另一数据结构一起用于存储事件委托。  
   
  事件属性由事件声明和事件访问器组成。 事件访问器是您定义的方法，用来从存储数据结构添加和移除事件委托实例。 请注意，事件属性要比事件字段慢，这是因为必须先检索每个事件委托，然后才能调用它。 需在内存和速度之间进行权衡。 如果类定义许多不常引发的事件，那么需要实现事件属性。 有关详细信息，请参阅[如何：使用事件属性处理多个事件](how-to-handle-multiple-events-using-event-properties.md)。  
   
-## <a name="related-topics"></a>相关主题  
+## <a name="related-articles"></a>相关文章
   
 |Title|描述|  
 |-----------|-----------------|  
 |[如何：抛出和使用事件](how-to-raise-and-consume-events.md)|包含引发和使用事件的示例。|  
 |[如何：使用事件属性处理多个事件](how-to-handle-multiple-events-using-event-properties.md)|演示如何使用事件属性处理多个事件。|  
-|[观察程序设计模式](observer-design-pattern.md)|描述允许订阅者向提供方注册和接收通知的设计模式。|  
-|[如何：在 Web 窗体应用程序中使用事件](how-to-consume-events-in-a-web-forms-application.md)|演示如何处理 Web 窗体控件引发的事件。|  
+|[观察程序设计模式](observer-design-pattern.md)|描述允许订阅者向提供方注册和接收通知的设计模式。|
   
 ## <a name="see-also"></a>请参阅
 
@@ -105,3 +103,4 @@ ms.locfileid: "90545698"
 - [事件 (Visual Basic)](../../visual-basic/programming-guide/language-features/events/index.md)
 - [事件（C# 编程指南）](../../csharp/programming-guide/events/index.md)
 - [事件和路由事件概述（UWP 应用）](/windows/uwp/xaml-platform/events-and-routed-events-overview)
+- [Windows 应用商店 8.x 应用中的事件](/previous-versions/windows/apps/hh758286(v=win.10))

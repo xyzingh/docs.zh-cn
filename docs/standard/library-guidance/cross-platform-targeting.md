@@ -2,12 +2,12 @@
 title: .NET 库的跨平台定位
 description: 有关创建跨平台 .NET 库的最佳做法建议。
 ms.date: 08/12/2019
-ms.openlocfilehash: 61adff3759984554bb83531b4f9d8a49e29c929c
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.openlocfilehash: 6309e300861ab286dcaba3256267b3459e6e0d10
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2020
-ms.locfileid: "76731456"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223344"
 ---
 # <a name="cross-platform-targeting"></a>跨平台定位
 
@@ -15,7 +15,7 @@ ms.locfileid: "76731456"
 
 ## <a name="net-standard"></a>.NET Standard
 
-.NET Standard 是为 .NET 库启用跨平台支持的最佳方式。 [.NET Standard](../net-standard.md) 是一套 .NET API 规范，在所有 .NET 实现中推出。 面向 .NET Standard 可以生成受限于使用给定版本的 .NET Standard 中的 API 的库，这意味着实现该版本的 .NET Standard 的所有平台都可以使用它。
+.NET Standard 是为 .NET 库启用跨平台支持的最佳方式。 [.NET Standard](../net-standard.md) 是一套 .NET API 规范，在所有 .NET 实现中推出。 以 .NET Standard 为目标可以生成受限于使用给定版本的 .NET Standard 中的 API 的库，这意味着实现该版本的 .NET Standard 的所有平台都可以使用它。
 
 ![.NET Standard](./media/cross-platform-targeting/platforms-netstandard.png ".NET Standard")
 

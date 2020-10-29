@@ -5,18 +5,20 @@ ms.date: 01/17/2020
 helpviewer_keywords:
 - versions, .NET Framework
 ms.assetid: f75a72de-e2f2-4a7a-9574-3f278684ea90
-ms.openlocfilehash: 74a1e244fa47cf7c6ea36454013b46b6e44f62c9
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: f807a9d9a7ccebf2ae71d47e01fbfba7338b1799
+ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90557666"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471992"
 ---
 # <a name="net-framework-versions-and-dependencies"></a>.NET Framework 版本和依赖关系
 
 每个版本的 .NET framework 都包含公共语言运行时 (CLR)、基类库和其他托管库。 本文按版本介绍了 .NET Framework 的关键功能，提供了有关基础 CLR 版本和相关开发环境的信息，并标识了 Windows 操作系统 (OS) 所安装的版本。
 
 每个 .NET Framework 的新版本都会添加新功能，但保留早期版本中的功能。
+
+[!INCLUDE [net-framework-future](../../../includes/net-framework-future.md)]
 
 CLR 由其自己的版本号标识。 .NET Framework 版本号在每次发布时都会递增，但 CLR 版本并不总是递增的。 例如，.NET Framework 4、4.5 和更高版本包含 CLR 4，而 .NET Framework 2.0、3.0 和 3.5 包含 CLR 2.0。 （没有版本 3 的 CLR。）
 
@@ -49,7 +51,7 @@ CLR 由其自己的版本号标识。 .NET Framework 版本号在每次发布时
 
 |||
 |-|-|
-|**CLR 版本**|4|
+|CLR 版本*|4|
 |**Windows 版本**|✔️ 10 2019 年 5 月更新<br/>➕ 10 2018 年 10 月更新（版本 1809）<br/>➕ 10 2018 年 4 月更新（版本 1803）<br/>➕ 10 秋季创意者更新（版本 1709）<br/>➕ 10 创意者更新（版本 1703）<br/>➕ 10 周年更新（版本 1607）<br/>➕ 8.1<br/>➕7|
 |**Windows Server 版本**|➕ Windows Server 2019<br/>➕ Windows Server 版本 1809<br/>➕ Windows Server 版本 1803<br/>➕ 2016<br/>➕ 2012 R2<br/>➕ 2012<br/>➕ 2008 R2 SP1|
 |**确定已安装的 .NET 版本**|使用 `Release` DWORD：<br/>- 528040（Windows 10 2019 年 5 月更新）<br/>- 528049（所有其他 OS 版本）<br/>（请参阅[说明](how-to-determine-which-versions-are-installed.md)）|

@@ -5,12 +5,12 @@ author: richlander
 ms.date: 06/20/2016
 ms.technology: dotnet-standard
 ms.assetid: a67484c3-fe92-44d8-8fa3-36fa2071d880
-ms.openlocfilehash: e2fd0237556f877af64708674f00e9efddf95869
-ms.sourcegitcommit: 488aced39b5f374bc0a139a4993616a54d15baf0
+ms.openlocfilehash: 35e408ed3552550f19879409128784b2513e56c8
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83209638"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92224260"
 ---
 # <a name="net-class-libraries"></a>.NET 类库
 
@@ -18,8 +18,8 @@ ms.locfileid: "83209638"
 
 有三种类型的类库可供使用：
 
-* **平台特定**的类库可访问给定平台（例如，.NET Framework、Xamarin、iOS）中的所有 API，但只有面向该平台的应用和库可使用该类库。
-* **可移植**类库可访问 API 的子集，并且可供面向多个平台的应用和库使用。
+* **平台特定** 的类库可访问给定平台（例如，.NET Framework、Xamarin、iOS）中的所有 API，但只有面向该平台的应用和库可使用该类库。
+* **可移植** 类库可访问 API 的子集，并且可供面向多个平台的应用和库使用。
 * .NET Standard 类库将平台专用库概念和可移植库概念合并到一个模型中，以同时获取两方面的优势。
 
 ## <a name="platform-specific-class-libraries"></a>平台特定的类库

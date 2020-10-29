@@ -1,15 +1,17 @@
 ---
 title: 在 .NET for Apache Spark 中创建用户定义的函数 (UDF)
 description: 了解如何在 .NET for Apache Spark 应用程序中实现用户定义的函数 (UDF)。
+ms.author: nidutta
+author: Niharikadutta
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: mvc,how-to
-ms.openlocfilehash: 769bcf0a912d27e191dad82138648d1aefb3c3b6
-ms.sourcegitcommit: b59237ca4ec763969a0dd775a3f8f39f8c59fe24
+ms.openlocfilehash: 50e631b0c561ebdf081d4c1b7d16bf25abb322e5
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91955031"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92224188"
 ---
 # <a name="create-user-defined-functions-udf-in-net-for-apache-spark"></a>在 .NET for Apache Spark 中创建用户定义的函数 (UDF)
 
@@ -184,6 +186,12 @@ public class C
 
 * UDF 中的 Null 值可能引发异常。 开发人员有责任对其进行处理。
 * UDF 不使用 Spark 内置函数提供的优化功能，因此建议尽可能使用内置函数。
+
+## <a name="faqs"></a>常见问题解答
+
+尝试使用 `ArrayType``MapType``ArrayList` 或 `HashTable` 作为参数或返回类型调用 UDF 时，为什么会收到错误 `System.NotImplementedException: The method or operation is not implemented.` 或 `System.InvalidCastException: Unable to cast object of type 'System.Collections.Hashtable' to type 'System.Collections.Generic.IDictionary`？  
+对 `ArrayType` 和 `MapType` 的支持直到 [v1.0](https://github.com/dotnet/spark/releases/tag/v1.0.0) 才提供，因此如果使用之前的 .NET for Apache Spark 版本，并尝试将这些类型作为参数传递给 UDF 或作为返回类型，则会出现此错误。
+不支持将 `ArrayList` 和 `HashTable` 类型作为 UDF 的返回类型，因为它们是非泛型集合，因此无法向 Spark 提供其元素类型定义。
 
 ## <a name="next-steps"></a>后续步骤
 

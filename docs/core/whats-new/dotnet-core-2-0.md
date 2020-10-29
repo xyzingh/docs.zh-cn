@@ -2,12 +2,12 @@
 title: .NET Core 2.0 的新增功能
 description: 了解 .NET Core 的新增功能。
 ms.date: 08/13/2017
-ms.openlocfilehash: 115b3adc72b6798c6a7bac9cc18044a8822808a6
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.openlocfilehash: bdca38d1584107727fe8e20b80ab2337f4cb05f1
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79397841"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223718"
 ---
 # <a name="whats-new-in-net-core-20"></a>.NET Core 2.0 的新增功能
 
@@ -104,7 +104,7 @@ macOS 上的 .NET Core 1.x 要求使用 OpenSSL 工具包的加密库。 .NET Co
 
 ### <a name="support-for-net-standard-20"></a>支持 .NET Standard 2.0
 
-.NET Standard 定义了一组版本化 API，这些 API 必须可用于符合相应 Standard 版本要求的 .NET 实现代码。 .NET Standard 面向库开发者。 旨在保证功能对每个 .NET 实现代码中定目标到 .NET Standard 版本的库可用。 .NET Core 1.x 支持 .NET Standard 版本 1.6；.NET Core 2.0 支持最新版 .NET Core 2.0。 有关详细信息，请参阅 [.NET Standard](../../standard/net-standard.md)。
+.NET Standard 定义了一组版本化 API，这些 API 必须可用于符合相应 Standard 版本要求的 .NET 实现代码。 .NET Standard 面向库开发者。 旨在保证功能对每个 .NET 实现代码中以 .NET Standard 版本为目标的库可用。 .NET Core 1.x 支持 .NET Standard 版本 1.6；.NET Core 2.0 支持最新版 .NET Core 2.0。 有关详细信息，请参阅 [.NET Standard](../../standard/net-standard.md)。
 
 .NET Standard 2.0 比 .NET Standard 1.6 多包含 20,000 多个 API。 此扩展的外围应用的大部分来自于，将 .NET Framework 和 Xamarin 的通用 API 合并到 .NET Standard。
 

@@ -5,12 +5,12 @@ no-loc:
 - Blazor
 - WebAssembly
 ms.date: 09/01/2020
-ms.openlocfilehash: 70297cfe15732716b9ceacae091abe3c8957fb61
-ms.sourcegitcommit: cbacb5d2cebbf044547f6af6e74a9de866800985
+ms.openlocfilehash: 4a4c8e2806fee663b5f6aa255a6f24250a072a85
+ms.sourcegitcommit: 532b03d5bbab764d63356193b04cd2281bc01239
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2020
-ms.locfileid: "89495468"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92526612"
 ---
 # <a name="dotnet-new"></a>dotnet new
 
@@ -143,7 +143,7 @@ dotnet new -h|--help
 
 - **`--type <TYPE>`**
 
-  根据可用类型筛选模板。 预定义的值为 `project`、`item` 和 `other`。
+  根据可用类型筛选模板。 预定义的值为 `project` 和 `item`。
 
 - **`-u|--uninstall [PATH|NUGET_ID]`**
 
@@ -190,11 +190,11 @@ dotnet new -h|--help
 
   如已指定，则在项目创建期间不执行隐式还原。 自 .NET Core 2.2 SDK 起可用。
 
-***
+**_
 
 ### <a name="classlib"></a>classlib
 
-- **`-f|--framework <FRAMEWORK>`**
+- _ *`-f|--framework <FRAMEWORK>`**
 
   指定目标[框架](../../standard/frameworks.md)。 值：`netcoreapp<version>`（要创建 .NET Core 类库的话）或 `netstandard<version>`（要创建 .NET Standard 类库的话）。 默认值为 `netstandard2.0`。
 
@@ -208,11 +208,11 @@ dotnet new -h|--help
 
   在项目创建期间不执行隐式还原。
 
-***
+**_
 
 ### <a name="wpf-wpflib-wpfcustomcontrollib-wpfusercontrollib"></a><a name="wpf"></a> wpf、wpflib、wpfcustomcontrollib、wpfusercontrollib
 
-- **`-f|--framework <FRAMEWORK>`**
+- _ *`-f|--framework <FRAMEWORK>`**
 
   指定目标[框架](../../standard/frameworks.md)。 默认值为 `netcoreapp3.1`。 自 .NET Core 3.1 SDK 起可用。
 
@@ -226,11 +226,11 @@ dotnet new -h|--help
 
   在项目创建期间不执行隐式还原。
 
-***
+**_
 
 ### <a name="winforms-winformslib"></a><a name="winforms"></a> winforms、winformslib
 
-- **`--langVersion <VERSION_NUMBER>`**
+- _ *`--langVersion <VERSION_NUMBER>`**
 
   在已创建的项目文件中设置 `LangVersion` 属性。 例如，使用 `--langVersion 7.3` 以使用 C# 7.3。
 
@@ -240,11 +240,11 @@ dotnet new -h|--help
 
   在项目创建期间不执行隐式还原。
 
-***
+**_
 
 ### <a name="worker-grpc"></a><a name="web-others"></a> worker、grpc
 
-- **`-f|--framework <FRAMEWORK>`**
+- _ *`-f|--framework <FRAMEWORK>`**
 
   指定目标[框架](../../standard/frameworks.md)。 默认值为 `netcoreapp3.1`。 自 .NET Core 3.1 SDK 起可用。
 
@@ -256,11 +256,11 @@ dotnet new -h|--help
 
   在项目创建期间不执行隐式还原。
 
-***
+**_
 
 ### <a name="mstest-xunit"></a><a name="test"></a> mstest、xunit
 
-- **`-f|--framework <FRAMEWORK>`**
+- _ *`-f|--framework <FRAMEWORK>`**
 
   指定目标[框架](../../standard/frameworks.md)。 自 .NET Core 3.0 SDK 起可用的选项。
 
@@ -279,11 +279,11 @@ dotnet new -h|--help
 
   在项目创建期间不执行隐式还原。
 
-***
+**_
 
 ### <a name="nunit"></a>nunit
 
-- **`-f|--framework <FRAMEWORK>`**
+- _ *`-f|--framework <FRAMEWORK>`**
 
   指定目标[框架](../../standard/frameworks.md)。
 
@@ -304,11 +304,11 @@ dotnet new -h|--help
 
   在项目创建期间不执行隐式还原。
 
-***
+**_
 
 ### <a name="page"></a>页
 
-- **`-na|--namespace <NAMESPACE_NAME>`**
+- _ *`-na|--namespace <NAMESPACE_NAME>`**
 
   已生成代码的命名空间。 默认值为 `MyApp.Namespace`。
 
@@ -316,19 +316,19 @@ dotnet new -h|--help
 
   创建不含 PageModel 的页。
 
-***
+**_
 
 ### <a name="viewimports-proto"></a><a name="namespace"></a> viewimports、proto
 
-- **`-na|--namespace <NAMESPACE_NAME>`**
+- _ *`-na|--namespace <NAMESPACE_NAME>`**
 
   已生成代码的命名空间。 默认值为 `MyApp.Namespace`。
 
-***
+**_
 
 ### <a name="blazorserver"></a>blazorserver
 
-- **`-au|--auth <AUTHENTICATION_TYPE>`**
+- _ *`-au|--auth <AUTHENTICATION_TYPE>`**
 
   要使用的身份验证类型。 可能的值为：
 
@@ -395,11 +395,11 @@ dotnet new -h|--help
 
   在项目创建期间不执行隐式还原。
 
-***
+**_
 
 ### <a name="web"></a>Web
 
-- **`--exclude-launch-settings`**
+- _ *`--exclude-launch-settings`**
 
   从生成的模板中排除 launchSettings.json。
 
@@ -423,11 +423,11 @@ dotnet new -h|--help
 
   关闭 HTTPS。
 
-***
+**_
 
 ### <a name="mvc-webapp"></a><a name="web-options"></a> mvc、webapp
 
-- **`-au|--auth <AUTHENTICATION_TYPE>`**
+- _ *`-au|--auth <AUTHENTICATION_TYPE>`**
 
   要使用的身份验证类型。 可能的值为：
 
@@ -513,11 +513,11 @@ dotnet new -h|--help
 
   确定项目是否配置为在调试生成中使用 [Razor 运行时编译](/aspnet/core/mvc/views/view-compilation#runtime-compilation)。 自 .NET Core 3.1.201 SDK 起可用的选项。
 
-***
+**_
 
 ### <a name="angular-react"></a><a name="spa"></a> angular、react
 
-- **`-au|--auth <AUTHENTICATION_TYPE>`**
+- _ *`-au|--auth <AUTHENTICATION_TYPE>`**
 
   要使用的身份验证类型。 自 .NET Core 3.0 SDK 起可用。
   
@@ -554,11 +554,11 @@ dotnet new -h|--help
   | 3.0         | `netcoreapp3.0` |
   | 2.1         | `netcoreapp2.0` |
 
-***
+**_
 
 ### <a name="reactredux"></a>reactredux
 
-- **`--exclude-launch-settings`**
+- _ *`--exclude-launch-settings`**
 
   从生成的模板中排除 launchSettings.json。
 
@@ -582,11 +582,11 @@ dotnet new -h|--help
 
   关闭 HTTPS。
 
-***
+**_
 
 ### <a name="razorclasslib"></a>razorclasslib
 
-- **`--no-restore`**
+- _ *`--no-restore`**
 
   在项目创建期间不执行隐式还原。
 
@@ -594,11 +594,11 @@ dotnet new -h|--help
 
   除了将组件添加到此库以外，还支持添加传统的 Razor 页面和视图。 自 .NET Core 3.0 SDK 起可用。
 
-***
+**_
   
 ### <a name="webapi"></a>webapi
 
-- **`-au|--auth <AUTHENTICATION_TYPE>`**
+- _ *`-au|--auth <AUTHENTICATION_TYPE>`**
 
   要使用的身份验证类型。 可能的值为：
 
@@ -663,11 +663,11 @@ dotnet new -h|--help
 
   在项目创建期间不执行隐式还原。
 
-***
+**_
 
 ### <a name="globaljson"></a>globaljson
 
-- **`--sdk-version <VERSION_NUMBER>`**
+- _ *`--sdk-version <VERSION_NUMBER>`**
 
   指定要在 global.json 文件中使用的 .NET Core SDK 版本。
 

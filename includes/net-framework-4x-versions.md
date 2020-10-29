@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 1fe064b56ea8fd9acb09b7fc10cf103688acfc3e
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.openlocfilehash: 6e8a47278f6fed9f5d72351b7760bd8bfdc2a274
+ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2020
-ms.locfileid: "64859948"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499118"
 ---
 
 > [!IMPORTANT]

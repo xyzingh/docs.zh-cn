@@ -1,25 +1,23 @@
 ---
-ms.openlocfilehash: 7cb146d19486618a4cee9976abe2220ea4b72790
-ms.sourcegitcommit: d337df55f83325918cbbd095eb573400bea49064
+ms.openlocfilehash: 43bd1481ca6c3d3444afda2e2a2c67e7236b4402
+ms.sourcegitcommit: 98d20cb038669dca4a195eb39af37d22ea9d008e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88203925"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92434899"
 ---
 ### <a name="binaryformatter-serialization-methods-are-obsolete-and-prohibited-in-aspnet-apps"></a>BinaryFormatter 序列化方法已过时，并且已在 ASP.NET 应用中禁用
 
-<xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter>、<xref:System.Runtime.Serialization.Formatter>和 <xref:System.Runtime.Serialization.IFormatter> 上的 `Serialize` 和 `Deserialize` 方法现已过时。 此外，ASP.NET 应用默认情况下禁止 <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> 序列化。
+<xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter><xref:System.Runtime.Serialization.Formatter> 和 <xref:System.Runtime.Serialization.IFormatter> 上的 `Serialize` 和 `Deserialize` 方法现已过时，不再作为警告显示。 此外，ASP.NET 应用默认情况下禁止 <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> 序列化。
 
 #### <a name="change-description"></a>更改描述
 
-由于 <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> 存在[安全漏洞](../../../../docs/standard/serialization/binaryformatter-security-guide.md#binaryformatter-security-vulnerabilities)，因此，以下方法现已过时。 此外，在 ASP.NET Core 5.0 及更高版本的应用中，除非 Web 应用已重新启用 <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> 功能，否则它们会引发 <xref:System.NotSupportedException>。
+由于 <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> 存在[安全漏洞](../../../../docs/standard/serialization/binaryformatter-security-guide.md#binaryformatter-security-vulnerabilities)，因此，以下方法现已过时，并生成 ID 为 `SYSLIB0011` 的编译时警告。 此外，在 ASP.NET Core 5.0 及更高版本的应用中，除非 Web 应用已重新启用 <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> 功能，否则它们会引发 <xref:System.NotSupportedException>。
 
 - <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Serialize%2A?displayProperty=nameWithType>
 - <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize%2A?displayProperty=nameWithType>
 
-在 .NET 生态系统中逐步停用 <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> 的过程中，这些方法被标记为“过时”。
-
-以下序列化方法现在也已过时，但没有行为变更：
+以下序列化方法现在也已过时并生成警告 `SYSLIB0011`，但没有行为变更：
 
 - <xref:System.Runtime.Serialization.Formatter.Serialize(System.IO.Stream,System.Object)?displayProperty=nameWithType>
 - <xref:System.Runtime.Serialization.Formatter.Deserialize(System.IO.Stream)?displayProperty=nameWithType>
@@ -29,6 +27,10 @@ ms.locfileid: "88203925"
 #### <a name="version-introduced"></a>引入的版本
 
 5.0 预览版 8
+
+#### <a name="reason-for-change"></a>更改原因
+
+在 .NET 生态系统中逐步停用 <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> 的过程中，这些方法被标记为“过时”。
 
 #### <a name="recommended-action"></a>建议操作
 
@@ -58,7 +60,7 @@ ms.locfileid: "88203925"
   </PropertyGroup>
   ```
 
-  如果在项目文件中取消警告，会取消项目中所有代码文件的警告。 取消 SYSLIB0011 不会取消因使用其他过时 API 导致的警告。
+  如果在项目文件中取消警告，会取消项目中所有代码文件的警告。 取消 `SYSLIB0011` 不会取消因使用其他过时 API 导致的警告。
 
 - 若要继续在 ASP.NET 应用中使用 <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter>，可以在项目文件中重新启用它。 不过，非常不建议这样做。 有关详细信息，请参阅 [BinaryFormatter 安全指南](../../../../docs/standard/serialization/binaryformatter-security-guide.md)。
 

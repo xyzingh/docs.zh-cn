@@ -1,38 +1,39 @@
 ---
 title: .NET Framework 概述
-description: 阅读有关 .NET 的概述，它是一种支持生成和运行 Windows 应用及 Web 服务的技术。
-ms.date: 03/30/2017
+description: 阅读有关 .NET Framework 的概述，它是一种支持生成和运行 Windows 应用及 Web 服务的技术。
+ms.date: 10/21/2020
 helpviewer_keywords:
 - application development [.NET Framework]
 - common language runtime
 - common language runtime, about
 - common language runtime, overview
 ms.assetid: 29848c96-fc36-462d-8072-ba223a40b697
-ms.openlocfilehash: 3577a3ad13d9ef6935a1bed8a29e3d594857928e
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 75b2e94b93eabdbf8a6a40f38c1b12a8caddd98a
+ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90557757"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92471739"
 ---
 # <a name="overview-of-net-framework"></a>.NET Framework 概述
 
 .NET Framework 是一种技术，支持生成和运行 Windows 应用及 Web 服务。 NET Framework 旨在实现下列目标：
 
-- 提供一个一致的面向对象的编程环境，而无论对象代码是在本地存储和执行，还是在本地执行但在 Web 上分布，或者是在远程执行的。
+- 提供一个一致的面向对象的编程环境，而无论对象代码是在本地存储和执行，还是在本地执行但在 Web 上分布，或者是在远程执行。
 
-- 提供一个将软件部署和版本控制冲突最小化的代码执行环境。
+- 提供可执行以下操作的代码执行环境：
 
-- 提供一个可提高代码（包括由未知的或不完全受信任的第三方创建的代码）执行安全性的代码执行环境。
+  - 将软件部署和版本控制冲突最小化。
 
-- 提供一个可消除脚本环境或解释环境的性能问题的代码执行环境。
+  - 提高代码（包括由未知的或不完全受信任的第三方创建的代码）执行安全性。
+
+  - 消除脚本环境或解释环境的性能问题。
 
 - 使开发人员的经验在面对类型大不相同的应用（如基于 Windows 的应用和基于 Web 的应用）时保持一致。
 
 - 按照工业标准生成所有通信，确保基于 .NET Framework 的代码可与任何其他代码集成。
 
-> [!NOTE]
-> 有关适用于用户和开发人员的 .NET Framework 的常规说明，请参阅[入门](index.md)。
+[!INCLUDE [net-framework-future](../../../includes/net-framework-future.md)]
 
 .NET Framework 包括公共语言运行时 (CLR) 和 .NET Framework 类库。 公共语言运行时是 .NET Framework 的基础。 可将运行时看作一个在执行时管理代码的代理，它提供内存管理、线程管理和远程处理等核心服务，并且还强制实施严格的类型安全以及可提高安全性和可靠性的其他形式的代码准确性。 事实上，代码管理的概念是运行时的基本原则。 以运行时为目标的代码称为托管代码，而不以运行时为目标的代码称为非托管代码。 类库是一个综合性的面向对象的可重用类型集合，可使用它来开发多种应用，这些应用包括传统的命令行或图形用户界面 (GUI) 应用，还包括基于 ASP.NET 提供的最新创新的应用（如 Web Forms 和 XML Web service）。
 

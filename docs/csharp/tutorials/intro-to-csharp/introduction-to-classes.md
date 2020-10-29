@@ -3,12 +3,12 @@ title: 类和对象 - C# 简介教程
 description: 创建首个 C# 程序，并探索面向对象的概念
 ms.date: 10/11/2017
 ms.custom: mvc
-ms.openlocfilehash: 90abe3836292029ce7ebf26ae9be3253c4eface1
-ms.sourcegitcommit: a8a205034eeffc7c3e1bdd6f506a75b0f7099ebf
+ms.openlocfilehash: 0955b0ac33b346b9880c8af70bd73cb458120f35
+ms.sourcegitcommit: 98d20cb038669dca4a195eb39af37d22ea9d008e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91756047"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92434894"
 ---
 # <a name="explore-object-oriented-programming-with-classes-and-objects"></a>使用类和对象探索面向对象的编程
 
@@ -133,7 +133,7 @@ accountNumberSeed++;
 using System.Collections.Generic;
 ```
 
-现在，更改 `Balance` 的报告方式。  可以通过对所有交易的值进行求和计算余额。 将 `BankAccount` 类中 `Balance` 的声明修改为如下所示：
+现在，让我们来正确计算 `Balance`。 可以通过对所有交易的值进行求和来计算当前余额。 由于当前代码，你只能计算出帐户的初始余额，因此必须更新 `Balance` 属性。 将 BankAccount.cs 中的 `public decimal Balance { get; }` 行替换为以下代码：
 
 :::code language="csharp" source="./snippets/introduction-to-classes/BankAccount.cs" id="BalanceComputation":::
 

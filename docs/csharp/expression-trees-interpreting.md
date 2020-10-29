@@ -4,18 +4,18 @@ description: 了解如何编写代码来检查表达式树的结构。
 ms.date: 06/20/2016
 ms.technology: csharp-advanced-concepts
 ms.assetid: adf73dde-1e52-4df3-9929-2e0670e28e16
-ms.openlocfilehash: 960d72384a7e5f570fc1f94200a7d3b2179343fd
-ms.sourcegitcommit: 5b475c1855b32cf78d2d1bbb4295e4c236f39464
+ms.openlocfilehash: 39baf32c9c53d57227d52b9370f8165ff92d708d
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91173303"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223675"
 ---
 # <a name="interpreting-expressions"></a>解释表达式
 
 [上一部分 -- 执行表达式](expression-trees-execution.md)
 
-现在，让我们编写一些代码来检查*表达式树*的结构。 表达式树中的每个节点将是派生自 `Expression` 的类的对象。
+现在，让我们编写一些代码来检查 *表达式树* 的结构。 表达式树中的每个节点将是派生自 `Expression` 的类的对象。
 
 该设计使得访问表达式树中的所有节点成为相对直接的递归操作。 常规策略是从根节点开始并确定它是哪种节点。
 
@@ -249,7 +249,7 @@ The expression body is:
 Expression<Func<int>> sum = () => 1 + 2 + 3 + 4;
 ```
 
-在访问者算法上运行此表达式之前，请尝试思考可能的输出是什么。 请记住，`+` 运算符是*二元运算符*：它必须具有两个子级，分别表示左右操作数。 有几种可行的方法来构造可能正确的树：
+在访问者算法上运行此表达式之前，请尝试思考可能的输出是什么。 请记住，`+` 运算符是 *二元运算符* ：它必须具有两个子级，分别表示左右操作数。 有几种可行的方法来构造可能正确的树：
 
 ```csharp
 Expression<Func<int>> sum1 = () => 1 + (2 + (3 + 4));
@@ -260,7 +260,7 @@ Expression<Func<int>> sum4 = () => 1 + ((2 + 3) + 4);
 Expression<Func<int>> sum5 = () => (1 + (2 + 3)) + 4;
 ```
 
-可以看到可能的答案分为两种，以便着重于最有可能正确的答案。 第一种表示*右结合*表达式。 第二种表示*左结合*表达式。
+可以看到可能的答案分为两种，以便着重于最有可能正确的答案。 第一种表示 *右结合* 表达式。 第二种表示 *左结合* 表达式。
 这两种格式的优点是，格式可以缩放为任意数量的加法表达式。
 
 如果确实通过该访问者运行此表达式，则将看到此输出，它验证简单的加法表达式是否为左结合。
@@ -355,7 +355,7 @@ Expression<Func<int, int>> factorial = (n) =>
     Enumerable.Range(1, n).Aggregate((product, factor) => product * factor);
 ```
 
-此代码表示数学*阶乘*函数的一个可能的实现。 编写此代码的方式强调了通过将 lambda 表达式分配到表达式来生成表达式树的两个限制。 首先，lambda 语句是不允许的。 这意味着无法使用循环、块、if / else 语句和 C# 中常用的其他控件结构。 我只能使用表达式。 其次，不能以递归方式调用同一表达式。
+此代码表示数学 *阶乘* 函数的一个可能的实现。 编写此代码的方式强调了通过将 lambda 表达式分配到表达式来生成表达式树的两个限制。 首先，lambda 语句是不允许的。 这意味着无法使用循环、块、if / else 语句和 C# 中常用的其他控件结构。 我只能使用表达式。 其次，不能以递归方式调用同一表达式。
 如果该表达式已是一个委托，则可以通过递归方式进行调用，但不能在其表达式树的形式中调用它。 在有关[生成表达式树](expression-trees-building.md)的部分中，你将了解克服这些限制的技巧。
 
 在此表达式中，将遇到所有这些类型的节点：
@@ -516,7 +516,7 @@ The expression body is:
 
 即使最后一个示例也只可识别可能的节点类型的一部分。
 你仍可以向其添加许多将导致其失败的表达式。
-完整的实现包含在名为 <xref:System.Linq.Expressions.ExpressionVisitor> 的 .NET 标准中，且可以处理所有可能的节点类型。
+完整的实现包含在名为 <xref:System.Linq.Expressions.ExpressionVisitor> 的 .NET Standard 中，且可以处理所有可能的节点类型。
 
 最后，在本文中所使用的库是为演示和学习目的而生成。 它未进行优化。 我编写它是为了让所使用的结构清晰，以及强调用于访问节点和对此进行分析的技术。 生产实现将更加注重性能。
 

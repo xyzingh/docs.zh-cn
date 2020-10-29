@@ -1,7 +1,7 @@
 ---
-description: 了解 C# 中的结构类型
 title: 结构类型 - C# 参考
-ms.date: 04/21/2020
+description: 了解 C# 中的结构类型
+ms.date: 10/23/2020
 f1_keywords:
 - struct_CSharpKeyword
 helpviewer_keywords:
@@ -9,18 +9,18 @@ helpviewer_keywords:
 - struct type [C#]
 - structure type [C#]
 ms.assetid: ff3dd9b7-dc93-4720-8855-ef5558f65c7c
-ms.openlocfilehash: 7f3940ce487b9e382150234f317cf1dba34bb060
-ms.sourcegitcommit: d579fb5e4b46745fd0f1f8874c94c6469ce58604
+ms.openlocfilehash: daf332dae483d75ef27e78dad5ee912734ccdb5f
+ms.sourcegitcommit: 532b03d5bbab764d63356193b04cd2281bc01239
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89132724"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92526595"
 ---
 # <a name="structure-types-c-reference"></a>结构类型（C# 参考）
 
 结构类型（“structure type”或“struct type”）是一种可封装数据和相关功能的[值类型](value-types.md)   。 使用 `struct` 关键字定义结构类型：
 
-[!code-csharp[struct example](snippets/StructType.cs#StructExample)]
+[!code-csharp[struct example](snippets/shared/StructType.cs#StructExample)]
 
 结构类型具有值语义  。 也就是说，结构类型的变量包含类型的实例。 默认情况下，在分配中，通过将参数传递给方法并返回方法结果来复制变量值。 对于结构类型变量，将复制该类型的实例。 有关更多信息，请参阅[值类型](value-types.md)。
 
@@ -32,12 +32,12 @@ ms.locfileid: "89132724"
 
 从 C# 7.2 开始，可以使用 `readonly` 修饰符来声明结构类型不可变：
 
-[!code-csharp[readonly struct](snippets/StructType.cs#ReadonlyStruct)]
+[!code-csharp[readonly struct](snippets/shared/StructType.cs#ReadonlyStruct)]
 
 `readonly` 结构的所有数据成员都必须是只读的，如下所示：
 
 - 任何字段声明都必须具有 [`readonly` 修饰符](../keywords/readonly.md)
-- 任何属性（包括自动实现的属性）都必须是只读的
+- 任何属性（包括自动实现的属性）都必须是只读的。 在 C# 9.0 和更高版本中，属性可以具有 [`init` 访问器](../../whats-new/csharp-9.md#init-only-setters)。
 
 这样可以保证 `readonly` 结构的成员不会修改该结构的状态。 在 C# 8.0 及更高版本中，这意味着除构造函数外的其他实例成员是隐式 [`readonly`](#readonly-instance-members)。
 
@@ -54,20 +54,24 @@ ms.locfileid: "89132724"
 
 - 方法：
 
-  [!code-csharp[readonly method](snippets/StructType.cs#ReadonlyMethod)]
+  [!code-csharp[readonly method](snippets/shared/StructType.cs#ReadonlyMethod)]
 
   还可以将 `readonly` 修饰符应用于可替代在 <xref:System.Object?displayProperty=nameWithType> 中声明的方法的方法：
 
-  [!code-csharp[readonly override](snippets/StructType.cs#ReadonlyOverride)]
+  [!code-csharp[readonly override](snippets/shared/StructType.cs#ReadonlyOverride)]
 
 - 属性和索引器：
 
-  [!code-csharp[readonly property get](snippets/StructType.cs#ReadonlyProperty)]
+  [!code-csharp[readonly property get](snippets/shared/StructType.cs#ReadonlyProperty)]
 
   如果需要将 `readonly` 修饰符应用于属性或索引器的两个访问器，请在属性或索引器的声明中应用它。
 
   > [!NOTE]
   > 编译器会将[自动实现的属性](../../programming-guide/classes-and-structs/auto-implemented-properties.md)的 `get` 访问器声明为 `readonly`，而不管属性声明中是否存在 `readonly` 修饰符。
+
+  在 C# 9.0 和更高版本中，可以将 `readonly` 修饰符应用于具有 `init` 访问器的属性或索引器：
+
+  :::code language="csharp" source="snippets/shared/StructType.cs" id="ReadonlyWithInit":::
 
 不能将 `readonly` 修饰符应用于结构类型的静态成员。
 
@@ -95,7 +99,7 @@ ms.locfileid: "89132724"
 
 如果结构类型的所有实例字段都是可访问的，则还可以在不使用 `new` 运算符的情况下对其进行实例化。 在这种情况下，在首次使用实例之前必须初始化所有实例字段。 下面的示例演示如何执行此操作：
 
-[!code-csharp[without new](snippets/StructType.cs#WithoutNew)]
+[!code-csharp[without new](snippets/shared/StructType.cs#WithoutNew)]
 
 在处理[内置值类型](value-types.md#built-in-value-types)的情况下，请使用相应的文本来指定类型的值。
 
@@ -118,11 +122,11 @@ ms.locfileid: "89132724"
 
 通常，如果需要一种同时包含 `ref` 结构类型的数据成员的类型，可以定义 `ref` 结构类型：
 
-[!code-csharp[ref struct](snippets/StructType.cs#RefStruct)]
+[!code-csharp[ref struct](snippets/shared/StructType.cs#RefStruct)]
 
 若要将 `ref` 结构声明为 [`readonly`](#readonly-struct)，请在类型声明中组合使用 `readonly` 修饰符和 `ref` 修饰符（`readonly` 修饰符必须位于 `ref` 修饰符之前）：
 
-[!code-csharp[readonly ref struct](snippets/StructType.cs#ReadonlyRef)]
+[!code-csharp[readonly ref struct](snippets/shared/StructType.cs#ReadonlyRef)]
 
 在 .NET 中，`ref` 结构的示例分别是 <xref:System.Span%601?displayProperty=nameWithType> 和 <xref:System.ReadOnlySpan%601?displayProperty=nameWithType>。
 

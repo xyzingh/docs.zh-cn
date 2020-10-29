@@ -1524,6 +1524,8 @@ items:
             href: ../standard/attributes/retrieving-information-stored-in-attributes.md
       - name: 在匿名类型和元组类型之间进行选择
         href: ../standard/base-types/choosing-between-anonymous-and-tuple.md
+      - name: 控制台应用概念
+        href: ../standard/building-console-apps.md
   - name: 依赖关系注入
     items:
       - name: 概述

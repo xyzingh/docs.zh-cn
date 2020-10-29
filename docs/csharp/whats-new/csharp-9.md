@@ -2,12 +2,12 @@
 title: C# 9.0 中的新增功能 - C# 指南
 description: 简要介绍 C# 9.0 中提供的新功能。
 ms.date: 09/04/2020
-ms.openlocfilehash: 0ac3b410cd9ba886ee55aede952700f145f1b31b
-ms.sourcegitcommit: b59237ca4ec763969a0dd775a3f8f39f8c59fe24
+ms.openlocfilehash: c256c03831ac759bc45467f38e85fd3a2884dda4
+ms.sourcegitcommit: 532b03d5bbab764d63356193b04cd2281bc01239
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91955162"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92526585"
 ---
 # <a name="whats-new-in-c-90"></a>C# 9.0 中的新增功能
 
@@ -106,9 +106,9 @@ C# 9.0 引入了记录类型，这是一种引用类型，它提供合成方法�
 
 ## <a name="init-only-setters"></a>仅限 Init 的资源库
 
-仅限 init 的资源库提供一致的语法来初始化对象的成员。 属性初始值设定项可明确哪个值正在设置哪个属性。 缺点是这些属性必须是可设置的。 从 C# 9.0 开始，可为属性和索引器创建 `init` 访问器，而不是 `set` 访问器。 调用方可使用属性初始化表达式语法在创建表达式中设置这些值，但构造完成后，这些属性将变为只读。 仅限 init 的资源库提供了一个窗口用来更改状态。 构造阶段结束时，该窗口关闭。 在完成所有初始化（包括属性初始化表达式和 with 表达式）之后，构造阶段实际上就结束了。
+仅限 init 的资源库提供一致的语法来初始化对象的成员*。 属性初始值设定项可明确哪个值正在设置哪个属性。 缺点是这些属性必须是可设置的。 从 C# 9.0 开始，可为属性和索引器创建 `init` 访问器，而不是 `set` 访问器。 调用方可使用属性初始化表达式语法在创建表达式中设置这些值，但构造完成后，这些属性将变为只读。 仅限 init 的资源库提供了一个窗口用来更改状态。 构造阶段结束时，该窗口关闭。 在完成所有初始化（包括属性初始化表达式和 with 表达式）之后，构造阶段实际上就结束了。
 
-上述位置记录示例演示了如何使用仅限 init 的资源库通过 with 表达式来设置属性。 可在编写的任何类型中声明仅限 init 的资源库。 例如，以下结构定义了天气观察结构：
+可在编写的任何类型中声明仅限 `init` 的资源库。 例如，以下结构定义了天气观察结构：
 
 :::code language="csharp" source="snippets/whats-new-csharp9/WeatherObservation.cs" ID="DeclareWeatherObservation":::
 
@@ -196,7 +196,7 @@ if (e is not null)
 
 本机大小的整数 `nint` 和 `nuint` 是整数类型。 它们由基础类型 <xref:System.IntPtr?displayProperty=nameWithType> 和 <xref:System.UIntPtr?displayProperty=nameWithType> 表示。 编译器将这些类型的其他转换和操作作为本机整数公开。 本机大小的整数定义 `MaxValue` 或 `MinValue` 的属性。 这些值不能表示为编译时编译时，因为它取决于目标计算机上整数的本机大小。 这些值在运行时是只读的。 可在以下范围内对 `nint` 使用常量值：[`int.MinValue` .. `int.MaxValue`]. 可在以下范围内对 `nuint` 使用常量值：[`uint.MinValue` .. `uint.MaxValue`]. 编译器使用 <xref:System.Int32?displayProperty=nameWithType> 和 <xref:System.UInt32?displayProperty=nameWithType> 类型为所有一元和二元运算符执行常量折叠。 如果结果不满足 32 位，操作将在运行时执行，且不会被视为常量。 在广泛使用整数数学且需要尽可能快的性能的情况下，本机大小的整数可提高性能。
 
-函数指针提供了一种简单的语法来访问 IL 操作码 `ldftn` 和 `calli`。 可使用新的 `delegate*` 语法声明函数指针。 `delegate*` 类型是指针类型。 调用 `delegate*` 类型会使用 `calli`，而不是使用在 `Invoke()` 方法上采用 `callvirt` 的委托。 从语法上讲，调用是相同的。 函数指针调用使用 `managed` 调用约定。 在 `delegate*` 语法后面添加 `unmanaged` 关键字，以声明想要 `unmanaged` 调用约定。 可使用 `delegate*` 声明中的属性来指定其他调用约定。
+函数指针提供了一种简单的语法来访问 IL 操作码 `ldftn` 和 `calli`。 可使用新的 `delegate_` 语法声明函数指针。 `delegate*` 类型是指针类型。 调用 `delegate*` 类型会使用 `calli`，而不是使用在 `Invoke()` 方法上采用 `callvirt` 的委托。 从语法上讲，调用是相同的。 函数指针调用使用 `managed` 调用约定。 在 `delegate*` 语法后面添加 `unmanaged` 关键字，以声明想要 `unmanaged` 调用约定。 可使用 `delegate*` 声明中的属性来指定其他调用约定。
 
 最后，可添加 <xref:System.Runtime.CompilerServices.SkipLocalsInitAttribute?displayProperty=nameWithType> 来指示编译器不要发出 `localsinit` 标志。 此标志指示 CLR 对所有局部变量进行零初始化。 从 1.0 开始，`localsinit` 标志一直是 C# 的默认行为。 但在某些情况下，额外的零初始化可能会对性能产生可衡量的影响， 特别是在使用 `stackalloc` 时。 在这些情况下，可添加 <xref:System.Runtime.CompilerServices.SkipLocalsInitAttribute>。 可将它添加到单个方法或属性中，或者添加到 `class`、`struct`、`interface`，甚至是模块中。 此属性不会影响 `abstract` 方法，它会影响为实现生成的代码。
 
@@ -226,7 +226,7 @@ if (e is not null)
 
 从 C# 9.0 开始，可将 `static` 修饰符添加到 [Lambda 表达式](../language-reference/operators/lambda-expressions.md)或[匿名方法](../language-reference/operators/delegate-operator.md)。 静态 Lambda 表达式类似于 `static` 局部函数：静态 Lambda 或匿名方法无法捕获局部变量或实例状态。 `static` 修饰符可防止意外捕获其他变量。
 
-协变返回类型为替代函数的返回类型提供了灵活性。 替代的虚函数可返回从基类方法中声明的返回类型派生的类型。 这对于记录和其他支持虚拟克隆或工厂方法的类型很有用。
+协变返回类型为[重写](../language-reference/keywords/override.md)方法的返回类型提供了灵活性。 重写方法可返回从重写基方法的返回类型派生的类型。 这对于记录和其他支持虚拟克隆或工厂方法的类型很有用。
 
 此外，[`foreach` 循环](../language-reference/keywords/foreach-in.md)将识别并使用扩展方法 `GetEnumerator`，否则将满足 `foreach` 模式。 此更改意味着 `foreach` 与其他基于模式的构造（例如异步模式和基于模式的析构）一致。 实际上，此更改意味着可以为任何类型添加 `foreach` 支持。 在设计中，应将其限制为在枚举对象有意义时使用。
 

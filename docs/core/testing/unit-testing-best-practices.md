@@ -4,12 +4,12 @@ description: 了解有关编写单元测试的最佳做法，以提高 .NET Core
 author: jpreese
 ms.author: wiwagn
 ms.date: 07/28/2018
-ms.openlocfilehash: ffeaa1e11512cab64695c120f844594b8c5014a8
-ms.sourcegitcommit: 97ce5363efa88179dd76e09de0103a500ca9b659
+ms.openlocfilehash: 18f17839361d0cb60a52fbf4415665855f1d53be
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2020
-ms.locfileid: "86281103"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223482"
 ---
 # <a name="unit-testing-best-practices-with-net-core-and-net-standard"></a>.NET Core 和 .NET Standard 单元测试最佳做法
 
@@ -114,6 +114,8 @@ Assert.True(mockOrder.Validated);
 关于 mock 与 stub 需要注意的一个重点是，mock 与 stub 很像，但可以针对 mock 对象进行断言，而不针对 stub 进行断言。
 
 ## <a name="best-practices"></a>最佳实践
+
+编写单元测试时，尽量不要引入基础结构依赖项。 这些依赖项会降低测试速度，使测试更加脆弱，应将其保留供集成测试使用。 可以通过遵循 [Explicit Dependencies Principle](https://deviq.com/explicit-dependencies-principle)（显式依赖项原则）和使用 [Dependency Injection](../extensions/dependency-injection.md)（依赖项注入）避免应用程序中的这些依赖项。 还可以将单元测试保留在单独的项目中，与集成测试相分隔。 这可确保单元测试项目没有引用或依赖于基础结构包。
 
 ### <a name="naming-your-tests"></a>为测试命名
 

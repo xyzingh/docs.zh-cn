@@ -3,12 +3,12 @@ title: 分析依赖项将代码移植到 .NET Core
 description: 了解如何分析外部依赖项，以便将项目从 .NET Framework 移植到 .NET Core。
 author: cartermp
 ms.date: 10/22/2019
-ms.openlocfilehash: 2aa09e551a99358d3a6961fafcfc0aa8dbd976b1
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.openlocfilehash: 430da45052e3953ab49f182b1773fc6d74bd2221
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79397919"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223607"
 ---
 # <a name="analyze-your-dependencies-to-port-code-to-net-core"></a>分析依赖项将代码移植到 .NET Core
 

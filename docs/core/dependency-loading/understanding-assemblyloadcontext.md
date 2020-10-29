@@ -4,12 +4,12 @@ description: 用来了解 .NET Core 中 AssemblyLoadContext 的用途和行为�
 ms.date: 08/09/2019
 author: sdmaclea
 ms.author: stmaclea
-ms.openlocfilehash: 43fb0d792ddeb20b8a141af452a86dd50f37ba43
-ms.sourcegitcommit: 79b0dd8bfc63f33a02137121dd23475887ecefda
+ms.openlocfilehash: 4d3f0e50e7c336469bd9af4d1589427388684434
+ms.sourcegitcommit: dfcbc096ad7908cd58a5f0aeabd2256f05266bac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80523615"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332817"
 ---
 # <a name="understanding-systemruntimeloaderassemblyloadcontext"></a>了解 System.Runtime.Loader.AssemblyLoadContext
 
@@ -52,11 +52,11 @@ ms.locfileid: "80523615"
 
 本部分介绍相关事件和函数的一般原则。
 
-- **可重复**。 针对特定依赖项的查询必须始终产生相同的响应。 必须返回同一个已加载的依赖项实例。 此要求是保持缓存一致性的基础。 特别是对于托管程序集，我们要创建 <xref:System.Reflection.Assembly> 缓存。 缓存键是一个简单的程序集名称 <xref:System.Reflection.AssemblyName.Name?displayProperty=nameWithType>。
-- **通常不引发**。  当找不到请求的依赖项时，这些函数应返回 `null` 而不是引发。 引发将提前结束搜索，并将异常传至调用方。 应将引发限制为针对意外错误，如程序集损坏或内存不足等情况。
-- **避免递归**。 请注意，这些函数和处理程序实现了用于定位依赖项的加载规则。 实现不应调用触发递归的 API。 代码通常应调用 AssemblyLoadContext  加载函数，这些函数需要特定路径或内存引用参数。
-- **加载到正确的 AssemblyLoadContext**。 选择加载依赖项的位置是应用程序特定的。  选择是通过这些事件和函数实现的。 当代码调用 AssemblyLoadContext  时，按路径加载函数在你要加载代码的实例上调用它们。 有时返回 `null`，并让 <xref:System.Runtime.Loader.AssemblyLoadContext.Default?displayProperty=nameWithType> 处理加载可能是最简单的选项。
-- **注意线程争用**。 加载可由多个线程触发。 AssemblyLoadContext 通过以原子方式将程序集添加到其缓存来处理线程争用。 将丢弃争用失败方的实例。 在实现逻辑中，不要添加未正确处理多个线程的额外逻辑。
+- **可重复** 。 针对特定依赖项的查询必须始终产生相同的响应。 必须返回同一个已加载的依赖项实例。 此要求是保持缓存一致性的基础。 特别是对于托管程序集，我们要创建 <xref:System.Reflection.Assembly> 缓存。 缓存键是一个简单的程序集名称 <xref:System.Reflection.AssemblyName.Name?displayProperty=nameWithType>。
+- **通常不引发** 。  当找不到请求的依赖项时，这些函数应返回 `null` 而不是引发。 引发将提前结束搜索，并将异常传至调用方。 应将引发限制为针对意外错误，如程序集损坏或内存不足等情况。
+- **避免递归** 。 请注意，这些函数和处理程序实现了用于定位依赖项的加载规则。 实现不应调用触发递归的 API。 代码通常应调用 AssemblyLoadContext  加载函数，这些函数需要特定路径或内存引用参数。
+- **加载到正确的 AssemblyLoadContext** 。 选择加载依赖项的位置是应用程序特定的。  选择是通过这些事件和函数实现的。 当代码调用 AssemblyLoadContext  时，按路径加载函数在你要加载代码的实例上调用它们。 有时返回 `null`，并让 <xref:System.Runtime.Loader.AssemblyLoadContext.Default?displayProperty=nameWithType> 处理加载可能是最简单的选项。
+- **注意线程争用** 。 加载可由多个线程触发。 AssemblyLoadContext 通过以原子方式将程序集添加到其缓存来处理线程争用。 将丢弃争用失败方的实例。 在实现逻辑中，不要添加未正确处理多个线程的额外逻辑。
 
 ## <a name="how-are-dynamic-dependencies-isolated"></a>如何隔离动态依赖项？
 

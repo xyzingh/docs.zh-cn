@@ -4,12 +4,12 @@ description: 了解用于构建多种应用的免费开源开发平台 .NET。
 author: tdykstra
 ms.date: 09/28/2020
 ms.custom: updateeachrelease
-ms.openlocfilehash: 0539519c2e1dd429983226065e8508ac148e25a8
-ms.sourcegitcommit: eb7e87496f42361b1da98562dd75b516c9d58bbc
+ms.openlocfilehash: d008fbeabf58a3dddf1ee96fc655b6a685f8edfd
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877556"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223578"
 ---
 # <a name="introduction-to-net"></a>.NET 简介
 
@@ -132,7 +132,7 @@ Microsoft 的 .NET 二进制发行版在 Azure 中的 Microsoft 维护服务器�
 
 [.NET SDK](sdk.md) 是一组用于开发和运行 .NET 应用程序的库和工具。
 
-[下载 .NET](https://dotnet.microsoft.com/download/dotnet-core/) 时，可以选择 SDK 或*运行时*，例如 .NET 运行时或 ASP.NET Core 运行时。 在要准备运行 .NET 应用的计算机上安装运行时。 在要用于开发的计算机上安装 SDK。 下载 SDK 时，将自动获取运行时。
+[下载 .NET](https://dotnet.microsoft.com/download/dotnet-core/) 时，可以选择 SDK 或 *运行时* ，例如 .NET 运行时或 ASP.NET Core 运行时。 在要准备运行 .NET 应用的计算机上安装运行时。 在要用于开发的计算机上安装 SDK。 下载 SDK 时，将自动获取运行时。
 
 SDK 下载包括以下组件：
 
@@ -242,7 +242,7 @@ GC 是一种有助于确保内存安全的 CLR 服务。 如果某个程序仅�
 
 ### <a name="working-with-unmanaged-resources"></a>处理未托管的资源
 
-有时，代码需要引用*非托管资源*。 未托管的资源是指不由 .NET 运行时自动维护的资源。 例如，文件句柄就是未托管的资源。 <xref:System.IO.FileStream> 对象是一个托管对象，但它引用未托管的文件句柄。 用完 <xref:System.IO.FileStream> 之后，需要显式释放文件句柄。
+有时，代码需要引用 *非托管资源* 。 未托管的资源是指不由 .NET 运行时自动维护的资源。 例如，文件句柄就是未托管的资源。 <xref:System.IO.FileStream> 对象是一个托管对象，但它引用未托管的文件句柄。 用完 <xref:System.IO.FileStream> 之后，需要显式释放文件句柄。
 
 在 .NET 中，引用未托管资源的对象会实现 <xref:System.IDisposable> 接口。 用完对象后，需调用此对象的 <xref:System.IDisposable.Dispose> 方法，该方法会释放所有托管资源。 .NET 语言提供一种方便的 `using` 语句（[C#](../csharp/language-reference/keywords/using.md)、[F#](../fsharp/language-reference/resource-management-the-use-keyword.md)、[VB](../visual-basic/language-reference/statements/using-statement.md)），确保调用 `Dispose` 方法。
 
@@ -344,7 +344,7 @@ Entity Framework (EF) Core 是一种可用作 ORM 的[开源](https://github.com
   | Target Framework — 目标 Framework | .NET 应用或库依赖的 API 集合。 示例：.NET Core 3.1、.NET Standard 2.0 |
   | 目标框架名字对象 (TFM)  | TFM 是一种标准化令牌格式，用于指定 .NET 应用或库的目标框架。 示例：`net462`（对于 .NET Framework 4.6.2）。 |
   | 依赖于框架的应用 | 只能在从 [.NET 下载页](https://dotnet.microsoft.com/download/dotnet-core)安装了运行时的计算机上运行的应用。 此用法中的“框架”与你从 .NET 下载页下载的“运行时”是相同的。 |
-  
+
 * **SDK**
 
   |上下文  | “SDK”含义 |

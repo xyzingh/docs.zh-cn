@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: 85488de561a2298f2ff4009ec78b9a6e294053f3
-ms.sourcegitcommit: 43d5aca3fda42bad8843f6c4e72f6bd52daa55f1
+ms.openlocfilehash: ee67b32b093ebd42f8ac685b34b12f2f6833be86
+ms.sourcegitcommit: dfcbc096ad7908cd58a5f0aeabd2256f05266bac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89598169"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332910"
 ---
 ### <a name="threadabort-is-obsolete"></a>Thread.Abort 已过时
 
-<xref:System.Threading.Thread.Abort%2A?displayProperty=nameWithType> API 已过时。 如果调用这些方法，则面向 .NET 5.0 或更高版本的项目将遇到编译时警告。 如果禁止显示警告，则将在运行时引发 <xref:System.PlatformNotSupportedException>。
+<xref:System.Threading.Thread.Abort%2A?displayProperty=nameWithType> API 已过时。 如果调用这些方法，则以 .NET 5.0 或更高版本为目标的项目将遇到编译时警告 `SYSLIB0006`。
 
 #### <a name="change-description"></a>更改说明
 

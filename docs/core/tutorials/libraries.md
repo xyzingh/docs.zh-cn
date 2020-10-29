@@ -2,19 +2,20 @@
 title: 使用 .NET Core CLI 开发库
 description: 了解如何使用 .NET Core CLI 创建 .NET Core 库。 将创建一个支持多个框架的库。
 author: cartermp
+ms.topic: how-to
 ms.date: 05/01/2017
-ms.openlocfilehash: c23c1f027b4d6d09c50eb2257d34f72ec56302f4
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.openlocfilehash: e98ce9e08c8d92bb4c89348e21cece60de811848
+ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "77503504"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92223699"
 ---
 # <a name="develop-libraries-with-the-net-core-cli"></a>使用 .NET Core CLI 开发库
 
 本文介绍如何使用 .NET Core CLI 编写 .NET 的库。 CLI 提供可跨任何支持的 OS 工作的高效低级别体验。 仍可使用 Visual Studio 生成库，如果你首选这种体验，请[参阅 Visual Studio 指南](library-with-visual-studio.md)。
 
-## <a name="prerequisites"></a>系统必备
+## <a name="prerequisites"></a>先决条件
 
 需要在计算机上安装 [.NET Core SDK 和 CLI](https://dotnet.microsoft.com/download) 。
 
@@ -32,7 +33,7 @@ ms.locfileid: "77503504"
 | 4.0                    | Windows SDK for Windows 7 和 .NET Framework 4         |
 | 2.0、3.0 和 3.5      | .NET Framework 3.5 SP1 运行时（或 Windows 8+ 版本） |
 
-## <a name="how-to-target-the-net-standard"></a>如何以 .NET Standard 为目标
+## <a name="how-to-target-net-standard"></a>如何以 .NET Standard 为目标
 
 如果不熟悉 .NET Standard，请参阅 [.NET Standard](../../standard/net-standard.md) 了解详细信息。
 
@@ -96,7 +97,7 @@ ms.locfileid: "77503504"
 </Project>
 ```
 
-这就是所有的操作！ 虽然此库仅针对 .NET Framework 4 编译，但可在较新版本的 .NET Framework 上使用此库。
+大功告成！ 虽然此库仅针对 .NET Framework 4 编译，但可在较新版本的 .NET Framework 上使用此库。
 
 ## <a name="how-to-multitarget"></a>如何设定多目标
 
@@ -257,7 +258,7 @@ netstandard1.4/
 
 1. 执行 `dotnet test` 命令，验证 xUnit 是否在运行。 如果选择使用 MSTest，则应改为运行 MSTest 控制台运行程序。
 
-这就是所有的操作！ 现在可以使用命令行工具跨所有平台测试库。 若要继续测试，现已设置好了所有内容，测试库将非常简单：
+大功告成！ 现在可以使用命令行工具跨所有平台测试库。 若要继续测试，现已设置好了所有内容，测试库将非常简单：
 
 1. 对库进行更改。
 1. 使用 `dotnet test` 命令在测试目录中从命令行运行测试。
