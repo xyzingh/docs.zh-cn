@@ -116,3 +116,5 @@
           href: ../../../../_csharplang/proposals/csharp-9.0/function-pointers.md
         - name: 发出 localsinit 标志的 Surpress
           href: ../../../../_csharplang/proposals/csharp-9.0/skip-localsinit.md
+        - name: 不受约束的类型参数批注
+          href: ../../../../_csharplang/proposals/csharp-9.0/unconstrained-type-parameter-annotations.md
