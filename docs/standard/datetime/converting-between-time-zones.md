@@ -7,18 +7,18 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- times [.NET Framework], converting
-- time zones [.NET Framework], conversions
+- times [.NET], converting
+- time zones [.NET], conversions
 - UTC times, converting
 - converting times
 - local time conversions
 ms.assetid: a51e1a3b-c983-4320-b31a-1f9fa3cf824a
-ms.openlocfilehash: 156c3d8b360d62ba72f9a4447646fafe170ea658
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 3539b3c2b71be331bdea3161b7e8ba6da407cbab
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90547325"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063828"
 ---
 # <a name="converting-times-between-time-zones"></a>在各时区之间转换时间
 
@@ -26,7 +26,7 @@ ms.locfileid: "90547325"
 
 ## <a name="converting-to-coordinated-universal-time"></a>转换为协调世界时
 
-协调世界时 (UTC) 是一项高精度的原子时标准。 世界的时区表示为相对于 UTC 的正/负偏移量。 因此，UTC 提供一种无时区或中间时区的时间。 如果日期和时间在计算机之间的可移植性非常重要，则建议使用 UTC 时间。  (有关使用日期和时间的详细信息和其他最佳做法，请参阅在 [.NET Framework 中使用 DateTime 的编码最佳做法](/previous-versions/dotnet/articles/ms973825(v=msdn.10))。 ) 将各个时区转换为 UTC 可简化时间比较。
+协调世界时 (UTC) 是一项高精度的原子时标准。 世界的时区表示为与 UTC 的正偏移量或负偏移量。 因此，UTC 提供一种无时区或中间时区的时间。 如果日期和时间在计算机之间的可移植性非常重要，则建议使用 UTC 时间。  (有关使用日期和时间的详细信息和其他最佳做法，请参阅在 [.NET Framework 中使用 DateTime 的编码最佳做法](/previous-versions/dotnet/articles/ms973825(v=msdn.10))。 ) 将各个时区转换为 UTC 可简化时间比较。
 
 > [!NOTE]
 > 您还可以 <xref:System.DateTimeOffset> 对结构进行序列化以明确表示单个时间点。 由于 <xref:System.DateTimeOffset> 对象会存储日期和时间值以及其相对于 utc 的偏移量，因此，它们始终表示与 utc 的关系中的特定时间点。
@@ -119,7 +119,7 @@ ms.locfileid: "90547325"
 [!code-csharp[System.DateTimeOffset.Conceptual.OffsetConversions#2](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.OffsetConversions/cs/timeconversions2.cs#2)]
 [!code-vb[System.DateTimeOffset.Conceptual.OffsetConversions#2](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.OffsetConversions/vb/TimeConversions2.vb#2)]
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - <xref:System.TimeZoneInfo>
 - [日期、时间和时区](index.md)

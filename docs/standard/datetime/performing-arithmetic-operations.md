@@ -6,20 +6,20 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- times [.NET Framework], arithmetic operations
-- dates [.NET Framework], arithmetic operations
-- time zones [.NET Framework], arithmetic operations
-- arithmetic operations [.NET Framework], dates and times
-- dates [.NET Framework], comparing
+- times [.NET], arithmetic operations
+- dates [.NET], arithmetic operations
+- time zones [.NET], arithmetic operations
+- arithmetic operations [.NET], dates and times
+- dates [.NET], comparing
 - DateTime structure, arithmetic operations
 - DateTimeOffset structure, arithmetic operations
 ms.assetid: 87c7ddf2-f15e-48af-8602-b3642237e6d0
-ms.openlocfilehash: c212397f99bd09195f298d7d704c879705b14f02
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 8350454c0570bcf0ba82fa5d83639da0433c785c
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84281539"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063555"
 ---
 # <a name="performing-arithmetic-operations-with-dates-and-times"></a>使用日期和时间执行算术运算
 
@@ -27,14 +27,14 @@ ms.locfileid: "84281539"
 
 ## <a name="comparisons-and-arithmetic-operations-with-datetime-values"></a>日期时间值的比较和算术运算
 
-<xref:System.DateTime.Kind%2A?displayProperty=nameWithType>属性允许将 <xref:System.DateTimeKind> 值分配给日期和时间，以指示它是表示本地时间、协调世界时（UTC）还是未指定的时区中的时间。 但是，在对值进行比较或执行日期和时间算法时，会忽略此有限的时区信息 <xref:System.DateTimeKind> 。 以下示例通过比较当前本地时间与当前 UTC 时间，对此进行了阐释。
+<xref:System.DateTime.Kind%2A?displayProperty=nameWithType>属性允许将 <xref:System.DateTimeKind> 值分配给日期和时间，以指示它是表示本地时间、协调世界时 (UTC) 还是未指定时区中的时间。 但是，在对值进行比较或执行日期和时间算法时，会忽略此有限的时区信息 <xref:System.DateTimeKind> 。 以下示例通过比较当前本地时间与当前 UTC 时间，对此进行了阐释。
 
 [!code-csharp[System.DateTimeOffset.Conceptual#2](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual/cs/Conceptual2.cs#2)]
 [!code-vb[System.DateTimeOffset.Conceptual#2](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual/vb/Conceptual2.vb#2)]
 
 <xref:System.DateTime.CompareTo%28System.DateTime%29> 方法报告的本地时间比 UTC 时间早（或小），并且减法运算指示，对于美国太平洋标准时区内的系统，其 UTC 时间和本地时间之间的时差是 7 小时。 但由于这两个值提供单个时间点的不同表示形式，因此在这种情况下，时间间隔完全是由本地时区与 UTC 之间的时差所构成。
 
-通常， <xref:System.DateTime.Kind%2A?displayProperty=nameWithType> 属性不会影响由 <xref:System.DateTime.Kind> 比较和算术方法返回的结果（如两个相同时间点的比较指示），尽管它可能会影响对这些结果的解释。 例如：
+通常情况下， <xref:System.DateTime.Kind%2A?displayProperty=nameWithType> 属性不会影响由 <xref:System.DateTime.Kind> 比较和算术方法返回的结果 (因为两个相同时间点的比较表明) ，尽管它可能会影响对这些结果的解释。 例如：
 
 - 对两个日期和时间值执行的任何算术运算的结果 <xref:System.DateTime.Kind%2A?displayProperty=nameWithType> 都相等，这两个值的属性都 <xref:System.DateTimeKind> 反映了两个值之间的实际时间间隔。 同样，对两个日期和时间值进行比较可精确反映出时间之间的关系。
 
@@ -48,7 +48,7 @@ ms.locfileid: "84281539"
 
 - 任何比较或计算两个未指定时间之差的运算都可能包含一个未知间隔，它反映两个不同时区内的时间之差。
 
-在许多情况下，时区差异不会影响日期和时间计算（有关其中一些的讨论，请参阅在[DateTime、DateTimeOffset、TimeSpan 和 TimeZoneInfo 之间进行选择](choosing-between-datetime.md)），或日期和时间数据的上下文定义比较或算术运算的含义。
+在许多情况下，时区差异不会影响日期和时间计算 (对其中某些部分进行讨论，请参阅在 [DateTime、DateTimeOffset、TimeSpan 和 TimeZoneInfo 之间进行选择](choosing-between-datetime.md)) 或日期和时间数据的上下文定义比较或算术运算的含义。
 
 ## <a name="comparisons-and-arithmetic-operations-with-datetimeoffset-values"></a>具有 DateTimeOffset 值的比较和算术运算
 
@@ -61,22 +61,22 @@ ms.locfileid: "84281539"
 
 <xref:System.DateTimeOffset>在日期和时间算法中使用值的主要限制在于，虽然 <xref:System.DateTimeOffset> 值具有一定的时区感知，但并不是完全时区感知。 尽管在第一次为 <xref:System.DateTimeOffset> 变量分配值时值的偏移量反映了时区与 UTC 的偏移量 <xref:System.DateTimeOffset> ，但此后它将与时区解除关联。 由于不再直接与可识别时间关联，日期和时间间隔的相加和相减将不会考虑时区调整规则。
 
-为举例说明，美国中部标准时区中的夏令时转换将在凌晨2:00 进行。 两个半小时的代码。 这意味着，向中部标准时间 2008 年 3 月 9 日凌晨 1:30 增加两个半小时的间隔， 得出的日期和时间应为  两个半小时的代码。 但是，如下面的示例所示，加法运算得出的结果却是  两个半小时的代码。 请注意，此操作的结果确实表示正确的时间点，尽管它不是我们感兴趣的时区中的时间（也就是说，它不具有预期的时区偏移量）。
+为举例说明，美国中部标准时区中的夏令时转换将在凌晨2:00 进行。 两个半小时的代码。 这意味着，向中部标准时间 2008 年 3 月 9 日凌晨 1:30 增加两个半小时的间隔， 得出的日期和时间应为  两个半小时的代码。 但是，如下面的示例所示，加法运算得出的结果却是  两个半小时的代码。 请注意，此操作的结果确实表示正确的时间点，尽管它不是我们感兴趣 (的时区中的时间，但它没有) 预期的时区偏移量。
 
 [!code-csharp[System.DateTimeOffset.Conceptual#4](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual/cs/Conceptual4.cs#4)]
 [!code-vb[System.DateTimeOffset.Conceptual#4](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual/vb/Conceptual4.vb#4)]
 
 ## <a name="arithmetic-operations-with-times-in-time-zones"></a>时间区域中时间的算术运算
 
-<xref:System.TimeZoneInfo>类包括多种转换方法，这些方法在将时间从一个时区转换到另一个时区时自动应用调整。 其中包括：
+<xref:System.TimeZoneInfo>类包括多种转换方法，这些方法在将时间从一个时区转换到另一个时区时自动应用调整。 这些功能包括以下这些：
 
 - <xref:System.TimeZoneInfo.ConvertTime%2A>和 <xref:System.TimeZoneInfo.ConvertTimeBySystemTimeZoneId%2A> 方法，用于在任意两个时区之间转换时间。
 
 - <xref:System.TimeZoneInfo.ConvertTimeFromUtc%2A>和 <xref:System.TimeZoneInfo.ConvertTimeToUtc%2A> 方法，用于将特定时区中的时间转换为 utc，或将 UTC 转换为特定时区中的时间。
 
-有关详细信息，请参阅[在时区之间转换时间](converting-between-time-zones.md)。
+有关详细信息，请参阅 [在时区之间转换时间](converting-between-time-zones.md)。
 
-在 <xref:System.TimeZoneInfo> 执行日期和时间算术运算时，类不提供任何可自动应用调整规则的方法。 但是可以通过将某一时区内的时间转换为 UTC，执行算术运算，然后再将 UTC 转换回该时区内的时间，来实现此目的。 有关详细信息，请参阅[如何：在日期和时间算法中使用时区](use-time-zones-in-arithmetic.md)。
+在 <xref:System.TimeZoneInfo> 执行日期和时间算术运算时，类不提供任何可自动应用调整规则的方法。 但是可以通过将某一时区内的时间转换为 UTC，执行算术运算，然后再将 UTC 转换回该时区内的时间，来实现此目的。 有关详细信息，请参阅 [如何：在日期和时间算法中使用时区](use-time-zones-in-arithmetic.md)。
 
 例如，以下代码类似于之前向 2008 年 3 月 9 日凌晨 2:00 增加 两个半小时的代码。 但是，由于其在执行日期和时间算术前将中部标准时间转换为 UTC，然后将 UTC 结果转换回中部标准时间，所以得出的时间反映的是中部标准时区转换为夏令时。
 

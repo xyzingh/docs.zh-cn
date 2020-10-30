@@ -8,28 +8,28 @@ dev_langs:
 - vb
 helpviewer_keywords:
 - DateTime structure, converting
-- time zones [.NET Framework], conversions
+- time zones [.NET], conversions
 - UTC times, converting
 - DateTimeOffset structure, converting
 - converting DateTimeOffset and DateTime values
-- dates [.NET Framework], converting
+- dates [.NET], converting
 - converting times
 - Date data type, converting
 - local time conversions
 ms.assetid: b605ff97-0c45-4c24-833f-4c6a3e8be64c
-ms.openlocfilehash: 86f2c982d7f87e83102933d1de73d6e13086dc87
-ms.sourcegitcommit: 40de8df14289e1e05b40d6e5c1daabd3c286d70c
+ms.openlocfilehash: cccfa37663e5a046b08f70a89ebb7f3566486139
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86924898"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063841"
 ---
 # <a name="converting-between-datetime-and-datetimeoffset"></a>在 DateTime 与 DateTimeOffset 之间进行转换
 
 尽管 <xref:System.DateTimeOffset> 结构比结构提供更高的时区感知度，但 <xref:System.DateTime> <xref:System.DateTime> 在方法调用中更常见地使用参数。 因此，将 <xref:System.DateTimeOffset> 值转换为 <xref:System.DateTime> 值，反之亦然。 本主题说明如何以保留尽可能多的时区信息的方式执行这些转换。
 
 > [!NOTE]
-> <xref:System.DateTime>和 <xref:System.DateTimeOffset> 类型在表示时区中的时间时都具有某些限制。 利用其 <xref:System.DateTime.Kind%2A> 属性， <xref:System.DateTime> 可以仅反映协调世界时（UTC）和系统的本地时区。 <xref:System.DateTimeOffset>反映相对于 UTC 的时间偏移量，但它不反映该偏移量所属的实际时区。 有关时间值和时区支持的详细信息，请参阅[在 DateTime、DateTimeOffset、TimeSpan 和 TimeZoneInfo 之间进行选择](choosing-between-datetime.md)。
+> <xref:System.DateTime>和 <xref:System.DateTimeOffset> 类型在表示时区中的时间时都具有某些限制。 利用其 <xref:System.DateTime.Kind%2A> 属性， <xref:System.DateTime> 可以仅反映协调世界时 (UTC) 和系统的本地时区。 <xref:System.DateTimeOffset> 反映相对于 UTC 的时间偏移量，但它不反映该偏移量所属的实际时区。 有关时间值和时区支持的详细信息，请参阅 [在 DateTime、DateTimeOffset、TimeSpan 和 TimeZoneInfo 之间进行选择](choosing-between-datetime.md)。
 
 ## <a name="conversions-from-datetime-to-datetimeoffset"></a>从 DateTime 转换为 DateTimeOffset
 
@@ -95,7 +95,7 @@ ms.locfileid: "86924898"
 
 ### <a name="converting-a-local-time"></a>转换本地时间
 
-若要指示某个 <xref:System.DateTimeOffset> 值表示本地时间，可以将 <xref:System.DateTime> 属性返回的值传递 <xref:System.DateTimeOffset.DateTime%2A?displayProperty=nameWithType> 给 `static` （ `Shared` Visual Basic） <xref:System.DateTime.SpecifyKind%2A> 方法。 方法返回作为第一个参数传递给它的日期和时间，但将该 <xref:System.DateTime.Kind%2A> 属性设置为其第二个参数指定的值。 下面的代码在 <xref:System.DateTime.SpecifyKind%2A> 转换 <xref:System.DateTimeOffset> 值（其偏移量对应于本地时区的偏移量）时使用方法。
+若要指示某个 <xref:System.DateTimeOffset> 值表示本地时间，可以将 <xref:System.DateTime> 属性返回的值传递 <xref:System.DateTimeOffset.DateTime%2A?displayProperty=nameWithType> 到 `static` `Shared` Visual Basic) 方法中的 (<xref:System.DateTime.SpecifyKind%2A> 。 方法返回作为第一个参数传递给它的日期和时间，但将该 <xref:System.DateTime.Kind%2A> 属性设置为其第二个参数指定的值。 下面的代码在 <xref:System.DateTime.SpecifyKind%2A> 转换 <xref:System.DateTimeOffset> 值（其偏移量对应于本地时区的偏移量）时使用方法。
 
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#7](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#7)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#7](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#7)]
@@ -105,7 +105,7 @@ ms.locfileid: "86924898"
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#10](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#10)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#10](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#10)]
 
-<xref:System.DateTime>使用属性检索值时 <xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType> ，属性的 `get` 访问器首先将 <xref:System.DateTimeOffset> 值转换为 UTC，然后通过调用方法将其转换为本地时间 <xref:System.DateTimeOffset.ToLocalTime%2A> 。 这意味着，您可以从属性中检索一个值， <xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType> 以便在执行类型转换时执行时区转换。 还意味着在执行转换期间应用本地时区的调整规则。 下面的代码演示 <xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType> 如何使用属性同时执行类型和时区转换。 示例输出适用于设置为太平洋时区（美国和加拿大）的计算机。 11月日期为太平洋标准时间，即 UTC-8，而六月日期为夏令时（UTC-7）。
+<xref:System.DateTime>使用属性检索值时 <xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType> ，属性的 `get` 访问器首先将 <xref:System.DateTimeOffset> 值转换为 UTC，然后通过调用方法将其转换为本地时间 <xref:System.DateTimeOffset.ToLocalTime%2A> 。 这意味着，您可以从属性中检索一个值， <xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType> 以便在执行类型转换时执行时区转换。 还意味着在执行转换期间应用本地时区的调整规则。 下面的代码演示 <xref:System.DateTimeOffset.LocalDateTime%2A?displayProperty=nameWithType> 如何使用属性同时执行类型和时区转换。 示例输出适用于设置为太平洋时区的计算机 (美国和加拿大) 。 11月日期为太平洋标准时间，即 UTC-8，而六月日期为夏令时（UTC-7）。
 
 [!code-csharp[System.DateTimeOffset.Conceptual.Conversions#11](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/cs/Conversions.cs#11)]
 [!code-vb[System.DateTimeOffset.Conceptual.Conversions#11](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Conversions/vb/Conversions.vb#11)]

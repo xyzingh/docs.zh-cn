@@ -3,15 +3,15 @@ title: 如何：让用户解析不明确的时间
 ms.date: 04/10/2017
 ms.technology: dotnet-standard
 helpviewer_keywords:
-- time zones [.NET Framework], ambiguous time
-- ambiguous time [.NET Framework]
+- time zones [.NET], ambiguous time
+- ambiguous time [.NET]
 ms.assetid: bca874ee-5b68-4654-8bbd-3711220ef332
-ms.openlocfilehash: ac723738d80a2f686a5fcaf279cec791b3c58619
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 9eb1f576fd10b22383d77b90f63009fef41582d6
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84281578"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063581"
 ---
 # <a name="how-to-let-users-resolve-ambiguous-times"></a>如何：让用户解析不明确的时间
 
@@ -35,7 +35,7 @@ ms.locfileid: "84281578"
 
 5. 用本地时间减去用户所选时差，得出 UTC 日期和时间。
 
-6. 调用 `static` （ `Shared` 在 Visual Basic .net 中） <xref:System.DateTime.SpecifyKind%2A> 方法，将 UTC 日期和时间值的 <xref:System.DateTime.Kind%2A> 属性设置为 <xref:System.DateTimeKind.Utc?displayProperty=nameWithType> 。
+6. 调用 `static` `Shared` Visual Basic .net) 方法中的 (<xref:System.DateTime.SpecifyKind%2A> ，将 UTC 日期和时间值的 <xref:System.DateTime.Kind%2A> 属性设置为 <xref:System.DateTimeKind.Utc?displayProperty=nameWithType> 。
 
 ## <a name="example"></a>示例
 
@@ -52,9 +52,9 @@ ms.locfileid: "84281578"
 
 此示例需要：
 
-- 该 <xref:System> 命名空间将与语句一起导入 `using` （在 c # 代码中是必需的）。
+- <xref:System>要导入的命名空间与 `using` c # 代码) 中 (必需的语句一起导入。
 
 ## <a name="see-also"></a>另请参阅
 
 - [日期、时间和时区](index.md)
-- [如何：解析明确时间](resolve-ambiguous-times.md)
+- [如何：解决不明确的时间](resolve-ambiguous-times.md)

@@ -6,20 +6,20 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- time zones [.NET Framework], arithmetic operations
-- arithmetic operations [.NET Framework], dates and times
-- dates [.NET Framework], adding and subtracting
+- time zones [.NET], arithmetic operations
+- arithmetic operations [.NET], dates and times
+- dates [.NET], adding and subtracting
 ms.assetid: 83dd898d-1338-415d-8cd6-445377ab7871
-ms.openlocfilehash: af19145f7caa9dbe8630ae7593734769e98720d0
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: cb1abbcab10d52f9ba898e2f4e2468b04cfcff1f
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84280915"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064257"
 ---
 # <a name="how-to-use-time-zones-in-date-and-time-arithmetic"></a>如何：在日期和时间算术中使用时区
 
-通常，当您使用或值执行日期和时间算术运算时 <xref:System.DateTime> <xref:System.DateTimeOffset> ，结果将不反映任何时区调整规则。 即使日期和时间值的时区清晰标识（例如，当属性设置为时），也是如此 <xref:System.DateTime.Kind%2A> <xref:System.DateTimeKind.Local> 。 本主题演示如何对属于特定时区的日期和时间值执行算术运算。 算术运算的结果将反映时区调整规则。
+通常，当您使用或值执行日期和时间算术运算时 <xref:System.DateTime> <xref:System.DateTimeOffset> ，结果将不反映任何时区调整规则。 即使日期和时间值的时区可以清楚识别 (例如，将 <xref:System.DateTime.Kind%2A> 属性设置为) 时也是如此 <xref:System.DateTimeKind.Local> 。 本主题演示如何对属于特定时区的日期和时间值执行算术运算。 算术运算的结果将反映时区调整规则。
 
 ### <a name="to-apply-adjustment-rules-to-date-and-time-arithmetic"></a>将调整规则应用到日期和时间运算
 
@@ -28,7 +28,7 @@ ms.locfileid: "84280915"
    [!code-csharp[System.DateTimeOffset.Conceptual#6](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual/cs/Conceptual6.cs#6)]
    [!code-vb[System.DateTimeOffset.Conceptual#6](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual/vb/Conceptual6.vb#6)]
 
-2. 通过调用方法或方法，将时间转换为协调世界时（UTC） <xref:System.TimeZoneInfo.ConvertTimeToUtc%2A> <xref:System.TimeZoneInfo.ConvertTime%2A> 。
+2. 通过调用方法或方法，将时间转换为协调世界时 (UTC) <xref:System.TimeZoneInfo.ConvertTimeToUtc%2A> <xref:System.TimeZoneInfo.ConvertTime%2A> 。
 
 3. 对 UTC 时间执行算术运算。
 
@@ -58,9 +58,9 @@ ms.locfileid: "84280915"
 
 此示例需要：
 
-- 该 <xref:System> 命名空间将与语句一起导入 `using` （在 c # 代码中是必需的）。
+- <xref:System>要导入的命名空间与 `using` c # 代码) 中 (必需的语句一起导入。
 
 ## <a name="see-also"></a>另请参阅
 
 - [日期、时间和时区](index.md)
-- [使用日期和时间执行算术运算](performing-arithmetic-operations.md)
+- [用日期和时间执行算术运算](performing-arithmetic-operations.md)

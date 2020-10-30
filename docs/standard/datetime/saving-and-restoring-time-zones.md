@@ -7,22 +7,22 @@ dev_langs:
 - vb
 helpviewer_keywords:
 - restoring time zones
-- deserialization [.NET Framework], time zones
-- serialization [.NET Framework], time zones
-- time zone objects [.NET Framework], restoring
+- deserialization [.NET], time zones
+- serialization [.NET], time zones
+- time zone objects [.NET], restoring
 - saving time zones
-- time zone objects [.NET Framework], deserializing
-- time zones [.NET Framework], saving
-- time zones [.NET Framework], restoring
-- time zone objects [.NET Framework], serializing
-- time zone objects [.NET Framework], saving
+- time zone objects [.NET], deserializing
+- time zones [.NET], saving
+- time zones [.NET], restoring
+- time zone objects [.NET], serializing
+- time zone objects [.NET], saving
 ms.assetid: 4028b310-e7ce-49d4-a646-1e83bfaf6f9d
-ms.openlocfilehash: 8da26988d2e141ac704f0d3756cd8a50602cb3fd
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 6a05bf4ce062a3f4e539e9b89779cb468b9782a6
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84281045"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063386"
 ---
 # <a name="saving-and-restoring-time-zones"></a>保存和还原时区
 
@@ -32,7 +32,7 @@ ms.locfileid: "84281045"
 
 - 在注册表中定义的时区可能缺少有关历史时区转换所需的特定调整规则的信息。
 
-<xref:System.TimeZoneInfo>类通过其对时区数据的序列化（保存）和反序列化（还原）支持来解决这些限制。
+<xref:System.TimeZoneInfo>类通过对序列化的支持来解决这些限制 (保存) 并反序列化， (还原) 的时区数据。
 
 ## <a name="time-zone-serialization-and-deserialization"></a>时区序列化和反序列化
 
@@ -40,17 +40,17 @@ ms.locfileid: "84281045"
 
 - 可以 <xref:System.TimeZoneInfo> 通过调用对象的方法来序列化对象 <xref:System.TimeZoneInfo.ToSerializedString%2A> 。 方法不采用任何参数，并返回包含时区信息的字符串。
 
-- 您可以通过将 <xref:System.TimeZoneInfo> 字符串传递给 `static` （ `Shared` Visual Basic）方法将对象从序列化字符串反序列化 <xref:System.TimeZoneInfo.FromSerializedString%2A?displayProperty=nameWithType> 。
+- 可以 <xref:System.TimeZoneInfo> 通过将字符串传递到 `static` `Shared` Visual Basic) 方法中的 (，将对象从序列化字符串反序列化 <xref:System.TimeZoneInfo.FromSerializedString%2A?displayProperty=nameWithType> 。
 
 ## <a name="serialization-and-deserialization-scenarios"></a>序列化和反序列化方案
 
-能够将对象保存（或序列化） <xref:System.TimeZoneInfo> 到字符串，并将其还原（或反序列化）以供以后使用会提高实用工具和类的灵活性 <xref:System.TimeZoneInfo> 。 本部分介绍了序列化和反序列化最有用的一些情况。
+能够将对象) 对象保存 (或序列化 <xref:System.TimeZoneInfo> 并还原 (或反序列化) 以供以后使用，同时增加了实用工具和类的灵活性 <xref:System.TimeZoneInfo> 。 本部分介绍了序列化和反序列化最有用的一些情况。
 
 ### <a name="serializing-and-deserializing-time-zone-data-in-an-application"></a>序列化和反序列化应用程序中的时区数据
 
 当需要时，可以从字符串还原序列化时区。 如果从注册表检索的时区无法正确转换特定日期范围内的日期和时间，则应用程序可能会执行此操作。 例如，Windows XP 注册表中的时区数据支持单个调整规则，而 Windows Vista 注册表中定义的时区通常提供有关两个调整规则的信息。 这意味着，历史时间转换可能不准确。 时区数据的序列化和反序列化可处理此限制。
 
-在下面的示例中，不带调整规则的自定义 <xref:System.TimeZoneInfo> 类定义为表示从 1883 年到 1917 年（在引入夏时制之前）的美国东部标准时区。 自定义时区在具有全局作用域的变量中序列化。 时区转换方法将 `ConvertUtcTime` 通过协调世界时（UTC）时间传递来转换。 如果日期和时间出现在1917或更早版本中，则从序列化的字符串还原自定义的东部标准时区，并替换从注册表中检索到的时区。
+在下面的示例中，不带调整规则的自定义 <xref:System.TimeZoneInfo> 类定义为表示从 1883 年到 1917 年（在引入夏时制之前）的美国东部标准时区。 自定义时区在具有全局作用域的变量中序列化。 时区转换方法 `ConvertUtcTime` 会将协调世界时 (UTC) 时间传递给转换。 如果日期和时间出现在1917或更早版本中，则从序列化的字符串还原自定义的东部标准时区，并替换从注册表中检索到的时区。
 
 [!code-csharp[System.TimeZone2.Serialization.1#1](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.TimeZone2.Serialization.1/cs/Serialization.cs#1)]
 [!code-vb[System.TimeZone2.Serialization.1#1](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.TimeZone2.Serialization.1/vb/Serialization.vb#1)]
@@ -66,11 +66,11 @@ ms.locfileid: "84281045"
 
 ### <a name="storing-a-serialized-string-and-restoring-it-when-needed"></a>存储序列化字符串并在需要时对其进行还原
 
-前面的示例将时区信息存储在字符串变量中，并在需要时对其进行还原。 但是，包含序列化的时区信息的字符串本身可以存储在某个存储介质中，例如外部文件、嵌入在应用程序中的资源文件或注册表。 （请注意，有关自定义时区的信息应该与系统的时区密钥分开存储在注册表中。）
+前面的示例将时区信息存储在字符串变量中，并在需要时对其进行还原。 但是，包含序列化的时区信息的字符串本身可以存储在某个存储介质中，例如外部文件、嵌入在应用程序中的资源文件或注册表。  (请注意，有关自定义时区的信息应与注册表中系统的时区密钥分开存储。 ) 
 
 以这种方式存储序列化时区字符串还可以将时区创建例程与应用程序本身隔开。 例如，时区创建例程可执行并创建包含应用程序可使用的历史时区信息的数据文件。 然后，可以在应用程序中安装数据文件，并在应用程序需要时，可以打开该文件并对其一个或多个时区进行反序列化。
 
-有关使用嵌入资源存储序列化的时区数据的示例，请参阅[如何：将时区保存到嵌入的资源](save-time-zones-to-an-embedded-resource.md)和[如何：从嵌入的资源还原时区](restore-time-zones-from-an-embedded-resource.md)。
+有关使用嵌入资源存储序列化的时区数据的示例，请参阅 [如何：将时区保存到嵌入的资源](save-time-zones-to-an-embedded-resource.md) 和 [如何：从嵌入的资源还原时区](restore-time-zones-from-an-embedded-resource.md)。
 
 ## <a name="see-also"></a>另请参阅
 

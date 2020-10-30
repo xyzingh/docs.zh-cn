@@ -6,16 +6,16 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- time zones [.NET Framework], creating
-- time zones [.NET Framework], and adjustment rules
-- adjustment rule [.NET Framework]
+- time zones [.NET], creating
+- time zones [.NET], and adjustment rules
+- adjustment rule [.NET]
 ms.assetid: c52ef192-13a9-435f-8015-3b12eae8c47c
-ms.openlocfilehash: b7e938581dfde3f1566aa2506302292686c2fc5c
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 28ab7c8ceabcfd64a6797cf5a85869c469963983
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84278163"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063815"
 ---
 # <a name="how-to-create-time-zones-with-adjustment-rules"></a>如何：创建含调整规则的时区
 
@@ -27,16 +27,16 @@ ms.locfileid: "84278163"
 
 - 对于特定的历史时间段，时区没有有关时区调整的准确信息。
 
-在这些情况下，可以调用 <xref:System.TimeZoneInfo.CreateCustomTimeZone%2A> 方法来定义应用程序所需的时区。 您可以使用此方法的重载来创建具有或不带调整规则的时区。 如果时区支持夏令时，则可以用固定或浮动调整规则定义调整。 （有关这些术语的定义，请参阅时区[概述](time-zone-overview.md)中的 "时区术语" 部分。）
+在这些情况下，可以调用 <xref:System.TimeZoneInfo.CreateCustomTimeZone%2A> 方法来定义应用程序所需的时区。 您可以使用此方法的重载来创建具有或不带调整规则的时区。 如果时区支持夏令时，则可以用固定或浮动调整规则定义调整。  (这些术语的定义，请参阅时区 [概述](time-zone-overview.md)中的 "时区术语" 部分。 ) 
 
 > [!IMPORTANT]
 > 通过调用方法创建的自定义时区 <xref:System.TimeZoneInfo.CreateCustomTimeZone%2A> 未添加到注册表中。 相反，只能通过方法调用返回的对象引用来访问这些对象 <xref:System.TimeZoneInfo.CreateCustomTimeZone%2A> 。
 
-本主题说明如何创建具有调整规则的时区。 若要创建不支持夏令时调整规则的时区，请参阅[如何：创建不带调整规则的时区](create-time-zones-without-adjustment-rules.md)。
+本主题说明如何创建具有调整规则的时区。 若要创建不支持夏令时调整规则的时区，请参阅 [如何：创建不带调整规则的时区](create-time-zones-without-adjustment-rules.md)。
 
 ### <a name="to-create-a-time-zone-with-floating-adjustment-rules"></a>创建具有浮动调整规则的时区
 
-1. 对于每个调整（即，每次从一个特定时间间隔转换到标准时间时），请执行以下操作：
+1. 对于每个调整 (也就是说，对于每个从特定时间间隔转换到标准时间) ，请执行以下操作：
 
     1. 定义时区调整的开始转换时间。
 
@@ -48,7 +48,7 @@ ms.locfileid: "84278163"
 
     4. 将 <xref:System.TimeZoneInfo.AdjustmentRule> 对象分配给对象的数组 <xref:System.TimeZoneInfo.AdjustmentRule> 。
 
-2. 定义时区的显示名称。 显示名称采用相当标准的格式，在此格式中，时区与协调世界时（UTC）的偏移量括在括号中，后面跟有标识时区的字符串、时区中的一个或多个城市，或者时区中的一个或多个国家或地区。
+2. 定义时区的显示名称。 显示名称采用了一种非常标准的格式，其中，时区与协调世界时的时差 (UTC) 括在括号中，后面跟有标识时区的字符串、时区中的一个或多个城市，或者时区中的一个或多个国家或地区。
 
 3. 定义时区标准时间的名称。 通常，此字符串还用作时区的标识符。
 
@@ -93,4 +93,4 @@ ms.locfileid: "84278163"
 
 - [日期、时间和时区](index.md)
 - [时区概述](time-zone-overview.md)
-- [如何：创建不含调整规则的时区](create-time-zones-without-adjustment-rules.md)
+- [如何：创建不带调整规则的时区](create-time-zones-without-adjustment-rules.md)

@@ -1,6 +1,6 @@
 ---
 title: 实例化 DateTimeOffset 对象
-description: 阅读如何在 .NET 中实例化（生成实例） DateTimeOffset 对象。 了解 & 时间文本、构造函数、隐式类型转换 & 详细信息。
+description: 阅读如何实例化 (使实例在 .NET 中) DateTimeOffset 对象。 了解 & 时间文本、构造函数、隐式类型转换 & 详细信息。
 ms.date: 04/10/2017
 ms.technology: dotnet-standard
 dev_langs:
@@ -8,20 +8,20 @@ dev_langs:
 - vb
 helpviewer_keywords:
 - instantiating time zone objects
-- time zone objects [.NET Framework], instantiation
+- time zone objects [.NET], instantiation
 - DateTimeOffset structure, converting to DateTime
 - DateTimeOffset structure, instantiating
 ms.assetid: 9648375f-d368-4373-a976-3332ece00c0a
-ms.openlocfilehash: c2b71a2a98353a4ec9ed249acf18939dd4740e99
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: 4158a3d3bbd7ada87dd0c773cf9a0f5e001ad918
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84768893"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063620"
 ---
 # <a name="instantiating-a-datetimeoffset-object"></a>实例化 DateTimeOffset 对象
 
-<xref:System.DateTimeOffset> 结构提供了多种创建新 <xref:System.DateTimeOffset> 值的方法。 其中的许多方法都直接对应于可用于实例化新值的方法 <xref:System.DateTime> ，并提供增强功能，使您能够指定日期和时间值相对于协调世界时（UTC）的偏移量。 具体而言，可以 <xref:System.DateTimeOffset> 通过以下方式实例化某个值：
+<xref:System.DateTimeOffset> 结构提供了多种创建新 <xref:System.DateTimeOffset> 值的方法。 其中的许多方法都直接对应于可用于实例化新值的方法 <xref:System.DateTime> ，增强功能使你能够指定日期和时间值与协调世界时 (UTC) 的偏移量。 具体而言，可以 <xref:System.DateTimeOffset> 通过以下方式实例化某个值：
 
 - 使用日期和时间文本。
 
@@ -39,7 +39,7 @@ ms.locfileid: "84768893"
 
 [!code-vb[System.DateTimeOffset.Conceptual.Instantiate#1](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Instantiate/vb/Instantiate.vb#1)]
 
-<xref:System.DateTimeOffset>使用支持文本的语言时，还可以使用日期和时间文本初始化值 <xref:System.DateTime> 。 例如，下面的 Visual Basic 代码创建 <xref:System.DateTimeOffset> 对象。
+<xref:System.DateTimeOffset> 使用支持文本的语言时，还可以使用日期和时间文本初始化值 <xref:System.DateTime> 。 例如，下面的 Visual Basic 代码创建 <xref:System.DateTimeOffset> 对象。
 
 [!code-vb[System.DateTimeOffset.Conceptual.Instantiate#2](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.DateTimeOffset.Conceptual.Instantiate/vb/Instantiate.vb#2)]
 

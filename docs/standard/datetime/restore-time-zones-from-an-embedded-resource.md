@@ -6,19 +6,19 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- time zones [.NET Framework], deserializing
-- time zones [.NET Framework], restoring
+- time zones [.NET], deserializing
+- time zones [.NET], restoring
 ms.assetid: 6b7b4de9-da07-47e3-8f4c-823f81798ee7
-ms.openlocfilehash: b1cece13c88b3a49c9c4c90045a07dd009d4282d
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 1dd3dff2441ac5e21f3ebf97d58919a7c65d42c5
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84281318"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063425"
 ---
 # <a name="how-to-restore-time-zones-from-an-embedded-resource"></a>如何：从嵌入的资源还原时区
 
-本主题介绍如何还原已保存到资源文件中的时区。 有关保存时区的信息和说明，请参阅[如何：将时区保存到嵌入的资源](save-time-zones-to-an-embedded-resource.md)。
+本主题介绍如何还原已保存到资源文件中的时区。 有关保存时区的信息和说明，请参阅 [如何：将时区保存到嵌入的资源](save-time-zones-to-an-embedded-resource.md)。
 
 ### <a name="to-deserialize-a-timezoneinfo-object-from-an-embedded-resource"></a>反序列化嵌入资源中的 TimeZoneInfo 对象
 
@@ -26,9 +26,9 @@ ms.locfileid: "84281318"
 
 2. <xref:System.Resources.ResourceManager>通过传递嵌入资源文件的完全限定名和对包含资源文件的程序集的引用来实例化对象。
 
-   如果无法确定嵌入资源文件的完全限定名称，请使用[Ildasm （IL 拆装器）](../../framework/tools/ildasm-exe-il-disassembler.md)检查程序集的清单。 一 `.mresource` 项标识资源。 在此示例中，该资源的完全限定名为 `SerializeTimeZoneData.SerializedTimeZones` 。
+   如果无法确定嵌入资源文件的完全限定名称，请使用 [Ildasm.exe (IL 拆装器) ](../../framework/tools/ildasm-exe-il-disassembler.md) 检查程序集的清单。 一 `.mresource` 项标识资源。 在此示例中，该资源的完全限定名为 `SerializeTimeZoneData.SerializedTimeZones` 。
 
-   如果资源文件嵌入到包含时区实例化代码的同一程序集中，则可以通过调用 `static` （ `Shared` 在 Visual Basic 中）方法来检索对它的引用 <xref:System.Reflection.Assembly.GetExecutingAssembly%2A> 。
+   如果资源文件嵌入到包含时区实例化代码的同一程序集中，则可以通过调用 `static` `Shared` Visual Basic) 方法中的 (来检索对它的引用 <xref:System.Reflection.Assembly.GetExecutingAssembly%2A> 。
 
 3. 如果对方法的调用 <xref:System.TimeZoneInfo.FindSystemTimeZoneById%2A> 失败，或者如果要实例化自定义时区，则通过调用方法来检索包含序列化时区的字符串 <xref:System.Resources.ResourceManager.GetString%2A?displayProperty=nameWithType> 。
 
@@ -43,13 +43,13 @@ ms.locfileid: "84281318"
 
 此代码演示异常处理，以确保 <xref:System.TimeZoneInfo> 应用程序所需的对象存在。 它首先尝试 <xref:System.TimeZoneInfo> 使用方法通过从注册表中检索来实例化对象 <xref:System.TimeZoneInfo.FindSystemTimeZoneById%2A> 。 如果无法实例化时区，则代码会从嵌入的资源文件中检索该时区。
 
-由于自定义时区（使用方法实例化的时区）的数据 <xref:System.TimeZoneInfo.CreateCustomTimeZone%2A> 不会存储在注册表中，因此该代码不会调用 <xref:System.TimeZoneInfo.FindSystemTimeZoneById%2A> 来实例化 Palmer，南极洲的时区。 相反，它会在调用方法之前，立即查看嵌入的资源文件以检索包含时区数据的字符串 <xref:System.TimeZoneInfo.FromSerializedString%2A> 。
+由于自定义时区的数据 (使用方法) 实例化的时区 <xref:System.TimeZoneInfo.CreateCustomTimeZone%2A> 未存储在注册表中，因此代码不会调用 <xref:System.TimeZoneInfo.FindSystemTimeZoneById%2A> 来实例化 Palmer，南极洲的时区。 相反，它会在调用方法之前，立即查看嵌入的资源文件以检索包含时区数据的字符串 <xref:System.TimeZoneInfo.FromSerializedString%2A> 。
 
 ## <a name="compiling-the-code"></a>编译代码
 
 此示例需要：
 
-- 对该项目的引用将被添加到该项目中的。
+- 对 System.Windows.Forms.dll 和 System.Core.dll 的引用将添加到项目。
 
 - 导入以下命名空间：
 
@@ -60,4 +60,4 @@ ms.locfileid: "84281318"
 
 - [日期、时间和时区](index.md)
 - [时区概述](time-zone-overview.md)
-- [如何：将时区保存到嵌入的资源中](save-time-zones-to-an-embedded-resource.md)
+- [如何：将时区保存到嵌入的资源](save-time-zones-to-an-embedded-resource.md)

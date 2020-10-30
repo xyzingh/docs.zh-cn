@@ -6,16 +6,16 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- time zones [.NET Framework], adjustment rule
-- time zones [.NET Framework], creating
-- adjustment rule [.NET Framework]
+- time zones [.NET], adjustment rule
+- time zones [.NET], creating
+- adjustment rule [.NET]
 ms.assetid: a6af8647-7893-4f29-95a9-d94c65a6e8dd
-ms.openlocfilehash: 1d8aae1284e9ee9871c6f201c6a00e0b547f95fa
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: e3bce4d915a8d979f043b5c4a49b20ce3e0596c9
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84278033"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063789"
 ---
 # <a name="how-to-create-time-zones-without-adjustment-rules"></a>如何：创建不含调整规则的时区
 
@@ -27,18 +27,18 @@ ms.locfileid: "84278033"
 
 - 存在时区，但没有特定历史时间段的准确信息。
 
-在这些情况下，可以调用 <xref:System.TimeZoneInfo.CreateCustomTimeZone%2A> 方法来定义应用程序所需的时区。 您可以使用此方法的重载来创建具有或不带调整规则的时区。 如果时区支持夏令时，则可以用固定或浮动调整规则定义调整。 （有关这些术语的定义，请参阅时区[概述](time-zone-overview.md)中的 "时区术语" 部分。）
+在这些情况下，可以调用 <xref:System.TimeZoneInfo.CreateCustomTimeZone%2A> 方法来定义应用程序所需的时区。 您可以使用此方法的重载来创建具有或不带调整规则的时区。 如果时区支持夏令时，则可以用固定或浮动调整规则定义调整。  (这些术语的定义，请参阅时区 [概述](time-zone-overview.md)中的 "时区术语" 部分。 ) 
 
 > [!IMPORTANT]
 > 通过调用方法创建的自定义时区 <xref:System.TimeZoneInfo.CreateCustomTimeZone%2A> 未添加到注册表中。 相反，只能通过方法调用返回的对象引用来访问这些对象 <xref:System.TimeZoneInfo.CreateCustomTimeZone%2A> 。
 
-本主题说明如何创建不带调整规则的时区。 若要创建支持夏令时调整规则的时区，请参阅[如何：创建带有调整规则的时区](create-time-zones-with-adjustment-rules.md)。
+本主题说明如何创建不带调整规则的时区。 若要创建支持夏令时调整规则的时区，请参阅 [如何：创建带有调整规则的时区](create-time-zones-with-adjustment-rules.md)。
 
 ### <a name="to-create-a-time-zone-without-adjustment-rules"></a>创建不含调整规则的时区
 
 1. 定义时区的显示名称。
 
-   显示名称采用相当标准的格式，在此格式中，时区与协调世界时（UTC）的偏移量括在括号中，后面跟有标识时区的字符串、时区中的一个或多个城市，或者时区中的一个或多个国家或地区。
+   显示名称采用了一种非常标准的格式，其中，时区与协调世界时的时差 (UTC) 括在括号中，后面跟有标识时区的字符串、时区中的一个或多个城市，或者时区中的一个或多个国家或地区。
 
 2. 定义时区标准时间的名称。 通常，此字符串还用作时区的标识符。
 
@@ -70,4 +70,4 @@ ms.locfileid: "84278033"
 
 - [日期、时间和时区](index.md)
 - [时区概述](time-zone-overview.md)
-- [如何：创建含调整规则的时区](create-time-zones-with-adjustment-rules.md)
+- [如何：创建带有调整规则的时区](create-time-zones-with-adjustment-rules.md)

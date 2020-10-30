@@ -6,19 +6,19 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- time zones [.NET Framework], local
+- time zones [.NET], local
 - predefined time zones
 - UTC times, predefined
 - local time zone access
-- time zones [.NET Framework], retrieving
-- time zones [.NET Framework], UTC
+- time zones [.NET], retrieving
+- time zones [.NET], UTC
 ms.assetid: 961fb70b-83f0-4dab-a042-cb5fcd817cf5
-ms.openlocfilehash: ebb07800b2a35f4faf312dc55b8c5679079b4b68
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 598cd631fab1ddc115bc6153580351b1dc14d5bf
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84291404"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063880"
 ---
 # <a name="how-to-access-the-predefined-utc-and-local-time-zone-objects"></a>如何：访问预定义 UTC 和本地时区对象
 
@@ -26,13 +26,13 @@ ms.locfileid: "84291404"
 
 ### <a name="to-access-the-coordinated-universal-time-utc-timezoneinfo-object"></a>访问协调世界时 (UTC) TimeZoneInfo 对象
 
-1. 使用 `static` （ `Shared` 在 Visual Basic） <xref:System.TimeZoneInfo.Utc%2A?displayProperty=nameWithType> 属性访问协调世界时。
+1. 使用 `static` `Shared` Visual Basic) 属性中的 (<xref:System.TimeZoneInfo.Utc%2A?displayProperty=nameWithType> 访问协调世界时。
 
 2. 不是将 <xref:System.TimeZoneInfo> 属性返回的对象分配给对象变量，而是继续通过属性访问协调世界时 <xref:System.TimeZoneInfo.Utc%2A?displayProperty=nameWithType> 。
 
 ### <a name="to-access-the-local-time-zone"></a>访问本地时区
 
-1. 使用 `static` （ `Shared` 在 Visual Basic） <xref:System.TimeZoneInfo.Local%2A?displayProperty=nameWithType> 属性访问本地系统时区。
+1. 使用 `static` `Shared` Visual Basic) 属性中的 (<xref:System.TimeZoneInfo.Local%2A?displayProperty=nameWithType> 访问本地系统时区。
 
 2. 不是将 <xref:System.TimeZoneInfo> 属性返回的对象分配给对象变量，而是继续通过属性访问本地时区 <xref:System.TimeZoneInfo.Local%2A?displayProperty=nameWithType> 。
 
@@ -49,7 +49,7 @@ ms.locfileid: "84291404"
 
 此示例需要：
 
-- 该 <xref:System> 命名空间将与语句一起导入 `using` （在 c # 代码中是必需的）。
+- <xref:System>要导入的命名空间与 `using` c # 代码) 中 (必需的语句一起导入。
 
 ## <a name="see-also"></a>另请参阅
 
