@@ -1560,6 +1560,8 @@ items:
         href: ../core/extensions/custom-logging-provider.md
       - name: 高性能日志记录
         href: ../core/extensions/high-performance-logging.md
+      - name: 控制台日志格式设置
+        href: ../core/extensions/console-log-formatter.md
   - name: HostBuilder（泛型主机）
     href: ../core/extensions/generic-host.md
   - name: 数据访问
