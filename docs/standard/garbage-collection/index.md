@@ -6,7 +6,7 @@ ms.technology: dotnet-standard
 helpviewer_keywords:
 - memory, garbage collection
 - garbage collection, automatic memory management
-- GC [.NET Framework]
+- GC [.NET]
 - memory, allocating
 - common language runtime, garbage collection
 - garbage collector
@@ -19,12 +19,12 @@ helpviewer_keywords:
 - runtime, garbage collection
 - garbage collection, about
 ms.assetid: 22b6cb97-0c80-4eeb-a2cf-5ed7655e37f9
-ms.openlocfilehash: dde0012ff7233eb7ee13efab1931f129b0eae276
-ms.sourcegitcommit: 7137e12f54c4e83a94ae43ec320f8cf59c1772ea
+ms.openlocfilehash: 39b5bf62935054bd4b9be2d228cc42202aa89144
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84662480"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063184"
 ---
 # <a name="garbage-collection"></a>垃圾回收
 

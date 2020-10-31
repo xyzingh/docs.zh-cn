@@ -4,12 +4,12 @@ description: 了解如何使用 F# 交互窗口 (dotnet fsi) 在控制台以交�
 ms.date: 08/20/2020
 f1_keywords:
 - VS.ToolsOptionsPages.F#_Tools.F#_Interactive
-ms.openlocfilehash: ae8d68140ddec8e18ee23e9a43b548907e1ab5c4
-ms.sourcegitcommit: fe8877e564deb68d77fa4b79f55584ac8d7e8997
+ms.openlocfilehash: b1020d8ab8f2282c792fb5d00656b6d43c2c6610
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90720317"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064114"
 ---
 # <a name="interactive-programming-with-f"></a>使用 F\# 进行交互式编程
 
@@ -19,9 +19,9 @@ ms.locfileid: "90720317"
 
 有关可用命令行选项的信息，请参阅 [F# Interactive 选项](../../language-reference/fsharp-interactive-options.md)。
 
-若要通过 Visual Studio 运行 F# Interactive，可以单击标记为“F# Interactive”的相应工具栏按钮，或使用组合键 **Ctrl+Alt+F**。 执行此操作将打开交互式窗口，该窗口是运行 F# Interactive 会话的工具窗口。 还可以选择一些你希望在交互式窗口中运行的代码，然后点击组合键 Alt+Enter。 F# Interactive 在标记为“F# Interactive”的工具窗口中启动。 当您使用此组合键时，请确保焦点位于编辑器窗口内。
+若要通过 Visual Studio 运行 F# Interactive，可以单击标记为“F# Interactive”的相应工具栏按钮，或使用组合键 **Ctrl+Alt+F** 。 执行此操作将打开交互式窗口，该窗口是运行 F# Interactive 会话的工具窗口。 还可以选择一些你希望在交互式窗口中运行的代码，然后点击组合键 Alt+Enter。 F# Interactive 在标记为“F# Interactive”的工具窗口中启动。 当您使用此组合键时，请确保焦点位于编辑器窗口内。
 
-无论您使用的是控制台还是 Visual Studio，都会出现命令提示符，并且解释器会等待您输入代码。 你可以像在代码文件中一样输入代码。 若要编译和执行代码，请输入两个分号 (**;;**) 以终止一行或几行输入。
+无论您使用的是控制台还是 Visual Studio，都会出现命令提示符，并且解释器会等待您输入代码。 你可以像在代码文件中一样输入代码。 若要编译和执行代码，请输入两个分号 ( **;;** ) 以终止一行或几行输入。
 
 F# Interactive 试图编译代码，如果成功，它将执行代码并打印其所编译类型和值的签名。 如果发生错误，解释器将打印错误消息。
 
@@ -54,7 +54,7 @@ F# Interactive 试图编译代码，如果成功，它将执行代码并打印�
 
 当在 F# Interactive 中指定文件或路径时，应指定字符串文本。 因此，文件和路径必须用引号引起来，也可以使用常见的转义符。 此外，你还可以使用 @ 字符，此时 F# Interactive 会将包含路径的字符串解释为原义字符串。 这会导致 F# Interactive 忽略转义符。
 
-编译模式与交互模式的其中一个区别是访问命令行自变量的方法。 在编译模式下，使用 **System.Environment.GetCommandLineArgs**。 在脚本中，使用 **fsi.CommandLineArgs**。
+编译模式与交互模式的其中一个区别是访问命令行自变量的方法。 在编译模式下，使用 **System.Environment.GetCommandLineArgs** 。 在脚本中，使用 **fsi.CommandLineArgs** 。
 
 下面的代码说明如何创建可读取脚本中命令行自变量的函数，并演示如何从脚本引用另一个程序集。 第一个代码文件 **MyAssembly.fs** 是所引用程序集的代码。 使用命令行 **fsc-a MyAssembly.fs** 编译此文件，然后使用命令行 **fsi --exec file1.fsx** test 以脚本执行第二个文件
 
@@ -92,7 +92,7 @@ test
 用于在 F# 交互窗口中引用 DLL 的 `#r` 语法还可通过以下语法用于引用 nuget 包：
 
 ```fsharp
-#r "nuget: <package name>
+#r "nuget: <package name>"
 ```
 
 例如，要引用 `FSharp.Data` 包，请使用以下 `#r` 引用：
