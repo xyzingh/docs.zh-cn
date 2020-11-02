@@ -6,20 +6,20 @@ ms.technology: dotnet-standard
 helpviewer_keywords:
 - parallel programming
 ms.assetid: 4d83c690-ad2d-489e-a2e0-b85b898a672d
-ms.openlocfilehash: 02087cf58720388c64d8aba5424db0b54828219a
-ms.sourcegitcommit: 7137e12f54c4e83a94ae43ec320f8cf59c1772ea
+ms.openlocfilehash: edb3d38b0815c6703720292a45e302c62c81650b
+ms.sourcegitcommit: 6d09ae36acba0b0e2ba47999f8f1a725795462a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84661960"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925332"
 ---
 # <a name="parallel-programming-in-net"></a>.NET 中的并行编程
 
 许多个人计算机和工作站都有多个 CPU 内核，以便多个线程能够同时执行。 为了利用硬件，你可以对代码进行并行化，以将工作分摊在多个处理器上。
 
-过去，并行化需要线程和锁的低级操作。 Visual Studio 和 .NET Framework 提供了运行时、类库类型和诊断工具，从而增强了对并行编程的支持。 .NET Framework 4 中引入的这些功能简化了并行开发。 你可以通过固有方法编写高效、细化且可伸缩的并行代码，而不必直接处理线程或线程池。
+过去，并行化需要线程和锁的低级操作。 Visual Studio 和 .NET 提供了运行时、类库类型和诊断工具，从而增强了对并行编程的支持。 .NET Framework 4 中引入的这些功能简化了并行开发。 你可以通过固有方法编写高效、细化且可伸缩的并行代码，而不必直接处理线程或线程池。
 
-下图简要概述了 .NET Framework 中的并行编程体系结构：
+下图简要概述了 .NET 中的并行编程体系结构。
 
 ![.NET 并行编程体系结构](./media/tpl-architecture.png)
 
