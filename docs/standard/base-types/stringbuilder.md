@@ -9,20 +9,20 @@ dev_langs:
 - cpp
 helpviewer_keywords:
 - Remove method
-- strings [.NET Framework], capacities
+- strings [.NET], capacities
 - StringBuilder object
 - Replace method
 - AppendFormat method
 - Append method
 - Insert method
-- strings [.NET Framework], StringBuilder object
+- strings [.NET], StringBuilder object
 ms.assetid: 5c14867c-9a99-45bc-ae7f-2686700d377a
-ms.openlocfilehash: 83d4b9327b55c511e2a46486e519e3cd0c77b1a3
-ms.sourcegitcommit: 1eae045421d9ea2bfc82aaccfa5b1ff1b8c9e0e4
+ms.openlocfilehash: 1005da650c624b2b8f6616c163082ff95d7dc007
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84803230"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888953"
 ---
 # <a name="using-the-stringbuilder-class-in-net"></a>使用 .NET 中的 StringBuilder 类
 <xref:System.String> 对象不可变。 每次使用 <xref:System.String?displayProperty=nameWithType> 类中的方法之一，都要在内存中新建字符串对象，这就需要为新对象分配新空间。 在需要重复修改字符串的情况下，与新建 <xref:System.String> 对象关联的开销可能会非常大。 若要修改字符串（而不新建对象），可以使用 <xref:System.Text.StringBuilder?displayProperty=nameWithType> 类。 例如，如果在循环中将许多字符串连接在一起，使用 <xref:System.Text.StringBuilder> 类可以提升性能。  

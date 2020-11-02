@@ -10,16 +10,16 @@ helpviewer_keywords:
 - parsing strings, date and time strings
 - date and time strings
 - ParseExact method
-- enumerations [.NET Framework], parsing strings
+- enumerations [.NET], parsing strings
 - base types, parsing strings
 - DateTime object
 - time strings
-ms.openlocfilehash: 9fba80e4dbe1e4950ed24e7489ac48ea1b6ff20b
-ms.sourcegitcommit: 7137e12f54c4e83a94ae43ec320f8cf59c1772ea
+ms.openlocfilehash: f6ac4672a81db7047069f726f7eb1b920a82b3db
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84662896"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889031"
 ---
 # <a name="parse-date-and-time-strings-in-net"></a>分析 .NET 中的日期和时间字符串
 

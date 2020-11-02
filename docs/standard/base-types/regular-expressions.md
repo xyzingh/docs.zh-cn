@@ -13,20 +13,20 @@ helpviewer_keywords:
 - pattern-matching with regular expressions
 - searching with regular expressions
 - parsing text with regular expressions
-- regular expressions [.NET Framework], about regular expressions
-- regular expressions [.NET Framework]
-- .NET Framework regular expressions, about
-- characters [.NET Framework], regular expressions
+- regular expressions [.NET], about regular expressions
+- regular expressions [.NET]
+- .NET regular expressions, about
+- characters [.NET], regular expressions
 - parsing text with regular expressions, overview
-- .NET Framework regular expressions
-- strings [.NET Framework], regular expressions
+- .NET regular expressions
+- strings [.NET], regular expressions
 ms.assetid: 521b3f6d-f869-42e1-93e5-158c54a6895d
-ms.openlocfilehash: f57199c2ddf6569020554e74b6e70801844da641
-ms.sourcegitcommit: c23d9666ec75b91741da43ee3d91c317d68c7327
+ms.openlocfilehash: 6704ab4a99789e2e0bb4c4336f8c73aa8a89671d
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802892"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888979"
 ---
 # <a name="net-regular-expressions"></a>.NET 正则表达式
 

@@ -11,14 +11,14 @@ helpviewer_keywords:
 - IComparable.CompareTo method
 - Collections classes
 - Equals method
-- collections [.NET Framework], comparisons
+- collections [.NET], comparisons
 ms.assetid: 5e4d3b45-97f0-423c-a65f-c492ed40e73b
-ms.openlocfilehash: aa001e8469947a532d77059bd52024c6b47b508e
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: 40a59809723298ddda21e642098ec8ae74a1828b
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84769192"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889369"
 ---
 # <a name="comparisons-and-sorts-within-collections"></a>集合内的比较和排序
 

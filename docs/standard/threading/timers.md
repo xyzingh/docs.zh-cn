@@ -8,16 +8,16 @@ dev_langs:
 - vb
 - cpp
 helpviewer_keywords:
-- threading [.NET Framework], timers
+- threading [.NET], timers
 - timers, about timers
 ms.assetid: 7091500d-be18-499b-a942-95366ce185e5
 author: pkulikov
-ms.openlocfilehash: d463eb2a8d598dc5ba9b2fb51a6fc08c563e6fe4
-ms.sourcegitcommit: 465547886a1224a5435c3ac349c805e39ce77706
+ms.openlocfilehash: c9d0b085285705af79f0fafa212867b5571863ba
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81739485"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188713"
 ---
 # <a name="timers"></a>计时器
 

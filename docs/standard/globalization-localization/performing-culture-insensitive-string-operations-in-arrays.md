@@ -4,15 +4,15 @@ ms.date: 03/30/2017
 ms.technology: dotnet-standard
 helpviewer_keywords:
 - culture-insensitive string operations, in arrays
-- arrays [.NET Framework], culture-insensitive string operations
+- arrays [.NET], culture-insensitive string operations
 - comparer parameter
 ms.assetid: f12922e1-6234-4165-8896-63f0653ab478
-ms.openlocfilehash: 02690f78184ca4f216df7346a84f0266c2dcec99
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 2438040f927eae2d501b47f468097a8137329a56
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84288597"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064127"
 ---
 # <a name="performing-culture-insensitive-string-operations-in-arrays"></a>在数组中执行不区分区域性的字符串操作
 

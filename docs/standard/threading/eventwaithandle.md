@@ -3,19 +3,20 @@ title: EventWaitHandle
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 helpviewer_keywords:
-- threading [.NET Framework], EventWaitHandle class
+- threading [.NET], EventWaitHandle class
 - EventWaitHandle class
-- event wait handles [.NET Framework]
-- threading [.NET Framework], cross-process synchronization
+- event wait handles [.NET]
+- threading [.NET], cross-process synchronization
 ms.assetid: 11ee0b38-d663-4617-b793-35eb6c64e9fc
-ms.openlocfilehash: 80c90254978495a58d228c4302eda84d6165c800
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.openlocfilehash: d8c4745af9c5336d013dc0ca7ef1030b208c8b68
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2020
-ms.locfileid: "73138074"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188336"
 ---
 # <a name="eventwaithandle"></a>EventWaitHandle
+
 借助 <xref:System.Threading.EventWaitHandle> 类，线程可以通过发出信号和等待信号进行相互通信。 事件等待句柄（亦简称为“事件”）是可以收到信号以释放一个或多个等待线程的等待句柄。 收到信号后，事件等待句柄便会进行手动或自动重置。 <xref:System.Threading.EventWaitHandle> 类可以表示本地事件等待句柄（本地事件），也可以表示命名系统事件等待句柄（对所有进程可见的命名事件或系统事件）。  
   
 > [!NOTE]

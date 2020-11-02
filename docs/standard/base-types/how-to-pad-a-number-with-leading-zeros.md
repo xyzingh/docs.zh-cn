@@ -7,17 +7,17 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- numeric format strings [.NET Framework]
-- formatting [.NET Framework], numbers
-- number formatting [.NET Framework]
-- numbers [.NET Framework], format strings
+- numeric format strings [.NET]
+- formatting [.NET], numbers
+- number formatting [.NET]
+- numbers [.NET], format strings
 ms.assetid: 0b2c2cb5-c580-4891-8d81-cb632f5ec384
-ms.openlocfilehash: 6ef0ddb37f1bc73254aa639d7c018ec6a01abd9b
-ms.sourcegitcommit: b16c00371ea06398859ecd157defc81301c9070f
+ms.openlocfilehash: 7c3ee376fde34663ee0599c0b1ae654871a71206
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447181"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888451"
 ---
 # <a name="how-to-pad-a-number-with-leading-zeros"></a>如何：用前导零填充数字
 

@@ -4,16 +4,17 @@ description: .NET 程序集的位置决定了 CLR 查找它的方式，以及它
 ms.date: 08/20/2019
 helpviewer_keywords:
 - locating assemblies
-- assemblies [.NET Framework], location
+- assemblies [.NET], location
 ms.assetid: 9f1f41a7-2954-49d3-a2c0-62b6ef4d40ab
-ms.openlocfilehash: 7ab3804b14b586e1430d654f4da32a310bcb6cc9
-ms.sourcegitcommit: d6bd7903d7d46698e9d89d3725f3bb4876891aa3
+ms.openlocfilehash: 1fa1c486c0cddce4ddcfae7f2df27e2e85c88e66
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83379896"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687602"
 ---
 # <a name="assembly-location"></a>程序集位置
+
 程序集的位置决定公共语言运行时是否可以在引用该程序集时找到它，也可以决定是否可与其他程序集共享该程序集。 可以在以下位置部署程序集：
 
 - 应用程序的目录或子目录。

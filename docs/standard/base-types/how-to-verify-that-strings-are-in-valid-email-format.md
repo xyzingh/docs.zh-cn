@@ -10,21 +10,21 @@ helpviewer_keywords:
 - regular expressions, examples
 - user input, examples
 - Regex.IsMatch method
-- regular expressions [.NET Framework], examples
+- regular expressions [.NET], examples
 - examples [Visual Basic], strings
 - IsValidEmail
 - validation, email strings
 - input, checking
-- strings [.NET Framework], examples [Visual Basic]
-- email [.NET Framework], validating
+- strings [.NET], examples [Visual Basic]
+- email [.NET], validating
 - IsMatch method
 ms.assetid: 7536af08-4e86-4953-98a1-a8298623df92
-ms.openlocfilehash: 90e79af649727330c2afa1ccb8c64ffe34733f92
-ms.sourcegitcommit: 6d4ee46871deb9ea1e45bb5f3784474e240bbc26
+ms.openlocfilehash: 07b8e31e4a0203b87492eb01ab686a1c56f5565d
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90022943"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889070"
 ---
 # <a name="how-to-verify-that-strings-are-in-valid-email-format"></a>如何确认字符串是有效的电子邮件格式
 
@@ -84,5 +84,5 @@ ms.locfileid: "90022943"
 
 ## <a name="see-also"></a>请参阅
 
-- [.NET Framework 正则表达式](regular-expressions.md)
+- [.NET 正则表达式](regular-expressions.md)
 - [对电子邮件地址进行验证的频率应为多久一次？](https://softwareengineering.stackexchange.com/questions/78353/how-far-should-one-take-e-mail-address-validation#78363)

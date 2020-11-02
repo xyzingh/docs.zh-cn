@@ -8,18 +8,18 @@ dev_langs:
 - vb
 - cpp
 helpviewer_keywords:
-- strings [.NET Framework], padding
+- strings [.NET], padding
 - white space
 - PadRight method
 - PadLeft method
 - padding strings
 ms.assetid: 84a9f142-3244-4c90-ba02-21af9bbaff71
-ms.openlocfilehash: 5bf7023a3429e932a44ad0a0bd3409012f77cbf9
-ms.sourcegitcommit: cdb295dd1db589ce5169ac9ff096f01fd0c2da9d
+ms.openlocfilehash: f90a95f0ceb5ad7cc32d451897544fffe56afb6d
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84594525"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889044"
 ---
 # <a name="padding-strings-in-net"></a>填充 .NET 中的字符串
 

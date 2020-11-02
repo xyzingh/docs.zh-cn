@@ -7,16 +7,17 @@ helpviewer_keywords:
 - dynamic assemblies, assembly manifest
 - metadata, assembly manifest
 - culture, assembly manifest
-- assemblies [.NET Framework], metadata
+- assemblies [.NET], metadata
 ms.assetid: 8e40fab9-549d-4731-aec2-ffa47a382de0
-ms.openlocfilehash: 4f4d09f559ac66e1f3bc38af0781f7e01e7461d5
-ms.sourcegitcommit: d6bd7903d7d46698e9d89d3725f3bb4876891aa3
+ms.openlocfilehash: 4b3bf6f7f6b8cf459a13dd0aca45069f82d01130
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83380173"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687587"
 ---
 # <a name="assembly-manifest"></a>程序集清单
+
 每一程序集，无论是静态的还是动态的，均包含描述该程序集中各元素彼此如何关联的数据集合。 程序集清单就包含这些程序集元数据。 程序集清单包含指定该程序集的版本要求和安全标识所需的所有元数据，以及定义该程序集的范围和解析对资源和类的引用所需的全部元数据。 程序集清单可以存储在具有 Microsoft 中间语言 (MSIL) 代码的 PE 文件（.exe 或 .dll）中，也可存储在只包含程序集清单信息的独立 PE 文件中 。  
   
  以下插图显示了清单的不同存储方法。  

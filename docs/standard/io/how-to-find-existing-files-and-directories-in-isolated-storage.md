@@ -9,20 +9,20 @@ dev_langs:
 helpviewer_keywords:
 - stores, finding files and directories
 - locating files in isolated storage file
-- directories [.NET Framework], isolated storage
+- directories [.NET], isolated storage
 - isolated storage, finding files and directories
 - data storage using isolated storage, finding files and directories
-- files [.NET Framework], isolated storage
+- files [.NET], isolated storage
 - data stores, finding files and directories
 - locating directories in isolated storage file
 - storing data using isolated storage, finding files and directories
 ms.assetid: eb28458a-6161-4e7a-9ada-30ef93761b5c
-ms.openlocfilehash: ec1d1fbdefdad3ec0dd2c07fbc1278e4d1d217c6
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 00d960f536d4094f9f62a37637dfcaec3916fb5b
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84291846"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188739"
 ---
 # <a name="how-to-find-existing-files-and-directories-in-isolated-storage"></a>如何：在独立存储中查找现有文件和目录
 

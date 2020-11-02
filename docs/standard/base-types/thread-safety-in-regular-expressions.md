@@ -3,18 +3,18 @@ title: 正则表达式中的线程安全
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 helpviewer_keywords:
-- .NET Framework regular expressions, threads
+- .NET regular expressions, threads
 - regular expressions, threads
 - searching with regular expressions, threads
 - parsing text with regular expressions, threads
 - pattern-matching with regular expressions, threads
 ms.assetid: 7c4a167b-5236-4cde-a2ca-58646230730f
-ms.openlocfilehash: fbcaaf4942f8af1d6c1de52ff5bc11317318f319
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 29ff647d623c047c63c52732a3e8bce5f0e95d6c
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84290884"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889278"
 ---
 # <a name="thread-safety-in-regular-expressions"></a>正则表达式中的线程安全
 <xref:System.Text.RegularExpressions.Regex> 类本身是线程安全且不可变的（只读）。 也就是说，可以在任何线程上创建 **Regex** 对象并在线程间共享；可以从任何线程调用匹配方法并且始终不会更改全局状态。  

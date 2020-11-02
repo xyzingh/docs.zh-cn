@@ -3,7 +3,7 @@ title: 设置程序集属性
 description: 可以设置 .NET 程序集的程序集属性，包括程序集标识、信息性、程序集清单和强名称属性。
 ms.date: 08/20/2019
 helpviewer_keywords:
-- assemblies [.NET Framework], attributes
+- assemblies [.NET], attributes
 - assembly binding, attributes
 - assembly manifest, attributes
 ms.assetid: 36a98a81-b5b5-4c19-912a-11f91eff7f4e
@@ -11,12 +11,12 @@ dev_langs:
 - csharp
 - vb
 - cpp
-ms.openlocfilehash: e3a077dcd1b62a4676a3ac6492a90e38c548e41b
-ms.sourcegitcommit: d6bd7903d7d46698e9d89d3725f3bb4876891aa3
+ms.openlocfilehash: 32318d647dee8f3f397e3497e7c2da640bd492d0
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83378650"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687685"
 ---
 # <a name="set-assembly-attributes"></a>设置程序集属性
 
@@ -40,7 +40,7 @@ ms.locfileid: "83378650"
 |---------------------------------|-----------------|
 |<xref:System.Reflection.AssemblyCultureAttribute>|表示程序集所支持的区域性的枚举字段。 程序集还可以指定区域性独立性，表示它包含默认区域性的资源。 **注意：** 运行时将任何没有将区域性属性设置为 null 的程序集视为附属程序集。 此类程序集需遵循附属程序集绑定规则。 有关详细信息，请参阅[运行时如何定位程序集](../../framework/deployment/how-the-runtime-locates-assemblies.md)。|
 |<xref:System.Reflection.AssemblyFlagsAttribute>|设置程序集特性（例如是否可以并行运行程序集）的值。|
-|<xref:System.Reflection.AssemblyVersionAttribute>|以 *主版本*.*次版本*.*内部版本*.*修订版本* 为格式的数值（例如 2.4.0.0）。 公共语言运行时使用此值在强名称程序集中执行绑定操作。 **注意：** 如果 <xref:System.Reflection.AssemblyInformationalVersionAttribute> 特性不适用于程序集，则 <xref:System.Windows.Forms.Application.ProductVersion%2A?displayProperty=nameWithType>、<xref:System.Windows.Forms.Application.UserAppDataPath%2A?displayProperty=nameWithType> 和 <xref:System.Windows.Forms.Application.UserAppDataRegistry%2A?displayProperty=nameWithType> 属性使用由 <xref:System.Reflection.AssemblyVersionAttribute> 特性指定的版本号。|
+|<xref:System.Reflection.AssemblyVersionAttribute>|以 *主版本* . *次版本* . *内部版本* . *修订版本* 为格式的数值（例如 2.4.0.0）。 公共语言运行时使用此值在强名称程序集中执行绑定操作。 **注意：** 如果 <xref:System.Reflection.AssemblyInformationalVersionAttribute> 特性不适用于程序集，则 <xref:System.Windows.Forms.Application.ProductVersion%2A?displayProperty=nameWithType>、<xref:System.Windows.Forms.Application.UserAppDataPath%2A?displayProperty=nameWithType> 和 <xref:System.Windows.Forms.Application.UserAppDataRegistry%2A?displayProperty=nameWithType> 属性使用由 <xref:System.Reflection.AssemblyVersionAttribute> 特性指定的版本号。|
 
 下面的示例演示了如何将版本和区域性特性应用到程序集中。
 

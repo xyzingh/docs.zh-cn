@@ -6,17 +6,17 @@ ms.technology: dotnet-standard
 helpviewer_keywords:
 - last-in-first-out collections
 - first-in-first-out collections
-- collections [.NET Framework], selecting collection class
+- collections [.NET], selecting collection class
 - indexed collections
 - Collections classes
 - grouping data in collections, selecting collection class
 ms.assetid: ba049f9a-ce87-4cc4-b319-3f75c8ddac8a
-ms.openlocfilehash: 52a839661a09d6fa7561d67b82d1c1bf854e3cfd
-ms.sourcegitcommit: cdb295dd1db589ce5169ac9ff096f01fd0c2da9d
+ms.openlocfilehash: 2a3615d5bb404247ec9280ff3c88e2c10a75768b
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84600810"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889330"
 ---
 # <a name="selecting-a-collection-class"></a>选择集合类
 

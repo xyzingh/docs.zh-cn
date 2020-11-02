@@ -9,16 +9,16 @@ dev_langs:
 helpviewer_keywords:
 - regular expressions, options
 - constructs, options
-- .NET Framework regular expressions, options
+- .NET regular expressions, options
 - inline option constructs
 - options parameter
 ms.assetid: c82dc689-7e82-4767-a18d-cd24ce5f05e9
-ms.openlocfilehash: 268e05c2212539b030ccc3c7195f618bb3afa707
-ms.sourcegitcommit: 7137e12f54c4e83a94ae43ec320f8cf59c1772ea
+ms.openlocfilehash: 5687d1e5a11e69cc9ecf2bd34067329cc52955d2
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84662870"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888992"
 ---
 # <a name="regular-expression-options"></a>正则表达式选项
 

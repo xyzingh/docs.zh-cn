@@ -5,22 +5,28 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: a7eb98da-4a93-4692-8b59-9d670c79ffb2
-ms.openlocfilehash: 8b54aea1409f2b4c0a3d39d215922ba62c2a3563
-ms.sourcegitcommit: c4a15c6c4ecbb8a46ad4e67d9b3ab9b8b031d849
+ms.openlocfilehash: b9b033f779b083be8bcec195caf8e55607f14d31
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88656965"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188310"
 ---
 # <a name="security-considerations-for-data"></a>数据的安全考虑事项
 
-在处理 Windows Communication Foundation (WCF) 中的数据时，必须考虑许多威胁类别。 下表列出了与数据处理相关的最重要的威胁类。 WCF 提供了缓解这些威胁的工具。
+在处理 Windows Communication Foundation (WCF) 中的数据时，必须考虑许多威胁类别。 以下列表显示了与数据处理相关的最重要的威胁类。 WCF 提供了缓解这些威胁的工具。
 
-拒绝服务：当接收不受信任的数据时，数据可能导致接收方访问数量不相称的各种资源，例如内存、线程、可用连接或处理器周期，因为这会导致冗长的计算。 针对服务器的拒绝服务攻击可能导致它崩溃，从而无法处理来自其他合法客户端的消息。
+* 拒绝服务
 
-恶意代码执行传入的不受信任的数据会导致接收方运行它不打算执行的代码。
+  当接收不受信任的数据时，这些数据可能导致非常耗时的计算，致使接收方访问数量过于巨大的各种资源，例如，内存、线程、可用连接或处理器周期。 针对服务器的拒绝服务攻击可能导致它崩溃，从而无法处理来自其他合法客户端的消息。
 
-信息泄露远程攻击者会强制接收方以一种方式来响应其请求，从而获得比预期更多的信息。
+* 恶意代码执行
+
+  传入的不受信任的数据会导致接收方运行它本不想运行的代码。
+
+* 信息泄露
+
+  远程攻击方强制接收方以一种泄露它想要的更多信息的方式来响应它的请求。
 
 ## <a name="user-provided-code-and-code-access-security"></a>用户提供的代码和代码访问安全性
 
@@ -155,7 +161,7 @@ XML 信息集构成 WCF 中所有消息处理的基础。 当接受来自不受�
 
 #### <a name="maxnametablecharcount"></a>MaxNameTableCharCount
 
-此配额限制读取器的名称表 ** 的大小。 名称表包含在处理 XML 文档时遇到的一些字符串（例如，命名空间和前缀）。 因为这些字符串缓冲在内存中，所以设置此配额可防止在预计使用流模式时进行过度缓冲。
+此配额限制读取器的名称表  的大小。 名称表包含在处理 XML 文档时遇到的一些字符串（例如，命名空间和前缀）。 因为这些字符串缓冲在内存中，所以设置此配额可防止在预计使用流模式时进行过度缓冲。
 
 #### <a name="maxstringcontentlength"></a>MaxStringContentLength
 
@@ -169,7 +175,7 @@ XML 信息集构成 WCF 中所有消息处理的基础。 当接受来自不受�
 
 二进制 XML 编码 WCF 支持包含 *字典字符串* 功能。 可以仅仅使用几个字节对一个大型字符串进行编码。 这会实现显著的性能改进，但也引入了必须缓解的新型拒绝服务威胁。
 
-有两种类型的字典： *静态* 字典和 *动态*字典。 静态字典是可以使用二进制编码中的短代码表示的长字符串的内置列表。 当读取器已创建且无法修改时，这一字符串列表是固定的。 默认情况下，WCF 使用的静态字典中的任何字符串都足以产生严重的拒绝服务威胁，但它们仍可能在字典扩展攻击中使用。 在您提供自己的静态字典的复杂情况下，在引入大型字典字符串时应谨慎。
+有两种类型的字典： *静态* 字典和 *动态* 字典。 静态字典是可以使用二进制编码中的短代码表示的长字符串的内置列表。 当读取器已创建且无法修改时，这一字符串列表是固定的。 默认情况下，WCF 使用的静态字典中的任何字符串都足以产生严重的拒绝服务威胁，但它们仍可能在字典扩展攻击中使用。 在您提供自己的静态字典的复杂情况下，在引入大型字典字符串时应谨慎。
 
 动态字典功能使得消息可以定义它们自己的字符串，并将它们与短代码关联。 字符串与代码的这些映射在整个通信会话期间一直保留在内存中，这样后续消息就不必重新发送字符串，并且可以利用已经定义的代码。 这些字符串可以是任意长度，因此造成了比静态字典中的字符串更严重的威胁。
 
@@ -189,7 +195,7 @@ XML 信息集构成 WCF 中所有消息处理的基础。 当接受来自不受�
 
 下表概括了关于配额的指导信息。
 
-|天气条件|要设置的重要配额|
+|条件|要设置的重要配额|
 |---------------|-----------------------------|
 |非流式或流式小型消息、文本或 MTOM 编码|`MaxReceivedMessageSize`、`MaxBytesPerRead` 和 `MaxDepth`|
 |非流式或流式小型消息或二进制编码|`MaxReceivedMessageSize`、 `MaxSessionSize`以及所有 `ReaderQuotas`|
@@ -236,7 +242,7 @@ XML 信息集构成 WCF 中所有消息处理的基础。 当接受来自不受�
 
 上述每个机制都引入了反序列化程序可加载的更多类型，从而增加了外围应用。 应控制其中的每个机制，确保不会有任何恶意类型或意外的类型添加到已知类型列表中。
 
-一旦已知类型在范围之内，那么即使协定实际禁止使用它，也可以随时加载它，并且可以创建该类型的实例。 例如，假定使用上述某个机制将类型“MyDangerousType”添加到了已知类型列表中。 这意味着：
+一旦已知类型在范围之内，那么即使协定实际禁止使用它，也可以随时加载它，并且可以创建该类型的实例。 例如，假定使用上述某个机制将类型“MyDangerousType”添加到了已知类型列表中。 这表示：
 
 - `MyDangerousType` 已加载并且它的类构造函数已运行。
 
@@ -296,7 +302,7 @@ XML 信息集构成 WCF 中所有消息处理的基础。 当接受来自不受�
 
 <xref:System.Xml.Serialization.XmlSerializer> 安全模型与 <xref:System.Runtime.Serialization.DataContractSerializer>的安全模型类似。 但是，有几个威胁是 <xref:System.Xml.Serialization.XmlSerializer>特有的。
 
-<xref:System.Xml.Serialization.XmlSerializer> 在运行时生成序列化程序集 ** ，它们包含实际执行序列化和反序列化的代码；这些程序集是在临时文件目录中创建的。 如果另外某个进程或用户对该目录拥有访问权限，可能用任意代码来覆盖序列化/反序列化代码。 之后 <xref:System.Xml.Serialization.XmlSerializer> 将使用它的安全上下文来运行这些代码，而不是运行序列化/反序列化代码。 请确保在临时文件目录上正确地设置了权限，以防止这种情况的发生。
+<xref:System.Xml.Serialization.XmlSerializer> 在运行时生成序列化程序集  ，它们包含实际执行序列化和反序列化的代码；这些程序集是在临时文件目录中创建的。 如果另外某个进程或用户对该目录拥有访问权限，可能用任意代码来覆盖序列化/反序列化代码。 之后 <xref:System.Xml.Serialization.XmlSerializer> 将使用它的安全上下文来运行这些代码，而不是运行序列化/反序列化代码。 请确保在临时文件目录上正确地设置了权限，以防止这种情况的发生。
 
 <xref:System.Xml.Serialization.XmlSerializer> 还具有这样一种模式，即：使用预先生成的序列化程序集，而不是在运行时生成这些程序集。 只要 <xref:System.Xml.Serialization.XmlSerializer> 可以找到一个合适的序列化程序集，就会触发这一模式。 <xref:System.Xml.Serialization.XmlSerializer> 检查对序列化程序集进行签名的密钥是否就是对包含所序列化的类型的程序集进行签名的密钥。 这有助于防止恶意程序集伪装成序列化程序集。 但是，如果包含可序列化类型的程序集未签名，则 <xref:System.Xml.Serialization.XmlSerializer> 将无法执行此检查，而使用具有正确名称的任何程序集。 这就使得运行恶意代码成为可能。 应始终对包含可序列化类型的程序集进行签名，或者严格控制对应用程序的目录和全局程序集缓存的访问，以防止引入恶意程序集。
 
@@ -382,7 +388,7 @@ WCF 是一个灵活且可自定义的系统。 本主题中的大部分内容侧
 
 - 通常，当使用接受配额的任何组件时，都应了解它的安全含义并将它设置为一个安全值。
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 - <xref:System.Runtime.Serialization.DataContractSerializer>
 - <xref:System.Xml.XmlDictionaryReader>

@@ -6,32 +6,36 @@ helpviewer_keywords:
 - Event-based Asynchronous Pattern
 - ProgressChangedEventArgs class
 - BackgroundWorker component
-- events [.NET Framework], asynchronous
+- events [.NET], asynchronous
 - AsyncOperationManager class
-- threading [.NET Framework], asynchronous features
+- threading [.NET], asynchronous features
 - AsyncOperation class
 - AsyncCompletedEventArgs class
 ms.assetid: 4acd2094-4f46-4eff-9190-92d0d9ff47db
-ms.openlocfilehash: 66979415f2951acc78dc4eb7b2aafe3c84e85397
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 8f2b1b4d6793be3e4de6fbc9fc09e8a7e690762c
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84289936"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888914"
 ---
 # <a name="best-practices-for-implementing-the-event-based-asynchronous-pattern"></a>实现基于事件的异步模式的最佳做法
+
 基于事件的异步模式提供了一种在类中使用熟悉的事件和委托语义公开异步行为的有效方法。 若要实现基于事件的异步模式，你需要遵循某些特定的行为要求。 以下部分描述了在你实现遵循基于事件的异步模式的类时应该考虑的要求和准则。  
   
  有关概述，请参阅[实现基于事件的异步模式](implementing-the-event-based-asynchronous-pattern.md)。  
   
-## <a name="required-behavioral-guarantees"></a>必需的行为保证  
+## <a name="required-behavioral-guarantees"></a>必需的行为保证
+
  若要实现基于事件的异步模式，你必须提供一些保证来确保类的行为正确且类的客户端能够依赖这种行为。  
   
-### <a name="completion"></a>完成  
+### <a name="completion"></a>完成
+
  操作成功完成、出错或取消时，始终应调用 <em>MethodName</em>Completed 事件处理程序  。 任何情况下，应用程序都不应遇到这样的情况：应用程序保持空闲状态，而操作却一直不能完成。 此规则的例外情况是：异步操作本身设计为永不完成。  
   
-### <a name="completed-event-and-eventargs"></a>已完成的事件和 EventArgs  
- 针对每个单独的 <em>MethodName</em>Async  方法，请应用以下设计要求：  
+### <a name="completed-event-and-eventargs"></a>已完成的事件和 EventArgs
+
+针对每个单独的 <em>MethodName</em>Async  方法，请应用以下设计要求：  
   
 - 在与该方法相同的类上定义 <em>MethodName</em>Completed 事件  。  
   
@@ -117,7 +121,8 @@ private void Form1_MethodNameCompleted(object sender, MethodNameCompletedEventAr
   
 - 捕获所有发生在异步操作中的异常并将 <xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A?displayProperty=nameWithType> 属性的值设置为该异常。  
   
-### <a name="threading-and-contexts"></a>线程处理和上下文  
+### <a name="threading-and-contexts"></a>线程处理和上下文
+
  为了使类正确运行，应当使用给定应用程序模型（包括 ASP.NET 和 Windows 窗体应用程序）的适当线程或上下文调用客户端事件处理程序，这一点很重要。 我们提供了两个重要的帮助器类，以确保你的异步类在任何应用程序模型中都能正确运行，这两个帮助器类是 <xref:System.ComponentModel.AsyncOperation> 和 <xref:System.ComponentModel.AsyncOperationManager>。  
   
  <xref:System.ComponentModel.AsyncOperationManager> 提供了 <xref:System.ComponentModel.AsyncOperationManager.CreateOperation%2A> 方法，该方法会返回一个 <xref:System.ComponentModel.AsyncOperation>。 <em>MethodName</em>Async  方法调用 <xref:System.ComponentModel.AsyncOperationManager.CreateOperation%2A>，且类使用返回的 <xref:System.ComponentModel.AsyncOperation> 跟踪异步任务的生存期。  

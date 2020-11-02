@@ -13,14 +13,14 @@ helpviewer_keywords:
 - alternation constructs
 - optional matching patterns
 - constructs, alternation
-- .NET Framework regular expressions, alternation constructs
+- .NET regular expressions, alternation constructs
 ms.assetid: 071e22e9-fbb0-4ecf-add1-8d2424f9f2d1
-ms.openlocfilehash: 506c1cdeb577452628d67ab00df20dd30881f406
-ms.sourcegitcommit: cbacb5d2cebbf044547f6af6e74a9de866800985
+ms.openlocfilehash: 30af871502e0db48853705206db5e2b3da28bb76
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2020
-ms.locfileid: "89495429"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889174"
 ---
 # <a name="alternation-constructs-in-regular-expressions"></a>正则表达式中的替换构造
 
@@ -69,7 +69,7 @@ ms.locfileid: "89495429"
 
 `(?(` *expression* `)` *yes* `|` *no* `)`
 
-其中， *expression* 是要匹配的初始模式， *yes* 是当匹配 *expression* 时要匹配的模式，而 *no* 是未匹配 *expression* 时要匹配的可选模式。 正则表达式引擎将 *expression* 视为一个宽度为零的断言；也就是说，正则表达式引擎在计算 *expression*之后，不再处理输入流的后续数据。 因此，该构造是等效于以下语法：
+其中， *expression* 是要匹配的初始模式， *yes* 是当匹配 *expression* 时要匹配的模式，而 *no* 是未匹配 *expression* 时要匹配的可选模式。 正则表达式引擎将 *expression* 视为一个宽度为零的断言；也就是说，正则表达式引擎在计算 *expression* 之后，不再处理输入流的后续数据。 因此，该构造是等效于以下语法：
 
 `(?(?=` *expression* `)` *yes* `|` *no* `)`
 

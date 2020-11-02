@@ -10,19 +10,19 @@ dev_langs:
 helpviewer_keywords:
 - multiple attribute instances
 - AttributeTargets enumeration
-- attributes [.NET Framework], custom
+- attributes [.NET], custom
 - AllowMultiple property
 - custom attributes
 - AttributeUsageAttribute class, custom attributes
 - Inherited property
 - attribute classes, declaring
 ms.assetid: 97216f69-bde8-49fd-ac40-f18c500ef5dc
-ms.openlocfilehash: f047e18531b46f0c89be9a6feaa9aa50341205e3
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 670f34083834b35d26e6018372948022eec17d47
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90550920"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889187"
 ---
 # <a name="writing-custom-attributes"></a>编写自定义特性
 要设计你自己的自定义特性，无需掌握许多新的概念。 如果你熟悉面向对象的编程，并且知道如何设计类，那么你已经具备大部分所需知识。 自定义特性本质上是直接或间接派生自 <xref:System.Attribute?displayProperty=nameWithType>的传统类。 与传统类一样，自定义特性包含用于存储和检索数据的方法。  
@@ -104,7 +104,7 @@ ms.locfileid: "90550920"
   
 - 特性类必须声明为公共类。  
   
-- 按照约定，特性类的名称以单词 **Attribute**结束。 尽管没有要求，但仍建议执行此约定以保证可读性。 应用特性时，可以选择是否包含单词 Attribute。  
+- 按照约定，特性类的名称以单词 **Attribute** 结束。 尽管没有要求，但仍建议执行此约定以保证可读性。 应用特性时，可以选择是否包含单词 Attribute。  
   
 - 所有特性类必须直接或间接从 <xref:System.Attribute?displayProperty=nameWithType> 继承。  
   

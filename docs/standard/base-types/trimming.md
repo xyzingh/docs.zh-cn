@@ -8,7 +8,7 @@ dev_langs:
 - vb
 - cpp
 helpviewer_keywords:
-- strings [.NET Framework], removing characters
+- strings [.NET], removing characters
 - Remove method
 - TrimEnd method
 - Trim method
@@ -16,12 +16,12 @@ helpviewer_keywords:
 - TrimStart method
 - removing characters
 ms.assetid: ab248dab-70d4-4413-81c6-542d153fd195
-ms.openlocfilehash: 630fe6b51d151d1f1384f2e3cde62750c303d883
-ms.sourcegitcommit: b16c00371ea06398859ecd157defc81301c9070f
+ms.openlocfilehash: d0057d503474f3f6ff886acda3ce1d72fb3ebe21
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84446888"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888589"
 ---
 # <a name="trimming-and-removing-characters-from-strings-in-net"></a>修整和删除 .NET 中的字符串字符
 如果将句子分析成单个单词，最后得到的结果可能是任意一端带有空白（也称为空格）的单词。 在这种情形下，可以使用 **System.String** 类中的其中一种剪裁方法，从字符串中的指定位置移除任何数量的空格或其他字符。 下表描述了可用的剪裁方法。  

@@ -7,22 +7,22 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- .NET Framework regular expressions, backtracking
+- .NET regular expressions, backtracking
 - alternative matching patterns
 - optional matching patterns
 - searching with regular expressions, backtracking
 - pattern-matching with regular expressions, backtracking
 - backtracking
-- regular expressions [.NET Framework], backtracking
-- strings [.NET Framework], regular expressions
+- regular expressions [.NET], backtracking
+- strings [.NET], regular expressions
 - parsing text with regular expressions, backtracking
 ms.assetid: 34df1152-0b22-4a1c-a76c-3c28c47b70d8
-ms.openlocfilehash: d9fb976c73891646df60b5329beb09493acbae8a
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: b8bd8308b91c2c358f4a462967424f55fa316504
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84277799"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889135"
 ---
 # <a name="backtracking-in-regular-expressions"></a>正则表达式中的回溯
 当正则表达式模式包含可选[限定符](quantifiers-in-regular-expressions.md)或[备用构造](alternation-constructs-in-regular-expressions.md)时，会发生回溯，并且正则表达式引擎会返回以前保存的状态，以继续搜索匹配项。 回溯是正则表达式的强大功能的中心；它使得表达式强大、灵活，可以匹配非常复杂的模式。 同时，这种强大功能需要付出一定代价。 通常，回溯是影响正则表达式引擎性能的单个最重要的因素。 幸运的是，开发人员可以控制正则表达式引擎的行为及其使用回溯的方式。 本主题说明回溯的工作方式以及如何对其进行控制。  
@@ -127,9 +127,9 @@ ms.locfileid: "84277799"
  [!code-vb[Conceptual.RegularExpressions.Backtracking#4](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.regularexpressions.backtracking/vb/backtracking4.vb#4)]  
 
 ### <a name="lookbehind-assertions"></a>回顾断言  
- .NET 包括两个语言元素（`(?<=`subexpression  `)` 和 `(?<!`subexpression  `)`），它们与输入字符串中之前的一个或多个字符匹配。 这两个语言元素都是零宽度断言；也就是说，它们通过 *subexpression*而不是前移或回溯来确定当前字符之前紧挨着的一个或多个字符是否匹配。  
+ .NET 包括两个语言元素（`(?<=`subexpression  `)` 和 `(?<!`subexpression  `)`），它们与输入字符串中之前的一个或多个字符匹配。 这两个语言元素都是零宽度断言；也就是说，它们通过 *subexpression* 而不是前移或回溯来确定当前字符之前紧挨着的一个或多个字符是否匹配。  
   
- `(?<=` subexpression`)` 是正回顾断言；也就是说，当前位置之前的一个或多个字符必须与 subexpression 匹配   。 `(?<!`*subexpression*`)` 是负回顾断言；也就是说，当前位置之前的一个或多个字符不得与 *subexpression*匹配。 当 *subexpression* 为前一个子表达式的子集时，正回顾断言和负回顾断言都最为有用。  
+ `(?<=` subexpression`)` 是正回顾断言；也就是说，当前位置之前的一个或多个字符必须与 subexpression 匹配   。 `(?<!`*subexpression*`)` 是负回顾断言；也就是说，当前位置之前的一个或多个字符不得与 *subexpression* 匹配。 当 *subexpression* 为前一个子表达式的子集时，正回顾断言和负回顾断言都最为有用。  
   
  下面的示例使用两个相当的正则表达式模式，验证电子邮件地址中的用户名。 第一个模式由于过多使用回溯，性能极差。 第二个模式通过将嵌套的限定符替换为正回顾断言来修改第一个正则表达式。 该示例的输出显示 <xref:System.Text.RegularExpressions.Regex.IsMatch%2A?displayProperty=nameWithType> 方法的执行时间。  
   
@@ -158,9 +158,9 @@ ms.locfileid: "84277799"
 |`@`|匹配 at 符号（“\@”）。|  
 
 ### <a name="lookahead-assertions"></a>预测先行断言  
- .NET 包括两个语言元素（`(?=`subexpression  `)` 和 `(?!`subexpression  `)`），它们与输入字符串中接下来的一个或多个字符匹配。 这两个语言元素都是零宽度断言；也就是说，它们通过 *subexpression*而不是前移或回溯来确定当前字符之后紧挨着的一个或多个字符是否匹配。  
+ .NET 包括两个语言元素（`(?=`subexpression  `)` 和 `(?!`subexpression  `)`），它们与输入字符串中接下来的一个或多个字符匹配。 这两个语言元素都是零宽度断言；也就是说，它们通过 *subexpression* 而不是前移或回溯来确定当前字符之后紧挨着的一个或多个字符是否匹配。  
   
- `(?=` subexpression`)` 是正预测先行断言；也就是说，当前位置之后的一个或多个字符必须与 subexpression 匹配   。 `(?!`*subexpression*`)` 是负预测先行断言；也就是说，当前位置之后的一个或多个字符不得与 *subexpression*匹配。 当 *subexpression* 为下一个子表达式的子集时，正预测先行断言和负预测先行断言都最为有用。  
+ `(?=` subexpression`)` 是正预测先行断言；也就是说，当前位置之后的一个或多个字符必须与 subexpression 匹配   。 `(?!`*subexpression*`)` 是负预测先行断言；也就是说，当前位置之后的一个或多个字符不得与 *subexpression* 匹配。 当 *subexpression* 为下一个子表达式的子集时，正预测先行断言和负预测先行断言都最为有用。  
   
  下面的示例使用两个可验证完全限定的类型名称的等效正则表达式模式。 第一个模式由于过多使用回溯，性能极差。 第二个模式通过将嵌套的限定符替换为正预测先行断言来修改第一个正则表达式。 该示例的输出显示 <xref:System.Text.RegularExpressions.Regex.IsMatch%2A?displayProperty=nameWithType> 方法的执行时间。  
   

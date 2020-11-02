@@ -9,15 +9,15 @@ dev_langs:
 helpviewer_keywords:
 - backreferences
 - constructs, backreference
-- .NET Framework regular expressions, backreference constructs
+- .NET regular expressions, backreference constructs
 - regular expressions, backreference constructs
 ms.assetid: 567a4b8d-0e79-49dc-8df9-f4b1aa376a2a
-ms.openlocfilehash: 87c3dbde2eb2b5a19b91f34bb2b088af5c0d1827
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: bc0c6d3dcaa084c168a9c3fc0239116ec8899aae
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84290599"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889148"
 ---
 # <a name="backreference-constructs-in-regular-expressions"></a>正则表达式中的反向引用构造
 
@@ -68,7 +68,7 @@ ms.locfileid: "84290599"
 
 `\k'` *name* `'`
 
-其中，*name* 是正则表达式模式中定义的捕获组的名称。 如果正则表达式模式中未定义 name  ，将会发生分析错误，并且正则表达式引擎会抛出 <xref:System.ArgumentException>。
+其中， *name* 是正则表达式模式中定义的捕获组的名称。 如果正则表达式模式中未定义 name  ，将会发生分析错误，并且正则表达式引擎会抛出 <xref:System.ArgumentException>。
 
 下面的示例查找字符串中双写的单词字符。 它定义一个由下列元素组成的正则表达式 `(?<char>\w)\k<char>`。
 

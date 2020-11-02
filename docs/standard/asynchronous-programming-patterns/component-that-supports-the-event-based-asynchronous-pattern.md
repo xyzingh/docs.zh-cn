@@ -9,23 +9,24 @@ helpviewer_keywords:
 - Event-based Asynchronous Pattern
 - ProgressChangedEventArgs class
 - BackgroundWorker component
-- events [.NET Framework], asynchronous
+- events [.NET], asynchronous
 - Asynchronous Pattern
 - AsyncOperationManager class
-- threading [.NET Framework], asynchronous features
-- components [.NET Framework], asynchronous
+- threading [.NET], asynchronous features
+- components [.NET], asynchronous
 - AsyncOperation class
 - threading [Windows Forms], asynchronous features
 - AsyncCompletedEventArgs class
 ms.assetid: 61f676b5-936f-40f6-83ce-f22805ec9c2f
-ms.openlocfilehash: 8ea767976d82881d8f983c1b1e3cbf9475c73995
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 2294379d37d4cd9e7fae494a6548561258743d74
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90536036"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888875"
 ---
 # <a name="how-to-implement-a-component-that-supports-the-event-based-asynchronous-pattern"></a>如何：实现支持基于事件的异步模式的组件
+
 若要编写的类有一些可能会带来明显延迟的操作，请考虑按照[基于事件的异步模式概述](event-based-asynchronous-pattern-overview.md)中的步骤操作，为它实现异步功能。  
   
  本演练展示了如何创建实现基于事件的异步模式的组件。 此组件是使用 <xref:System.ComponentModel?displayProperty=nameWithType> 命名空间中的帮助程序类进行实现，这可确保它在任何应用模型（包括 ASP.NET、控制台应用和 Windows 窗体应用）下都能正常运行。 也可以使用 <xref:System.Windows.Forms.PropertyGrid> 控件和自己的自定义设计器来设计此组件。  
@@ -58,7 +59,7 @@ ms.locfileid: "90536036"
 - 创建继承自 <xref:System.ComponentModel.Component> 的类 `PrimeNumberCalculator`。  
   
 ## <a name="defining-public-asynchronous-events-and-delegates"></a>定义公共异步事件和委托  
- 组件使用事件与客户端进行通信。 _MethodName_**Completed** 事件预警客户端注意异步任务完成，_MethodName_**ProgressChanged** 事件向客户端告知异步任务的进度。  
+ 组件使用事件与客户端进行通信。 _MethodName_**Completed** 事件预警客户端注意异步任务完成， _MethodName_**ProgressChanged** 事件向客户端告知异步任务的进度。  
   
 ### <a name="to-define-asynchronous-events-for-clients-of-your-component"></a>若要定义组件客户端的异步事件，请执行以下步骤：  
   

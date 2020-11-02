@@ -7,16 +7,16 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- I/O [.NET Framework], compression
+- I/O [.NET], compression
 - compression
 - compress files
 ms.assetid: e9876165-3c60-4c84-a272-513e47acf579
-ms.openlocfilehash: c13f464432aa6f67136d3a844bdeda256e7ab9b6
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: ea078099aba3161818844d14af221eb582e7f11b
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84769231"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188284"
 ---
 # <a name="how-to-compress-and-extract-files"></a>如何：压缩和解压缩文件
 

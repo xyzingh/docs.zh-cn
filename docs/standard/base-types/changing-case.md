@@ -7,19 +7,19 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- strings [.NET Framework], case
+- strings [.NET], case
 - case sensitivity
 - ToUpper method
 - ToLower method
 - uppercase
 - lowercase
 ms.assetid: 6805f81b-e9ad-4387-9f4c-b9bdb21b87c0
-ms.openlocfilehash: e838d6df778802d7eaab3f12205698cc6ca5f72b
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 424219c8f660b7592996436160f2667f70be654f
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84290586"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889525"
 ---
 # <a name="change-case-in-net"></a>更改 .NET 中的大小写
 

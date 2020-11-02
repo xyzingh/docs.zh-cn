@@ -13,15 +13,15 @@ helpviewer_keywords:
 - anchors, in regular expressions
 - metacharacters, atomic zero-width assertions
 - metacharacters, anchors
-- .NET Framework regular expressions, anchors
-- .NET Framework regular expressions, atomic zero-width assertions
+- .NET regular expressions, anchors
+- .NET regular expressions, atomic zero-width assertions
 ms.assetid: 336391f6-2614-499b-8b1b-07a6837108a7
-ms.openlocfilehash: e86bae8a687e89acba9a0b713630b43809f081d1
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: a6330eebbc69b9a3877a99a4373810d5a124c570
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84290624"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889161"
 ---
 # <a name="anchors-in-regular-expressions"></a>正则表达式中的定位点
 定位点（原子零宽度断言）指定字符串中必须出现匹配的位置。 在搜索表达式中使用定位点时，正则表达式引擎不在字符串中前进或使用字符，它仅在指定位置查找匹配。 例如， `^` 指定必须从行或字符串的开头开始匹配。 因此，正则表达式 `^http:` 仅当 "http:" 出现在行开头时才与之匹配。 下表列出了 .NET 中正则表达式支持的定位点。  

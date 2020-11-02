@@ -7,31 +7,31 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- data formatting [.NET Framework]
-- dates [.NET Framework], formatting
-- date formatting [.NET Framework]
-- number formatting [.NET Framework]
+- data formatting [.NET]
+- dates [.NET], formatting
+- date formatting [.NET]
+- number formatting [.NET]
 - ToString method
-- custom cultural settings [.NET Framework]
-- numbers [.NET Framework], formatting
-- formatting strings [.NET Framework]
-- time [.NET Framework], formatting
-- currency [.NET Framework], formatting
-- types [.NET Framework], formatting
-- format specifiers [.NET Framework]
-- times [.NET Framework], formatting
-- culture [.NET Framework], formatting
-- formatting [.NET Framework], types supported
-- base types [.NET Framework], formatting
-- custom formatting [.NET Framework]
-- strings [.NET Framework], formatting
+- custom cultural settings [.NET]
+- numbers [.NET], formatting
+- formatting strings [.NET]
+- time [.NET], formatting
+- currency [.NET], formatting
+- types [.NET], formatting
+- format specifiers [.NET]
+- times [.NET], formatting
+- culture [.NET], formatting
+- formatting [.NET], types supported
+- base types [.NET], formatting
+- custom formatting [.NET]
+- strings [.NET], formatting
 ms.assetid: 0d1364da-5b30-4d42-8e6b-03378343343f
-ms.openlocfilehash: 5d280b53d15bc674f325a726d69915d763aec34f
-ms.sourcegitcommit: b16c00371ea06398859ecd157defc81301c9070f
+ms.openlocfilehash: f100c1abcb32e907b92c42f8cfa460d2c1927803
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447077"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888490"
 ---
 # <a name="format-types-in-net"></a>.NET 中的格式类型
 

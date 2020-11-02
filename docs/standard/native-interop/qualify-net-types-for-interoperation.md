@@ -3,19 +3,19 @@ title: 为 COM 互操作限定 .NET 类型
 description: 本文提供了一些指导原则，可帮助你为 COM 互操作向 COM 应用程序公开 .NET 程序集中的类型。
 ms.date: 03/30/2017
 helpviewer_keywords:
-- exposing .NET Framework components to COM
+- exposing .NET components to COM
 - COM interop, qualifying .NET types
 - qualifying .NET types for interoperation
 - interoperation with unmanaged code, qualifying .NET types
-- interoperation with unmanaged code, exposing .NET Framework components
+- interoperation with unmanaged code, exposing .NET components
 - COM interop, exposing COM components
 ms.assetid: 4b8afb52-fb8d-4e65-b47c-fd82956a3cdd
-ms.openlocfilehash: 5e8d604c8152d37475bf93e3b5687f24cfebfa02
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 3fa9f0d5d8dd4d532fc510a1d946eddf32016748
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84285958"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93187757"
 ---
 # <a name="qualifying-net-types-for-com-interoperation"></a>为 COM 互操作限定 .NET 类型
 若要向 COM 应用程序公开程序集中的类型，请考虑 COM 互操作在设计时的需求。 如果符合以下准则，托管类型（类、接口、结构和枚举）将与 COM 类型无缝集成：  

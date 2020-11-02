@@ -7,14 +7,14 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- I/O [.NET Framework], enumerating directories and files
+- I/O [.NET], enumerating directories and files
 ms.assetid: 86b69a08-3bfa-4e5f-b4e1-3b7cb8478215
-ms.openlocfilehash: 276668f4a3eee89610a81b1256820770d1f72dc3
-ms.sourcegitcommit: 7137e12f54c4e83a94ae43ec320f8cf59c1772ea
+ms.openlocfilehash: 7a757fc97fd934f02592264c3a495c3efc435fd5
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84662571"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93187887"
 ---
 # <a name="how-to-enumerate-directories-and-files"></a>如何：枚举目录和文件
 在处理目录和文件的大型集合时，可枚举的集合能够比数组提供更好的性能。 要枚举目录和文件，请使用可返回目录和文件名的可枚举集合的方法或其 <xref:System.IO.DirectoryInfo>、<xref:System.IO.FileInfo> 或 <xref:System.IO.FileSystemInfo> 对象。  

@@ -10,18 +10,19 @@ dev_langs:
 helpviewer_keywords:
 - streams, reading and writing data
 - BinaryReader class, examples
-- I/O [.NET Framework], reading data
-- I/O [.NET Framework], writing data
+- I/O [.NET], reading data
+- I/O [.NET], writing data
 - BinaryWriter class, examples
 ms.assetid: e209d949-31e8-44ea-8e38-87f9093f3093
-ms.openlocfilehash: 9a6b2985b7f532476c0f4c0f998d710f95e55d3a
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: 236d50260efa66f21db6d0abba6cc5c258a74d8d
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84769153"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188726"
 ---
 # <a name="how-to-read-and-write-to-a-newly-created-data-file"></a>如何：对新建的数据文件进行读取和写入
+
 <xref:System.IO.BinaryWriter?displayProperty=nameWithType> 和 <xref:System.IO.BinaryReader?displayProperty=nameWithType> 类用于写入和读取字符串以外的数据。 下面的示例演示如何创建空文件流，向其写入数据并从中读取数据。
 
 示例将在当前目录中创建名为 Test.data 的数据文件，也就同时创建了相关的 <xref:System.IO.BinaryWriter> 和 <xref:System.IO.BinaryReader> 对象，并且 <xref:System.IO.BinaryWriter> 对象用于向 Test.data 写入整数 0 到 10，这会将文件指针置于文件末尾 。 <xref:System.IO.BinaryReader> 对象将文件指针设置回原始位置并读取指定的内容。  

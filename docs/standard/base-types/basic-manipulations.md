@@ -7,14 +7,14 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- strings [.NET Framework], examples
+- strings [.NET], examples
 ms.assetid: 121d1eae-251b-44c0-8818-57da04b8215e
-ms.openlocfilehash: 54de6451029fb268beb7ebe4ded0d7b437c3df3c
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: cc04f0c874b732668b4813f8325bd7060927f22a
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84289858"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889122"
 ---
 # <a name="how-to-perform-basic-string-manipulations-in-net"></a>如何：执行 .NET 中的基本字符串控制
 

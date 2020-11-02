@@ -10,14 +10,14 @@ dev_langs:
 helpviewer_keywords:
 - retrieving attributes
 - multiple attribute instances
-- attributes [.NET Framework], retrieving
+- attributes [.NET], retrieving
 ms.assetid: 37dfe4e3-7da0-48b6-a3d9-398981524e1c
-ms.openlocfilehash: cf147a0ae6833039247c4c0878996973cc3db545
-ms.sourcegitcommit: 7137e12f54c4e83a94ae43ec320f8cf59c1772ea
+ms.openlocfilehash: 710f3e3d1051bad4a61e59e330204d622b9fd683
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84661856"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889200"
 ---
 # <a name="retrieving-information-stored-in-attributes"></a>检索存储在特性中的信息
 检索自定义属性的过程非常简单。 首先，声明要检索的属性实例。 然后，使用 <xref:System.Attribute.GetCustomAttribute%2A?displayProperty=nameWithType> 方法，用要检索的属性的值初始化新属性。 在初始化新属性后，只需使用它的属性即可获取值。  

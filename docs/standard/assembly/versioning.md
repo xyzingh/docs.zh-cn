@@ -5,16 +5,16 @@ ms.date: 08/20/2019
 helpviewer_keywords:
 - informational versions
 - version numbers, assemblies
-- assemblies [.NET Framework], versioning
+- assemblies [.NET], versioning
 - resolving assembly binding requests
 - versioning, assemblies
 ms.assetid: 775ad4fb-914f-453c-98ef-ce1089b6f903
-ms.openlocfilehash: fdffbcc0bbafed62228cba35e8f85fbec7f7fbab
-ms.sourcegitcommit: d6bd7903d7d46698e9d89d3725f3bb4876891aa3
+ms.openlocfilehash: c94e0c74b8beed29537b53d7476715e2cacb7b80
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83380075"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687636"
 ---
 # <a name="assembly-versioning"></a>程序集版本控制
 
@@ -51,7 +51,7 @@ ms.locfileid: "83380075"
 
 每一程序集都有一个版本号作为其标识的一部分。 因此，如果两个程序集具有不同的版本号，运行时就会将它们视作完全不同的程序集。 此版本号实际表示为具有以下格式的四部分号码：  
   
-\<*主版本*>.\<*次版本*>.\<*生成号*>.\<*修订版本*>  
+\<*major version*>.\<*minor version*>.\<*build number*>.\<*revision*>  
   
 例如，版本 1.5.1254.0 中的 1 表示主版本，5 表示次版本，1254 表示生成号，而 0 则表示修订号。  
   

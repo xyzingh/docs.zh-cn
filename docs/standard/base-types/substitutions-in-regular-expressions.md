@@ -10,25 +10,26 @@ helpviewer_keywords:
 - regular expressions, substitutions
 - replacement patterns
 - metacharacters, substitutions
-- .NET Framework regular expressions, substitutions
+- .NET regular expressions, substitutions
 - constructs, substitutions
 - substitutions
 ms.assetid: d1f52431-1c7d-4dc6-8792-6b988256892e
-ms.openlocfilehash: ab2ed6ff87f2d50d0f518ac64188bf8b5c98351c
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: 935fbf573c00aeaec639884888d7e3e6a83c7056
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84768100"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888927"
 ---
 # <a name="substitutions-in-regular-expressions"></a>正则表达式中的替代
+
 替换是只能在替换模式中识别的语言元素。 它们使用正则表达式模式定义全部或部分用于替换输入字符串中的匹配文本的文本。 替换模式可以包含一个或多个替换以及本文字符。 提供替换模式以将拥有 <xref:System.Text.RegularExpressions.Regex.Replace%2A?displayProperty=nameWithType> 参数的 `replacement` 方法重载至 <xref:System.Text.RegularExpressions.Match.Result%2A?displayProperty=nameWithType> 方法。 该方法将匹配的模式替换为 `replacement` 参数定义的模式。  
   
- .NET Framework 定义下表列出的替换元素。  
+ .NET 定义下表列出的替换元素。  
   
 |替换|描述|  
 |------------------|-----------------|  
-|$ number|包括替换字符串中的由 *number*标识的捕获组所匹配的最后一个子字符串，其中 *number* 是一个十进制值。 有关详细信息，请参阅 [替换已编号的组](#substituting-a-numbered-group)。|  
+|$ number|包括替换字符串中的由 *number* 标识的捕获组所匹配的最后一个子字符串，其中 *number* 是一个十进制值。 有关详细信息，请参阅 [替换已编号的组](#substituting-a-numbered-group)。|  
 |${ name }|包括替换字符串中由 `(?<`*name*`> )` 指定的命名组所匹配的最后一个子字符串。 有关详细信息，请参阅 [替换命名组](#substituting-a-named-group)。|  
 |$$|包括替换字符串中的单个“$”文本。 有关详细信息，请参阅 [替换“$”符号](#substituting-a--character)。|  
 |$&|包括替换字符串中整个匹配项的副本。 有关详细信息，请参阅 [替换整个匹配项](#substituting-the-entire-match)。|  
@@ -141,11 +142,11 @@ ms.locfileid: "84768100"
   
 |匹配|位置|匹配项前的字符串|结果字符串|  
 |-----------|--------------|-------------------------|-------------------|  
-|1|2|aa|aa**aa**bb2cc3dd4ee5|  
-|2|5|aa1bb|aaaabb**aa1bb**cc3dd4ee5|  
-|3|8|aa1bb2cc|aaaabbaa1bbcc**aa1bb2cc**dd4ee5|  
-|4|11|aa1bb2cc3dd|aaaabbaa1bbccaa1bb2ccdd**aa1bb2cc3dd**ee5|  
-|5|14|aa1bb2cc3dd4ee|aaaabbaa1bbccaa1bb2ccddaa1bb2cc3ddee**aa1bb2cc3dd4ee**|
+|1|2|aa|aa **aa** bb2cc3dd4ee5|  
+|2|5|aa1bb|aaaabb **aa1bb** cc3dd4ee5|  
+|3|8|aa1bb2cc|aaaabbaa1bbcc **aa1bb2cc** dd4ee5|  
+|4|11|aa1bb2cc3dd|aaaabbaa1bbccaa1bb2ccdd **aa1bb2cc3dd** ee5|  
+|5|14|aa1bb2cc3dd4ee|aaaabbaa1bbccaa1bb2ccddaa1bb2cc3ddee **aa1bb2cc3dd4ee**|
 
 ## <a name="substituting-the-text-after-the-match"></a>替换匹配项后的文本  
  `$'` 替换将匹配的字符串替换为匹配项后的整个输入字符串。 即，它将在删除匹配的文本时重复匹配项后的输入字符串。 匹配文本前面的任何文本在结果字符串中保持不变。 如果没有匹配项，则  `$'` 替换将不起作用。  
@@ -159,10 +160,10 @@ ms.locfileid: "84768100"
   
 |匹配|位置|匹配项后的字符串|结果字符串|  
 |-----------|--------------|------------------------|-------------------|  
-|1|2|bb2cc3dd4ee5|aa**bb2cc3dd4ee5**bb2cc3dd4ee5|  
-|2|5|cc3dd4ee5|aabb2cc3dd4ee5bb**cc3dd4ee5**cc3dd4ee5|  
-|3|8|dd4ee5|aabb2cc3dd4ee5bbcc3dd4ee5cc**dd4ee5**dd4ee5|  
-|4|11|ee5|aabb2cc3dd4ee5bbcc3dd4ee5ccdd4ee5dd**ee5**ee5|  
+|1|2|bb2cc3dd4ee5|aa **bb2cc3dd4ee5** bb2cc3dd4ee5|  
+|2|5|cc3dd4ee5|aabb2cc3dd4ee5bb **cc3dd4ee5** cc3dd4ee5|  
+|3|8|dd4ee5|aabb2cc3dd4ee5bbcc3dd4ee5cc **dd4ee5** dd4ee5|  
+|4|11|ee5|aabb2cc3dd4ee5bbcc3dd4ee5ccdd4ee5dd **ee5** ee5|  
 |5|14|<xref:System.String.Empty?displayProperty=nameWithType>|aabb2cc3dd4ee5bbcc3dd4ee5ccdd4ee5ddee5ee|  
 
 ## <a name="substituting-the-last-captured-group"></a>替换最后捕获的组  
@@ -195,8 +196,8 @@ ms.locfileid: "84768100"
   
 |匹配|位置|匹配|结果字符串|  
 |-----------|--------------|-----------|-------------------|  
-|1|3|123|ABC**ABC123DEF456**DEF456|  
-|2|5|456|ABCABC123DEF456DEF**ABC123DEF456**|  
+|1|3|123|ABC **ABC123DEF456** DEF456|  
+|2|5|456|ABCABC123DEF456DEF **ABC123DEF456**|  
   
 ## <a name="see-also"></a>请参阅
 

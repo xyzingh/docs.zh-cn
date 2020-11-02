@@ -10,16 +10,16 @@ helpviewer_keywords:
 - lookbehinds
 - regular expressions, grouping constructs
 - lookaheads
-- .NET Framework regular expressions, grouping constructs
+- .NET regular expressions, grouping constructs
 - constructs, grouping
 - grouping constructs
 ms.assetid: 0fc18634-f590-4062-8d5c-f0b71abe405b
-ms.openlocfilehash: d737e5758ee7a940aeea3ded9a7937d687393116
-ms.sourcegitcommit: 7137e12f54c4e83a94ae43ec320f8cf59c1772ea
+ms.openlocfilehash: de424b4a022a5e2d2f8a9c12b4147383082f019b
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84662623"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888503"
 ---
 # <a name="grouping-constructs-in-regular-expressions"></a>正则表达式中的分组构造
 分组构造描述了正则表达式的子表达式，用于捕获输入字符串的子字符串。 你可以使用分组构造来完成下列任务：  
@@ -62,7 +62,7 @@ ms.locfileid: "84662623"
   
  可以四种方法访问捕获的组：  
   
-- 通过使用正则表达式中的反向引用构造。 使用语法 `\`*数字*在同一正则表达式中引用匹配的子表达式，其中 *数字* 是捕获的表达式的初始数字。  
+- 通过使用正则表达式中的反向引用构造。 使用语法 `\`*数字* 在同一正则表达式中引用匹配的子表达式，其中 *数字* 是捕获的表达式的初始数字。  
   
 - 通过使用正则表达式中的命名的反向引用构造。 使用语法 `\k<`*name*`>`在同一正则表达式中引用匹配的子表达式，其中 *name* 是捕获组的名称，或使用 `\k<`*数字*`>`在同一正则表达式中引用匹配的子表达式，其中 *数字* 是捕获组的初始数字。 捕获组具有与其原始编号相同的默认名称。 有关更多信息，请参见本主题后面的 [命名匹配的子表达式](#named_matched_subexpression) 。  
   
@@ -107,7 +107,7 @@ ms.locfileid: "84662623"
   
 - 通过使用正则表达式中的命名的反向引用构造。 使用语法 `\k<`*name*`>`在同一正则表达式中引用匹配的子表达式，其中 *name* 是捕获子表达式的名称。  
   
-- 通过使用正则表达式中的反向引用构造。 使用语法 `\`*数字*在同一正则表达式中引用匹配的子表达式，其中 *数字* 是捕获的表达式的初始数字。 已命名的匹配子表达式在匹配子表达式后从左到右连续编号。  
+- 通过使用正则表达式中的反向引用构造。 使用语法 `\`*数字* 在同一正则表达式中引用匹配的子表达式，其中 *数字* 是捕获的表达式的初始数字。 已命名的匹配子表达式在匹配子表达式后从左到右连续编号。  
   
 - 通过使用 `${`*name*`}` $ <xref:System.Text.RegularExpressions.Regex.Replace%2A?displayProperty=nameWithType> number <xref:System.Text.RegularExpressions.Match.Result%2A?displayProperty=nameWithType> 替换序列，其中 *name* 是捕获子表达式的名称。  
   
@@ -172,7 +172,7 @@ ms.locfileid: "84662623"
   
 `(?'name1-name2' subexpression)`
   
- *name1* 位置是当前的组（可选）， *name2* 是一个以前定义的组，而 *子表达式* 是任何有效的正则表达式模式。 平衡组定义删除 *name2* 的定义并在 *name1* 中保存 *name2* 和 *name1*之间的间隔。 如果未定义 *name2* 组，则匹配将回溯。 由于删除 *name2* 的最后一个定义会显示 *name2*以前的定义，因此该构造允许将 *name2* 组的捕获堆栈用作计数器，用于跟踪嵌套构造（如括号或者左括号和右括号）。  
+ *name1* 位置是当前的组（可选）， *name2* 是一个以前定义的组，而 *子表达式* 是任何有效的正则表达式模式。 平衡组定义删除 *name2* 的定义并在 *name1* 中保存 *name2* 和 *name1* 之间的间隔。 如果未定义 *name2* 组，则匹配将回溯。 由于删除 *name2* 的最后一个定义会显示 *name2* 以前的定义，因此该构造允许将 *name2* 组的捕获堆栈用作计数器，用于跟踪嵌套构造（如括号或者左括号和右括号）。  
   
  平衡组定义将 *name2* 作为堆栈使用。 将每个嵌套构造的开头字符放在组中，并放在其 <xref:System.Text.RegularExpressions.Group.Captures%2A?displayProperty=nameWithType> 集合中。 当匹配结束字符时，从组中删除其相应的开始字符，并且 <xref:System.Text.RegularExpressions.Group.Captures%2A> 集合减少 1。 所有嵌套构造的开始和结束字符匹配完后，name2 为空。  
   
@@ -291,7 +291,7 @@ ms.locfileid: "84662623"
   
  `(?=` subexpression `)`  
   
- 其中 *子表达式* 为任何正则表达式模式。 若要成功匹配，则输入字符串必须匹配 *子表达式*中的正则表达式模式，尽管匹配的子字符串未包含在匹配结果中。 零宽度正预测先行断言不会回溯。  
+ 其中 *子表达式* 为任何正则表达式模式。 若要成功匹配，则输入字符串必须匹配 *子表达式* 中的正则表达式模式，尽管匹配的子字符串未包含在匹配结果中。 零宽度正预测先行断言不会回溯。  
   
  通常，零宽度正预测先行断言是在正则表达式模式的末尾找到的。 它定义了一个子字符串，该子字符串必须出现在匹配字符串的末尾但又不能包含在匹配结果中。 还有助于防止过度回溯。 可使用零宽度正预测先行断言来确保特定捕获组以与专为该捕获组定义的模式的子集相匹配的文本开始。 例如，如果捕获组与连续单词字符相匹配，可以使用零宽度正预测先行断言要求第一个字符是按字母顺序排列的大写字符。  
   
@@ -314,7 +314,7 @@ ms.locfileid: "84662623"
   
  `(?!` subexpression `)`  
   
- 其中 *子表达式* 为任何正则表达式模式。 若要成功匹配，则输入字符串不得匹配 *子表达式*中的正则表达式模式，尽管匹配的子字符串未包含在匹配结果中。  
+ 其中 *子表达式* 为任何正则表达式模式。 若要成功匹配，则输入字符串不得匹配 *子表达式* 中的正则表达式模式，尽管匹配的子字符串未包含在匹配结果中。  
   
  零宽度负预测先行断言通常用在正则表达式的开头或结尾。 正则表达式的开头可以定义当其定义了要被匹配的相似但更常规的模式时，不应被匹配的特定模式。 在这种情况下，它通常用于限制回溯。 正则表达式的末尾可以定义不能出现在匹配项末尾处的子表达式。  
   

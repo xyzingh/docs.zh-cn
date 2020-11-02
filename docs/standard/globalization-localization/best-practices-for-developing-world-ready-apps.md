@@ -5,15 +5,15 @@ ms.technology: dotnet-standard
 helpviewer_keywords:
 - global applications, best practices
 - world-ready applications, best practices
-- globalization [.NET Framework], best practices
-- international applications [.NET Framework], best practices
+- globalization [.NET], best practices
+- international applications [.NET], best practices
 ms.assetid: f08169c7-aad8-4ec3-9a21-9ebd3b89986c
-ms.openlocfilehash: 9d9f6b3540bb04dd4af154fce2f91a3a7b6395ba
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 5b6fd468c40e42d25986cb79ca6402afca2d7a7d
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90555531"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064010"
 ---
 # <a name="best-practices-for-developing-world-ready-applications"></a>开发全球通用应用程序的最佳做法
 

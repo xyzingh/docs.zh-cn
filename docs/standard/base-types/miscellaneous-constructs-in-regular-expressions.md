@@ -7,15 +7,15 @@ dev_langs:
 - vb
 helpviewer_keywords:
 - constructs, miscellaneous
-- .NET Framework regular expressions, miscellaneous constructs
+- .NET regular expressions, miscellaneous constructs
 - regular expressions, miscellaneous constructs
 ms.assetid: 7d10d11f-680f-4721-b047-fb136316b4cd
-ms.openlocfilehash: 8ca888074aa757a1bfba786a7bec5928b75b1da2
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: f7800dee67513f885339fad67c7a999cc06cca36
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84290404"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889265"
 ---
 # <a name="miscellaneous-constructs-in-regular-expressions"></a>正则表达式中的其他构造
 .NET 中的正则表达式包括三个其他语言构造。 其中一个使你可以在正则表达式模式中间启用或禁用特定匹配选项。 其余两个使你可以在正则表达式中包含注释。  

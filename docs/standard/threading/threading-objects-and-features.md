@@ -3,15 +3,15 @@ title: 线程处理对象和功能
 ms.date: 10/01/2018
 ms.technology: dotnet-standard
 helpviewer_keywords:
-- threading [.NET Framework], features
+- threading [.NET], features
 - managed threading
 ms.assetid: 239b2e8d-581b-4ca3-992b-0e8525b9321c
-ms.openlocfilehash: dd9b7b8cb194353d0a1c285af10d54dc7366896e
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.openlocfilehash: 98fb9238b7cf9d11641628de1413e911985a87c3
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2020
-ms.locfileid: "73128957"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188141"
 ---
 # <a name="threading-objects-and-features"></a>线程处理对象和功能
 

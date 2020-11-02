@@ -10,19 +10,19 @@ helpviewer_keywords:
 - Event-based Asynchronous Pattern
 - ProgressChangedEventArgs class
 - BackgroundWorker component
-- events [.NET Framework], asynchronous
+- events [.NET], asynchronous
 - Asynchronous Pattern
 - AsyncOperationManager class
-- threading [.NET Framework], asynchronous features
+- threading [.NET], asynchronous features
 - AsyncOperation class
 - AsyncCompletedEventArgs class
 ms.assetid: 792aa8da-918b-458e-b154-9836b97735f3
-ms.openlocfilehash: f0d3e2e8f1d1f58c9df8026b38fc0264812b092a
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 5ab3229f71e264bbcd26d3d4c7bb52430b02865a
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90555674"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888823"
 ---
 # <a name="event-based-asynchronous-pattern-overview"></a>基于事件的异步模式概述
 那些同时执行多项任务、但仍能响应用户交互的应用程序通常需要实施一种使用多线程的设计方案。 <xref:System.Threading> 命名空间提供了创建高性能多线程应用程序所必需的所有工具，但要想有效地使用这些工具，需要有丰富的使用多线程软件工程的经验。 对于相对简单的多线程应用程序，<xref:System.ComponentModel.BackgroundWorker> 组件提供了一个简单的解决方案。 对于更复杂的异步应用程序，请考虑实现一个符合基于事件的异步模式的类。  
@@ -37,7 +37,7 @@ ms.locfileid: "90555674"
   
 - 使用熟悉的事件和委托模型与挂起的异步操作通信。 若要详细了解如何使用事件处理程序和委托，请参阅[事件](../events/index.md)。  
   
- 支持基于事件的异步模式的类将具有一个或多个命名为 _MethodName_**Async** 的方法。 这些方法可能会创建同步版本的镜像，这些同步版本会在当前线程上执行相同的操作。 该类还可能具有 _MethodName_**Completed** 事件，并且可能会具有 _MethodName_**AsyncCancel**（或只是 **CancelAsync**）方法。  
+ 支持基于事件的异步模式的类将具有一个或多个命名为 _MethodName_**Async** 的方法。 这些方法可能会创建同步版本的镜像，这些同步版本会在当前线程上执行相同的操作。 该类还可能具有 _MethodName_**Completed** 事件，并且可能会具有 _MethodName_**AsyncCancel** （或只是 **CancelAsync** ）方法。  
   
  <xref:System.Windows.Forms.PictureBox> 是一个支持基于事件的异步模式的典型组件。 你可以通过调用其 <xref:System.Windows.Forms.PictureBox.Load%2A> 方法来同步下载图像，但是如果图像很大，或者网络连接很慢，应用程序将停止响应，直到下载操作完成并且对 <xref:System.Windows.Forms.PictureBox.Load%2A> 的调用返回后才会继续执行。  
   
@@ -49,7 +49,7 @@ ms.locfileid: "90555674"
 > 下载有可能刚好在发出 <xref:System.Windows.Forms.PictureBox.CancelAsync%2A> 请求时完成，因此 <xref:System.ComponentModel.AsyncCompletedEventArgs.Cancelled%2A> 可能没有反映取消请求。 这称为“争用条件”，也是多线程编程中的常见问题。 若要详细了解多线程编程中的问题，请参阅[托管线程最佳做法](../threading/managed-threading-best-practices.md)。  
   
 ## <a name="characteristics-of-the-event-based-asynchronous-pattern"></a>基于事件的异步模式的特征  
- 基于事件的异步模式可以采用多种形式，具体取决于某个特定类支持的操作的复杂程度。 最简单的类可能包含一个 _MethodName_**Async** 方法和对应的 M_MethodName_**Completed** 事件。 更复杂的类可能包含多个 _MethodName_**Async** 方法（每个方法具有一个对应的 _MethodName_**Completed** 事件），以及这些方法的同步版本。 这些类有选择性地分别支持各种异步方法的取消、进度报告和增量结果。  
+ 基于事件的异步模式可以采用多种形式，具体取决于某个特定类支持的操作的复杂程度。 最简单的类可能包含一个 _MethodName_**Async** 方法和对应的 M _MethodName_**Completed** 事件。 更复杂的类可能包含多个 _MethodName_**Async** 方法（每个方法具有一个对应的 _MethodName_**Completed** 事件），以及这些方法的同步版本。 这些类有选择性地分别支持各种异步方法的取消、进度报告和增量结果。  
   
  异步方法可能还支持多个挂起的调用（多个并发调用），允许你的代码在此方法完成其他挂起的操作之前调用此方法任意多次。 若要正确处理此种情况，需要让你的应用程序能够跟踪各个操作的完成。  
   
@@ -126,7 +126,7 @@ public class AsyncExample
  一次只支持一个挂起操作的方法（如 `Method1Async(string param)`）是不可取消的。  
   
 ### <a name="receiving-progress-updates-and-incremental-results"></a>接收进度更新和增量结果  
- 符合基于事件的异步模式的类可以为跟踪进度和增量结果提供事件。 此事件通常命名为 `ProgressChanged` 或 _MethodName_**ProgressChanged**，其对应的事件处理程序将使用 <xref:System.ComponentModel.ProgressChangedEventArgs> 参数。  
+ 符合基于事件的异步模式的类可以为跟踪进度和增量结果提供事件。 此事件通常命名为 `ProgressChanged` 或 _MethodName_**ProgressChanged** ，其对应的事件处理程序将使用 <xref:System.ComponentModel.ProgressChangedEventArgs> 参数。  
   
  `ProgressChanged` 事件的事件处理程序可以检查 <xref:System.ComponentModel.ProgressChangedEventArgs.ProgressPercentage%2A?displayProperty=nameWithType> 属性，以确定异步任务完成百分比。 此属性的范围是 0 到 100，可用来更新 <xref:System.Windows.Forms.ProgressBar.Value%2A> 的 <xref:System.Windows.Forms.ProgressBar> 属性。 如果有多个异步操作挂起，你可以使用 <xref:System.ComponentModel.ProgressChangedEventArgs.UserState%2A?displayProperty=nameWithType> 属性来分辨出哪个操作在报告进度。  
   

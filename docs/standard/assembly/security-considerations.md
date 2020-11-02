@@ -3,32 +3,33 @@ title: 程序集安全注意事项
 description: 在生成 .NET 程序集时，可指定该程序集运行所需的权限。 本文讨论强名称程序集和签名工具。
 ms.date: 08/20/2019
 helpviewer_keywords:
-- assemblies [.NET Framework], security
+- assemblies [.NET], security
 - signcodes
-- names [.NET Framework], assemblies
+- names [.NET], assemblies
 - strong-named assemblies, security considerations
 - signing assemblies
-- assemblies [.NET Framework], signing
+- assemblies [.NET], signing
 - granting permissions, assemblies
-- assemblies [.NET Framework], strong-named
-- names [.NET Framework], strong names
-- permissions [.NET Framework], assemblies
-- security [.NET Framework], assemblies
+- assemblies [.NET], strong-named
+- names [.NET], strong names
+- permissions [.NET], assemblies
+- security [.NET], assemblies
 - integrity with assemblies
 ms.assetid: 1b5439c1-f3d5-4529-bd69-01814703d067
-ms.openlocfilehash: d0b822f725444248d1037c21ffea9afe1cebb7e2
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 91ea206abf80da275651854b9f13aa0116b7a1c5
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84290014"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687261"
 ---
 # <a name="assembly-security-considerations"></a>程序集安全注意事项
+
 在生成程序集时，可指定该程序集运行所需的一组权限。 是否将特定的权限授予程序集是基于证据的。  
   
  使用证据有两种截然不同的方式：  
   
-- 将输入证据与加载程序所收集的证据合并，以创建用于策略决策的最终证据集。 使用这种语义的方法包括 **Assembly.Load**、**Assembly.LoadFrom** 和 **Activator.CreateInstance**。  
+- 将输入证据与加载程序所收集的证据合并，以创建用于策略决策的最终证据集。 使用这种语义的方法包括 **Assembly.Load** 、 **Assembly.LoadFrom** 和 **Activator.CreateInstance** 。  
   
 - 原封不动地使用输入证据作为用于策略决策的最终证据集。 使用这种语义的方法包括 **Assembly.Load(byte[])** 和 **AppDomain.DefineDynamicAssembly()** 。  
   

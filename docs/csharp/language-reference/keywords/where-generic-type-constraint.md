@@ -7,14 +7,15 @@ f1_keywords:
 - whereconstraint_CSharpKeyword
 - classconstraint_CSharpKeyword
 - structconstraint_CSharpKeyword
+- enumconstraint_CSharpKeyword
 helpviewer_keywords:
 - where (generic type constraint) [C#]
-ms.openlocfilehash: 75885e21173d31ff0a4ba34fbbd3558f934ae5b7
-ms.sourcegitcommit: 39b1d5f2978be15409c189a66ab30781d9082cd8
+ms.openlocfilehash: ff2d50b2148ea62e5bef5eceda547a976e4abf02
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92050313"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687321"
 ---
 # <a name="where-generic-type-constraint-c-reference"></a>where（泛型类型约束）（C# 参考）
 

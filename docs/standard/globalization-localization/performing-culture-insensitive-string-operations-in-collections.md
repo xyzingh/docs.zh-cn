@@ -9,18 +9,18 @@ helpviewer_keywords:
 - CaseInsensitiveComparer class, using
 - CollectionsUtil.CreateCaseInsensitiveHashtable method
 - culture-insensitive string operations, collections
-- collections [.NET Framework], culture-insensitive string operations
+- collections [.NET], culture-insensitive string operations
 - CaseInsensitiveHashCodeProvider class, using
 - ArrayList.Sort method
 - SortedList class, culture-insensitive string operations
 - culture parameter
 ms.assetid: 5cdc9396-a64b-4615-a1cd-b605db4c5983
-ms.openlocfilehash: 377fa58e052e8f8e35a546c21fe2b4fb00cb103d
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 0a55a41b7cd2a2d245d0fb7722dddee794777422
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84288259"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063958"
 ---
 # <a name="performing-culture-insensitive-string-operations-in-collections"></a>在集合中执行不区分区域性的字符串操作
 

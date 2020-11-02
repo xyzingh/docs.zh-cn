@@ -7,15 +7,15 @@ dev_langs:
 - vb
 - cpp
 helpviewer_keywords:
-- assemblies [.NET Framework], attributes
-- attributes [.NET Framework], applying
+- assemblies [.NET], attributes
+- attributes [.NET], applying
 ms.assetid: dd7604eb-9fa3-4b60-b2dd-b47739fa3148
-ms.openlocfilehash: 76591de6a4305b21b89d348f9ffe53f4e67e7334
-ms.sourcegitcommit: ff5a4eb5cffbcac9521bc44a907a118cd7e8638d
+ms.openlocfilehash: 24fe58ddf48e40b422652baa4c5bba86eea6b84f
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92162825"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889226"
 ---
 # <a name="apply-attributes"></a>应用属性
 
@@ -45,7 +45,7 @@ ms.locfileid: "92162825"
 
 ## <a name="apply-attributes-at-the-assembly-level"></a>在程序集级别应用特性
 
- 如果要在程序集级别应用属性，请使用 assembly`Assembly`（Visual Basic 中用`assembly` ）关键字。 下列代码显示在程序集级别应用的 **AssemblyTitleAttribute**。
+ 如果要在程序集级别应用属性，请使用 assembly`Assembly`（Visual Basic 中用`assembly` ）关键字。 下列代码显示在程序集级别应用的 **AssemblyTitleAttribute** 。
 
  [!code-cpp[Conceptual.Attributes.Usage#2](../../../samples/snippets/cpp/VS_Snippets_CLR/conceptual.attributes.usage/cpp/source1.cpp#2)]
  [!code-csharp[Conceptual.Attributes.Usage#2](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.attributes.usage/cs/source1.cs#2)]

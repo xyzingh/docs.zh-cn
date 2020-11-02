@@ -13,14 +13,15 @@ helpviewer_keywords:
 - I/O [.NET Framework], access control list entries
 - access control lists [.NET Framework]
 ms.assetid: 53758b39-bd9b-4640-bb04-cad5ed8d0abf
-ms.openlocfilehash: 5f41c518b8732adff95593cab29d7085adcc9ab3
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.openlocfilehash: ff5a09207b3a1d810f9611dd6bb8cfd206adf1e8
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2020
-ms.locfileid: "75708123"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93187965"
 ---
 # <a name="how-to-add-or-remove-access-control-list-entries-net-framework-only"></a>如何：添加或删除访问控制列表条目（仅限 .NET Framework）
+
 若要向文件或目录添加或从文件或目录删除访问控制列表 (ACL) 条目，请从文件或目录获取 <xref:System.Security.AccessControl.FileSecurity> 或 <xref:System.Security.AccessControl.DirectorySecurity> 对象。 修改对象，然后将其应用回文件或目录。  
   
 ## <a name="add-or-remove-an-acl-entry-from-a-file"></a>添加或从文件中删除 ACL 条目  

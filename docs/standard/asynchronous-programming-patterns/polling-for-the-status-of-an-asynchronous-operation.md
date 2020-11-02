@@ -8,14 +8,14 @@ dev_langs:
 helpviewer_keywords:
 - asynchronous programming, status polling
 - polling asynchronous operation status
-- status information [.NET Framework], asynchronous operations
+- status information [.NET], asynchronous operations
 ms.assetid: b541af31-dacb-4e20-8847-1b1ff7c35363
-ms.openlocfilehash: f10b4ae5617edc8cf8a38a6cbac999e10a935dc2
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: c73ee50c67034feed07a4869deb0a32342bb45e5
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84291378"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888732"
 ---
 # <a name="polling-for-the-status-of-an-asynchronous-operation"></a>轮询异步操作的状态
 如果应用可以在等待异步操作结果期间继续执行其他工作，不得阻止应用一直到操作完成。 请使用下列方法之一，在应用等待异步操作完成期间继续执行指令：  

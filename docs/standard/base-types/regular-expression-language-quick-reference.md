@@ -11,16 +11,16 @@ helpviewer_keywords:
 - searching with regular expressions, language elements
 - pattern-matching with regular expressions, language elements
 - regular expressions, language elements
-- regular expressions [.NET Framework]
+- regular expressions [.NET]
 - cheat sheet
-- .NET Framework regular expressions, language elements
+- .NET regular expressions, language elements
 ms.assetid: 930653a6-95d2-4697-9d5a-52d11bb6fd4c
-ms.openlocfilehash: 4788c84be76a5cc9a9a6327fcd054e08db4d1872
-ms.sourcegitcommit: b7a8b09828bab4e90f66af8d495ecd7024c45042
+ms.openlocfilehash: 986e7417d85655acc66a5c308aa79477c96fd629
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87556795"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889304"
 ---
 # <a name="regular-expression-language---quick-reference"></a>正则表达式语言 - 快速参考
 
@@ -47,10 +47,10 @@ ms.locfileid: "87556795"
 |`\f`|与换页符 \u000C 匹配。|`[\f]{2,}`|`"\f\f\f"` 中的 `"\f\f\f"`|
 |`\n`|与换行符 \u000A 匹配。|`\r\n(\w+)`|`"\r\nThese are\ntwo lines."` 中的 `"\r\nThese"`|
 |`\e`|与转义符 \u001B 匹配。|`\e`|`"\x001B"` 中的 `"\x001B"`|
-|`\` *nnn*|使用八进制表示形式指定字符（*nnn* 由二位或三位数字组成）。|`\w\040\w`|`"a bc d"` 中的 `"a b"` 和 `"c d"`|
-|`\x` *nn*|使用十六进制表示形式指定字符（*nn* 恰好由两位数字组成）。|`\w\x20\w`|`"a bc d"` 中的 `"a b"` 和 `"c d"`|
-|`\c` *X*<br /><br /> `\c` x|匹配 *X* 或 *x*指定的 ASCII 控制字符，其中 *X* 或 *x* 是控制字符的字母。|`\cC`|`"\x0003"` 中的 `"\x0003"` (Ctrl-C)|
-|`\u` *nnnn*|使用十六进制表示形式匹配 Unicode 字符（由 *nnnn*正确表示的四位数）。|`\w\u0020\w`|`"a bc d"` 中的 `"a b"` 和 `"c d"`|
+|`\` *nnn*|使用八进制表示形式指定字符（ *nnn* 由二位或三位数字组成）。|`\w\040\w`|`"a bc d"` 中的 `"a b"` 和 `"c d"`|
+|`\x` *nn*|使用十六进制表示形式指定字符（ *nn* 恰好由两位数字组成）。|`\w\x20\w`|`"a bc d"` 中的 `"a b"` 和 `"c d"`|
+|`\c` *X*<br /><br /> `\c` x|匹配 *X* 或 *x* 指定的 ASCII 控制字符，其中 *X* 或 *x* 是控制字符的字母。|`\cC`|`"\x0003"` 中的 `"\x0003"` (Ctrl-C)|
+|`\u` *nnnn*|使用十六进制表示形式匹配 Unicode 字符（由 *nnnn* 正确表示的四位数）。|`\w\u0020\w`|`"a bc d"` 中的 `"a b"` 和 `"c d"`|
 |`\`|在后面带有不识别为本主题的此表和其他表中的转义符的字符时，与该字符匹配。 例如， `\*` 与 `\x2A`相同，而 `\.` 与 `\x2E`相同。 这样一来，正则表达式引擎可以区分语言元素（如 \* 或 ?）和字符文本（由 `\*` 或 `\?` 表示）。|`\d+[\+-x\*]\d+`|`"(2+2) * 3*9"` 中的 `"2+2"` 和 `"3*9"`|
 
 ## <a name="character-classes"></a>字符类
@@ -59,12 +59,12 @@ ms.locfileid: "87556795"
 
 |字符类|描述|模式|匹配|
 |---------------------|-----------------|-------------|-------------|
-|`[` character_group `]`|匹配 *character_group*中的任何单个字符。 默认情况下，匹配区分大小写。|`[ae]`|`"gray"` 中的 `"a"`<br /><br /> `"lane"` 中的 `"a"` 和 `"e"`|
+|`[` character_group `]`|匹配 *character_group* 中的任何单个字符。 默认情况下，匹配区分大小写。|`[ae]`|`"gray"` 中的 `"a"`<br /><br /> `"lane"` 中的 `"a"` 和 `"e"`|
 |`[^` character_group `]`|求反：与不在 character_group 中的任意单个字符匹配。 默认情况下， *character_group* 中的字符区分大小写。|`[^aei]`|`"reign"` 中的 `"r"`、`"g"` 和 `"n"`|
-|`[` first `-` last `]` |字符范围：与从 *first* 到 *last*的范围中的任意单个字符匹配。|`[A-Z]`|`"AB123"` 中的 `"A"` 和 `"B"`|
+|`[` first `-` last `]` |字符范围：与从 *first* 到 *last* 的范围中的任意单个字符匹配。|`[A-Z]`|`"AB123"` 中的 `"A"` 和 `"B"`|
 |`.`|通配符：与除 \n 之外的任意单个字符匹配。<br /><br /> 若要匹配文本句点字符（. 或 `\u002E`），你必须在该字符前面加上转义符 (`\.`)。|`a.e`|`"nave"` 中的 `"ave"`<br /><br /> `"water"` 中的 `"ate"`|
-|`\p{` *name* `}`|与 *name*指定的 Unicode 通用类别或命名块中的任何单个字符匹配。|`\p{Lu}`<br /><br /> `\p{IsCyrillic}`|`"City Lights"` 中的 `"C"` 和 `"L"`<br /><br /> `"ДЖem"` 中的 `"Д"` 和 `"Ж"`|
-|`\P{` *name* `}`|与不在 *name*指定的 Unicode 通用类别或命名块中的任何单个字符匹配。|`\P{Lu}`<br /><br /> `\P{IsCyrillic}`|`"City"` 中的 `"i"`、`"t"` 和 `"y"`<br /><br /> `"ДЖem"` 中的 `"e"` 和 `"m"`|
+|`\p{` *name* `}`|与 *name* 指定的 Unicode 通用类别或命名块中的任何单个字符匹配。|`\p{Lu}`<br /><br /> `\p{IsCyrillic}`|`"City Lights"` 中的 `"C"` 和 `"L"`<br /><br /> `"ДЖem"` 中的 `"Д"` 和 `"Ж"`|
+|`\P{` *name* `}`|与不在 *name* 指定的 Unicode 通用类别或命名块中的任何单个字符匹配。|`\P{Lu}`<br /><br /> `\P{IsCyrillic}`|`"City"` 中的 `"i"`、`"t"` 和 `"y"`<br /><br /> `"ДЖem"` 中的 `"e"` 和 `"m"`|
 |`\w`|与任何单词字符匹配。|`\w`|`"ID A1.3"` 中的 `"I"`、`"D"`、`"A"`、`"1"` 和 `"3"`|
 |`\W`|与任何非单词字符匹配。|`\W`|`"ID A1.3"` 中的 `" "` 和 `"."`|
 |`\s`|与任何空白字符匹配。|`\w\s`|`"ID A1.3"` 中的 `"D "`|
@@ -97,7 +97,7 @@ ms.locfileid: "87556795"
 |`(?<` name `>` subexpression `)` <br /> 或 <br />`(?'` name `'` subexpression `)` |将匹配的子表达式捕获到一个命名组中。|`(?<double>\w)\k<double>`|`"deep"` 中的 `"ee"`|
 |`(?<` name1 `-` name2 `>` subexpression `)`   <br /> 或 <br /> `(?'` name1 `-` name2 `'` subexpression `)`  |定义平衡组定义。 有关详细信息，请参阅 [分组构造](grouping-constructs-in-regular-expressions.md)中的"平衡组定义"部分。|`(((?'Open'\()[^\(\)]*)+((?'Close-Open'\))[^\(\)]*)+)*(?(Open)(?!))$`|`"3+2^((1-3)*(3-1))"` 中的 `"((1-3)*(3-1))"`|
 |`(?:` subexpression `)`|定义非捕获组。|`Write(?:Line)?`|`"Console.WriteLine()"` 中的 `"WriteLine"`<br /><br /> `"Console.Write(value)"` 中的 `"Write"`|
-|`(?imnsx-imnsx:` subexpression `)`|应用或禁用 *子表达式*中指定的选项。 有关详细信息，请参阅 [正则表达式选项](regular-expression-options.md)。|`A\d{2}(?i:\w+)\b`|`"A12xl A12XL a12xl"` 中的 `"A12xl"` 和 `"A12XL"`|
+|`(?imnsx-imnsx:` subexpression `)`|应用或禁用 *子表达式* 中指定的选项。 有关详细信息，请参阅 [正则表达式选项](regular-expression-options.md)。|`A\d{2}(?i:\w+)\b`|`"A12xl A12XL a12xl"` 中的 `"A12xl"` 和 `"A12XL"`|
 |`(?=` subexpression `)`|零宽度正预测先行断言。|`\w+(?=\.)`|`"He is. The dog ran. The sun is out."` 中的 `"is"`、`"ran"` 和 `"out"`|
 |`(?!` subexpression `)`|零宽度负预测先行断言。|`\b(?!un)\w+\b`|`"unsure sure unity used"` 中的 `"sure"` 和 `"used"`|
 |`(?<=` subexpression `)`|零宽度正回顾后发断言。|`(?<=19)\d{2}\b`|`"1851 1999 1950 1905 2003"` 中的 `"99"`、`"50"` 和 `"05"`|
@@ -139,8 +139,8 @@ ms.locfileid: "87556795"
 |替换构造|描述|模式|匹配|
 |---------------------------|-----------------|-------------|-------------|
 |<code>&#124;</code>|匹配以竖线 (<code>&#124;</code>) 字符分隔的任何一个元素。|<code>th(e&#124;is&#124;at)</code>|`"this is the day."` 中的 `"the"` 和 `"this"`|
-|`(?(` *expression* `)` *yes* <code>&#124;</code> *no* `)`|如果由 *expression*指定的正则表达式模式匹配，则匹配  *yes* ；否则，匹配可的 *no* 部分。 *expression* 解释为零宽度的断言。|<code>(?(A)A\d{2}\b&#124;\b\d{3}\b)</code>|`"A10 C103 910"` 中的 `"A10"` 和 `"910"`|
-|`(?(` *name* `)` *yes* <code>&#124;</code> *no* `)`|如果 *name* (已命名或已编号的捕获组）具有匹项，则匹配 *yes*；否则，匹配可的 *no*。|<code>(?&lt;quoted&gt;&quot;)?(?(quoted).+?&quot;&#124;\S+\s)</code>|`"Dogs.jpg \"Yiska playing.jpg\""` 中的 `"Dogs.jpg "` 和 `"\"Yiska playing.jpg\""`|
+|`(?(` *expression* `)` *yes* <code>&#124;</code> *no* `)`|如果由 *expression* 指定的正则表达式模式匹配，则匹配  *yes* ；否则，匹配可的 *no* 部分。 *expression* 解释为零宽度的断言。|<code>(?(A)A\d{2}\b&#124;\b\d{3}\b)</code>|`"A10 C103 910"` 中的 `"A10"` 和 `"910"`|
+|`(?(` *name* `)` *yes* <code>&#124;</code> *no* `)`|如果 *name* (已命名或已编号的捕获组）具有匹项，则匹配 *yes* ；否则，匹配可的 *no* 。|<code>(?&lt;quoted&gt;&quot;)?(?(quoted).+?&quot;&#124;\S+\s)</code>|`"Dogs.jpg \"Yiska playing.jpg\""` 中的 `"Dogs.jpg "` 和 `"\"Yiska playing.jpg\""`|
 
 ## <a name="substitutions"></a>替代
 
@@ -148,8 +148,8 @@ ms.locfileid: "87556795"
 
 |字符|说明|模式|替换模式|输入字符串|结果字符串|
 |---------------|-----------------|-------------|-------------------------|------------------|-------------------|
-|`$` *number*|替换按组 *number*匹配的子字符串。|`\b(\w+)(\s)(\w+)\b`|`$3$2$1`|`"one two"`|`"two one"`|
-|`${` *name* `}`|替换按命名组 *name*匹配的子字符串。|`\b(?<word1>\w+)(\s)(?<word2>\w+)\b`|`${word2} ${word1}`|`"one two"`|`"two one"`|
+|`$` *number*|替换按组 *number* 匹配的子字符串。|`\b(\w+)(\s)(\w+)\b`|`$3$2$1`|`"one two"`|`"two one"`|
+|`${` *name* `}`|替换按命名组 *name* 匹配的子字符串。|`\b(?<word1>\w+)(\s)(?<word2>\w+)\b`|`${word2} ${word1}`|`"one two"`|`"two one"`|
 |`$$`|替换字符"$"。|`\b(\d+)\s?USD`|`$$$1`|`"103 USD"`|`"$103"`|
 |`$&`|替换整个匹配项的一个副本。|`\$?\d*\.?\d+`|`**$&**`|`"$1.30"`|`"**$1.30**"`|
 |``$` ``|替换匹配前的输入字符串的所有文本。|`B+`|``$` ``|`"AABBCC"`|`"AAAACC"`|

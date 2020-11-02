@@ -9,16 +9,16 @@ dev_langs:
 helpviewer_keywords:
 - DateTime.ToString method
 - displaying date and time data
-- time [.NET Framework], milliseconds
-- dates [.NET Framework], milliseconds
-- milliseconds [.NET Framework]
+- time [.NET], milliseconds
+- dates [.NET], milliseconds
+- milliseconds [.NET]
 ms.assetid: ae1a0610-90b9-4877-8eb6-4e30bc5e00cf
-ms.openlocfilehash: a6dbe6a3bf4f8c08493ec925bea4316d071f4182
-ms.sourcegitcommit: b16c00371ea06398859ecd157defc81301c9070f
+ms.openlocfilehash: bff458e73d603781155b18160bc7d088d8bd78cb
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447064"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888464"
 ---
 # <a name="how-to-display-milliseconds-in-date-and-time-values"></a>如何：显示日期和时间值中的毫秒
 默认日期和时间格式设置方法（如 <xref:System.DateTime.ToString?displayProperty=nameWithType>）包含时间值的小时、分钟和秒部分，但不包含毫秒部分。 本主题说明如何在格式化日期和时间字符串中包含日期和时间的毫秒部分。  
