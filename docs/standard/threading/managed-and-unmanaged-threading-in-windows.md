@@ -3,18 +3,18 @@ title: Windows 中的托管和非托管线程处理
 ms.date: 10/24/2018
 ms.technology: dotnet-standard
 helpviewer_keywords:
-- threading [.NET Framework], unmanaged
-- threading [.NET Framework], managed
+- threading [.NET], unmanaged
+- threading [.NET], managed
 - threading [.NET], managed
 - threads and fibers [.NET]
 - managed threading
 ms.assetid: 4fb6452f-c071-420d-9e71-da16dee7a1eb
-ms.openlocfilehash: de823297540d5ce3740a26614dbb9a82881decf3
-ms.sourcegitcommit: 40de8df14289e1e05b40d6e5c1daabd3c286d70c
+ms.openlocfilehash: 7b2eca1275aba5139bd19662674cd76d95e92fd0
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86924378"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93189155"
 ---
 # <a name="managed-and-unmanaged-threading-in-windows"></a>Windows 中的托管和非托管线程处理
 
@@ -35,7 +35,7 @@ ms.locfileid: "86924378"
 |**SuspendThread**|<xref:System.Threading.Thread.Suspend%2A?displayProperty=nameWithType>|  
 |**ResumeThread**|<xref:System.Threading.Thread.Resume%2A?displayProperty=nameWithType>|  
 |**休眠**|<xref:System.Threading.Thread.Sleep%2A?displayProperty=nameWithType>|  
-|线程句柄上的**WaitForSingleObject**|<xref:System.Threading.Thread.Join%2A?displayProperty=nameWithType>|  
+|线程句柄上的 **WaitForSingleObject**|<xref:System.Threading.Thread.Join%2A?displayProperty=nameWithType>|  
 |**ExitThread**|无等效项|  
 |**GetCurrentThread**|<xref:System.Threading.Thread.CurrentThread%2A?displayProperty=nameWithType>|  
 |**SetThreadPriority**|<xref:System.Threading.Thread.Priority%2A?displayProperty=nameWithType>|  
@@ -52,7 +52,7 @@ ms.locfileid: "86924378"
  如果在启动线程之前未设置单元状态，则该线程被初始化为多线程单元 (MTA)。 终结器线程和由 <xref:System.Threading.ThreadPool> 控制的所有线程都是 MTA。  
   
 > [!IMPORTANT]
-> 对于应用程序启动代码，控制单元状态的唯一方式是将 <xref:System.MTAThreadAttribute> 或 <xref:System.STAThreadAttribute> 应用于入口点过程。 在 .NET Framework 1.0 和 1.1 中， <xref:System.Threading.Thread.ApartmentState%2A> 属性可以设置为代码的第一行。 此属性在 .NET Framework 2.0 中是不允许的。  
+> 对于应用程序启动代码，控制单元状态的唯一方式是将 <xref:System.MTAThreadAttribute> 或 <xref:System.STAThreadAttribute> 应用于入口点过程。
   
  向 COM 公开的托管对象的行为就如同它们聚合了自由线程封送拆收器一样。 换言之，它们可以通过自由线程的方式从任何 COM 单元中调用。 唯一不显示这种自由线程行为的托管对象是那些从 <xref:System.EnterpriseServices.ServicedComponent> 或 <xref:System.Runtime.InteropServices.StandardOleMarshalObject> 派生的对象。  
   

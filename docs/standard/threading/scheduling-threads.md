@@ -3,15 +3,15 @@ title: 计划线程
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 helpviewer_keywords:
-- threading [.NET Framework], scheduling
+- threading [.NET], scheduling
 - scheduling threads
 ms.assetid: 67e4a0eb-3095-4ea7-b20f-908faa476277
-ms.openlocfilehash: fea809168bf2f4f888466f87259497660afd13be
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 806d6620fd236c69a4f461f1e30f68a3fefc9b17
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84291144"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188947"
 ---
 # <a name="scheduling-threads"></a>计划线程
 

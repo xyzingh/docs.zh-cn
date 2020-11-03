@@ -8,22 +8,23 @@ dev_langs:
 - vb
 - cpp
 helpviewer_keywords:
-- message-based communication [.NET Framework], named pipes
-- named pipes [.NET Framework]
-- pipes [.NET Framework]
+- message-based communication [.NET], named pipes
+- named pipes [.NET]
+- pipes [.NET]
 - multiple connections via named pipes
-- network communications [.NET Framework], named pipes
-- impersonation [.NET Framework], named pipes
-- full duplex communication [.NET Framework], named pipes
+- network communications [.NET], named pipes
+- impersonation [.NET], named pipes
+- full duplex communication [.NET], named pipes
 ms.assetid: 4e4d7e64-9f1b-4026-98f7-20488ac7b42b
-ms.openlocfilehash: a529d1d44a903df36099a59e07f4582554d230f2
-ms.sourcegitcommit: 7137e12f54c4e83a94ae43ec320f8cf59c1772ea
+ms.openlocfilehash: 8657597bee5855061bb5529d80d2fa5f0318e817
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84662558"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93189311"
 ---
 # <a name="how-to-use-named-pipes-for-network-interprocess-communication"></a>如何：使用命名管道进行网络进程间通信
+
 命名管道在管道服务器和一个或多个管道客户端之间提供进程间通信。 它们比匿名管道（用于在本地计算机上提供进程间的通信）提供更多的功能。 命名管道支持跨网络和多个服务器实例的全双工通信、基于消息的通信以及客户端模拟，这样连接进程便可在远程服务器上使用自己的权限集。  
   
  若要实现名称管道，请使用 <xref:System.IO.Pipes.NamedPipeServerStream> 和 <xref:System.IO.Pipes.NamedPipeClientStream> 类。  

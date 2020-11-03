@@ -13,24 +13,24 @@ helpviewer_keywords:
 - JSON Serializer, JSON Reader, JSON Writer
 - Converter, JSON Converter, DateTime Converter
 - ISO, ISO 8601, ISO 8601-1:2019
-ms.openlocfilehash: 1c573712f458d3e22cd59112b9e79e85391270c1
-ms.sourcegitcommit: c37e8d4642fef647ebab0e1c618ecc29ddfe2a0f
+ms.openlocfilehash: 020e6903069da2c5d8761c86e890c4e9575a3fae
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854888"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188752"
 ---
 # <a name="datetime-and-datetimeoffset-support-in-systemtextjson"></a>System.Text.Json 中的 DateTime 和 DateTimeOffset 支持
 
 库中的 System.Text.Js<xref:System.DateTime> <xref:System.DateTimeOffset> 根据 ISO 8601:-2019 扩展配置文件分析并写入和值。
-[转换器](xref:System.Text.Json.Serialization.JsonConverter%601)为序列化和反序列化提供自定义支持 <xref:System.Text.Json.JsonSerializer> 。
+[转换器](xref:System.Text.Json.Serialization.JsonConverter%601) 为序列化和反序列化提供自定义支持 <xref:System.Text.Json.JsonSerializer> 。
 当使用和时，还可以实现自定义支持 <xref:System.Text.Json.Utf8JsonReader> <xref:System.Text.Json.Utf8JsonWriter> 。
 
 ## <a name="support-for-the-iso-8601-12019-format"></a>支持 ISO 8601-1:2019 格式
 
 <xref:System.Text.Json.JsonSerializer>、、 <xref:System.Text.Json.Utf8JsonReader> <xref:System.Text.Json.Utf8JsonWriter> 和 <xref:System.Text.Json.JsonElement> 类型 <xref:System.DateTime> <xref:System.DateTimeOffset> 根据 ISO 8601-1:2019 格式的扩展配置文件分析和写入和文本表示形式; 例如，26T16：59： 57-05：00。
 
-<xref:System.DateTime>和 <xref:System.DateTimeOffset> 数据可通过以下方式序列化 <xref:System.Text.Json.JsonSerializer> ：
+<xref:System.DateTime> 和 <xref:System.DateTimeOffset> 数据可通过以下方式序列化 <xref:System.Text.Json.JsonSerializer> ：
 
 [!code-csharp[example-serializing-with-jsonserializer](~/samples/snippets/standard/datetime/json/csharp/serializing-with-jsonserializer/Program.cs)]
 
@@ -55,7 +55,7 @@ ms.locfileid: "87854888"
 
 [!code-csharp[example-writing-with-utf8jsonwriter](~/samples/snippets/standard/datetime/json/csharp/writing-with-utf8jsonwriter/Program.cs)]
 
-<xref:System.Text.Json.Utf8JsonReader>分析 <xref:System.DateTime> 和 <xref:System.DateTimeOffset> 数据：
+<xref:System.Text.Json.Utf8JsonReader> 分析 <xref:System.DateTime> 和 <xref:System.DateTimeOffset> 数据：
 
 [!code-csharp[example-reading-with-utf8jsonreader-valid](~/samples/snippets/standard/datetime/json/csharp/reading-with-utf8jsonreader-valid/Program.cs)]
 
@@ -65,16 +65,16 @@ ms.locfileid: "87854888"
 
 ## <a name="custom-support-for-xrefsystemdatetime-and-xrefsystemdatetimeoffset"></a>对和的自定义支持 <xref:System.DateTime><xref:System.DateTimeOffset>
 
-### <a name="when-using-xrefsystemtextjsonjsonserializer"></a>当使用<xref:System.Text.Json.JsonSerializer>
+### <a name="when-using-xrefsystemtextjsonjsonserializer"></a>当使用 <xref:System.Text.Json.JsonSerializer>
 
-如果希望序列化程序执行自定义分析或格式设置，可以实现[自定义转换器](xref:System.Text.Json.Serialization.JsonConverter%601)。
+如果希望序列化程序执行自定义分析或格式设置，可以实现 [自定义转换器](xref:System.Text.Json.Serialization.JsonConverter%601)。
 以下是一些示例：
 
-#### <a name="using-datetimeoffsetparse-and-datetimeoffsettostring"></a>使用 `DateTime(Offset).Parse` 和`DateTime(Offset).ToString`
+#### <a name="using-datetimeoffsetparse-and-datetimeoffsettostring"></a>使用 `DateTime(Offset).Parse` 和 `DateTime(Offset).ToString`
 
 如果无法确定输入 <xref:System.DateTime> 或 <xref:System.DateTimeOffset> 文本表示形式的格式，则可以使用 `DateTime(Offset).Parse` 转换器读取逻辑中的方法。 这允许使用。NET 对分析各种 <xref:System.DateTime> 和文本格式的广泛支持 <xref:System.DateTimeOffset> ，包括非 iso 8601 字符串和不符合扩展 iso 8601-1:2019 配置文件的 iso 8601 格式。 与使用序列化程序的本机实现相比，此方法的性能大大降低。
 
-对于序列化，可以 `DateTime(Offset).ToString` 在转换器写入逻辑中使用方法。 这使您可以 <xref:System.DateTime> <xref:System.DateTimeOffset> 使用任何[标准日期和时间格式](../base-types/standard-date-and-time-format-strings.md)以及[自定义日期和时间格式](../base-types/custom-date-and-time-format-strings.md)来编写和值。
+对于序列化，可以 `DateTime(Offset).ToString` 在转换器写入逻辑中使用方法。 这使您可以 <xref:System.DateTime> <xref:System.DateTimeOffset> 使用任何 [标准日期和时间格式](../base-types/standard-date-and-time-format-strings.md)以及 [自定义日期和时间格式](../base-types/custom-date-and-time-format-strings.md)来编写和值。
 与使用序列化程序的本机实现相比，这种性能也明显降低。
 
 [!code-csharp[example-showing-datetime-parse](~/samples/snippets/standard/datetime/json/csharp/datetime-converter-examples/example1/Program.cs)]
@@ -83,18 +83,18 @@ ms.locfileid: "87854888"
 > 在实现时 <xref:System.Text.Json.Serialization.JsonConverter%601> ，和 `T` 为时 <xref:System.DateTime> ， `typeToConvert` 参数将始终为 `typeof(DateTime)` 。
 参数可用于处理多态事例和使用泛型以高 `typeof(T)` 性能方式获取。
 
-#### <a name="using-xrefsystembufferstextutf8parser-and-xrefsystembufferstextutf8formatter"></a>使用 <xref:System.Buffers.Text.Utf8Parser> 和<xref:System.Buffers.Text.Utf8Formatter>
+#### <a name="using-xrefsystembufferstextutf8parser-and-xrefsystembufferstextutf8formatter"></a>使用 <xref:System.Buffers.Text.Utf8Parser> 和 <xref:System.Buffers.Text.Utf8Formatter>
 
-如果输入 <xref:System.DateTime> 或 <xref:System.DateTimeOffset> 文本表示形式符合 "R"、"l"、"O" 或 "G"[标准日期和时间格式字符串](../base-types/standard-date-and-time-format-strings.md)之一，或者您想要根据这些格式中的一种进行写入，则可以在转换器逻辑中使用快速的基于 utf-8 的分析和格式设置方法。 这比使用和更快 `DateTime(Offset).Parse` `DateTime(Offset).ToString` 。
+如果输入 <xref:System.DateTime> 或 <xref:System.DateTimeOffset> 文本表示形式符合 "R"、"l"、"O" 或 "G" [标准日期和时间格式字符串](../base-types/standard-date-and-time-format-strings.md)之一，或者您想要根据这些格式中的一种进行写入，则可以在转换器逻辑中使用快速的基于 utf-8 的分析和格式设置方法。 这比使用和更快 `DateTime(Offset).Parse` `DateTime(Offset).ToString` 。
 
-此示例演示一个自定义转换器，该转换器 <xref:System.DateTime> 根据["R" 标准格式](../base-types/standard-date-and-time-format-strings.md#the-rfc1123-r-r-format-specifier)对值进行序列化和反序列化：
+此示例演示一个自定义转换器，该转换器 <xref:System.DateTime> 根据 ["R" 标准格式](../base-types/standard-date-and-time-format-strings.md#the-rfc1123-r-r-format-specifier)对值进行序列化和反序列化：
 
 [!code-csharp[example-showing-utf8-parser-and-formatter](~/samples/snippets/standard/datetime/json/csharp/datetime-converter-examples/example2/Program.cs)]
 
 > [!NOTE]
 > "R" 标准格式的长度始终为29个字符。
 >
-> "L" (小写 "L" ) 格式不附带其他[标准日期和时间格式字符串](../base-types/standard-date-and-time-format-strings.md)，因为仅和类型支持此格式 `Utf8Parser` `Utf8Formatter` 。 格式为小写 RFC 1123 ("R" 格式的小写版本) ，例如： "thu，25 7 2019 月 06:36:07 gmt"。
+> "L" (小写 "L" ) 格式不附带其他 [标准日期和时间格式字符串](../base-types/standard-date-and-time-format-strings.md) ，因为仅和类型支持此格式 `Utf8Parser` `Utf8Formatter` 。 格式为小写 RFC 1123 ("R" 格式的小写版本) ，例如： "thu，25 7 2019 月 06:36:07 gmt"。
 
 #### <a name="using-datetimeoffsetparse-as-a-fallback-to-the-serializers-native-parsing"></a>使用 `DateTime(Offset).Parse` 作为序列化程序的本机解析的回退
 
@@ -103,7 +103,7 @@ ms.locfileid: "87854888"
 
 [!code-csharp[example-showing-datetime-parse-as-fallback](~/samples/snippets/standard/datetime/json/csharp/datetime-converter-examples/example3/Program.cs)]
 
-### <a name="when-writing-with-xrefsystemtextjsonutf8jsonwriter"></a>写入时<xref:System.Text.Json.Utf8JsonWriter>
+### <a name="when-writing-with-xrefsystemtextjsonutf8jsonwriter"></a>写入时 <xref:System.Text.Json.Utf8JsonWriter>
 
 如果要使用编写自定义 <xref:System.DateTime> 或 <xref:System.DateTimeOffset> 文本表示形式 <xref:System.Text.Json.Utf8JsonWriter> ，可以将自定义表示形式设置为 <xref:System.String> 、 `ReadOnlySpan<Byte>` 、 `ReadOnlySpan<Char>` 或 <xref:System.Text.Json.JsonEncodedText> ，然后将其传递给相应的 <xref:System.Text.Json.Utf8JsonWriter.WriteStringValue%2A?displayProperty=nameWithType> 或 <xref:System.Text.Json.Utf8JsonWriter.WriteString%2A?displayProperty=nameWithType> 方法。
 
@@ -111,7 +111,7 @@ ms.locfileid: "87854888"
 
 [!code-csharp[example-custom-writing-with-utf8jsonwriter](~/samples/snippets/standard/datetime/json/csharp/custom-writing-with-utf8jsonwriter/Program.cs)]
 
-### <a name="when-reading-with-xrefsystemtextjsonutf8jsonreader"></a>读取时<xref:System.Text.Json.Utf8JsonReader>
+### <a name="when-reading-with-xrefsystemtextjsonutf8jsonreader"></a>读取时 <xref:System.Text.Json.Utf8JsonReader>
 
 如果要使用读取自定义 <xref:System.DateTime> 或 <xref:System.DateTimeOffset> 文本表示形式 <xref:System.Text.Json.Utf8JsonReader> ，可以使用获取当前 JSON 标记的值 <xref:System.String> <xref:System.Text.Json.Utf8JsonReader.GetString> ，然后使用自定义逻辑分析该值。
 
@@ -125,11 +125,11 @@ ms.locfileid: "87854888"
 
 在中实现的扩展 ISO 8601-1:2019 配置文件 <xref:System.Text.Json> 定义了日期和时间表示的以下组件。 这些组件用于定义分析和格式设置 <xref:System.DateTime> 和表示形式时支持的各种粒度级别 <xref:System.DateTimeOffset> 。
 
-| 组件       | 格式                      | 描述                                                                     |
+| 组件       | 格式                      | 说明                                                                     |
 |-----------------|-----------------------------|---------------------------------------------------------------------------------|
 | 年龄            | “yyyy”                      | 0001-9999                                                                       |
 | 月份           | “MM”                        | 01-12                                                                           |
-| 天             | “dd”                        | 01-28、01-29、01-30、01-31 （基于月份/年份）                                  |
+| 日期             | “dd”                        | 01-28、01-29、01-30、01-31 （基于月份/年份）                                  |
 | 小时            | “HH”                        | 00-23                                                                           |
 | Minute          | “mm”                        | 00-59                                                                           |
 | 秒          | “ss”                        | 00-59                                                                           |
@@ -151,7 +151,7 @@ ms.locfileid: "87854888"
     1. "yyyy'-'mm'-'dd't'hh-YYYY'-'MM'-'DD'T'HH-Yyyy'-'mm'-'dd't'hh"： "MM"
 
 3. "" 完整日期 "不是" "部分时间" "
-    1. "yyyy'-'mm'-'dd't'hh-YYYY'-'MM'-'DD'T'HH-Yyyy'-'mm'-'dd't'hh"： "MM"： "ss" (可[排序 ( "s" ) 格式说明符](../base-types/standard-date-and-time-format-strings.md#the-sortable-s-format-specifier)) 
+    1. "yyyy'-'mm'-'dd't'hh-YYYY'-'MM'-'DD'T'HH-Yyyy'-'mm'-'dd't'hh"： "MM"： "ss" (可 [排序 ( "s" ) 格式说明符](../base-types/standard-date-and-time-format-strings.md#the-sortable-s-format-specifier)) 
     2. "yyyy'-'mm'-'dd't'hh-YYYY'-'MM'-'DD'T'HH-Yyyy'-'mm'-'dd't'hh"： "MM"： "ss"。FFFFFFF
 
 4. "" 完整日期 "不是" "，时间小时" "：" "分钟" "时间偏移" "
@@ -164,7 +164,13 @@ ms.locfileid: "87854888"
     3. "yyyy'-'mm'-'dd't'hh-YYYY'-'MM'-'DD'T'HH-Yyyy'-'mm'-'dd't'hh"： "MM"： "ss (" + "/"-") HH"： "MM"
     4. "yyyy'-'mm'-'dd't'hh-YYYY'-'MM'-'DD'T'HH-Yyyy'-'mm'-'dd't'hh"： "MM"： "ss"。FFFFFFF ( "+"/"-" ) HH "：" mm "
 
-如果有秒的小数部分，则必须至少有一个数字;`2019-07-26T00:00:00.`不允许。
+    此粒度级别符合 [RFC 3339](https://tools.ietf.org/html/rfc3339#section-5.6)，它是用于交换日期和时间信息的广泛采用的 ISO 8601 配置文件。 不过，System.Text.Js的实现有一些限制。
+
+    - RFC 3339 不指定最大的小数位数，但指定如果存在分数第二部分，则至少有一个数字必须在句点之后。 System.Text.Js上的实现允许多达16位 (支持与其他编程语言和框架) 互操作，但仅分析前七个。 <xref:System.Text.Json.JsonException>如果读取和实例时有超过16个小数位数，则会引发 `DateTime` `DateTimeOffset` 。
+    - RFC 3339 允许 "T" 和 "Z" 字符分别为 "t" 或 "z"，但允许应用程序将支持限制为仅大写形式。 System.Text.Js上的实现要求它们为 "T" 和 "Z"。 <xref:System.Text.Json.JsonException>如果输入负载在读取和实例时包含 "t" 或 "z"，则将引发 `DateTime` `DateTimeOffset` 。
+    - RFC 3339 指定日期和时间部分由 "T" 分隔，但允许应用程序使用空格分隔它们 ( "" ) 。 System.Text.Js要求将日期和时间部分与 "T" 分隔开。 <xref:System.Text.Json.JsonException>如果输入负载包含空格 ( "" ) 读取和实例时，将引发 `DateTime` `DateTimeOffset` 。
+
+如果有秒的小数部分，则必须至少有一个数字; `2019-07-26T00:00:00.` 不允许。
 尽管允许最多包含16个小数位，但仅分析前7个小数。 超出的任何内容都将被视为零。
 例如， `2019-07-26T00:00:00.1234567890` 将按原样进行分析 `2019-07-26T00:00:00.1234567` 。
 这是为了保持与实现的兼容性 <xref:System.DateTime> ，这仅限于此解决方案。
@@ -176,7 +182,7 @@ ms.locfileid: "87854888"
 为格式化定义了下列粒度级别：
 
 1. "" 完整日期 "不是" "部分时间" "
-    1. "yyyy'-'mm'-'dd't'hh-YYYY'-'MM'-'DD'T'HH-Yyyy'-'mm'-'dd't'hh"： "MM"： "ss" (可[排序 ( "s" ) 格式说明符](../base-types/standard-date-and-time-format-strings.md#the-sortable-s-format-specifier)) 
+    1. "yyyy'-'mm'-'dd't'hh-YYYY'-'MM'-'DD'T'HH-Yyyy'-'mm'-'dd't'hh"： "MM"： "ss" (可 [排序 ( "s" ) 格式说明符](../base-types/standard-date-and-time-format-strings.md#the-sortable-s-format-specifier)) 
 
         用于设置 <xref:System.DateTime> 不包含秒的小数部分和不含偏移量信息的格式。
 
@@ -201,11 +207,13 @@ ms.locfileid: "87854888"
 
         用于设置 <xref:System.DateTime> 或 <xref:System.DateTimeOffset> 的小数部分或局部偏移量的格式。
 
-如果或实例的[往返格式](../base-types/standard-date-and-time-format-strings.md#the-round-trip-o-o-format-specifier)表示形式 <xref:System.DateTime> <xref:System.DateTimeOffset> 在其小数部分中有尾随零，则 <xref:System.Text.Json.JsonSerializer> 和将在 <xref:System.Text.Json.Utf8JsonWriter> 没有尾随零的情况下格式化实例的表示形式。
-例如，如果 <xref:System.DateTime> 实例的[往返格式](../base-types/standard-date-and-time-format-strings.md#the-round-trip-o-o-format-specifier)表示形式为，则 `2019-04-24T14:50:17.1010000Z` 将 `2019-04-24T14:50:17.101Z` 按和格式化 <xref:System.Text.Json.JsonSerializer> <xref:System.Text.Json.Utf8JsonWriter> 。
+    此粒度级别与 [RFC 3339](https://tools.ietf.org/html/rfc3339#section-5.6)兼容。
 
-如果或实例的[往返格式](../base-types/standard-date-and-time-format-strings.md#the-round-trip-o-o-format-specifier)表示形式 <xref:System.DateTime> <xref:System.DateTimeOffset> 在其小数部分中均为零，则 <xref:System.Text.Json.JsonSerializer> 和将在 <xref:System.Text.Json.Utf8JsonWriter> 没有秒小数部分的情况下格式化实例的表示形式。
-例如，如果 <xref:System.DateTime> 实例的[往返格式](../base-types/standard-date-and-time-format-strings.md#the-round-trip-o-o-format-specifier)表示形式为，则 `2019-04-24T14:50:17.0000000+02:00` 将 `2019-04-24T14:50:17+02:00` 按和格式化 <xref:System.Text.Json.JsonSerializer> <xref:System.Text.Json.Utf8JsonWriter> 。
+如果或实例的 [往返格式](../base-types/standard-date-and-time-format-strings.md#the-round-trip-o-o-format-specifier) 表示形式 <xref:System.DateTime> <xref:System.DateTimeOffset> 在其小数部分中有尾随零，则 <xref:System.Text.Json.JsonSerializer> 和将在 <xref:System.Text.Json.Utf8JsonWriter> 没有尾随零的情况下格式化实例的表示形式。
+例如，如果 <xref:System.DateTime> 实例的 [往返格式](../base-types/standard-date-and-time-format-strings.md#the-round-trip-o-o-format-specifier) 表示形式为，则 `2019-04-24T14:50:17.1010000Z` 将 `2019-04-24T14:50:17.101Z` 按和格式化 <xref:System.Text.Json.JsonSerializer> <xref:System.Text.Json.Utf8JsonWriter> 。
+
+如果或实例的 [往返格式](../base-types/standard-date-and-time-format-strings.md#the-round-trip-o-o-format-specifier) 表示形式 <xref:System.DateTime> <xref:System.DateTimeOffset> 在其小数部分中均为零，则 <xref:System.Text.Json.JsonSerializer> 和将在 <xref:System.Text.Json.Utf8JsonWriter> 没有秒小数部分的情况下格式化实例的表示形式。
+例如，如果 <xref:System.DateTime> 实例的 [往返格式](../base-types/standard-date-and-time-format-strings.md#the-round-trip-o-o-format-specifier) 表示形式为，则 `2019-04-24T14:50:17.0000000+02:00` 将 `2019-04-24T14:50:17+02:00` 按和格式化 <xref:System.Text.Json.JsonSerializer> <xref:System.Text.Json.Utf8JsonWriter> 。
 
 如果截断秒的小数部分数字，则可以使用这些最小的输出来保留往返行程中的信息。
 

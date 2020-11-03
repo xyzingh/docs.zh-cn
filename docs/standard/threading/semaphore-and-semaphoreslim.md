@@ -6,19 +6,20 @@ ms.technology: dotnet-standard
 helpviewer_keywords:
 - counting semaphores
 - semaphores
-- threading [.NET Framework], cross-process synchronization
+- threading [.NET], cross-process synchronization
 - Semaphore class, about Semaphore class
 - SemaphoreSlim class, about SemaphoreSlim class
-- threading [.NET Framework], Semaphore class
+- threading [.NET], Semaphore class
 ms.assetid: 7722a333-b974-47a2-a7c0-f09097fb644e
-ms.openlocfilehash: 21f0d7e3fb446a7b750c45cfe8ef3f087a77888a
-ms.sourcegitcommit: cdb295dd1db589ce5169ac9ff096f01fd0c2da9d
+ms.openlocfilehash: b9c13ace086b4df08108a844aea78e5d550e6958
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84600446"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188934"
 ---
 # <a name="semaphore-and-semaphoreslim"></a>Semaphore 和 SemaphoreSlim
+
 <xref:System.Threading.Semaphore?displayProperty=nameWithType> 类表示一个命名（系统范围内）或本地信号量。 它是环绕 Win32 信号量对象的精简包装器。 Win32 信号量是计数信号量，该可用于控制对资源池的访问。  
   
  <xref:System.Threading.SemaphoreSlim> 类表示一个轻量、快速的信号量，可在等待时间预计很短的情况下用于在单个进程内等待。 <xref:System.Threading.SemaphoreSlim> 尽可能多地依赖公共语言运行时 (CLR) 提供的同步基元。 但是，它还提供延迟初始化、基于内核的等待句柄，作为在多个信号量上进行等待的必要支持。 <xref:System.Threading.SemaphoreSlim> 也支持使用取消标记，但不支持命名信号量或使用用于同步的等待句柄。  

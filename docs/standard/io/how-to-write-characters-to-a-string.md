@@ -9,16 +9,17 @@ helpviewer_keywords:
 - data streams, writing characters to string
 - writing characters to strings
 - streams, writing characters to strings
-- I/O [.NET Framework], writing characters to strings
+- I/O [.NET], writing characters to strings
 ms.assetid: 1222cbeb-0760-44bf-9888-914a2a37174b
-ms.openlocfilehash: 04fc21c452258a88292a886d952353ac55573121
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 5b0e20b911237739c143576d9a7be660f5da58c0
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84288246"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93189220"
 ---
 # <a name="how-to-write-characters-to-a-string"></a>如何：向字符串写入字符
+
 下面的代码示例从字符数组以同步或异步方式向字符串写入字符。  
   
 ## <a name="example-write-characters-synchronously-in-a-console-app"></a>示例：在控制台应用中以同步方式编写字符  

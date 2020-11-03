@@ -4,17 +4,17 @@ description: 了解 .NET 中的管道操作。 管道为进程间通信提供了
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 helpviewer_keywords:
-- pipes [.NET Framework]
-- pipe operations [.NET Framework]
-- interprocess communication [.NET Framework], pipes
-- I/O [.NET Framework], pipes
+- pipes [.NET]
+- pipe operations [.NET]
+- interprocess communication [.NET], pipes
+- I/O [.NET], pipes
 ms.assetid: 7b964ebd-7a4f-4d28-8194-7841f9e4c702
-ms.openlocfilehash: 35a3910bbab1b34f085a55524be0b18b3fa81958
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: 8d954d55e07a7cbb2b09843afe7f45b1ff5abcc7
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84768880"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188856"
 ---
 # <a name="pipe-operations-in-net"></a>.NET 中的管道操作
 管道为进程间通信提供了平台。 管道分为两种类型：  

@@ -10,18 +10,19 @@ dev_langs:
 helpviewer_keywords:
 - reading characters from strings
 - data streams, reading characters from string
-- I/O [.NET Framework], reading characters from strings
+- I/O [.NET], reading characters from strings
 - reading data, strings
 - streams, reading characters from string
 ms.assetid: 27ea5e52-6db8-42d8-980a-50bcfc7fd270
-ms.openlocfilehash: fa03d13036e9e245b8ca3f8c3218ae80a2762a12
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: c613f8170655601b72b87de4a20c295b1054bd1a
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90553943"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93189337"
 ---
 # <a name="how-to-read-characters-from-a-string"></a>如何：从字符串中读取字符
+
 下面的代码示例展示了如何从字符串中异步或同步读取字符。  
   
 ## <a name="example-read-characters-synchronously"></a>示例：同步读取字符

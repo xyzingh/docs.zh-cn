@@ -8,15 +8,15 @@ dev_langs:
 - vb
 helpviewer_keywords:
 - interrupting threads
-- threading [.NET Framework], pausing
+- threading [.NET], pausing
 - pausing threads
 ms.assetid: 9fce4859-a19d-4506-b082-7dd0792688ca
-ms.openlocfilehash: f7f414ec716bac5f1e840c5e8a0946024e059fb6
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: 07fe374acb3d2a3de3a1b51861feb5f8551ecc2e
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84769114"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188960"
 ---
 # <a name="pausing-and-interrupting-threads"></a>暂停和中断线程
 
