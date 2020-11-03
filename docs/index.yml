@@ -11,12 +11,12 @@ metadata:
   author: BillWagner
   ms.author: wiwagn
   ms.date: 10/9/2020
-  ms.openlocfilehash: 4c886fcf02c353a6571494d8939d85b48f8116bc
-  ms.sourcegitcommit: b59237ca4ec763969a0dd775a3f8f39f8c59fe24
+  ms.openlocfilehash: 0a173d85f5e7969831a2ace6aa860b6fde8cf579
+  ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/12/2020
-  ms.locfileid: "91955611"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93064179"
 highlightedContent:
   items:
   - title: 下载 .NET
@@ -30,7 +30,13 @@ highlightedContent:
     url: core/get-started.md
   - title: 创建自己的第一个 Web 应用。
     itemType: learn
-    url: https://dotnet.microsoft.com/learn/aspnet/hello-world-tutorial/intro
+    url: /learn/aspnet/hello-world-tutorial/intro
+  - title: 使用 C# 构建 .NET 应用程序
+    itemType: learn
+    url: /learn/paths/build-dotnet-applications-csharp/
+  - title: 浏览所有 .NET 学习路径和模块
+    itemType: learn
+    url: /learn/dotnet/
   - title: .NET 文档中的新增功能
     itemType: whats-new
     url: whats-new/index.yml

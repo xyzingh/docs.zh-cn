@@ -9,30 +9,30 @@ dev_langs:
 - cpp
 helpviewer_keywords:
 - generic methods, type inference
-- generics [.NET Framework], collections
-- generic interfaces [.NET Framework]
+- generics [.NET], collections
+- generic interfaces [.NET]
 - constructed generic types
 - nested generic types
 - generic type definitions
-- generic classes [.NET Framework]
-- generics [.NET Framework], interfaces
-- generics [.NET Framework], about
-- generics [.NET Framework]
-- generic collections [.NET Framework]
-- generic delegates [.NET Framework]
+- generic classes [.NET]
+- generics [.NET], interfaces
+- generics [.NET], about
+- generics [.NET]
+- generic collections [.NET]
+- generic delegates [.NET]
 - generic type arguments
-- generics [.NET Framework], delegates
-- generics [.NET Framework], features
-- constraints [.NET Framework]
+- generics [.NET], delegates
+- generics [.NET], features
+- constraints [.NET]
 - generic types
 - generic type parameters
 ms.assetid: 2994d786-c5c7-4666-ab23-4c83129fe39c
-ms.openlocfilehash: 91bb96c04c8a5d410f0a88c7e8eedf622fe66c94
-ms.sourcegitcommit: cdb295dd1db589ce5169ac9ff096f01fd0c2da9d
+ms.openlocfilehash: 6455de8e6b874547be7838090fc0527a6ce72b71
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84599810"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063151"
 ---
 # <a name="generics-in-net"></a>.NET 中的泛型
 
@@ -56,17 +56,17 @@ ms.locfileid: "84599810"
   
 - *泛型类型定义* 是用作模板的类、结构或接口声明，带有可包含或使用的类型的占位符。 例如， <xref:System.Collections.Generic.Dictionary%602?displayProperty=nameWithType> 类可以包含两种类型：密钥和值。 由于泛型类型定义只是一个模板，所以你无法创建作为泛型类型定义的类、结构或接口的实例。  
   
-- *泛型类型参数*（或*类型参数*）是泛型类型或方法定义中的占位符。 <xref:System.Collections.Generic.Dictionary%602?displayProperty=nameWithType> 泛型类型具有两个类型形参 `TKey` 和 `TValue`，它们分别代表密钥和值的类型。  
+- *泛型类型参数* （或 *类型参数* ）是泛型类型或方法定义中的占位符。 <xref:System.Collections.Generic.Dictionary%602?displayProperty=nameWithType> 泛型类型具有两个类型形参 `TKey` 和 `TValue`，它们分别代表密钥和值的类型。  
   
-- *构造泛型类型*（或 *构造类型*）是为泛型类型定义的泛型类型形参指定类型的结果。  
+- *构造泛型类型* （或 *构造类型* ）是为泛型类型定义的泛型类型形参指定类型的结果。  
   
 - *泛型类型实参* 是被泛型类型形参所替代的任何类型。  
   
-- 常见术语*泛型类型*包括构造类型和泛型类型定义。  
+- 常见术语 *泛型类型* 包括构造类型和泛型类型定义。  
   
-- 借助泛型类型参数的*协变*和*逆变*，可以使用类型自变量的派生程度比目标构造类型更高（协变）或更低（逆变）的构造泛型类型。 协变和逆变统称为“变体” 。 有关详细信息，请参阅[协变和逆变](covariance-and-contravariance.md)。  
+- 借助泛型类型参数的 *协变* 和 *逆变* ，可以使用类型自变量的派生程度比目标构造类型更高（协变）或更低（逆变）的构造泛型类型。 协变和逆变统称为“变体” 。 有关详细信息，请参阅[协变和逆变](covariance-and-contravariance.md)。  
   
-- *约束*是对泛型类型参数的限制。 例如，你可能会将一个类型形参限制为实现 <xref:System.Collections.Generic.IComparer%601?displayProperty=nameWithType> 泛型接口的类型，以确保可对该类型的实例进行排序。 此外，你还可以将类型形参限制为具有特定基类、具有无参数构造函数或作为引用类型或值类型的类型。 泛型类型的用户不能替换不满足约束条件的类型实参。  
+- *约束* 是对泛型类型参数的限制。 例如，你可能会将一个类型形参限制为实现 <xref:System.Collections.Generic.IComparer%601?displayProperty=nameWithType> 泛型接口的类型，以确保可对该类型的实例进行排序。 此外，你还可以将类型形参限制为具有特定基类、具有无参数构造函数或作为引用类型或值类型的类型。 泛型类型的用户不能替换不满足约束条件的类型实参。  
   
 - *泛型方法定义* 是具有两个形参列表的方法：泛型类型形参列表和形参列表。 类型形参可作为返回类型或形参类型出现，如以下代码所示。  
   
@@ -99,7 +99,7 @@ ms.locfileid: "84599810"
   
  以下是泛型的一些局限：  
   
-- 泛型类型可从多数基类中派生，如 <xref:System.MarshalByRefObject> （约束可用于要求泛型类型形参派生自诸如 <xref:System.MarshalByRefObject>的基类）。 不过，.NET Framework 不支持上下文绑定泛型类型。 泛型类型可派生自 <xref:System.ContextBoundObject>，但尝试创建该类型实例会导致 <xref:System.TypeLoadException>。  
+- 泛型类型可从多数基类中派生，如 <xref:System.MarshalByRefObject> （约束可用于要求泛型类型形参派生自诸如 <xref:System.MarshalByRefObject>的基类）。 不过，.NET 不支持上下文绑定的泛型类型。 泛型类型可派生自 <xref:System.ContextBoundObject>，但尝试创建该类型实例会导致 <xref:System.TypeLoadException>。  
   
 - 枚举不能具有泛型类型形参。 枚举偶尔可为泛型（例如，因为它嵌套在被定义使用 Visual Basic、C# 或 C++ 的泛型类型中）。 有关详细信息，请参阅 “[常规类型系统](../base-types/common-type-system.md)”中的“枚举”。  
   

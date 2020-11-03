@@ -3,12 +3,12 @@ title: 从 .NET Framework 移植到 .NET Core
 description: 了解移植过程以及发现在将 .NET Framework 项目移植到 .NET Core 时可能有用的工具。
 author: cartermp
 ms.date: 10/22/2019
-ms.openlocfilehash: c206e56e095d1ca068fa2aa6f60e891895f7f999
-ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
+ms.openlocfilehash: 00d6bb513a6bd8ee511b69c07272f605c39e5619
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92888569"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063236"
 ---
 # <a name="overview-of-porting-from-net-framework-to-net-core"></a>从 .NET Framework 移植到 .NET Core 的概述
 
@@ -65,7 +65,7 @@ ms.locfileid: "92888569"
 
 1. 使用 [.NET 可移植性分析器](../../standard/analyzers/portability-analyzer.md)来分析程序集，并查看这些程序集是否可移植到 .NET Core。
 
-   .NET 可移植性分析器工具可分析已编译的程序集并生成报表。 此报表显示高级别可移植性摘要，以及你所使用的不适用于 NET Core 的各个 API 细目。 使用该工具时，只提交你正在转换的单个项目，从而专注于可能需要的 API 更改。 很多 API 在 .NET Core 中具有相同的可用性，而你需要切换到该平台。
+   .NET 可移植性分析器工具可分析已编译的程序集并生成报表。 此报表显示高级别可移植性摘要，以及你所使用的不适用于 .NET Core 的各个 API 细目。 使用该工具时，只提交你正在转换的单个项目，从而专注于可能需要的 API 更改。 很多 API 在 .NET Core 中具有相同的可用性，而你需要切换到该平台。
 
    在读取分析器生成的报表时，重要的信息是正在使用的实际 API，而不一定是对目标平台的支持百分比。 很多 API 在 .NET Standard/Core 中都有等效选项，因此了解你的库或应用程序需要 API 实现的方案将有助于确定可移植性的影响。
 
