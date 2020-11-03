@@ -17,25 +17,25 @@ helpviewer_keywords:
 - decryption
 - data [.NET], encryption
 ms.assetid: 606698b0-cb1a-42ca-beeb-0bea34205d20
-ms.openlocfilehash: 263a07ddf357734e819fffdd41cdff60657adf15
-ms.sourcegitcommit: b7a8b09828bab4e90f66af8d495ecd7024c45042
+ms.openlocfilehash: d3fe7ef3ddbc6e75a248101829b11a8abcb3c15a
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87557055"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282056"
 ---
 # <a name="how-to-use-data-protection"></a>如何：使用数据保护
 
 > [!NOTE]
 > 本文适用于 Windows。
 >
-> 有关 ASP.NET Core 的信息，请参阅[ASP.NET Core 数据保护](/aspnet/core/security/data-protection/introduction)。
+> 有关 ASP.NET Core 的信息，请参阅 [ASP.NET Core 数据保护](/aspnet/core/security/data-protection/introduction)。
 
 .NET 提供对数据保护 API 的访问 (DPAPI) ，这允许你使用来自当前用户帐户或计算机的信息加密数据。  当使用 DPAPI 时，你会使显式生成和存储加密密钥的困难问题得到缓解。  
   
 使用 <xref:System.Security.Cryptography.ProtectedData> 类来加密字节数组的副本。 此功能在 .NET Framework、.NET Core 和 .NET 5 中可用。  你可以指定由当前用户帐户加密的数据仅能通过相同的用户帐户解密，也可以指定由当前用户帐户加密的数据可以通过计算机上的任何帐户进行解密。  请参阅 <xref:System.Security.Cryptography.DataProtectionScope> 枚举以获取 <xref:System.Security.Cryptography.ProtectedData> 选项的详细说明。  
   
-### <a name="to-encrypt-data-to-a-file-or-stream-using-data-protection"></a>若要使用数据保护将数据加密到文件或流  
+## <a name="encrypt-data-to-a-file-or-stream-using-data-protection"></a>使用数据保护将数据加密到文件或流  
   
 1. 创建随机平均信息量。  
   
@@ -64,7 +64,7 @@ ms.locfileid: "87557055"
   
 - 包括 <xref:System>、<xref:System.IO>、<xref:System.Security.Cryptography> 和 <xref:System.Text> 命名空间。  
   
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [加密模型](cryptography-model.md)
 - [加密服务](cryptographic-services.md)

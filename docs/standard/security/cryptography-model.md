@@ -10,12 +10,12 @@ helpviewer_keywords:
 - cryptography [.NET], model
 - encryption [.NET], model
 ms.assetid: 12fecad4-fbab-432a-bade-2f05976a2971
-ms.openlocfilehash: 0b3e07238bf0932572c222f7b947cfa7ae0221a9
-ms.sourcegitcommit: b7a8b09828bab4e90f66af8d495ecd7024c45042
+ms.openlocfilehash: a157a9a76f87a2a56c616b76c933e6d8d6415b03
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87556990"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93281579"
 ---
 # <a name="net-cryptography-model"></a>.NET 加密模型
 
@@ -25,7 +25,7 @@ ms.locfileid: "87556990"
 
 .NET 加密系统实现了派生类继承的可扩展模式。 层次结构如下所示：
 
-- 算法类型类，如 <xref:System.Security.Cryptography.SymmetricAlgorithm> 、 <xref:System.Security.Cryptography.AsymmetricAlgorithm> 或 <xref:System.Security.Cryptography.HashAlgorithm> 。 此级别是抽象的。
+- 算法类型类，如 <xref:System.Security.Cryptography.SymmetricAlgorithm> 、  <xref:System.Security.Cryptography.AsymmetricAlgorithm> 或 <xref:System.Security.Cryptography.HashAlgorithm> 。 此级别是抽象的。
 
 - 从算法类型类继承的算法类；例如，<xref:System.Security.Cryptography.Aes>、<xref:System.Security.Cryptography.RSA> 或 <xref:System.Security.Cryptography.ECDiffieHellman>。 此级别是抽象的。
 
@@ -37,15 +37,15 @@ ms.locfileid: "87556990"
 
 作为可用于一种算法的不同实现的示例，请考虑对称算法。 所有对称算法的基数都是 <xref:System.Security.Cryptography.SymmetricAlgorithm> ，它由 <xref:System.Security.Cryptography.Aes> 、和继承， <xref:System.Security.Cryptography.TripleDES> 并且不再推荐使用。
 
-<xref:System.Security.Cryptography.Aes>由 <xref:System.Security.Cryptography.AesCryptoServiceProvider> 、和继承 <xref:System.Security.Cryptography.AesCng> <xref:System.Security.Cryptography.AesManaged> 。
+<xref:System.Security.Cryptography.Aes> 由 <xref:System.Security.Cryptography.AesCryptoServiceProvider> 、和继承 <xref:System.Security.Cryptography.AesCng> <xref:System.Security.Cryptography.AesManaged> 。
 
 在 Windows .NET Framework 中：
 
-* `*CryptoServiceProvider`算法类（如 <xref:System.Security.Cryptography.AesCryptoServiceProvider> ）是 (CAPI) 实现算法的 Windows 加密 API 的包装器。
-* `*Cng`算法类（如） <xref:System.Security.Cryptography.ECDiffieHellmanCng> 是围绕 Windows 加密下一代 (CNG) 实现的包装。
-* `*Managed`类（如 <xref:System.Security.Cryptography.AesManaged> ）完全用托管代码编写而成。 `*Managed`实现不是由 (FIPS) 的联邦信息处理标准认证的，可能比 `*CryptoServiceProvider` 和 `*Cng` 包装类更慢。
+* `*CryptoServiceProvider` 算法类（如 <xref:System.Security.Cryptography.AesCryptoServiceProvider> ）是 (CAPI) 实现算法的 Windows 加密 API 的包装器。
+* `*Cng` 算法类（如 <xref:System.Security.Cryptography.ECDiffieHellmanCng> ）是围绕 Windows 加密下一代 (CNG) 实现的包装。
+* `*Managed` 类（如 <xref:System.Security.Cryptography.AesManaged> ）完全用托管代码编写而成。 `*Managed` 实现不是由 (FIPS) 的联邦信息处理标准认证的，可能比 `*CryptoServiceProvider` 和 `*Cng` 包装类更慢。
 
-在 .NET Core 和 .NET 5 及更高版本中，所有实现类 (`*CryptoServiceProvider` 、 `*Managed` 和 `*Cng`) 都是操作系统 (OS) 算法的包装器。 如果 OS 算法经过 FIPS 认证，则 .NET 将使用 FIPS 认证的算法。 有关详细信息，请参阅[跨平台加密](cross-platform-cryptography.md)。
+在 .NET Core 和 .NET 5 及更高版本中，所有实现类 (`*CryptoServiceProvider` 、 `*Managed` 和 `*Cng`) 都是操作系统 (OS) 算法的包装器。 如果 OS 算法经过 FIPS 认证，则 .NET 将使用 FIPS 认证的算法。 有关详细信息，请参阅 [跨平台加密](cross-platform-cryptography.md)。
 
 大多数情况下，不需要直接引用算法实现类，如 `AesCryptoServiceProvider` 。 通常需要的方法和属性在基本算法类上，如 `Aes` 。 使用基算法类的工厂方法创建默认实现类的实例，并引用基本算法类。 例如，请参阅以下示例中突出显示的代码行：
 
@@ -78,7 +78,7 @@ ms.locfileid: "87556990"
 - 从密码生成密钥：
   - <xref:System.Security.Cryptography.Rfc2898DeriveBytes>
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [加密服务](cryptographic-services.md)
 - [跨平台加密](cross-platform-cryptography.md)

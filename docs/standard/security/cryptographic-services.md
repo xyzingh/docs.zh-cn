@@ -25,12 +25,12 @@ helpviewer_keywords:
 - cryptography [.NET], about
 - random number generation
 ms.assetid: f96284bc-7b73-44b5-ac59-fac613ad09f8
-ms.openlocfilehash: 651231dcc41926307e3a46b67c80ba3df1fb25e9
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 463ccec5f60ff10331d501d39144a979d95eff95
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90549975"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93281731"
 ---
 # <a name="cryptographic-services"></a>加密服务
 
@@ -56,7 +56,7 @@ ms.locfileid: "90549975"
 
 若要实现这些目标，可以使用称为加密基元的算法和惯例的组合来创建加密方案。 下表列出了加密基元以及其用途。
 
-|加密基元|使用|
+|加密基元|用途|
 |-----------------------------|---------|
 |私钥加密（对称加密）|在数据上执行转换，以防止其被第三方读取。 此类型的加密使用单个共享的密钥来加密和解密数据。|
 |公钥加密（非对称加密）|在数据上执行转换，以防止其被第三方读取。 此类型的加密使用公钥/私钥对来加密和解密数据。|
@@ -71,7 +71,7 @@ ms.locfileid: "90549975"
 
 一种名为分组加密的密钥算法用于一次加密一个数据块。 分组加密（例如数据加密标准 (DES)、TripleDES 和高级加密标准 (AES)）可将 *n* 字节的输入块通过加密转换为由加密字节构成的输出块。 如果想要加密或解密字节序列，则必须逐块执行。 由于 *n* 很小（DES 和 TripleDES 为 8 字节；AES 为 16 字节 [默认值]、24 字节或 32 字节），所以对于大于 *n* 的数据值，必须一次加密一个数据块。 小于 *n* 的数据值则必须扩展为 *n* 才能进行处理。
 
-分组加密的一种简单形式被称为电子密码本 (ECB) 模式。 ECB 模式被视为不安全，因为它不使用初始化向量来初始化第一个纯文本块。 对于给定的密钥 *k*，不使用初始化向量的简单分组加密会将相同的纯文本输入块加密为相同的已加密文本的输出块。 因此，如果输入的纯文本流中存在重复的块，则输出密码文本流中也会有重复的块。 这些重复的输出块会警告未经授权的用户使用了可能被采用的算法访问不可靠的加密以及可能的攻击模式。 因此，ECB 密码模式非常易于分析，最终导致密钥易于被发现。
+分组加密的一种简单形式被称为电子密码本 (ECB) 模式。 ECB 模式被视为不安全，因为它不使用初始化向量来初始化第一个纯文本块。 对于给定的密钥 *k* ，不使用初始化向量的简单分组加密会将相同的纯文本输入块加密为相同的已加密文本的输出块。 因此，如果输入的纯文本流中存在重复的块，则输出密码文本流中也会有重复的块。 这些重复的输出块会警告未经授权的用户使用了可能被采用的算法访问不可靠的加密以及可能的攻击模式。 因此，ECB 密码模式非常易于分析，最终导致密钥易于被发现。
 
 基类库中提供的分组加密类使用称为加密块链接 (CBC) 的默认链接模式，但可随意更改此默认设置。
 
@@ -123,7 +123,7 @@ ms.locfileid: "90549975"
 
 - <xref:System.Security.Cryptography.DSA>
 
-RSA 允许加密和签名，但 DSA 仅可用于签名。 DSA 不如 RSA 那么安全，我们建议 RSA。 Diffie-hellman 仅可用于生成密钥。 一般情况下，公钥算法的使用比私钥算法的更受限制。
+RSA 允许加密和签名，但 DSA 仅可用于签名。 DSA 不如 RSA 那么安全，我们建议 RSA。 Diffie-Hellman 只能用于密钥生成。 一般情况下，公钥算法的使用比私钥算法的更受限制。
 
 ## <a name="digital-signatures"></a>数字签名
 
@@ -178,13 +178,13 @@ RSA 允许加密和签名，但 DSA 仅可用于签名。 DSA 不如 RSA 那么�
 
 ## <a name="random-number-generation"></a>随机数生成
 
-随机数生成是很多加密操作的必要组成部分。 例如，加密密钥需要尽可能的随机，以便使其很难再现。 加密随机数生成器必须生成在计算上预测的可能性不可大于 50% 的输出。 因此，预测下一个输出位的任何方法均不能比随机推测执行地更好。 .NET Framework 中的类使用随机数生成器来生成加密密钥。
+随机数生成是很多加密操作的必要组成部分。 例如，加密密钥需要尽可能的随机，以便使其很难再现。 加密随机数生成器必须生成在计算上预测的可能性不可大于 50% 的输出。 因此，预测下一个输出位的任何方法均不能比随机推测执行地更好。 .NET 中的类使用随机数生成器来生成加密密钥。
 
 <xref:System.Security.Cryptography.RandomNumberGenerator> 类是随机数生成器算法的一个实现。
 
 ## <a name="clickonce-manifests"></a>ClickOnce 清单
 
-在 .NET Framework 3.5 中，以下加密类使你可以获取并验证有关使用 [ClickOnce 技术](/visualstudio/deployment/clickonce-security-and-deployment)部署的应用程序的清单签名的信息：
+以下加密类使你可以获取并验证有关使用 [ClickOnce 技术](/visualstudio/deployment/clickonce-security-and-deployment)部署的应用程序的清单签名的信息：
 
 - 当使用清单签名的 <xref:System.Security.Cryptography.ManifestSignatureInformation> 方法重载时， <xref:System.Security.Cryptography.ManifestSignatureInformation.VerifySignature%2A> 类将获取此清单签名的相关信息。
 
@@ -192,7 +192,7 @@ RSA 允许加密和签名，但 DSA 仅可用于签名。 DSA 不如 RSA 那么�
 
 - <xref:System.Security.Cryptography.ManifestSignatureInformationCollection> 类提供已验证签名的 <xref:System.Security.Cryptography.ManifestSignatureInformation> 对象的只读集合。
 
- 此外，以下类提供特定的签名信息：
+此外，以下类提供特定的签名信息：
 
 - <xref:System.Security.Cryptography.StrongNameSignatureInformation> 包含清单的强名称签名信息。
 
@@ -204,11 +204,11 @@ RSA 允许加密和签名，但 DSA 仅可用于签名。 DSA 不如 RSA 那么�
 
 ## <a name="cryptography-next-generation-cng-classes"></a>下一代加密技术 (CNG) 类
 
-在 .NET Framework 3.5 及更高版本中，下一代加密技术 (CNG) 类提供了围绕本机 CNG 函数的托管包装。  (CNG 是 CryptoAPI 的替代。 ) 这些类的名称包含 "Cng"。 “中心到 CNG”包装类是 <xref:System.Security.Cryptography.CngKey> 密钥容器类，它将提取 CNG 密钥的存储和用法。 此类允许安全地存储密钥对或公钥并使用简单的字符串名称对其进行引用。 基于椭圆曲线的 <xref:System.Security.Cryptography.ECDsaCng> 签名类和 <xref:System.Security.Cryptography.ECDiffieHellmanCng> 加密类可以使用 <xref:System.Security.Cryptography.CngKey> 对象。
+下一代加密技术 (CNG) 类提供了围绕本机 CNG 函数的托管包装。  (CNG 是 CryptoAPI 的替代。 ) 这些类的名称包含 "Cng"。 “中心到 CNG”包装类是 <xref:System.Security.Cryptography.CngKey> 密钥容器类，它将提取 CNG 密钥的存储和用法。 此类允许安全地存储密钥对或公钥并使用简单的字符串名称对其进行引用。 基于椭圆曲线的 <xref:System.Security.Cryptography.ECDsaCng> 签名类和 <xref:System.Security.Cryptography.ECDiffieHellmanCng> 加密类可以使用 <xref:System.Security.Cryptography.CngKey> 对象。
 
 <xref:System.Security.Cryptography.CngKey> 类用于各种其他操作，包括打开、创建、删除和导出密钥。 在直接调用本机函数时，它还提供对要使用的基础密钥句柄的访问。
 
-.NET Framework 3.5 还包括各种支持的 CNG 类，如下所示：
+.NET 还包括各种支持的 CNG 类，如下所示：
 
 - <xref:System.Security.Cryptography.CngProvider> 维护密钥存储提供程序。
 
@@ -216,7 +216,7 @@ RSA 允许加密和签名，但 DSA 仅可用于签名。 DSA 不如 RSA 那么�
 
 - <xref:System.Security.Cryptography.CngProperty> 维护经常使用的密钥属性。
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [加密模型](cryptography-model.md) -介绍如何在基类库中实现加密。
 - [跨平台加密](cross-platform-cryptography.md)
