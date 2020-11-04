@@ -7,20 +7,20 @@ helpviewer_keywords:
 - IO namespace
 - files, I/O
 - System.IO namespace
-- I/O [.NET Framework]
+- I/O [.NET]
 - streams, I/O
 - data streams, I/O
 ms.assetid: 4f4a33a9-66b7-4cd7-a285-4ad3e4276cd2
-ms.openlocfilehash: 2f7da6bd967abce8c2fefdc54a0043b5505e22e3
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: aced59995c8d0f478d0565c8fb8faa4f40c32968
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90558935"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93189194"
 ---
 # <a name="file-and-stream-io"></a>文件和流 I/O
 
-文件和流 I/O（输入/输出）是指在存储媒介中传入或传出数据。 在 .NET Framework 中，`System.IO` 命名空间包含允许以异步方式和同步方式对数据流和文件进行读取和写入操作的类型。 这些命名空间还包含对文件执行压缩和解压缩的类型，以及通过管道和串行端口启用通信的类型。
+文件和流 I/O（输入/输出）是指在存储媒介中传入或传出数据。 在 .NET 中，`System.IO` 命名空间包含允许以异步方式和同步方式对数据流和文件进行读取和写入操作的类型。 这些命名空间还包含对文件执行压缩和解压缩的类型，以及通过管道和串行端口启用通信的类型。
 
 文件是一个由字节组成的有序的命名集合，它具有永久存储。 在处理文件时，你将处理目录路径、磁盘存储、文件和目录名称。 相反，流是一个字节序列，可用于对后备存储进行读取和写入操作，后备存储可以是多个存储媒介之一（例如，磁盘或内存）。 正如存在除磁盘之外的多种后备存储一样，也存在除文件流之外的多种流（如网络、内存和管道流）。
 
@@ -28,7 +28,7 @@ ms.locfileid: "90558935"
 
 你可以使用 <xref:System.IO?displayProperty=nameWithType> 命名空间中的类型与文件和目录进行交互。 例如，你可以获取和设置文件和目录的属性，并基于搜索条件检索文件和目录的集合。
 
-若要深入了解 Windows 系统中的路径命名约定和 文件路径的表示方式，包括在 .NET Core 1.1 及更高版本和 .NET Framework 4.6.2 及更高版本中支持的 DOS 设备语法，请参阅 [ Windows 系统中的文件路径格式](file-path-formats.md)。
+若要深入了解 Windows 系统中的路径命名约定和文件路径的表示方式，包括在 .NET Core 1.1 及更高版本和 .NET Framework 4.6.2 及更高版本中支持的 DOS 设备语法，请参阅 [Windows 系统中的文件路径格式](file-path-formats.md)。
 
 下面是一些常用的文件和目录类：
 
@@ -142,7 +142,7 @@ ms.locfileid: "90558935"
 
 ## <a name="io-operations-in-windows-store-apps"></a>Windows 应用商店应用程序中的 I/O 操作
 
-适用于 Windows 8.x 应用商店应用的 .NET 包含许多用于对流进行读取和写入操作的类型；但是，该集不包含所有的 .NET Framework I/O 类型。
+适用于 Windows 8.x 应用商店应用的 .NET 包含许多用于对流进行读取和写入操作的类型；但是，该集不包含所有的 .NET I/O 类型。
 
 在 Windows 8.x 应用商店应用中使用 I/O 操作时，要注意一些重要差异：
 
@@ -162,7 +162,7 @@ ms.locfileid: "90558935"
 
 在使用 <xref:System.IO?displayProperty=nameWithType> 命名空间中的类时，你必须遵循操作系统安全性要求（如访问控制列表 (ACL)）来控制对文件和目录的访问。 此要求是在所有 <xref:System.Security.Permissions.FileIOPermission> 要求之外的要求。 可以用编程方式管理 ACL。 有关详细信息，请参阅[如何：添加或删除访问控制列表条目](how-to-add-or-remove-access-control-list-entries.md)。
 
-默认安全策略将阻止 Internet 或 Intranet 应用程序访问用户计算机上的文件。 因此，在编写将通过 Internet 或 Intranet 下载的代码时，请不要使用需要物理文件路径的 I/O 类。 请转而将[独立存储](isolated-storage.md)用于传统 .NET Framework 应用程序，或将[应用程序数据](/previous-versions/windows/apps/hh464917(v=win.10))用于 Windows 8.x 应用商店应用。
+默认安全策略将阻止 Internet 或 Intranet 应用程序访问用户计算机上的文件。 因此，在编写将通过 Internet 或 Intranet 下载的代码时，请不要使用需要物理文件路径的 I/O 类。 请改用 .NET 应用程序的[独立存储](isolated-storage.md)。
 
 仅在构造流时执行安全性检查。 因此，请不要打开流并将其传递给受信程度较低的代码或应用程序域。
 
@@ -178,7 +178,7 @@ ms.locfileid: "90558935"
 描述一种数据存储机制，该机制通过定义标准的代码与保存数据的关联方式来提供隔离和安全性。
 
 - [管道](pipe-operations.md)\
-描述 .NET Framework 中的匿名和命名管道操作。
+描述 .NET 中的匿名和命名管道操作。
 
 - [内存映射文件](memory-mapped-files.md)\
 描述内存映射文件，这些文件包含虚拟内存中磁盘上文件的内容。 可以使用内存映射文件编辑非常大的文件和创建共享内存以进行进程间通信。

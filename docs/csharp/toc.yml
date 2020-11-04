@@ -46,6 +46,8 @@
               href: tutorials/intro-to-csharp/introduction-to-classes.md
             - name: 面向对象的编程
               href: tutorials/intro-to-csharp/object-oriented-programming.md
+    - name: 探索顶级语句
+      href: tutorials/exploration/top-level-statements.md
     - name: 探索 C# 6
       href: tutorials/exploration/csharp-6.yml
     - name: 探索字符串内插 - 交互式
