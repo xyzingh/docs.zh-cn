@@ -27,7 +27,7 @@ ms.locfileid: "91955688"
 ## <a name="prerequisites"></a>先决条件
 
 - [.NET Core 3.1 SDK](https://docs.microsoft.com/dotnet/core/install/)
-- Apache Spark[](https://spark.apache.org/downloads.html)
+- [Apache Spark](https://spark.apache.org/downloads.html)
 - [Apache Spark .NET 工作器](https://github.com/dotnet/spark/releases)
 
 请参阅[入门教程](../tutorials/get-started.md)，详细了解如何设置 .NET for Apache Spark 环境。
