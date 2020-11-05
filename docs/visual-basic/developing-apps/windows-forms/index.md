@@ -5,12 +5,12 @@ helpviewer_keywords:
 - Windows applications
 - Windows Forms, Visual Basic
 ms.assetid: 0b919d30-7fd6-42db-85c8-543d15312441
-ms.openlocfilehash: 9d061aeccb914cce80e02bb7df44dae2edf25412
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: ef02662a5492f117b252e464e92ec46e7484ef66
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90557014"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282168"
 ---
 # <a name="windows-forms-application-basics-visual-basic"></a>Windows 窗体应用程序基础知识 (Visual Basic)
 
@@ -28,7 +28,7 @@ Visual Basic 的重要功能之一是能够创建在用户计算机上本地运�
 
 ## <a name="building-rich-interactive-user-interfaces"></a>构建丰富的交互式用户界面
 
-Windows 窗体是 .NET Framework 的智能客户端组件，是一组支持读取和写入文件系统等常见应用程序任务的托管库。 使用类似于 Visual Studio 的开发环境时，可以创建 Windows 窗体应用程序，该应用程序可显示信息、请求来自用户的输入以及通过网络与远程计算机通信。
+Windows 窗体是 .NET Framework 和 .NET Core（不低于 .NET Core 3.0）的智能客户端组件。 它是一组托管库，支持常见的应用程序任务，如对文件系统的读写。 使用类似于 Visual Studio 的开发环境时，可以创建 Windows 窗体应用程序，该应用程序可显示信息、请求来自用户的输入以及通过网络与远程计算机通信。
 
 在 Windows 窗体中，窗体是一种可视图面，可在其上向用户显示信息。 通常情况下，可以通过在窗体上放置控件和开发对用户操作（如点击鼠标或按键）的响应来构建 Windows 窗体应用程序。 控件是离散的用户界面 (UI) 元素，用于显示数据或接受数据输入。
 
@@ -97,7 +97,7 @@ ClickOnce 应用程序可以配置为仅在用户连接到网络时运行，或�
 
 ## <a name="other-controls-and-features"></a>其他控件和功能
 
-Windows 窗体中有许多其他功能，可帮助快速轻松地实现常见任务，如对创建对话框、打印、添加帮助和文档以及将应用程序本地化为多种语言的支持。 此外，Windows 窗体依赖于 .NET Framework 的强大安全系统，从而使你能够向客户发布安全性更高的应用程序。
+Windows 窗体中还有许多其他功能，有助于轻松、快速地实现常见任务，如支持创建对话框、打印、添加文档以及将应用程序本地化为多种语言。 此外，Windows 窗体还依赖 .NET 的可靠安全系统，这样你就能向客户发布更安全的应用程序。
 
 有关如何使用这些功能的步骤信息，请参阅以下“帮助”主题：
 
