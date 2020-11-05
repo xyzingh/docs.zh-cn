@@ -10,20 +10,20 @@ helpviewer_keywords:
 - Event-based Asynchronous Pattern
 - ProgressChangedEventArgs class
 - BackgroundWorker component
-- events [.NET Framework], asynchronous
+- events [.NET], asynchronous
 - Asynchronous Pattern
 - AsyncOperationManager class
-- threading [.NET Framework], asynchronous features
-- components [.NET Framework], asynchronous
+- threading [.NET], asynchronous features
+- components [.NET], asynchronous
 - AsyncOperation class
 - AsyncCompletedEventArgs class
 ms.assetid: 43402d19-8d30-426d-8785-1a4478233bfa
-ms.openlocfilehash: 466a0dd8a827cd869894106a0901bdab89601e25
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: ca4b1b3ff1fb7180250de7436db9a4d642e8118c
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90559091"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888784"
 ---
 # <a name="implementing-the-event-based-asynchronous-pattern"></a>实现基于事件的异步模式
 
@@ -65,7 +65,7 @@ ms.locfileid: "90559091"
 
 ## <a name="naming-asynchronous-methods"></a>命名异步方法
 
-对于要向其提供异步等效方法的每个同步方法 *MethodName*：
+对于要向其提供异步等效方法的每个同步方法 *MethodName* ：
 
 定义满足以下条件的 MethodNameAsync 方法：
 
@@ -213,9 +213,9 @@ ms.locfileid: "90559091"
 
 ## <a name="handling-out-and-ref-parameters-in-methods"></a>处理方法中的 Out 和 Ref 参数
 
-虽然一般情况下，建议不要在 .NET Framework 中使用 `out` 和 `ref`但以下是使用它们时要遵循的规则：
+虽然一般情况下，建议不要在 .NET 中使用 `out` 和 `ref`，但以下是使用它们时要遵循的规则：
 
-给定同步方法 *MethodName*：
+给定同步方法 *MethodName* ：
 
 - MethodName 的 `out` 参数不应为 MethodNameAsync 的一部分。 它们应是 MethodNameCompletedEventArgs 的一部分，与 MethodName 中的相当参数同名（除非有更合适的名称）。
 

@@ -8,21 +8,21 @@ dev_langs:
 - vb
 - cpp
 helpviewer_keywords:
-- numeric format strings [.NET Framework]
-- formatting [.NET Framework], numbers
+- numeric format strings [.NET]
+- formatting [.NET], numbers
 - standard format strings, numeric
 - format strings
-- numbers [.NET Framework], formatting
+- numbers [.NET], formatting
 - format specifiers, numeric
 - standard numeric format strings
-- formatting numbers [.NET Framework]
+- formatting numbers [.NET]
 - format specifiers, standard numeric format strings
-ms.openlocfilehash: 857e8803d27ae634dec6e19c6d183943e1c4cc41
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: e5e1aa16d8df3d0cfce6dac00c91ca8e99e16e3d
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90557367"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888966"
 ---
 # <a name="standard-numeric-format-strings"></a>标准数字格式字符串
 
@@ -37,7 +37,7 @@ ms.locfileid: "90557367"
   - 在 .NET Core 2.1 及更高版本上，运行时选择最低有效数字为偶数的结果（即使用 <xref:System.MidpointRounding.ToEven?displayProperty=nameWithType>）。
 
   > [!NOTE]
-  > 精度说明符确定结果字符串中的位数。 若要使用前导或尾随空格填充结果字符串，请使用[复合格式设置](composite-formatting.md)功能，并在格式项中定义*对齐组件*。
+  > 精度说明符确定结果字符串中的位数。 若要使用前导或尾随空格填充结果字符串，请使用 [复合格式设置](composite-formatting.md)功能，并在格式项中定义 *对齐组件* 。
 
 下列支持标准数字格式字符串：
 
@@ -54,7 +54,7 @@ ms.locfileid: "90557367"
 
 |格式说明符|“属性”|描述|示例|
 |----------------------|----------|-----------------|--------------|
-|“C”或“c”|货币|结果:货币值。<br /><br /> 受以下类型支持：所有数值类型。<br /><br /> 精度说明符：十进制小数位数。<br /><br /> 默认值精度说明符：由 <xref:System.Globalization.NumberFormatInfo.CurrencyDecimalDigits%2A?displayProperty=nameWithType> 定义。<br /><br /> 更多信息：[货币（“C”）格式说明符](#CFormatString)。|123.456 ("C", en-US) -> \\$123.46<br /><br /> 123.456 ("C", fr-FR) -> 123,46 €<br /><br /> 123.456 ("C", ja-JP) -> ¥123<br /><br /> -123.456 ("C3", en-US) -> (\\$123.456)<br /><br /> -123.456 ("C3", fr-FR) -> -123,456 €<br /><br /> -123.456 ("C3", ja-JP) -> -¥123.456|
+|“C”或“c”|货币|结果:货币值。<br /><br /> 受以下类型支持：所有数值类型。<br /><br /> 精度说明符：十进制小数位数。<br /><br /> 默认值精度说明符：由 <xref:System.Globalization.NumberFormatInfo.CurrencyDecimalDigits%2A?displayProperty=nameWithType> 定义。<br /><br /> 更多信息：[货币（“C”）格式说明符](#CFormatString)。|123.456 ("C", en-US) -> \\$123.46<br /><br /> 123.456 ("C", fr-FR) -> 123,46 &euro;<br /><br /> 123.456 ("C", ja-JP) -> ¥123<br /><br /> -123.456 ("C3", en-US) -> (\\$123.456)<br /><br /> -123.456 ("C3", fr-FR) -> -123,456 &euro;<br /><br /> -123.456 ("C3", ja-JP) -> -¥123.456|
 |“D”或“d”|十进制|结果:整型数字，负号可选。<br /><br /> 受以下类型支持：仅限整型类型。<br /><br /> 精度说明符：数字位数下限。<br /><br /> 默认值精度说明符：所需数字位数下限。<br /><br /> 更多信息：[十进制（“D”）格式说明符](#DFormatString)。|1234 ("D") -> 1234<br /><br /> -1234 ("D6") -> -001234|
 |“E”或“e”|指数（科学型）|结果:指数表示法。<br /><br /> 受以下类型支持：所有数值类型。<br /><br /> 精度说明符：十进制小数位数。<br /><br /> 默认值精度说明符：6.<br /><br /> 更多信息：[指数（“E”）格式说明符](#EFormatString)。|1052.0329112756 ("E", en-US) -> 1.052033E+003<br /><br /> 1052.0329112756 ("e", fr-FR) -> 1,052033e+003<br /><br /> -1052.0329112756 ("e2", en-US) -> -1.05e+003<br /><br /> -1052.0329112756 ("E2", fr-FR) -> -1,05E+003|
 |“F”或“f”|定点|结果:整数和十进制小数，负号可选。<br /><br /> 受以下类型支持：所有数值类型。<br /><br /> 精度说明符：十进制小数位数。<br /><br /> 默认值精度说明符：由 <xref:System.Globalization.NumberFormatInfo.NumberDecimalDigits%2A?displayProperty=nameWithType> 定义。<br /><br /> 更多信息：[定点（“F”）格式说明符](#FFormatString)。|1234.567 ("F", en-US) -> 1234.57<br /><br /> 1234.567 ("F", de-DE) -> 1234,57<br /><br /> 1234 ("F1", en-US) -> 1234.0<br /><br /> 1234 ("F1", de-DE) -> 1234,0<br /><br /> -1234.56 ("F4", en-US) -> -1234.5600<br /><br /> -1234.56 ("F4", de-DE) -> -1234,5600|

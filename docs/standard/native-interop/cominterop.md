@@ -2,12 +2,12 @@
 title: .NET 中的 COM 互操作
 description: 了解如何在 .NET 中与 COM 库进行互操作。
 ms.date: 07/11/2019
-ms.openlocfilehash: 63205ae5c09d6c3929da13788eb781cd975ca814
-ms.sourcegitcommit: 44a7cd8687f227fc6db3211ccf4783dc20235e51
+ms.openlocfilehash: 9c436019c800a68ffe2cd5011e14bd804384afaa
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77627369"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93187770"
 ---
 # <a name="com-interop-in-net"></a>.NET 中的 COM 互操作
 

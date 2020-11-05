@@ -8,20 +8,21 @@ dev_langs:
 - vb
 helpviewer_keywords:
 - directory copying
-- I/O [.NET Framework], copying directories
+- I/O [.NET], copying directories
 - subdirectory copying
 - copying directories
-- directories [.NET Framework], copying
+- directories [.NET], copying
 ms.assetid: 5a969765-e5f8-4b4e-977e-90e2b0a1fe3c
-ms.openlocfilehash: 65fe28c90a6cd6f0b3c8c32da19c1d9603900670
-ms.sourcegitcommit: 7137e12f54c4e83a94ae43ec320f8cf59c1772ea
+ms.openlocfilehash: 476473d5c25ce29d070abbeef7fa29a7cb9621e1
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84662584"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93187978"
 ---
 # <a name="how-to-copy-directories"></a>如何：复制目录
-此主题演示如何使用 I/O 类将目录下的内容同步复制到另一个位置。
+
+本文演示如何使用 I/O 类将目录下的内容同步复制到另一个位置。
 
 有关异步文件复制的示例，请参阅[异步文件 I/O](asynchronous-file-i-o.md)。
 

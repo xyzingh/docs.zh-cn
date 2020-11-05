@@ -1,22 +1,22 @@
 ---
 title: 如何：查找程序集的完全限定名
-description: 本文介绍如何获取 .NET Framework 程序集或 .NET Core 程序集的完全限定名称。
+description: 本文介绍如何获取 .NET 程序集的完全限定名称。
 ms.date: 08/20/2019
 helpviewer_keywords:
-- names [.NET Framework], fully qualified type names
-- names [.NET Framework], assemblies
-- assemblies [.NET Framework], names
+- names [.NET], fully qualified type names
+- names [.NET], assemblies
+- assemblies [.NET], names
 ms.assetid: 009dae23-e1f6-4a64-9a9a-32e4c34802b0
 dev_langs:
 - csharp
 - vb
 - cpp
-ms.openlocfilehash: 346d50dc7f279ce46c9803ad60479d3111739c25
-ms.sourcegitcommit: d6bd7903d7d46698e9d89d3725f3bb4876891aa3
+ms.openlocfilehash: 223def7d992f5fae64c95aa6886f20980184eddc
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83378950"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687621"
 ---
 # <a name="how-to-find-an-assemblys-fully-qualified-name"></a>如何：查找程序集的完全限定名
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 703452492eb47c5720fdaad23a3e699585233419
-ms.sourcegitcommit: cdb295dd1db589ce5169ac9ff096f01fd0c2da9d
+ms.openlocfilehash: 787b0a04c5bf312ad3f3e7834664e70dae9678e0
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84602812"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135968"
 ---
 
 ### <a name="install-the-sdk"></a>安装 SDK
@@ -23,7 +23,7 @@ sudo dnf install dotnet-sdk-2.0
 sudo dnf install aspnetcore-runtime-2.0
 ```
 
-作为 ASP.NET Core 运行时的一种替代方法，你可以安装不包含 ASP.NET Core 支持的 .NET Core 运行时：将上述命令中的 `aspnetcore-runtime-2.0` 替换为 `dotnet-runtime-2.0`。
+作为 ASP.NET Core 运行时的一种替代方法，你可以安装不包含 ASP.NET Core 支持的 .NET Core 运行时：将上一命令中的 `aspnetcore-runtime-2.0` 替换为 `dotnet-runtime-2.0`。
 
 ```bash
 sudo dnf install dotnet-runtime-2.0

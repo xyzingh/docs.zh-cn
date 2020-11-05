@@ -9,12 +9,12 @@ dev_langs:
 helpviewer_keywords:
 - parallelism, task
 ms.assetid: 458b5e69-5210-45e5-bc44-3888f86abd6f
-ms.openlocfilehash: 968da880fc7e0e811f5e8712ccb43726426a019e
-ms.sourcegitcommit: ef86c24c418439b8bb5e3e7d64bbdbe5e11c3e9c
+ms.openlocfilehash: d735cb56c5914dd33ba694c95a8e92446ca47088
+ms.sourcegitcommit: 6d09ae36acba0b0e2ba47999f8f1a725795462a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88720158"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925241"
 ---
 # <a name="task-based-asynchronous-programming"></a>基于任务的异步编程
 
@@ -28,7 +28,7 @@ ms.locfileid: "88720158"
 
      任务和围绕它们生成的框架提供了一组丰富的 API，这些 API 支持等待、取消、继续、可靠的异常处理、详细状态、自定义计划等功能。
 
-出于这两个原因，在 .NET Framework 中，TPL 是用于编写多线程、异步和并行代码的首选 API。
+出于这两个原因，在 .NET 中，TPL 是用于编写多线程、异步和并行代码的首选 API。
 
 ## <a name="creating-and-running-tasks-implicitly"></a>隐式创建和运行任务
 
@@ -94,39 +94,27 @@ ms.locfileid: "88720158"
 
 ## <a name="task-creation-options"></a>任务创建选项
 
-创建任务的大多数 API 提供接受 <xref:System.Threading.Tasks.TaskCreationOptions> 参数的重载。 通过指定下列选项之一，可指示任务计划程序如何在线程池中安排任务计划。 下表列出了各种任务创建选项。
+创建任务的大多数 API 提供接受 <xref:System.Threading.Tasks.TaskCreationOptions> 参数的重载。 通过指定下列某个或多个选项，可指示任务计划程序在线程池中安排任务计划的方式。 可以使用位 OR 运算组合选项。
 
-|<xref:System.Threading.Tasks.TaskCreationOptions> 参数值|描述|
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-|<xref:System.Threading.Tasks.TaskCreationOptions.None>|未指定任何选项时的默认值。 计划程序将使用其默认试探法来计划任务。|
-|<xref:System.Threading.Tasks.TaskCreationOptions.PreferFairness>|指定应当计划任务，以使越早创建的任务将更可能越早执行，而越晚创建的任务将更可能越晚执行。|
-|<xref:System.Threading.Tasks.TaskCreationOptions.LongRunning>|指定该任务表示长时间运行的运算。|
-|<xref:System.Threading.Tasks.TaskCreationOptions.AttachedToParent>|指定应将任务创建为当前任务（如果存在）的附加子级。 有关详细信息，请参阅[附加和分离的子任务](attached-and-detached-child-tasks.md)。|
-|<xref:System.Threading.Tasks.TaskCreationOptions.DenyChildAttach>|指定如果内部任务指定 `AttachedToParent` 选项，则该任务不会成为附加的子任务。|
-|<xref:System.Threading.Tasks.TaskCreationOptions.HideScheduler>|指定通过调用特定任务内部的 <xref:System.Threading.Tasks.TaskFactory.StartNew%2A?displayProperty=nameWithType> 或 <xref:System.Threading.Tasks.Task%601.ContinueWith%2A?displayProperty=nameWithType> 等方法创建的任务的任务计划程序是默认计划程序，而不是正在运行此任务的计划程序。|
-
-可以通过使用位 **OR** 运算组合选项。 下面的示例演示一个具有 <xref:System.Threading.Tasks.TaskCreationOptions.LongRunning> 和 <xref:System.Threading.Tasks.TaskContinuationOptions.PreferFairness> 选项的任务。
+下面的示例演示一个具有 <xref:System.Threading.Tasks.TaskCreationOptions.LongRunning> 和 <xref:System.Threading.Tasks.TaskContinuationOptions.PreferFairness> 选项的任务。
 
 [!code-csharp[TPL_TaskIntro#03](../../../samples/snippets/csharp/VS_Snippets_Misc/tpl_taskintro/cs/taskintro.cs#03)]
 [!code-vb[TPL_TaskIntro#03](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_taskintro/vb/tpl_intro.vb#03)]
 
 ## <a name="tasks-threads-and-culture"></a>任务、线程和区域性
 
-每个线程都具有一个关联的区域性和 UI 区域性，分别由 <xref:System.Threading.Thread.CurrentCulture%2A?displayProperty=nameWithType> 和 <xref:System.Threading.Thread.CurrentUICulture%2A?displayProperty=nameWithType> 属性定义。 线程的区域性用在诸如格式、分析、排序和字符串比较操作中。 线程的 UI 区域性用于查找资源。 通常，除非使用 <xref:System.Globalization.CultureInfo.DefaultThreadCurrentCulture%2A?displayProperty=nameWithType> 和 <xref:System.Globalization.CultureInfo.DefaultThreadCurrentUICulture%2A?displayProperty=nameWithType> 属性在应用程序域中为所有线程指定默认区域性，线程的默认区域性和 UI 区域性则由系统区域性定义。 如果你显式设置线程的区域性并启动新线程，则新线程不会继承正在调用的线程的区域性；相反，其区域性就是默认系统区域性。 基于任务的应用编程模型遵循这种做法，这些应用指定 .NET Framework 4.6 之前的 .NET Framework 版本。
+每个线程都具有一个关联的区域性和 UI 区域性，分别由 <xref:System.Threading.Thread.CurrentCulture%2A?displayProperty=nameWithType> 和 <xref:System.Threading.Thread.CurrentUICulture%2A?displayProperty=nameWithType> 属性定义。 线程的区域性用在诸如格式、分析、排序和字符串比较操作中。 线程的 UI 区域性用于查找资源。
 
-> [!IMPORTANT]
-> 请注意，作为任务上下文一部分的调用线程的区域性适用于面向.NET Framework 4.6 的应用，而不是在 .NET Framework 4.6 下运行的应用 。 可以在 Visual Studio 中创建项目时，定目标到特定版本的 .NET Framework，具体操作是从“新建项目”对话框顶部的下拉列表选择相应版本。在 Visual Studio 外部，可以使用 <xref:System.Runtime.Versioning.TargetFrameworkAttribute> 属性定目标到特定版本。 对于指定 .NET Framework 4.6 之前的 .NET Framework 版本的应用，或者对于不指定 .NET Framework 特定版本的应用，任务的区域性将继续由它运行的线程的区域性确定。
+除非使用 <xref:System.Globalization.CultureInfo.DefaultThreadCurrentCulture%2A?displayProperty=nameWithType> 和 <xref:System.Globalization.CultureInfo.DefaultThreadCurrentUICulture%2A?displayProperty=nameWithType> 属性在应用程序域中为所有线程指定默认区域性，线程的默认区域性和 UI 区域性则由系统区域性定义。 如果你显式设置线程的区域性并启动新线程，则新线程不会继承正在调用的线程的区域性；相反，其区域性就是默认系统区域性。 但是，在基于任务的编程中，任务使用调用线程的区域性，即使任务在不同线程上以异步方式运行也是如此。
 
-启动指定 .NET Framework 4.6 的应用程序，即使任务在线程池线程上以异步方式运行，调用线程的区域性仍然通过每个任务继承。
+下面的示例提供了简单的演示。 它将应用的当前区域性更改为 French (France)；或者，如果 French (France) 已为当前区域性，则将其更改为 English (United States)。 然后，调用一个名为 `formatDelegate` 的委托，该委托返回在新区域性中格式化为货币值的数字。 无论委托是由任务同步调用还是异步调用，该任务都将使用调用线程的区域性。
 
-下面的示例提供了简单的演示。 它使用 <xref:System.Runtime.Versioning.TargetFrameworkAttribute> 特性来指定 .NET Framework 4.6，并将应用程序的当前区域性更改为 French (France)，或者，如果 French (France) 已为当前区域性，则更改为 English (United States)。 然后，调用一个名为 `formatDelegate` 的委托，该委托返回在新区域性中格式化为货币值的数字。 注意无论该委托是同步还是异步作为任务，它都将返回预期的结果，因为调用线程的区域性是由异步任务继承的。
+:::code language="csharp" source="snippets/cs/asyncculture1.cs" id="1":::
 
-[!code-csharp[System.Globalization.CultureInfo.Class.Async#5](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.globalization.cultureinfo.class.async/cs/asyncculture1.cs#5)]
-[!code-vb[System.Globalization.CultureInfo.Class.Async#5](../../../samples/snippets/visualbasic/VS_Snippets_CLR_System/system.globalization.cultureinfo.class.async/vb/asyncculture1.vb#5)]
+:::code language="vbnet" source="snippets/vb/asyncculture1.vb" id="1":::
 
-如果使用的是 Visual Studio，可以省略 <xref:System.Runtime.Versioning.TargetFrameworkAttribute> 属性，并在创建项目时在“新建项目”对话框中改选“.NET Framework 4.6”作为目标。
-
-对于反映指定 .NET Framework 4.6 之前的 .NET Framework 版本的应用程序行为的输出，请从源代码中移除 <xref:System.Runtime.Versioning.TargetFrameworkAttribute> 属性。 输出将会反应默认系统区域性的格式设置约定，而不是调用线程的区域性。
+> [!NOTE]
+> 在 .NET Framework 4.6 之前的 .NET Framework 版本中，任务的区域性由它在其上运行的线程区域性确定，而不是调用线程的区域性 。 对于异步任务，这意味着任务使用的区域性可能不同于调用线程的区域性。
 
 有关异步任务和区域性的详细信息，请参阅 <xref:System.Globalization.CultureInfo> 主题中的“区域性和基于异步任务的操作”部分。
 

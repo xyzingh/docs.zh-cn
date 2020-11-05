@@ -6,18 +6,17 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- .NET Framework, and TAP
-- asynchronous design patterns, .NET Framework
-- TAP, .NET Framework support for
-- Task-based Asynchronous Pattern, .NET Framework support for
-- .NET Framework, asynchronous design patterns
+- asynchronous design patterns, .NET
+- TAP, .NET support for
+- Task-based Asynchronous Pattern, .NET support for
+- .NET, asynchronous design patterns
 ms.assetid: fab6bd41-91bd-44ad-86f9-d8319988aa78
-ms.openlocfilehash: 1f2f44b6b92f66f95816778c6dc8e893f1291abe
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 8bac9d265211d2f266db634d4bcebb87c2debd9a
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84289351"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888771"
 ---
 # <a name="implementing-the-task-based-asynchronous-pattern"></a>实现基于任务的异步模式
 可使用以下三种方式实现基于任务的异步模式 (TAP)：使用 Visual Studio 中的 C# 和 Visual Basic 编译器、手动实现或编译器和手动方法相结合。 以下各节详细地讨论了每一种方法。 可以使用 TAP 模式实现计算密集型和 I/O 密集型异步操作。 [工作负载](#workloads)部分介绍了各种类型的操作。
@@ -34,7 +33,7 @@ ms.locfileid: "84289351"
 [!code-vb[Conceptual.TAP_Patterns#1](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.tap_patterns/vb/patterns1.vb#1)]
 
 ### <a name="hybrid-approach"></a>混合方法
- 你可能发现手动实现 TAP 模式、但将实现核心逻辑委托给编译器的这种方法很有用。 例如，当你想要验证编译器生成的异步方法之外的实参时，可能需要使用这种混合方法，以便异常可以转义到该方法的直接调用方而不是通过 <xref:System.Threading.Tasks.Task?displayProperty=nameWithType> 对象被公开：
+ 你可能发现手动实现 TAP 模式、但将实现核心逻辑委托给编译器的这种方法很有用。 例如，当你想要验证编译器生成的异步方法之外的参数时，可能需要使用这种混合方法，以便异常可以转义到该方法的直接调用方而不是通过 <xref:System.Threading.Tasks.Task?displayProperty=nameWithType> 对象被公开：
 
  [!code-csharp[Conceptual.TAP_Patterns#2](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.tap_patterns/cs/patterns1.cs#2)]
  [!code-vb[Conceptual.TAP_Patterns#2](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.tap_patterns/vb/patterns1.vb#2)]
@@ -49,9 +48,9 @@ ms.locfileid: "84289351"
 
 你可以通过以下方式生成计算密集型任务：
 
-- 在 .NET Framework 4 中，使用 <xref:System.Threading.Tasks.TaskFactory.StartNew%2A?displayProperty=nameWithType> 方法，这种方法接受异步执行委托（通常是 <xref:System.Action%601> 或 <xref:System.Func%601>）。 如果你提供 <xref:System.Action%601> 委托，该方法会返回表示异步执行该委托的 <xref:System.Threading.Tasks.Task?displayProperty=nameWithType> 对象。 如果你提供 <xref:System.Func%601> 委托，该方法会返回 <xref:System.Threading.Tasks.Task%601?displayProperty=nameWithType> 对象。 <xref:System.Threading.Tasks.TaskFactory.StartNew%2A> 方法的重载接受一个取消标记（<xref:System.Threading.CancellationToken>）、任务创建选项（<xref:System.Threading.Tasks.TaskCreationOptions>）和一个任务计划程序（<xref:System.Threading.Tasks.TaskScheduler>），它们都对计划和任务执行提供细粒度控制。 定目标到当前任务计划程序的工厂实例可用作 <xref:System.Threading.Tasks.Task> 类的静态属性 (<xref:System.Threading.Tasks.Task.Factory%2A>)；例如：`Task.Factory.StartNew(…)`。
+- 在 .NET Framework 4.5 及更高版本（包括 .NET Core 和 .NET 5+）中，使用静态 <xref:System.Threading.Tasks.Task.Run%2A?displayProperty=nameWithType> 方法作为 <xref:System.Threading.Tasks.TaskFactory.StartNew%2A?displayProperty=nameWithType> 的快捷方式。 你可以使用 <xref:System.Threading.Tasks.Task.Run%2A> 来轻松启动针对线程池的计算密集型任务。 这是用于启动一项计算密集型任务的首选机制。 仅当需要更细化地控制任务时，才直接使用 `StartNew`。
 
-- 在 .NET Framework 4.5 及更高版本（包括 .NET Core 和 .NET Standard）中，使用静态 <xref:System.Threading.Tasks.Task.Run%2A?displayProperty=nameWithType> 方法作为 <xref:System.Threading.Tasks.TaskFactory.StartNew%2A?displayProperty=nameWithType> 的快捷方式。 你可以使用 <xref:System.Threading.Tasks.Task.Run%2A> 来轻松启动针对线程池的计算密集型任务。 在 .NET Framework 4.5 及更高版本中，这是用于启动计算密集型任务的首选机制。 仅当需要更细化地控制任务时，才直接使用 `StartNew`。
+- 在 .NET Framework 4 中，使用 <xref:System.Threading.Tasks.TaskFactory.StartNew%2A?displayProperty=nameWithType> 方法，这种方法接受异步执行委托（通常是 <xref:System.Action%601> 或 <xref:System.Func%601>）。 如果你提供 <xref:System.Action%601> 委托，该方法会返回表示异步执行该委托的 <xref:System.Threading.Tasks.Task?displayProperty=nameWithType> 对象。 如果你提供 <xref:System.Func%601> 委托，该方法会返回 <xref:System.Threading.Tasks.Task%601?displayProperty=nameWithType> 对象。 <xref:System.Threading.Tasks.TaskFactory.StartNew%2A> 方法的重载接受一个取消标记（<xref:System.Threading.CancellationToken>）、任务创建选项（<xref:System.Threading.Tasks.TaskCreationOptions>）和一个任务计划程序（<xref:System.Threading.Tasks.TaskScheduler>），它们都对计划和任务执行提供细粒度控制。 定目标到当前任务计划程序的工厂实例可用作 <xref:System.Threading.Tasks.Task> 类的静态属性 (<xref:System.Threading.Tasks.Task.Factory%2A>)；例如：`Task.Factory.StartNew(…)`。
 
 - 想要分别生成并计划任务时，请使用`Task`类型或`Start`方法的构造函数。 公共方法必须仅返回已开始的任务。
 
@@ -82,7 +81,7 @@ ms.locfileid: "84289351"
 [!code-csharp[Conceptual.TAP_Patterns#4](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.tap_patterns/cs/patterns1.cs#4)]
 [!code-vb[Conceptual.TAP_Patterns#4](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.tap_patterns/vb/patterns1.vb#4)]
 
-从 .NET Framework 4.5 开始，<xref:System.Threading.Tasks.Task.Delay%2A?displayProperty=nameWithType> 方法正是为此而提供的，并且你可以在另一个异步方法内使用它。例如，若要实现异步轮询循环：
+<xref:System.Threading.Tasks.Task.Delay%2A?displayProperty=nameWithType> 方法正是为此目的而提供，并且你可以在另一个异步方法内使用它。例如，要实现异步轮询循环：
 
 [!code-csharp[Conceptual.TAP_Patterns#5](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.tap_patterns/cs/patterns1.cs#5)]
 [!code-vb[Conceptual.TAP_Patterns#5](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.tap_patterns/vb/patterns1.vb#5)]

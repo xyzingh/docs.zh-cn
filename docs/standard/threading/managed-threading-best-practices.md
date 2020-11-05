@@ -7,18 +7,19 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- threading [.NET Framework], design guidelines
-- threading [.NET Framework], best practices
+- threading [.NET], design guidelines
+- threading [.NET], best practices
 - managed threading
 ms.assetid: e51988e7-7f4b-4646-a06d-1416cee8d557
-ms.openlocfilehash: 8d5c37bf2ed80e9b6ea071fcd2080c43be8f6247
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 88e1f34388cd58fef59bc4005bcaf630c59a661e
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90546362"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188999"
 ---
 # <a name="managed-threading-best-practices"></a>托管线程处理的最佳做法
+
 多线程处理需在编程时倍加注意。 对于多数任务，通过将执行请求以线程池线程的方式排队，可以降低复杂性。 本主题将探讨更复杂的情形，比如协调多个线程的工作或处理造成阻止的线程。  
   
 > [!NOTE]
@@ -61,7 +62,7 @@ else {
 ### <a name="race-conditions"></a>争用条件  
  争用条件是程序的结果取决于两个或更多个线程中的哪一个先到达某一特定代码块时出现的一种 bug。 多次运行程序会产生不同的结果，并且无法预测任何给定运行的结果。  
   
- 争用条件的一个简单例子是递增一个字段。 假定某个类有一个私有 **static** 字段（在 Visual Basic 中为 **Shared**），每创建该类的一个实例时它都递增一次，使用的代码是 `objCt++;` (C#) 或 `objCt += 1` (Visual Basic)。 此操作要求将 `objCt` 的值加载到寄存器中，使该值递增，然后将其存储到 `objCt` 中。  
+ 争用条件的一个简单例子是递增一个字段。 假定某个类有一个私有 **static** 字段（在 Visual Basic 中为 **Shared** ），每创建该类的一个实例时它都递增一次，使用的代码是 `objCt++;` (C#) 或 `objCt += 1` (Visual Basic)。 此操作要求将 `objCt` 的值加载到寄存器中，使该值递增，然后将其存储到 `objCt` 中。  
   
  在多线程应用程序中，一个已加载并递增该值的线程可能会被另一个线程抢先，抢先的线程执行全部三个步骤；第一个线程继续执行并存储其值时，它会覆盖 `objCt`，但不考虑该值在其暂停执行期间已更改这一事实。  
   
@@ -95,7 +96,7 @@ else {
   
 - 锁定实例时要谨慎，例如，C# 中的 `lock(this)` 或 Visual Basic 中的 `SyncLock(Me)`。 如果应用程序中不属于该类型的其他代码锁定了该对象，则会发生死锁。  
   
-- 请务必确保已进入监视器的线程始终离开该监视器，即使线程在监视器中时发生异常也是如此。 C# 的 [lock](../../csharp/language-reference/keywords/lock-statement.md) 语句和 Visual Basic 的 [SyncLock](../../visual-basic/language-reference/statements/synclock-statement.md) 语句可自动提供此行为，同时使用 **finally** 块来确保调用 <xref:System.Threading.Monitor.Exit%2A?displayProperty=nameWithType>。 如果无法确保调用 **Exit**，请考虑将设计更改为使用 **Mutex**。 Mutex 在当前拥有它的线程终止后会自动释放。  
+- 请务必确保已进入监视器的线程始终离开该监视器，即使线程在监视器中时发生异常也是如此。 C# 的 [lock](../../csharp/language-reference/keywords/lock-statement.md) 语句和 Visual Basic 的 [SyncLock](../../visual-basic/language-reference/statements/synclock-statement.md) 语句可自动提供此行为，同时使用 **finally** 块来确保调用 <xref:System.Threading.Monitor.Exit%2A?displayProperty=nameWithType>。 如果无法确保调用 **Exit** ，请考虑将设计更改为使用 **Mutex** 。 Mutex 在当前拥有它的线程终止后会自动释放。  
   
 - 请务必针对需要不同资源的任务使用多线程，避免向单个资源指定多个线程。 例如，任何涉及 I/O 的任务都会从其拥有自己的线程这一点得到好处，因为此线程在 I/O 操作期间将阻止，从而允许其他线程执行。 用户输入是另一种可从专用线程获益的资源。 在单处理器计算机上，涉及大量计算的任务可与用户输入和涉及 I/O 的任务并存，但多个计算量大的任务将相互竞争。  
   
@@ -125,7 +126,7 @@ else {
     ```  
   
     > [!NOTE]
-    > 在 .NET Framework 2.0 及更高版本中，为大于 1 的原子增量使用 <xref:System.Threading.Interlocked.Add%2A> 方法。  
+    > 为大于 1 的原子增量使用 <xref:System.Threading.Interlocked.Add%2A> 方法。  
   
      在第二个示例中，仅当引用类型变量为空引用（在 Visual Basic 中为 `Nothing`）时才会将其更新。  
   
@@ -160,7 +161,7 @@ else {
     ```  
   
     > [!NOTE]
-    > 从 .NET Framework 2.0 开始，<xref:System.Threading.Interlocked.CompareExchange%60%601%28%60%600%40%2C%60%600%2C%60%600%29> 方法重载为引用类型提供类型安全的替代项。
+    > <xref:System.Threading.Interlocked.CompareExchange%60%601%28%60%600%40%2C%60%600%2C%60%600%29> 方法重载为引用类型提供类型安全的替代项。
   
 ## <a name="recommendations-for-class-libraries"></a>类库相关建议  
  为多线程处理设计类库时，请考虑以下准则：  
@@ -169,7 +170,7 @@ else {
   
 - 默认情况下使静态数据（在 Visual Basic 中为 `Shared`）是线程安全的。  
   
-- 默认情况下不要使实例数据是线程安全的。 通过添加锁来创建线程安全代码会降低性能、加剧锁争用情况，并且可能导致出现死锁。 在常见应用程序模型中，一次只有一个线程执行用户代码，从而最大限度降低线程安全性的需求。 出于此原因，.NET Framework 类库默认情况下不是线程安全的。  
+- 默认情况下不要使实例数据是线程安全的。 通过添加锁来创建线程安全代码会降低性能、加剧锁争用情况，并且可能导致出现死锁。 在常见应用程序模型中，一次只有一个线程执行用户代码，从而最大限度降低线程安全性的需求。 出于此原因，.NET 类库在默认情况下不是线程安全的类库。  
   
 - 避免提供可更改静态状态的静态方法。 在常见服务器方案中，静态状态可在各个请求之间共享，这意味着多个线程可同时执行该代码。 这可能导致线程出现 bug。 请考虑使用一种设计模式，将数据封装到在各请求之间不共享的实例中。 此外，如果同步静态数据，更改状态的静态方法间的调用可导致死锁或冗余同步，进而降低性能。  
   

@@ -10,15 +10,16 @@ helpviewer_keywords:
 - tasks, cancellation
 - asynchronous task cancellation
 ms.assetid: 3ecf1ea9-e399-4a6a-a0d6-8475f48dcb28
-ms.openlocfilehash: 1d9b7b35341961c27107f007e0eafa51ef49e232
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: dba2f2ad9733f8881276bdb2705a6c8457351f9c
+ms.sourcegitcommit: 6d09ae36acba0b0e2ba47999f8f1a725795462a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84768659"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925293"
 ---
 # <a name="task-cancellation"></a>任务取消
-<xref:System.Threading.Tasks.Task?displayProperty=nameWithType> 和 <xref:System.Threading.Tasks.Task%601?displayProperty=nameWithType> 类通过使用 .NET Framework 中的取消标记来支持取消。 有关详细信息，请参阅[托管线程中的取消](../threading/cancellation-in-managed-threads.md)。 在任务类中，取消涉及用户委托间的协作，这表示可取消的操作和请求取消的代码。  成功取消涉及调用 <xref:System.Threading.CancellationTokenSource.Cancel%2A?displayProperty=nameWithType> 方法的请求代码和及时终止操作的用户委托。 可以使用以下选项之一终止操作：  
+
+<xref:System.Threading.Tasks.Task?displayProperty=nameWithType> 和 <xref:System.Threading.Tasks.Task%601?displayProperty=nameWithType> 类支持通过使用取消标记进行取消。 有关详细信息，请参阅[托管线程中的取消](../threading/cancellation-in-managed-threads.md)。 在 Task 类中，取消涉及用户委托间的协作，这表示可取消的操作和请求取消的代码。 成功取消涉及调用 <xref:System.Threading.CancellationTokenSource.Cancel%2A?displayProperty=nameWithType> 方法的请求代码，以及及时终止操作的用户委托。 可以使用以下选项之一终止操作：  
   
 - 简单地从委托中返回。 在许多情况下，这样已足够；但是，采用这种方式取消的任务实例会转换为 <xref:System.Threading.Tasks.TaskStatus.RanToCompletion?displayProperty=nameWithType> 状态，而不是 <xref:System.Threading.Tasks.TaskStatus.Canceled?displayProperty=nameWithType> 状态。  
   

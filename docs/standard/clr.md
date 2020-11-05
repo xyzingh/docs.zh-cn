@@ -1,7 +1,8 @@
 ---
-title: 公共语言运行时 (CLR) 概述 - .NET Framework
-description: 公共语言运行时 (CLR) 入门，.NET 运行时环境。 CLR 运行代码并提供服务，使开发过程更轻松。
-ms.date: 04/02/2019
+title: 公共语言运行时 (CLR) 概述 - .NET
+titleSuffix: ''
+description: 公共语言运行时 (CLR)（.NET 的运行时环境）入门。 CLR 运行代码并提供服务，使开发过程更轻松。
+ms.date: 10/22/2020
 ms.technology: dotnet-standard
 helpviewer_keywords:
 - compiling source code, runtime functionality
@@ -10,32 +11,32 @@ helpviewer_keywords:
 - runtime
 - common language runtime
 - metadata, runtime functionality
-- .NET Framework, common language runtime
+- .NET, common language runtime
 - language compilers
 - managed code
 - source code execution
 - code, runtime functionality
 ms.assetid: 059a624e-f7db-4134-ba9f-08b676050482
 ms.custom: updateeachrelease
-ms.openlocfilehash: ef455ac1c49c1f457d0fa432db91b5375c045840
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: 39543a511e8f405d9205df2697bcf4fd1194bd7a
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84769205"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687516"
 ---
 # <a name="common-language-runtime-clr-overview"></a>公共语言运行时 (CLR) 概述
 
-.NET Framework 提供了一个称为公共语言运行时的运行时环境，它运行代码并提供使开发过程更轻松的服务。
+.NET 提供了一个称为公共语言运行时的运行时环境，它运行代码并提供使开发过程更轻松的服务。
 
-公共语言运行时的功能通过编译器和工具公开，你可以编写利用此托管执行环境的代码。 使用基于公共语言运行时的语言编译器开发的代码称为托管代码；托管代码具有许多优点，例如：跨语言集成、跨语言异常处理、增强的安全性、版本控制和部署支持、简化的组件交互模型、调试和分析服务等。
+公共语言运行时的功能通过编译器和工具公开，你可以编写利用此托管执行环境的代码。 使用面向运行时的语言编译器开发的代码称为托管代码。 托管代码具有许多优点，例如：跨语言集成、跨语言异常处理、增强的安全性、版本控制和部署支持、简化的组件交互模型、调试和分析服务等。
 
 > [!NOTE]
 > 编译器和工具可以产生公共语言运行时可以使用的输出，因为类型系统、元数据格式和该运行时环境（虚拟执行系统）都由公共标准（ECMA 公共语言基础结构规范）定义。 有关详细信息，请参阅 [ECMA C# 和公共语言基础结构规范](https://visualstudio.microsoft.com/license-terms/ecma-c-common-language-infrastructure-standards/)。
 
 若要使公共语言运行时能够向托管代码提供服务，语言编译器必须生成一些元数据来描述代码中的类型、成员和引用。 元数据与代码一起存储；每个可加载的公共语言运行时可迁移执行 (PE) 文件都包含元数据。 公共语言运行时使用元数据来完成以下任务：查找和加载类，在内存中安排实例，解析方法调用，生成本机代码，强制安全性，以及设置运行时上下文边界。
 
-公共语言运行时自动处理对象布局并管理对象引用，当不再使用对象时释放它们。 按这种方式实现生存期管理的对象称为托管数据。 垃圾回收消除了内存泄漏以及其他一些常见的编程错误。 如果你编写的代码是托管代码，则可以在 .NET Framework 应用程序中使用托管数据、非托管数据或者同时使用这两种数据。 由于语言编译器会提供自己的类型（如基元类型），因此你可能并不总是知道（或需要知道）这些数据是否是托管的。
+公共语言运行时自动处理对象布局并管理对象引用，当不再使用对象时释放它们。 按这种方式实现生存期管理的对象称为托管数据。 垃圾回收消除了内存泄漏以及其他一些常见的编程错误。 如果你编写的代码是托管代码，则可以在 .NET 应用程序中使用托管数据、非托管数据或者同时使用这两种数据。 由于语言编译器会提供自己的类型（如基元类型），因此你可能并不总是知道（或需要知道）这些数据是否是托管的。
 
 有了公共语言运行时，就可以很容易地设计出对象能够跨语言交互的组件和应用程序。 也就是说，用不同语言编写的对象可以互相通信，并且它们的行为可以紧密集成。 例如，可以定义一个类，然后使用不同的语言从原始类派生出另一个类或调用原始类的方法。 还可以将一个类的实例传递到用不同的语言编写的另一个类的方法。 这种跨语言集成之所以成为可能，是因为基于公共语言运行时的语言编译器和工具使用由公共语言运行时定义的常规类型系统，而且它们遵循公共语言运行时关于定义新类型以及创建、使用、保持和绑定到类型的规则。
 
@@ -63,7 +64,9 @@ ms.locfileid: "84769205"
 
 ## <a name="clr-versions"></a>CLR 版本
 
-.NET Framework 版本号并非一定要与其包含的 CLR 的版本号相对应。 有关 .NET Framework 版本及其相应 CLR 版本的列表，请参阅 [.NET Framework 版本及依赖项](../framework/migration-guide/versions-and-dependencies.md)。 .NET Core 版本具有一个产品版本，即没有单独的 CLR 版本。 有关 .NET Core 版本的列表，请参阅[下载 .NET Core](https://dotnet.microsoft.com/download/dotnet-core)。
+.NET Core 和 .NET 5+ 版本具有一个产品版本，即没有单独的 CLR 版本。 有关 .NET Core 版本的列表，请参阅[下载 .NET Core](https://dotnet.microsoft.com/download/dotnet-core)。
+
+但是，.NET Framework 版本号并非一定要与其包含的 CLR 的版本号相对应。 有关 .NET Framework 版本及其相应 CLR 版本的列表，请参阅 [.NET Framework 版本及依赖项](../framework/migration-guide/versions-and-dependencies.md)。
 
 ## <a name="related-topics"></a>相关主题
 

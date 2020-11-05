@@ -8,16 +8,16 @@ dev_langs:
 - vb
 - cpp
 helpviewer_keywords:
-- threading [.NET Framework], creating
-- threading [.NET Framework], passing data to threads
-- threading [.NET Framework], retrieving data from threads
+- threading [.NET], creating
+- threading [.NET], passing data to threads
+- threading [.NET], retrieving data from threads
 ms.assetid: 52b32222-e185-4f42-91a7-eaca65c0ab6d
-ms.openlocfilehash: 811028d3c853441ff3a61d3628a44e5c65ba7059
-ms.sourcegitcommit: 7137e12f54c4e83a94ae43ec320f8cf59c1772ea
+ms.openlocfilehash: a1e8f8f6e017d29f352d79ea08c09b2d97041bba
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84661909"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188375"
 ---
 # <a name="creating-threads-and-passing-data-at-start-time"></a>启动时创建线程并传递数据
 
@@ -40,9 +40,9 @@ ms.locfileid: "84661909"
   
 ## <a name="passing-data-to-threads"></a>将数据传递到线程
 
- 在 .NET Framework 版本 2.0 中，可以在调用 <xref:System.Threading.Thread.Start%2A?displayProperty=nameWithType> 方法重载时，使用 <xref:System.Threading.ParameterizedThreadStart> 委托将包含数据的对象轻松传递给线程。 有关代码示例，请参阅 <xref:System.Threading.ParameterizedThreadStart>。  
+调用 <xref:System.Threading.Thread.Start(System.Object)?displayProperty=nameWithType> 时，使用 <xref:System.Threading.ParameterizedThreadStart> 委托可将包含数据的对象轻松传递给线程。 有关代码示例，请参阅 <xref:System.Threading.ParameterizedThreadStart>。
   
- 使用 <xref:System.Threading.ParameterizedThreadStart> 委托不是传递数据的类型安全方式，因为 <xref:System.Threading.Thread.Start%2A?displayProperty=nameWithType> 方法重载接受任何对象。 替换方法是，将线程过程和数据封装到帮助程序类中，并使用 <xref:System.Threading.ThreadStart> 委托执行线程过程。 下面的示例演示这一方法：
+ 使用 <xref:System.Threading.ParameterizedThreadStart> 委托不是传递数据的类型安全方式，因为 <xref:System.Threading.Thread.Start(System.Object)?displayProperty=nameWithType> 方法接受任何对象。 替换方法是，将线程过程和数据封装到帮助程序类中，并使用 <xref:System.Threading.ThreadStart> 委托执行线程过程。 下面的示例演示这一方法：
 
  [!code-cpp[System.Threading.ThreadStart2#3](../../../samples/snippets/cpp/VS_Snippets_CLR_System/system.Threading.ThreadStart2/CPP/source3.cpp#3)]
  [!code-csharp[System.Threading.ThreadStart2#3](../../../samples/snippets/csharp/VS_Snippets_CLR_System/system.Threading.ThreadStart2/CS/source3.cs#3)]

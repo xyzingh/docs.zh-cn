@@ -9,17 +9,18 @@ helpviewer_keywords:
 - calling synchronous methods in asynchronous manner
 - EndInvoke method
 - calling asynchronous methods
-- delegates [.NET Framework], asynchronous
+- delegates [.NET], asynchronous
 - synchronous calling in asynchronous manner
 ms.assetid: 38a345ca-6963-4436-9608-5c9defef9c64
-ms.openlocfilehash: 82e0a57c3d8e180456aed48886e38ca466db16c8
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 05e574536abe4eac823b7b74369f5b191724e5b5
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84289962"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889252"
 ---
 # <a name="asynchronous-programming-using-delegates"></a>使用委托进行异步编程
+
 使用委托可通过异步方式调用同步方法。 如果同步调用委托，`Invoke` 方法将在当前线程上直接调用目标方法。 如果调用 `BeginInvoke` 方法，公共语言运行时 (CLR) 将对请求进行排队并立即返回给调用方。 目标方法将在线程池中的某个线程上异步调用。 提交请求的原始线程可以不受限制地继续与目标方法并行执行。 如果已在对 `BeginInvoke` 方法的调用中指定回叫方法，则目标方法结束时，将调用回叫方法。 在回叫方法中，`EndInvoke` 方法将获取返回值和所有输入/输出或仅输出参数。 如果调用 `BeginInvoke` 时未指定回叫方法，则可能从调用 `BeginInvoke` 的线程上调用 `EndInvoke`。  
   
 > [!IMPORTANT]
@@ -31,7 +32,7 @@ ms.locfileid: "84289962"
   
 ## <a name="related-sections"></a>相关章节  
  [基于事件的异步模式 (EAP)](event-based-asynchronous-pattern-eap.md)  
- 介绍如何使用 .NET Framework 进行异步编程。  
+ 介绍 .NET 中的异步编程。  
   
 ## <a name="see-also"></a>另请参阅
 

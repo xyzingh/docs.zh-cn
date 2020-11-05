@@ -11,18 +11,19 @@ helpviewer_keywords:
 - Join method
 - Format method
 - Concat method
-- strings [.NET Framework], creating
+- strings [.NET], creating
 - Insert method
 ms.assetid: 06fdf123-2fac-4459-8904-eb48ab908a30
-ms.openlocfilehash: b44d0f8e1717ead72e28f0be644644961d1482b6
-ms.sourcegitcommit: cdb295dd1db589ce5169ac9ff096f01fd0c2da9d
+ms.openlocfilehash: 7dedaf61f56f19343299c841bb4cee70fb9c767a
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84596443"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889434"
 ---
 # <a name="creating-new-strings-in-net"></a>新建 .NET 中的字符串
-借助 .NET Framework，可以使用简单的分配来创建字符串，也可以重载类构造函数，以支持使用许多不同参数来创建字符串。 .NET Framework 还在 <xref:System.String?displayProperty=nameWithType> 类中提供了多个方法，可通过合并多个字符串、字符串数组或对象来新建字符串对象。  
+
+.NET 允许通过简单赋值创建字符串，并且还重载一个类构造函数，以支持使用一些不同参数来创建字符串。 .NET 还在 <xref:System.String?displayProperty=nameWithType> 类中提供了多个方法，可通过合并多个字符串、字符串数组或对象来新建字符串对象。  
   
 ## <a name="creating-strings-using-assignment"></a>通过赋值创建字符串  
  新建 <xref:System.String> 对象的最简单方法是，将字符串文本分配给 <xref:System.String> 对象。  

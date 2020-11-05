@@ -4,18 +4,19 @@ ms.date: 03/30/2017
 ms.technology: dotnet-standard
 helpviewer_keywords:
 - wait handles
-- threading [.NET Framework], Mutex class
+- threading [.NET], Mutex class
 - Mutex class, about Mutex class
-- threading [.NET Framework], cross-process synchronization
+- threading [.NET], cross-process synchronization
 ms.assetid: 9dd06e25-12c0-4a9e-855a-452dc83803e2
-ms.openlocfilehash: f9267bdd19a14995851f2689651c001815812912
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: ba31fff03cfffda7cf2a40a3a82b2222e8951035
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84291170"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188986"
 ---
 # <a name="mutexes"></a>Mutexes
+
 <xref:System.Threading.Mutex> 对象可用于提供对资源的独占访问权限。 虽然 <xref:System.Threading.Mutex> 类使用的系统资源比 <xref:System.Threading.Monitor> 类更多，但它可以跨应用域边界进行封送，可用于多个等待操作以及同步不同进程中的线程。 有关托管同步机制的比较，请参阅[同步基元概述](overview-of-synchronization-primitives.md)。  
   
  有关代码示例，请参阅 <xref:System.Threading.Mutex.%23ctor%2A> 构造函数的参考文档。  
@@ -30,10 +31,7 @@ ms.locfileid: "84291170"
  如果线程拥有 <xref:System.Threading.Mutex>，此线程可以在重复的等待-请求调用中指定相同的 <xref:System.Threading.Mutex>，而不会阻止执行；不过，它必须释放 <xref:System.Threading.Mutex>，次数与释放所有权一样多。  
   
 ## <a name="abandoned-mutexes"></a>放弃的 mutex  
- 如果线程终止而未释放 <xref:System.Threading.Mutex>，则认为已放弃 mutex。 这通常指示存在严重的编程错误，因为该 mutex 正在保护的资源可能会处于不一致状态。 在 .NET Framework 版本 2.0 中，<xref:System.Threading.AbandonedMutexException> 在下一个获取 mutex 的线程中抛出。  
-  
-> [!NOTE]
-> 在 .NET Framework 版本 1.0 和 1.1 中，放弃的 <xref:System.Threading.Mutex> 设置为处于已收到信号状态，且下一个等待线程获得所有权。 如果没有等待线程，<xref:System.Threading.Mutex> 一直处于已收到信号状态。 不引发异常。  
+ 如果线程终止而未释放 <xref:System.Threading.Mutex>，则认为已放弃 mutex。 这通常指示存在严重的编程错误，因为该 mutex 正在保护的资源可能会处于不一致状态。 在下一个获取 mutex 的线程中引发 <xref:System.Threading.AbandonedMutexException>。
   
  对于系统范围的 mutex，放弃的 mutex 可能指示应用程序已突然终止（例如，通过使用 Windows 任务管理器终止）。  
   
@@ -43,7 +41,8 @@ ms.locfileid: "84291170"
  本地 mutex 仅存在于进程中。 进程中引用本地 <xref:System.Threading.Mutex> 对象的所有线程都可以使用本地 mutex。 每个 <xref:System.Threading.Mutex> 对象都是单独的本地 mutex。  
   
 ### <a name="access-control-security-for-system-mutexes"></a>系统 mutex 的访问控制安全性  
- .NET Framework 2.0 版提供查询和设置命名系统对象的 Windows 访问控制安全性的能力。 建议从创建起立刻开始保护系统 mutex，因为系统对象是全局对象，因此可能被不是你自己的代码锁定。  
+
+可借助 .NET 进行查询和设置命名系统对象的 Windows 访问控制安全性。 建议从创建起立刻开始保护系统 mutex，因为系统对象是全局对象，因此可能被不是你自己的代码锁定。  
   
  若要了解 mutex 访问控制安全性，请参阅 <xref:System.Security.AccessControl.MutexSecurity> 和 <xref:System.Security.AccessControl.MutexAccessRule> 类、<xref:System.Security.AccessControl.MutexRights> 枚举、<xref:System.Threading.Mutex> 类的 <xref:System.Threading.Mutex.GetAccessControl%2A>、<xref:System.Threading.Mutex.SetAccessControl%2A> 和 <xref:System.Threading.Mutex.OpenExisting%2A> 方法，以及 <xref:System.Threading.Mutex.%23ctor%28System.Boolean%2CSystem.String%2CSystem.Boolean%40%2CSystem.Security.AccessControl.MutexSecurity%29> 构造函数。  
   

@@ -11,15 +11,16 @@ helpviewer_keywords:
 - IAsyncResult interface, calling asynchronous methods
 - stopping asynchronous operations
 ms.assetid: 07fba116-045b-473c-a0b7-acdbeb49861f
-ms.openlocfilehash: 88ca1b5bfbb8bfbdfef01dea8af07c5d56784c5c
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 8e11f734410e266aa4c175551e8a3fbf5d9236c9
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84289910"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888901"
 ---
 # <a name="calling-asynchronous-methods-using-iasyncresult"></a>使用 IAsyncResult 调用异步方法
-.NET Framework 和第三方类库中的类型可以提供方法，以便应用能够继续执行，同时在除主应用线程外的线程中执行异步操作。 下面各部分介绍并提供了代码示例，展示了可以调用使用 <xref:System.IAsyncResult> 设计模式的异步方法的不同方式。  
+
+.NET 库和第三方类库中的类型可以提供方法，以便应用程序能够继续执行，同时在除主应用程序线程外的线程中执行异步操作。 下面各部分介绍并提供了代码示例，展示了可以调用使用 <xref:System.IAsyncResult> 设计模式的异步方法的不同方式。  
   
 - [通过结束异步操作阻止应用执行](blocking-application-execution-by-ending-an-async-operation.md)。  
   

@@ -8,12 +8,12 @@ helpviewer_keywords:
 - threading [.NET], synchronizing threads
 - managed threading
 ms.assetid: b980eb4c-71d5-4860-864a-6dfe3692430a
-ms.openlocfilehash: 4d528c54816961caa251ce054abf2c6cf07e9d01
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: 63ee85f3d8bab865ce34566ec381d23676b27991
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84769101"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188583"
 ---
 # <a name="synchronizing-data-for-multithreading"></a>为多线程处理同步数据
 
@@ -25,7 +25,7 @@ ms.locfileid: "84769101"
   
 - 手动同步。 可以使用 .NET 类库提供的同步对象。 请参阅[同步基元概述](overview-of-synchronization-primitives.md)，其中介绍了 <xref:System.Threading.Monitor> 类。  
   
-- 同步上下文。 对于 .NET Framework 和 Xamarin 应用程序，可以使用 <xref:System.Runtime.Remoting.Contexts.SynchronizationAttribute> 为 <xref:System.ContextBoundObject> 对象启用简单的自动同步。  
+- 同步上下文。 仅对于 .NET Framework 和 Xamarin 应用程序，你可以使用 <xref:System.Runtime.Remoting.Contexts.SynchronizationAttribute> 为 <xref:System.ContextBoundObject> 对象启用简单的自动同步。  
   
 - <xref:System.Collections.Concurrent?displayProperty=nameWithType> 命名空间中的集合类。 这些类提供了内置的同步添加和删除操作。 有关详细信息，请参阅[线程安全集合](../collections/thread-safe/index.md)。  
   
@@ -62,7 +62,7 @@ ms.locfileid: "84769101"
 ### <a name="compiler-support"></a>编译器支持  
  Visual Basic 和 C# 均支持使用 <xref:System.Threading.Monitor.Enter%2A?displayProperty=nameWithType> 和 <xref:System.Threading.Monitor.Exit%2A?displayProperty=nameWithType> 锁定对象的语言关键字。 Visual Basic 支持 [SyncLock](../../visual-basic/language-reference/statements/synclock-statement.md) 语句；C# 支持 [lock](../../csharp/language-reference/keywords/lock-statement.md) 语句。  
   
- 在这两种情况下，如果代码块中引发异常，则 **lock** 或 **SyncLock** 获取的锁将自动释放。 C# 和 Visual Basic 编译器在发出 **try**/**finally** 块时，在 try 的起始处使用 **Monitor.Enter**，在 **finally** 块中使用 **Monitor.Exit**。 如果 **lock** 或 **SyncLock** 块内部引发了异常，则会运行 **finally** 处理程序，从而允许执行任何清除工作。  
+ 在这两种情况下，如果代码块中引发异常，则 **lock** 或 **SyncLock** 获取的锁将自动释放。 C# 和 Visual Basic 编译器在发出 **try**/**finally** 块时，在 try 的起始处使用 **Monitor.Enter** ，在 **finally** 块中使用 **Monitor.Exit** 。 如果 **lock** 或 **SyncLock** 块内部引发了异常，则会运行 **finally** 处理程序，从而允许执行任何清除工作。  
   
 ## <a name="synchronized-context"></a>同步上下文  
 

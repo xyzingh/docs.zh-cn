@@ -3,18 +3,19 @@ title: 观察程序设计模式最佳做法
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 helpviewer_keywords:
-- observer design pattern [.NET Framework], best practices
-- best practices [.NET Framework], observer design pattern
+- observer design pattern [.NET], best practices
+- best practices [.NET], observer design pattern
 ms.assetid: c834760f-ddd4-417f-abb7-a059679d5b8c
-ms.openlocfilehash: b4f8e568dcb6790dac1dc8fc5c969d6fa1367c4e
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 8e75343e1ca1c7f69306ee45148f2dc0eec3585f
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84288454"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064075"
 ---
 # <a name="observer-design-pattern-best-practices"></a>观察程序设计模式最佳做法
-在 .NET Framework 中，将观察者设计模式作为一组接口实现。 <xref:System.IObservable%601?displayProperty=nameWithType> 接口表示数据提供程序，也负责提供允许观察者取消订阅通知的 <xref:System.IDisposable> 实现。 <xref:System.IObserver%601?displayProperty=nameWithType> 接口表示观察者。 本主题描述使用这些接口实现观察者设计模式时开发人员应遵循的最佳做法。  
+
+在 .NET 中，将观察者设计模式作为一组接口实现。 <xref:System.IObservable%601?displayProperty=nameWithType> 接口表示数据提供程序，也负责提供允许观察者取消订阅通知的 <xref:System.IDisposable> 实现。 <xref:System.IObserver%601?displayProperty=nameWithType> 接口表示观察者。 本主题描述使用这些接口实现观察者设计模式时开发人员应遵循的最佳做法。  
   
 ## <a name="threading"></a>线程  
  提供程序通常通过向由一些集合对象表示的订阅者列表添加特定观察者来实现 <xref:System.IObservable%601.Subscribe%2A?displayProperty=nameWithType> 方法，并通过从订阅者列表中删除特定观察者来实现 <xref:System.IDisposable.Dispose%2A?displayProperty=nameWithType> 方法。 观察者可在任何时候调用这些方法。 此外，由于提供程序/观察者协定未指定由谁负责在 <xref:System.IObserver%601.OnCompleted%2A?displayProperty=nameWithType> 回调方法后取消订阅，因此提供程序和观察者都可能尝试从列表中删除相同成员。 由于这种可能性，<xref:System.IObservable%601.Subscribe%2A> 和 <xref:System.IDisposable.Dispose%2A> 方法都应该是线程安全的。 这通常需要使用[并发回收](../parallel-programming/data-structures-for-parallel-programming.md)或锁。 非线程安全的实现应显式注明它们非线程安全。  

@@ -2,12 +2,12 @@
 title: 依赖项和.NET 库
 description: 管理 .NET 库中 NuGet 依赖项的最佳做法建议。
 ms.date: 10/02/2018
-ms.openlocfilehash: 344d5dff564b64b9d70bbd61afb0b7bc057c8f21
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: d189a3364b501272e29de72b6018844877bf2128
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84291365"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93189298"
 ---
 # <a name="dependencies"></a>依赖项
 
@@ -23,9 +23,9 @@ ms.locfileid: "84291365"
 
 大多数菱形依赖关系很容易解决；但是，在某些情况下，它们可能会引发问题：
 
-1. 存在冲突的 NuGet 包引用会导致在包还原期间无法解析版本。
-2. 各版本之间的重大更改会在运行时导致 bug 和异常。
-3. 包程序集具有强名称，程序集版本会发生更改，并且在 .NET Framework 上运行应用。 程序集绑定重定向是必需的。
+- 存在冲突的 NuGet 包引用会导致在包还原期间无法解析版本。
+- 各版本之间的重大更改会在运行时导致 bug 和异常。
+- 包程序集具有强名称，程序集版本会发生更改，并且在 .NET Framework 上运行应用。 程序集绑定重定向是必需的。
 
 无法确定哪些包将与你自己的包一起使用。 降低菱形依赖关系破坏库的可能性的一个好方法是将依赖的包的数量降至最低。
 

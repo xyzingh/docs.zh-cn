@@ -8,12 +8,12 @@ dev_langs:
 helpviewer_keywords:
 - PLINQ queries, pitfalls
 ms.assetid: 75a38b55-4bc4-488a-87d5-89dbdbdc76a2
-ms.openlocfilehash: b4d58734fba4b834d5f5819a6bf19da0b7b7e8db
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 012ac4078c1e2f17d6eef88ee295b11161a0e24a
+ms.sourcegitcommit: 6d09ae36acba0b0e2ba47999f8f1a725795462a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84285308"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925267"
 ---
 # <a name="potential-pitfalls-with-plinq"></a>PLINQ 的潜在缺陷
 
@@ -62,7 +62,7 @@ a.AsParallel().Where(...).OrderBy(...).Select(...).ForAll(x => fs.Write(x));
 
 ## <a name="limit-calls-to-thread-safe-methods"></a>限制对线程安全方法的调用
 
-.NET Framework 中的大多数静态方法是线程安全的，并且可以同时从多个线程中调用。 但是，即使在这些情况下，所涉及到的同步也可能会导致查询速度大幅度下降。
+.NET 中的大多数静态方法是线程安全的，并且可以同时从多个线程中调用。 但是，即使在这些情况下，所涉及到的同步也可能会导致查询速度大幅度下降。
 
 > [!NOTE]
 > 可以自行对此进行测试，具体方法是在查询中插入一些 <xref:System.Console.WriteLine%2A> 调用。 文档示例中使用的此方法只为了方便本文演示，请勿在 PLINQ 查询中使用它。

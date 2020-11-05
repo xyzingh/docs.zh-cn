@@ -1,28 +1,26 @@
 ---
 title: 托管线程中的异常
-description: 了解如何在 .NET 中处理未经处理的异常。 在 .NET 版本 2.0 中，大多数未经处理的线程异常将继续执行，直到应用程序自然终止。
+description: 了解如何在 .NET 中处理未经处理的异常。 大多数未经处理的线程异常将继续执行，直到应用程序自然终止。
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 helpviewer_keywords:
 - unhandled exceptions,in managed threads
-- threading [.NET Framework],unhandled exceptions
-- threading [.NET Framework],exceptions in managed threads
+- threading [.NET],unhandled exceptions
+- threading [.NET],exceptions in managed threads
 - managed threading
 ms.assetid: 11294769-2e89-43cb-890e-ad4ad79cfbee
-ms.openlocfilehash: 2facb68c77815de7a6fb97ab8f2ee683ffbad724
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: b7cf7e94156eedc82c7ec5c863ee013b75d22e73
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84767879"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188323"
 ---
 # <a name="exceptions-in-managed-threads"></a>托管线程中的异常
-从 .NET Framework 2.0 版开始，公共语言运行时允许线程中的多数未经处理的异常正常继续。 在多数情况下，这意味着未经处理的异常会导致应用程序终止。  
+
+公共语言运行时允许线程中的多数未经处理的异常正常继续。 在多数情况下，这意味着未经处理的异常会导致应用程序终止。
   
-> [!NOTE]
-> 这是对 .NET Framework 1.0 和 1.1 版的重要更改，这两个版本对许多未经处理的异常（例如，线程池线程中未经处理的异常）提供支持。 请参阅本主题后面的[对先前版本的更改](#ChangeFromPreviousVersions)。  
-  
- 公共语言运行时为用于控制程序流的某些未经处理的异常提供支持：  
+公共语言运行时为用于控制程序流的某些未经处理的异常提供支持：  
   
 - 由于 <xref:System.Threading.Thread.Abort%2A> 得到调用，因此 <xref:System.Threading.ThreadAbortException> 在线程中抛出。  
   
@@ -42,9 +40,9 @@ ms.locfileid: "84767879"
   
  如果允许线程中未经处理的异常正常继续，直到操作系统终止程序为止，将会在开发和测试过程中暴露此类问题。 程序终止的错误报告支持调试。  
   
-<a name="ChangeFromPreviousVersions"></a>
-## <a name="change-from-previous-versions"></a>对先前版本的更改  
- 最重要的更改发生在托管线程上。 在 .NET Framework 1.0 和 1.1 版中，公共语言运行时在下列情况下为未经处理的异常提供支持：  
+## <a name="change-from-previous-versions"></a>对先前版本的更改
+
+在 .NET Framework 1.0 和 1.1 版中，公共语言运行时在下列情况下为未经处理的异常提供支持：  
   
 - 在线程池线程中，没有诸如未经处理的异常这样的内容。 当某个任务引发了它无法处理的异常时，运行时会将异常堆栈跟踪打印至控制台，然后将线程返回至线程池。  
   
@@ -54,10 +52,11 @@ ms.locfileid: "84767879"
   
  托管线程的前台或后台状态不会影响此行为。  
   
- 对于发自非托管代码的线程中的未经处理的异常，差别更加细微。 运行时 JIT 附加对话会抢占已通过本机代码的线程中的托管异常或本机异常的操作系统对话。 无论什么情况，进程都会终止。  
-  
-### <a name="migrating-code"></a>迁移代码  
- 通常，更改将暴露以前无法识别的编程问题，以便修复这些问题。 但在某些情况下，程序员可能已经利用了运行时支持，例如用于终止线程。 根据具体情况，他们应考虑以下迁移策略之一：  
+ 对于发自非托管代码的线程中的未经处理的异常，差别更加细微。 运行时 JIT 附加对话会抢占已通过本机代码的线程中的托管异常或本机异常的操作系统对话。 无论什么情况，进程都会终止。
+
+### <a name="migration"></a>迁移
+
+如果要从 .NET Framework 1.0 或 1.1 迁移，并利用运行时支持来终止线程等，请考虑以下某种迁移策略：  
   
 - 重构代码，以便接收到信号时线程能够正常退出。  
   
@@ -65,17 +64,17 @@ ms.locfileid: "84767879"
   
 - 如果线程必须停止才能使进程终止，请将该线程设置为后台线程，这样它就会在进程退出时自动终止。  
   
- 在所有情况下，迁移策略均应遵循异常设计准则。 请参阅[异常设计准则](../design-guidelines/exceptions.md)。  
+在所有情况下，迁移策略均应遵循异常设计准则。 请参阅[异常设计准则](../design-guidelines/exceptions.md)。  
   
-### <a name="application-compatibility-flag"></a>应用程序兼容性标志  
- 作为临时的兼容性措施，管理员可以将兼容性标志放在应用程序配置文件的 `<runtime>` 节中。 这会导致公共语言运行时回到 1.0 和 1.1 版的行为。  
+作为临时的兼容性措施，管理员可以将兼容性标志放在应用程序配置文件的 `<runtime>` 节中。 这会导致公共语言运行时回到 1.0 和 1.1 版的行为。  
   
 ```xml  
 <legacyUnhandledExceptionPolicy enabled="1"/>  
 ```  
   
-## <a name="host-override"></a>主机重写  
- 在 .NET Framework 2.0 版中，非托管主机可以使用宿主 API 中的 [ICLRPolicyManager](../../framework/unmanaged-api/hosting/iclrpolicymanager-interface.md) 接口来重写公共语言运行时的默认未经处理的异常。 [ICLRPolicyManager::SetUnhandledExceptionPolicy](../../framework/unmanaged-api/hosting/iclrpolicymanager-setunhandledexceptionpolicy-method.md) 函数用于设置未经处理的异常的策略。  
+## <a name="host-override"></a>主机重写
+
+非托管主机可以使用宿主 API 中的 [ICLRPolicyManager](../../framework/unmanaged-api/hosting/iclrpolicymanager-interface.md) 接口来替代公共语言运行时的默认未经处理的异常。 [ICLRPolicyManager::SetUnhandledExceptionPolicy](../../framework/unmanaged-api/hosting/iclrpolicymanager-setunhandledexceptionpolicy-method.md) 函数用于设置未经处理的异常的策略。  
   
 ## <a name="see-also"></a>请参阅
 

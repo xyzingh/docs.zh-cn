@@ -7,18 +7,18 @@ dev_langs:
 - vb
 helpviewer_keywords:
 - regular expressions, behavior
-- .NET Framework regular expressions, behavior
+- .NET regular expressions, behavior
 ms.assetid: 0ee1a6b8-caac-41d2-917f-d35570021b10
-ms.openlocfilehash: 802c84bf93b3821459ab652e69a12fcc50280b9e
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: a93e0e7bac782d9a4ce47c1586796b063563d2b6
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84290547"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888667"
 ---
 # <a name="details-of-regular-expression-behavior"></a>正则表达式行为的详细信息
 
-.NET Framework 正则表达式引擎是回溯正则表达式匹配程序，其中包含传统的非确定性有限自动机 (NFA) 引擎（如 Perl、Python、Emacs 和 Tcl 所使用的引擎）。 这使它有别于速度更快、但是限制更多的纯正则表达式确定性有限自动机 (DFA) 引擎（如 awk、egrep 或 lex 中的引擎）。 这也使它有别于标准化、但速度较慢的 POSIX NFA。 下面的部分介绍了正则表达式引擎的三种类型，并解释了为何要在 .NET Framework 中使用传统 NFA 引擎实现正则表达式。
+.NET 正则表达式引擎是回溯正则表达式匹配程序，其中包含传统的非确定性有限自动机 (NFA) 引擎（如 Perl、Python、Emacs 和 Tcl 所使用的引擎）。 这使它有别于速度更快、但是限制更多的纯正则表达式确定性有限自动机 (DFA) 引擎（如 awk、egrep 或 lex 中的引擎）。 这也使它有别于标准化、但速度较慢的 POSIX NFA。 以下部分介绍正则表达式引擎的三种类型，并说明为何使用传统 NFA 引擎实现 .NET 中的正则表达式。
 
 ## <a name="benefits-of-the-nfa-engine"></a>NFA 引擎的优势
 
@@ -33,11 +33,11 @@ ms.locfileid: "84290547"
 > [!NOTE]
 > 若要了解过度回溯导致的性能损失，以及如何生成正则表达式来解决此问题，请参阅[回溯](backtracking-in-regular-expressions.md)。
 
-## <a name="net-framework-engine-capabilities"></a>.NET Framework 引擎功能
+## <a name="net-engine-capabilities"></a>.NET 引擎功能
 
- 为了利用传统 NFA 引擎的优势，.NET Framework 正则表达式引擎包括一整套构造，以便于程序员引导回溯引擎。 这些构造可以用于更快地找到匹配项或使特定扩展优先于其他扩展。
+ 为了利用传统 NFA 引擎的优势，.NET 正则表达式引擎包括一组全面的构造，使程序员可以控制回溯引擎。 这些构造可以用于更快地找到匹配项或使特定扩展优先于其他扩展。
 
- .NET Framework 正则表达式引擎的其他功能包括下面这些：
+ .NET 正则表达式引擎的其他功能包括以下这些：
 
 - 惰性限定符：`??`、`*?`、`+?`、`{`n`,`m`}?`   。 这些构造会指示回溯引擎首先搜索最小数量的重复项。 相反，普通贪婪限定符会尝试首先匹配最大数量的重复项。 以下示例演示了两者之间的差异。 正则表达式匹配以数字结尾的句子，捕获组旨在提取该数字。 正则表达式 `.+(\d+)\.` 包含贪婪限定符 `.+`，这使正则表达式引擎仅捕获数字的最后一位数。 相反，正则表达式 `.+?(\d+)\.` 包含惰性限定符 `.+?`，这使正则表达式引擎捕获整个数字。
 
@@ -149,7 +149,7 @@ ms.locfileid: "84290547"
 |[回溯](backtracking-in-regular-expressions.md)|提供有关正则表达式回溯如何进行分支以查找替代匹配的信息。|
 |[编译和重用](compilation-and-reuse-in-regular-expressions.md)|提供有关编译和重复使用正则表达式以提高性能的信息。|
 |[线程安全性](thread-safety-in-regular-expressions.md)|提供有关正则表达式线程安全的信息，并说明何时应同步对正则表达式对象进行的访问。|
-|[.NET Framework 正则表达式](regular-expressions.md)|提供正则表达式的编程语言方面的概述。|
+|[.NET 正则表达式](regular-expressions.md)|提供正则表达式的编程语言方面的概述。|
 |[正则表达式对象模型](the-regular-expression-object-model.md)|提供演示如何使用正则表达式类的信息和代码示例。|
 |[正则表达式语言 - 快速参考](regular-expression-language-quick-reference.md)|提供有关可用来定义正则表达式的字符集、运算符和构造的信息。|
 

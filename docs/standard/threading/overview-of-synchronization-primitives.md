@@ -8,12 +8,12 @@ helpviewer_keywords:
 - threading [.NET],synchronizing threads
 - managed threading
 ms.assetid: b782bcb8-da6a-4c6a-805f-2eb46d504309
-ms.openlocfilehash: 7347c9b40f150febc6a163ae3aa3267123ea0e9d
-ms.sourcegitcommit: 465547886a1224a5435c3ac349c805e39ce77706
+ms.openlocfilehash: d5ae0fe5813952742950582a4282cd1c6ab6a870
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81739370"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188973"
 ---
 # <a name="overview-of-synchronization-primitives"></a>同步基元概述
 
@@ -34,11 +34,11 @@ ms.locfileid: "81739370"
 
 在 .NET Framework 中，由于 <xref:System.Threading.WaitHandle> 派生自 <xref:System.MarshalByRefObject?displayProperty=nameWithType>，因此，这些类型可用于跨应用程序域边界同步线程的活动。
 
-在 .NET Framework 和 .NET Core 中，其中的一些类型可以表示已命名的系统同步句柄，这些句柄在整个操作系统中都可见并可用于进程间同步：
+在 .NET Framework、.NET Core 和 .NET 5+ 中，其中的一些类型可以表示已命名的系统同步句柄，这些句柄在整个操作系统中都可见并可用于进程间同步：
 
-- <xref:System.Threading.Mutex>（.NET Framework 和 .NET Core）、
-- <xref:System.Threading.Semaphore>（.NET Framework 和 Windows 上的 .NET Core）、
-- <xref:System.Threading.EventWaitHandle>（.NET Framework 和 Windows 上的 .NET Core）。
+- <xref:System.Threading.Mutex>
+- <xref:System.Threading.Semaphore>（在 Windows 上）
+- <xref:System.Threading.EventWaitHandle>（在 Windows 上）
 
 有关详细信息，请参阅 <xref:System.Threading.WaitHandle> API 参考。
 

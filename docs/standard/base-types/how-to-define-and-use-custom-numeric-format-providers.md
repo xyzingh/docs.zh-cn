@@ -6,24 +6,25 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- numeric format strings [.NET Framework]
-- formatting [.NET Framework], numbers
-- number formatting [.NET Framework]
+- numeric format strings [.NET]
+- formatting [.NET], numbers
+- number formatting [.NET]
 - custom numeric format strings
-- numbers [.NET Framework], custom numeric format strings
+- numbers [.NET], custom numeric format strings
 - displaying date and time data
-- format providers [.NET Framework]
+- format providers [.NET]
 - custom format strings
 ms.assetid: a281bfbf-6596-45ed-a2d6-3782d535ada2
-ms.openlocfilehash: d12899fff7d9e6cb63728ba0b160b70fa2a41a1a
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 38c1890684bd89b2bc4719637209569f01bd17a2
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84290508"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888477"
 ---
 # <a name="how-to-define-and-use-custom-numeric-format-providers"></a>如何：定义和使用自定义数值格式提供程序
-.NET Framework 使你可以全面控制数值的字符串表示形式。 它支持用于自定义数值格式的以下功能：  
+
+.NET 使你可以全面控制数值的字符串表示形式。 它支持用于自定义数值格式的以下功能：  
   
 - 标准数字格式字符串，提供一组预定义格式以用于将数字转换为其字符串表示形式。 可以将它们与包含 `format` 参数的任何数字格式设置方法（如 <xref:System.Decimal.ToString%28System.String%29?displayProperty=nameWithType>）结合使用。 有关详细信息，请参阅[标准数字格式字符串](standard-numeric-format-strings.md)。  
   
@@ -31,9 +32,9 @@ ms.locfileid: "84290508"
   
 - 自定义 <xref:System.Globalization.CultureInfo> 或 <xref:System.Globalization.NumberFormatInfo> 对象，定义用于显示数值的字符串表示形式的符号和格式模式。 可以将它们与包含 `provider` 参数的任何数字格式设置方法（如 <xref:System.Int32.ToString%2A>）结合使用。 `provider` 参数通常用于指定区域性专用格式设置。  
   
- 在某些情况下（例如当应用程序必须显示格式化帐号、标识号或邮政编码），这三种方法都不合适。 借助 .NET Framework，还可以定义既不是 <xref:System.Globalization.CultureInfo> 也不是 <xref:System.Globalization.NumberFormatInfo> 对象的格式设置对象，用于确定如何设置数值的格式。 本主题提供用于实现这类对象的分步说明，并提供对电话号码设置格式的示例。  
+ 在某些情况下（例如当应用程序必须显示格式化帐号、标识号或邮政编码），这三种方法都不合适。 借助 .NET，你还可以定义既不是 <xref:System.Globalization.CultureInfo> 也不是 <xref:System.Globalization.NumberFormatInfo> 对象的格式设置对象，用于确定如何设置数值的格式。 本主题提供用于实现这类对象的分步说明，并提供对电话号码设置格式的示例。  
   
-### <a name="to-define-a-custom-format-provider"></a>定义自定义格式提供程序  
+## <a name="define-a-custom-format-provider"></a>定义自定义格式提供程序  
   
 1. 定义实现 <xref:System.IFormatProvider> 和 <xref:System.ICustomFormatter> 接口的类。  
   
@@ -55,13 +56,14 @@ ms.locfileid: "84290508"
   
     4. 返回 `arg` 参数的字符串表示形式。  
   
-### <a name="to-use-a-custom-numeric-formatting-object"></a>使用自定义数字格式设置对象  
+## <a name="use-a-custom-numeric-formatting-object"></a>使用自定义数字格式设置对象  
   
 1. 创建自定义格式设置类的新实例。  
   
 2. 调用 <xref:System.String.Format%28System.IFormatProvider%2CSystem.String%2CSystem.Object%5B%5D%29?displayProperty=nameWithType> 格式设置方法，同时向它传递自定义格式设置对象、格式设置说明符（或 <xref:System.String.Empty?displayProperty=nameWithType>，如果未使用说明符的话），以及要设置格式的数值。  
   
-## <a name="example"></a>示例  
+## <a name="example"></a>示例
+
  下面的示例定义了一个名为 `TelephoneFormatter` 的自定义数值格式提供程序，该提供程序将代表美国电话号码的数字转化为它的 NANP 或 E.123 格式。 该方法处理两个格式说明符“N”（输出 NANP 格式）和“I”（输出国际 E.123 格式）。  
   
  [!code-csharp[Formatting.HowTo.NumericValue#1](../../../samples/snippets/csharp/VS_Snippets_CLR/Formatting.HowTo.NumericValue/cs/Telephone1.cs#1)]

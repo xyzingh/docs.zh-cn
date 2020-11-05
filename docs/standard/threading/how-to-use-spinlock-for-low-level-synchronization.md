@@ -8,12 +8,12 @@ dev_langs:
 helpviewer_keywords:
 - SpinLock, how to use
 ms.assetid: a9ed3e4e-4f29-4207-b730-ed0a51ecbc19
-ms.openlocfilehash: ad254cb6208bff868e5fc689c502b7ddcc175ad5
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.openlocfilehash: 3fb19c2b36d97710685cac4ecd10f47a119814ce
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2020
-ms.locfileid: "73137952"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93189181"
 ---
 # <a name="how-to-use-spinlock-for-low-level-synchronization"></a>如何：使用 SpinLock 进行低级别同步
 
@@ -24,9 +24,9 @@ ms.locfileid: "73137952"
   
  如果共享资源上的锁不会保留太长时间，<xref:System.Threading.SpinLock> 可能会很有用。 在这种情况下，多核计算机上的阻止线程可高效旋转几个周期，直到锁被释放。 通过旋转，线程不会受到阻止，这是一个占用大量 CPU 资源的进程。 在某些情况下，<xref:System.Threading.SpinLock> 会停止旋转，以防出现逻辑处理器资源不足或超线程系统上优先级反转的情况。  
   
- 此示例使用 <xref:System.Collections.Generic.Queue%601?displayProperty=nameWithType> 类，要求必须有用户同步，才能执行多线程访问。 在定目标到 .NET Framework 版本 4 的应用中，另一种选择是使用不需要任何用户锁的 <xref:System.Collections.Concurrent.ConcurrentQueue%601?displayProperty=nameWithType>。  
+ 此示例使用 <xref:System.Collections.Generic.Queue%601?displayProperty=nameWithType> 类，要求必须有用户同步，才能执行多线程访问。 另一种方法是使用 <xref:System.Collections.Concurrent.ConcurrentQueue%601?displayProperty=nameWithType>，这不需要任何用户锁定。  
   
- 请注意，在 <xref:System.Threading.SpinLock.Exit%2A?displayProperty=nameWithType> 调用中使用 `false`（Visual Basic 中的 `False`）。 这可提供最佳性能。 在 IA64 架构上指定 `true`（Visual Basic 中为 `True`）可使用内存栅栏，这会刷新写入缓冲区以确保锁现在可用于其他线程退出。  
+ 请注意，在对 <xref:System.Threading.SpinLock.Exit%2A?displayProperty=nameWithType> 的调用中使用 `false`。 这可提供最佳性能。 在 IA64 架构上指定 `true` 可使用内存界定，这会刷新写入缓冲区以确保锁现在可用于其他线程退出。  
   
 ## <a name="see-also"></a>另请参阅
 

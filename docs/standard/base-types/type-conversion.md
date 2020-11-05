@@ -1,5 +1,5 @@
 ---
-title: .NET Framework 中的类型转换
+title: .NET 中的类型转换
 description: 了解 .NET 中的类型转换，该转换在新类型中创建的值与旧类型的值相等，但不能保留原始类型的标识。
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
@@ -23,19 +23,20 @@ helpviewer_keywords:
 - Convert class
 - implicit conversions
 - Implicit operator
-- data types [.NET Framework], converting
+- data types [.NET], converting
 ms.assetid: ba36154f-064c-47d3-9f05-72f93a7ca96d
-ms.openlocfilehash: 11345081610459dbf053d846aa04369301010732
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: 4f7e4400aa15532b04fd4e39219775af34068685
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84769218"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687531"
 ---
-# <a name="type-conversion-in-the-net-framework"></a>.NET Framework 中的类型转换
+# <a name="type-conversion-in-net"></a>.NET 中的类型转换
+
 每个值都有与之关联的类型，此类型定义分配给该值的空间大小、它可以具有的可能值的范围以及它可以提供的成员等特性。 许多值可以表示为多种类型。 例如，值 4 可以表示为整数或浮点值。 类型转换可以创建一个等同于旧类型值的新类型值，但却不必保留原始对象的恒等值（或精确值）。  
   
- .NET Framework 自动支持以下转换：  
+.NET 自动支持以下转换：  
   
 - 从派生类转换为基类。 例如，这意味着可将任何类或结构的实例转换为 <xref:System.Object> 实例。  此转换不需要强制转换或转换运算符。  
   
@@ -45,20 +46,21 @@ ms.locfileid: "84769218"
   
 - 从接口对象转换回实现该接口的原始类型。  在 C# 中，此转换需要强制转换运算符。 在 Visual Basic 中，如果 `Option Strict` 处于开启状态，则它需要 `CType` 运算符。  
   
- 除这些自动转换外，.NET Framework 还提供支持自定义类型转换的多种功能。 其中包括：  
+除这些自动转换外，.NET 还提供支持自定义类型转换的多种功能。 其中包括：  
   
 - `Implicit` 运算符，该运算符定义类型之间可用的扩大转换。 有关详细信息，请参阅[使用隐式运算符的隐式转换](#implicit-conversion-with-the-implicit-operator)部分。  
   
 - `Explicit` 运算符，该运算符定义类型之间可用的收缩转换。 有关详细信息，请参阅[使用显式运算符的显式转换](#explicit-conversion-with-the-explicit-operator)部分。  
   
-- <xref:System.IConvertible> 接口，该接口定义到 .NET Framework 每个基数据类型的转换。 有关更多信息，请参阅 [IConvertible 接口](#the-iconvertible-interface)部分。  
+- <xref:System.IConvertible> 接口，该接口定义到 .NET 每个基数据类型的转换。 有关更多信息，请参阅 [IConvertible 接口](#the-iconvertible-interface)部分。  
   
 - <xref:System.Convert> 类，该类提供了一组方法来实现 <xref:System.IConvertible> 接口中的方法。 有关更多信息，请参阅 [Convert 类](#the-convert-class)部分。  
   
 - <xref:System.ComponentModel.TypeConverter> 类，该类是一个基类，可以扩展该类以支持指定的类型到任何其他类型的转换。 有关更多信息，请参阅 [TypeConverter 类](#the-typeconverter-class)部分。  
 
-## <a name="implicit-conversion-with-the-implicit-operator"></a>使用隐式运算符的隐式转换  
- 扩大转换涉及从现有类型的值创建一个新值，该现有类型比目标类型具有限制性更强的范围或限制性更强的成员列表。 扩大转换不会导致数据丢失（但可能导致精度损失）。 由于不会丢失数据，因此编译器可以隐式或透明地处理转换，无需使用显式转换方法或强制转换运算符。  
+## <a name="implicit-conversion-with-the-implicit-operator"></a>使用隐式运算符的隐式转换
+
+扩大转换涉及从现有类型的值创建一个新值，该现有类型比目标类型具有限制性更强的范围或限制性更强的成员列表。 扩大转换不会导致数据丢失（但可能导致精度损失）。 由于不会丢失数据，因此编译器可以隐式或透明地处理转换，无需使用显式转换方法或强制转换运算符。  
   
 > [!NOTE]
 > 虽然执行隐式转换的代码可以调用转换方法或使用强制转换运算符，但支持隐式转换的编译器不需要调用转换方法或使用强制转换运算符。  
@@ -78,8 +80,9 @@ ms.locfileid: "84769218"
  [!code-csharp[Conceptual.Conversion#3](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.conversion/cs/implicit1.cs#3)]
  [!code-vb[Conceptual.Conversion#3](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.conversion/vb/implicit1.vb#3)]  
 
-## <a name="explicit-conversion-with-the-explicit-operator"></a>使用显式运算符的显式转换  
- 收缩转换涉及从现有类型的值创建一个新值，该现有类型比目标类型具有更大的范围和更大的成员列表。 由于收缩转换可以导致数据丢失，因此编译器通常需要通过调用转换方法或使用强制转换运算符来进行显式转换。 也就是说，必须在开发人员代码中显式处理收缩转换。  
+## <a name="explicit-conversion-with-the-explicit-operator"></a>使用显式运算符的显式转换
+
+收缩转换涉及从现有类型的值创建一个新值，该现有类型比目标类型具有更大的范围和更大的成员列表。 由于收缩转换可以导致数据丢失，因此编译器通常需要通过调用转换方法或使用强制转换运算符来进行显式转换。 也就是说，必须在开发人员代码中显式处理收缩转换。  
   
 > [!NOTE]
 > 收缩转换之所以需要使用转换方法或强制转换运算符，主要是为提醒开发人员可能会丢失数据或引发 <xref:System.OverflowException>，以便可以在代码中对其进行处理。 但是，有些编译器可以放宽此要求。 例如，在 Visual Basic 中，如果 `Option Strict` 关闭（其默认设置），则 Visual Basic 编译器会尝试隐式执行收缩转换。  
@@ -92,12 +95,12 @@ ms.locfileid: "84769218"
 |<xref:System.UInt32>|<xref:System.UInt32.MaxValue?displayProperty=nameWithType> 大于 <xref:System.Int32.MaxValue?displayProperty=nameWithType>。|  
 |<xref:System.UInt64>|<xref:System.UInt64.MaxValue?displayProperty=nameWithType> 大于 <xref:System.Int32.MaxValue?displayProperty=nameWithType>。|  
   
- 为了处理这种收缩转换，.NET Framework 允许类型定义 `Explicit` 运算符。 然后，各种语言编译器可以使用自己的语法实现此运算符，也可以调用 <xref:System.Convert> 类的成员来执行此转换。 （有关 <xref:System.Convert> 类的详细信息，请参阅本主题后面的 [Convert 类](#the-convert-class)。）下面的示例演示如何使用语言功能来处理这些可能超出范围的整数值到 <xref:System.Int32> 值的显式转换。  
+ 为了处理这种收缩转换，.NET 允许类型定义 `Explicit` 运算符。 然后，各种语言编译器可以使用自己的语法实现此运算符，也可以调用 <xref:System.Convert> 类的成员来执行此转换。 （有关 <xref:System.Convert> 类的详细信息，请参阅本主题后面的 [Convert 类](#the-convert-class)。）下面的示例演示如何使用语言功能来处理这些可能超出范围的整数值到 <xref:System.Int32> 值的显式转换。  
   
  [!code-csharp[Conceptual.Conversion#4](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.conversion/cs/explicit1.cs#4)]
  [!code-vb[Conceptual.Conversion#4](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.conversion/vb/explicit1.vb#4)]  
   
- 显式转换在不同的语言中可能会产生不同的结果，并且这些结果可能因对应的 <xref:System.Convert> 方法所返回的值而异。 例如，如果将 <xref:System.Double> 值 12.63251 转换为 <xref:System.Int32>，则 Visual Basic `CInt` 方法和 .NET Framework <xref:System.Convert.ToInt32%28System.Double%29?displayProperty=nameWithType> 方法会对 <xref:System.Double> 进行舍入以返回值 13，而 C# `(int)` 运算符会截断 <xref:System.Double> 以返回值 12。 类似地，C# `(int)` 运算符不支持从布尔值到整数的转换，而 Visual Basic `CInt` 方法会将值 `true` 转换为 -1。 另一方面，<xref:System.Convert.ToInt32%28System.Boolean%29?displayProperty=nameWithType> 方法将值 `true` 转换为 1。  
+ 显式转换在不同的语言中可能会产生不同的结果，并且这些结果可能因对应的 <xref:System.Convert> 方法所返回的值而异。 例如，如果将 <xref:System.Double> 值 12.63251 转换为 <xref:System.Int32>，则 Visual Basic `CInt` 方法和 .NET <xref:System.Convert.ToInt32%28System.Double%29?displayProperty=nameWithType> 方法会对 <xref:System.Double> 进行舍入以返回值 13，而 C# `(int)` 运算符会截断 <xref:System.Double> 以返回值 12。 类似地，C# `(int)` 运算符不支持从布尔值到整数的转换，而 Visual Basic `CInt` 方法会将值 `true` 转换为 -1。 另一方面，<xref:System.Convert.ToInt32%28System.Boolean%29?displayProperty=nameWithType> 方法将值 `true` 转换为 1。  
   
  大多数编译器允许以有检查或无检查的方式执行显式转换。 当执行有检查转换时，如果被转换类型的值超出了目标类型的范围，则会引发 <xref:System.OverflowException>。 在相同条件下执行无检查转换时，转换可能不会引发异常，但无法确定确切的行为，并且可能产生不正确的值。  
   
@@ -118,8 +121,9 @@ ms.locfileid: "84769218"
  [!code-csharp[Conceptual.Conversion#6](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.conversion/cs/explicit1.cs#6)]
  [!code-vb[Conceptual.Conversion#6](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.conversion/vb/explicit1.vb#6)]  
 
-## <a name="the-iconvertible-interface"></a>IConvertible 接口  
- 为了支持任意类型到公共语言运行时基类型的转换，.NET Framework 提供了 <xref:System.IConvertible> 接口。 需要使用实现类型以提供以下方法：  
+## <a name="the-iconvertible-interface"></a>IConvertible 接口
+
+为了支持任意类型到公共语言运行时基类型的转换，.NET 提供了 <xref:System.IConvertible> 接口。 需要使用实现类型以提供以下方法：  
   
 - 一个返回实现类型的 <xref:System.TypeCode> 的方法。  
   
@@ -135,20 +139,22 @@ ms.locfileid: "84769218"
  对转换方法的接口（而不是实现类型）调用转换方法的要求使显式接口实现成为一种代价相对较大的操作。 因此，在公共语言运行时基类型之间进行转换时，建议您调用 <xref:System.Convert> 类的适当成员。 有关详细信息，请参阅下一部分 [Convert 类](#the-convert-class)。  
   
 > [!NOTE]
-> 除了 .NET Framework 提供的 <xref:System.IConvertible> 接口和 <xref:System.Convert> 类，各种语言还可能会提供其他方法来执行转换。 例如，C# 使用强制转换运算符；Visual Basic 使用编译器实现的转换函数，例如 `CType`、`CInt` 和 `DirectCast`。  
+> 除了 .NET 提供的 <xref:System.IConvertible> 接口和 <xref:System.Convert> 类，各种语言还可能会提供其他方法来执行转换。 例如，C# 使用强制转换运算符；Visual Basic 使用编译器实现的转换函数，例如 `CType`、`CInt` 和 `DirectCast`。  
   
- 大多数情况下，<xref:System.IConvertible> 接口设计为支持 .NET Framework 中基类型之间的转换。 但是，通过自定义类型也可以实现该接口，以便支持该类型到其他自定义类型的转换。 有关详细信息，请参阅本主题后面的[使用 ChangeType 方法的自定义转换](#custom-conversions-with-the-changetype-method)部分。
+ 大多数情况下，<xref:System.IConvertible> 接口设计为支持 .NET 中基类型之间的转换。 但是，通过自定义类型也可以实现该接口，以便支持该类型到其他自定义类型的转换。 有关详细信息，请参阅本主题后面的[使用 ChangeType 方法的自定义转换](#custom-conversions-with-the-changetype-method)部分。
 
 ## <a name="the-convert-class"></a>Convert 类
- 虽然可以调用每个基类型的 <xref:System.IConvertible> 接口实现来执行类型转换，但从一种基类型转换为另一种基类型时，建议您调用 <xref:System.Convert?displayProperty=nameWithType> 类的方法，这种方式与语言无关。 此外，<xref:System.Convert.ChangeType%28System.Object%2CSystem.Type%2CSystem.IFormatProvider%29?displayProperty=nameWithType> 方法还可用于从一个指定的自定义类型转换为另一种类型。  
+
+虽然可以调用每个基类型的 <xref:System.IConvertible> 接口实现来执行类型转换，但从一种基类型转换为另一种基类型时，建议您调用 <xref:System.Convert?displayProperty=nameWithType> 类的方法，这种方式与语言无关。 此外，<xref:System.Convert.ChangeType%28System.Object%2CSystem.Type%2CSystem.IFormatProvider%29?displayProperty=nameWithType> 方法还可用于从一个指定的自定义类型转换为另一种类型。  
   
-### <a name="conversions-between-base-types"></a>基类型之间的转换  
- <xref:System.Convert> 类提供了一种与语言无关的方式来执行基类型之间的转换，并且该类可用于面向公共语言运行时的所有语言。 它为扩大转换和收缩转换提供了一组完整的方法，并且会对不支持的转换（例如 <xref:System.InvalidCastException> 值到整数值的转换）引发 <xref:System.DateTime>。 收缩转换是在已检查的上下文中执行的，如果转换失败，将引发 <xref:System.OverflowException>。  
+### <a name="conversions-between-base-types"></a>基类型之间的转换
+
+<xref:System.Convert> 类提供了一种与语言无关的方式来执行基类型之间的转换，并且该类可用于面向公共语言运行时的所有语言。 它为扩大转换和收缩转换提供了一组完整的方法，并且会对不支持的转换（例如 <xref:System.InvalidCastException> 值到整数值的转换）引发 <xref:System.DateTime>。 收缩转换是在已检查的上下文中执行的，如果转换失败，将引发 <xref:System.OverflowException>。  
   
 > [!IMPORTANT]
 > 由于 <xref:System.Convert> 类包含用于转换为每个基类型和从每个基类型进行转换的方法，因此不再需要调用每个基类型的 <xref:System.IConvertible> 显式接口实现。  
   
- 下面的示例演示如何使用 <xref:System.Convert?displayProperty=nameWithType> 类来执行 .NET Framework 基类型之间的多种扩大转换和收缩转换。  
+ 下面的示例演示如何使用 <xref:System.Convert?displayProperty=nameWithType> 类来执行 .NET 基类型之间的多种扩大转换和收缩转换。  
   
  [!code-csharp[Conceptual.Conversion#8](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.conversion/cs/convert1.cs#8)]
  [!code-vb[Conceptual.Conversion#8](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.conversion/vb/convert1.vb#8)]  
@@ -160,8 +166,9 @@ ms.locfileid: "84769218"
   
  有关列出 <xref:System.Convert> 类支持的扩大转换和收缩转换的表，请参阅[类型转换表](conversion-tables.md)。  
 
-### <a name="custom-conversions-with-the-changetype-method"></a>使用 ChangeType 方法的自定义转换  
- 除了支持到每个基类型的转换外，<xref:System.Convert> 类还可用于将一个自定义类型转换为一个或多个预定义类型。 此转换是通过 <xref:System.Convert.ChangeType%28System.Object%2CSystem.Type%2CSystem.IFormatProvider%29?displayProperty=nameWithType> 方法执行的，而此方法包装了对 <xref:System.IConvertible.ToType%2A?displayProperty=nameWithType> 参数的 `value` 方法的调用。 这意味着 `value` 参数所表示的对象必须提供 <xref:System.IConvertible> 接口的实现。  
+### <a name="custom-conversions-with-the-changetype-method"></a>使用 ChangeType 方法的自定义转换
+
+除了支持到每个基类型的转换外，<xref:System.Convert> 类还可用于将一个自定义类型转换为一个或多个预定义类型。 此转换是通过 <xref:System.Convert.ChangeType%28System.Object%2CSystem.Type%2CSystem.IFormatProvider%29?displayProperty=nameWithType> 方法执行的，而此方法包装了对 <xref:System.IConvertible.ToType%2A?displayProperty=nameWithType> 参数的 `value` 方法的调用。 这意味着 `value` 参数所表示的对象必须提供 <xref:System.IConvertible> 接口的实现。  
   
 > [!NOTE]
 > 由于 <xref:System.Convert.ChangeType%28System.Object%2CSystem.Type%29?displayProperty=nameWithType> 和 <xref:System.Convert.ChangeType%28System.Object%2CSystem.Type%2CSystem.IFormatProvider%29?displayProperty=nameWithType> 方法使用 <xref:System.Type> 对象来指定 `value` 将转换为的目标类型，因此它们可用于执行对象（其类型在编译时是未知的）的动态转换。 但请注意，<xref:System.IConvertible> 的 `value` 实现必须仍支持此转换。  
@@ -176,8 +183,9 @@ ms.locfileid: "84769218"
  [!code-csharp[Conceptual.Conversion#11](../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.conversion/cs/iconvertible2.cs#11)]
  [!code-vb[Conceptual.Conversion#11](../../../samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.conversion/vb/iconvertible2.vb#11)]  
 
-## <a name="the-typeconverter-class"></a>TypeConverter 类  
- .NET Framework 还允许您通过下面的方法为自定义类型定义类型转换器：扩展 <xref:System.ComponentModel.TypeConverter?displayProperty=nameWithType> 类，然后通过 <xref:System.ComponentModel.TypeConverterAttribute?displayProperty=nameWithType> 特性将类型转换器与该类型关联。 下表列出了此方法与为自定义类型实现 <xref:System.IConvertible> 接口之间的差异。  
+## <a name="the-typeconverter-class"></a>TypeConverter 类
+
+.NET 还允许你通过下面的方法为自定义类型定义类型转换器：扩展 <xref:System.ComponentModel.TypeConverter?displayProperty=nameWithType> 类，然后通过 <xref:System.ComponentModel.TypeConverterAttribute?displayProperty=nameWithType> 特性将类型转换器与该类型关联。 下表列出了此方法与为自定义类型实现 <xref:System.IConvertible> 接口之间的差异。  
   
 > [!NOTE]
 > 只能为已定义了类型转换器的自定义类型提供设计时支持。  

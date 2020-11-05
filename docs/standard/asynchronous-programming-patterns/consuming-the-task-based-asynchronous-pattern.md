@@ -4,25 +4,26 @@ description: 了解如何在进行异步操作时使用基于任务的异步模�
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 helpviewer_keywords:
-- .NET Framework, and TAP
-- asynchronous design patterns, .NET Framework
-- TAP, .NET Framework support for
-- Task-based Asynchronous Pattern, .NET Framework support for
-- .NET Framework, asynchronous design patterns
+- .NET and TAP
+- asynchronous design patterns, .NET
+- TAP, .NET support for
+- Task-based Asynchronous Pattern, .NET support for
+- .NET, asynchronous design patterns
 ms.assetid: 033cf871-ae24-433d-8939-7a3793e547bf
-ms.openlocfilehash: 68b1f723b3dcc4fd16073a653a778aa480cfa32e
-ms.sourcegitcommit: e02d17b2cf9c1258dadda4810a5e6072a0089aee
+ms.openlocfilehash: 4a2715ab6572c33a1564986c5cfda112d5fa11db
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85621751"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888862"
 ---
 # <a name="consuming-the-task-based-asynchronous-pattern"></a>使用基于任务的异步模式
 
-使用基于任务的异步模式 (TAP) 处理异步操作时，可以使用回叫实现等待，而不会阻塞。  对于任务，这可通过 <xref:System.Threading.Tasks.Task.ContinueWith%2A?displayProperty=nameWithType> 等方法实现。 通过允许在正常控制流中等待异步操纵，基于语言的异步支持可隐藏回叫，并且编译器生成的代码可提供此相同 API 级别的支持。
+使用基于任务的异步模式 (TAP) 处理异步操作时，可以使用回叫实现等待，而不会阻塞。 对于任务，这可通过 <xref:System.Threading.Tasks.Task.ContinueWith%2A?displayProperty=nameWithType> 等方法实现。 通过允许在正常控制流中等待异步操纵，基于语言的异步支持可隐藏回叫，并且编译器生成的代码可提供此相同 API 级别的支持。
 
 ## <a name="suspending-execution-with-await"></a>使用 Await 挂起执行
- 自 .NET Framework 4.5 起，可以使用 C# 中的 [await](../../csharp/language-reference/operators/await.md) 关键字和 Visual Basic 中的 [Await 运算符](../../visual-basic/language-reference/operators/await-operator.md)，异步等待 <xref:System.Threading.Tasks.Task> 和 <xref:System.Threading.Tasks.Task%601> 对象。 等待 <xref:System.Threading.Tasks.Task> 时，`await` 表达式的类型为 `void`。 等待 <xref:System.Threading.Tasks.Task%601> 时，`await` 表达式的类型为 `TResult`。 `await` 表达式必须出现在异步方法的正文内。 若要详细了解 .NET Framework 4.5 中的 C# 和 Visual Basic 语言支持，请参阅 C# 和 Visual Basic 语言规范。
+
+可以使用 C# 中的 [await](../../csharp/language-reference/operators/await.md) 关键字和 Visual Basic 中的 [Await 运算符](../../visual-basic/language-reference/operators/await-operator.md)来异步等待 <xref:System.Threading.Tasks.Task> 和 <xref:System.Threading.Tasks.Task%601> 对象。 等待 <xref:System.Threading.Tasks.Task> 时，`await` 表达式的类型为 `void`。 等待 <xref:System.Threading.Tasks.Task%601> 时，`await` 表达式的类型为 `TResult`。 `await` 表达式必须出现在异步方法的正文内。 （.NET Framework 4.5 中引入了这些语言功能。）
 
  实际上，await 功能通过使用延续任务在任务上安装回叫。  此回叫在挂起点恢复异步方法。 恢复异步方法时，如果等待的操作已成功完成且为 <xref:System.Threading.Tasks.Task%601>，返回的是 `TResult`。  如果等待的 <xref:System.Threading.Tasks.Task> 或 <xref:System.Threading.Tasks.Task%601> 以 <xref:System.Threading.Tasks.TaskStatus.Canceled> 状态结束，就会抛出 <xref:System.OperationCanceledException> 异常。  如果等待的 <xref:System.Threading.Tasks.Task> 或 <xref:System.Threading.Tasks.Task%601> 以 <xref:System.Threading.Tasks.TaskStatus.Faulted> 状态结束，就会抛出导致它发生故障的异常。 一个 `Task` 可能由于多个异常而出错，但只会传播一个异常。 不过，<xref:System.Threading.Tasks.Task.Exception%2A?displayProperty=nameWithType> 属性会返回包含所有错误的 <xref:System.AggregateException> 异常。
 
@@ -63,7 +64,8 @@ await someTask.ConfigureAwait(continueOnCapturedContext:false);
 ```
 
 ## <a name="canceling-an-asynchronous-operation"></a>取消异步操作
- 从 .NET Framework 4 开始，支持取消操作的 TAP 方法提供至少一个接受取消令牌（<xref:System.Threading.CancellationToken> 对象）的重载。
+
+从 .NET Framework 4 开始，支持取消操作的 TAP 方法提供至少一个接受取消令牌（<xref:System.Threading.CancellationToken> 对象）的重载。
 
  可通过取消令牌源（<xref:System.Threading.CancellationTokenSource> 对象）创建取消令牌。  源的 <xref:System.Threading.CancellationTokenSource.Token%2A> 属性返回取消令牌，它在源的 <xref:System.Threading.CancellationTokenSource.Cancel%2A> 方法获得调用时收到信号。  例如，若要下载一个网页，并且希望能够取消此操作，请创建 <xref:System.Threading.CancellationTokenSource> 对象，将它的令牌传递给 TAP 方法，再在准备好取消此操作时，调用源的 <xref:System.Threading.CancellationTokenSource.Cancel%2A> 方法：
 
@@ -535,7 +537,7 @@ public async void btnDownload_Click(object sender, RoutedEventArgs e)
 ```
 
 ## <a name="building-task-based-combinators"></a>构建基于任务的连结符
- 因为任务可以完全代表异步操作、提供同步和异步功能来加入操作、检索其结果等，所以可以构建组成任务的连结符的库以构建更大的模式。  如前一部分所述，.NET Framework 包括一些内置连结符，但是，你也可以构建自己的连结符。 以下各节提供了一些潜在的连结符方法和类型的示例。
+ 因为任务可以完全代表异步操作、提供同步和异步功能来加入操作、检索其结果等，所以可以构建组成任务的连结符的库以构建更大的模式。 如前一部分所述，.NET 包括一些内置连结符，但是，你也可以构建自己的连结符。 以下各节提供了一些潜在的连结符方法和类型的示例。
 
 ### <a name="retryonfault"></a>RetryOnFault
  在许多情况下，如果上次尝试失败，你可能想要重试操作。  对于同步代码，你可能会构建一个帮助器方法来实现此目的，如下例中的 `RetryOnFault`：
@@ -832,7 +834,7 @@ private static void Produce(int data)
 ```
 
 > [!NOTE]
-> <xref:System.Threading.Tasks.Dataflow> 命名空间通过 NuGet 可用于 .NET Framework 4.5。 若要安装包含 <xref:System.Threading.Tasks.Dataflow> 命名空间的程序集，请在 Visual Studio 中打开项目，选择“项目”菜单中的“管理 NuGet 包”，再在线搜索 Microsoft.Tpl.Dataflow 包。
+> <xref:System.Threading.Tasks.Dataflow> 命名空间作为 NuGet 包提供。 若要安装包含 <xref:System.Threading.Tasks.Dataflow> 命名空间的程序集，请在 Visual Studio 中打开项目，选择“项目”菜单中的“管理 NuGet 包”，再在线搜索 `System.Threading.Tasks.Dataflow` 包。
 
 ## <a name="see-also"></a>请参阅
 

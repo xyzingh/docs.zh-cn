@@ -10,12 +10,12 @@ helpviewer_keywords:
 - I/O, long paths
 - long paths
 - path formats, Windows
-ms.openlocfilehash: 36ecbe763ed47e95d9339d1d748b3faab100c15e
-ms.sourcegitcommit: aa6d8a90a4f5d8fe0f6e967980b8c98433f05a44
+ms.openlocfilehash: e24772ee9c9d22786c9cfece43017f8526434601
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90679594"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188050"
 ---
 # <a name="file-path-formats-on-windows-systems"></a>Windows 系统中的文件路径格式
 
@@ -90,7 +90,7 @@ DOS 设备路径由以下部分组成：
 - 设备路径说明符（`\\.\` 或 `\\?\`），它将路径标识为 DOS 设备路径。
 
    > [!NOTE]
-   > .NET Core 的所有版本以及从 4.6.2 开始的 .NET Framework 版本都支持 `\\?\`。
+   > .NET Core 和 .NET 5+ 的所有版本以及从 4.6.2 开始的 .NET Framework 版本都支持 `\\?\`。
 
 - “实际”设备对象的符号链接（如果是驱动器名称则为 C:，如果是卷 GUID 则为卷{b75e2c83-0000-0000-0000-602f00000000}）。
 
@@ -197,7 +197,7 @@ DOS 设备路径通过定义进行完全限定。 不允许使用相对目录段
 1. 为了跳过路径长度的 `MAX_PATH` 检查以允许多于 259 个字符的路径（仅在 .NET Framework 上）。 大多数 API 都允许这一点，也有一些例外情况。
 
 > [!NOTE]
-> .NET Core 显式处理长路径，且不执行 `MAX_PATH` 检查。 `MAX_PATH` 检查只适用于 .NET Framework。
+> .NET Core 和 .NET 5+ 显式处理长路径，且不执行 `MAX_PATH` 检查。 `MAX_PATH` 检查只适用于 .NET Framework。
 
 跳过规范化和路径上限检查是两种设备路径语法之间唯一的区别；除此以外它们是完全相同的。 请谨慎地选择跳过规范化，因为很容易就会创建出“一般”应用程序难以处理的路径。
 

@@ -12,18 +12,18 @@ helpviewer_keywords:
 - standard time interval format strings
 - standard format strings, time intervals
 - format specifiers, time intervals
-- time intervals [.NET Framework], formatting
-- time [.NET Framework], formatting
-- formatting [.NET Framework], time
+- time intervals [.NET], formatting
+- time [.NET], formatting
+- formatting [.NET], time
 - standard TimeSpan format strings
-- formatting [.NET Framework], time intervals
+- formatting [.NET], time intervals
 ms.assetid: 9f6c95eb-63ae-4dcc-9c32-f81985c75794
-ms.openlocfilehash: 31e4158d42d794e830d9acfe666729846c43a1ee
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: 99529d480ca32cb8be1e2013ca4551534e10026b
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84768113"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888940"
 ---
 # <a name="standard-timespan-format-strings"></a>标准 TimeSpan 格式字符串
 
@@ -50,7 +50,7 @@ ms.locfileid: "84768113"
 ## <a name="the-constant-c-format-specifier"></a>常量（“c”）格式说明符。  
  “c”格式说明符返回的 <xref:System.TimeSpan> 值的字符串表示形式具有以下形式：  
   
- [-][*d*.]*hh*:*mm*:*ss*[.*fffffff*]  
+ [-][ *d*.] *hh* : *mm* : *ss* [. *fffffff* ]  
   
  方括号 ([ and ]) 中的元素是可选的。 句点 (.) 和冒号 (:) 是文字符号。 下表介绍了剩余的元素。  
   
@@ -63,7 +63,7 @@ ms.locfileid: "84768113"
 |*ss*|秒数，范围为“0”到“59”。|  
 |*fffffff*|秒的可选小数部分。  其值的范围为“0000001”（一刻度或一秒的一千万分之一）到“9999999”（一秒的一千万分之九百九十九万九千九百九或一秒少一刻度）。|  
   
- 与“g”和“G”格式说明符不同，“c”格式说明符不区分区域性。 它生成 <xref:System.TimeSpan> 值的字符串表示形式，该值不变且对 .NET Framework 4 之前的所有 .NET Framework 先前版本均通用。 “c”是默认的 <xref:System.TimeSpan> 格式字符串；<xref:System.TimeSpan.ToString?displayProperty=nameWithType> 方法使用“c”格式字符串设置时间间隔值的格式。  
+ 与“g”和“G”格式说明符不同，“c”格式说明符不区分区域性。 它产生了 <xref:System.TimeSpan> 值的字符串表示形式，该值不变且在 .NET Framework 4 之前的版本中通用。 “c”是默认的 <xref:System.TimeSpan> 格式字符串；<xref:System.TimeSpan.ToString?displayProperty=nameWithType> 方法使用“c”格式字符串设置时间间隔值的格式。  
   
 > [!NOTE]
 > <xref:System.TimeSpan> 也支持“t”和“T”标准格式字符串，其行为与“c”标准格式字符串相同。  
@@ -76,7 +76,7 @@ ms.locfileid: "84768113"
 ## <a name="the-general-short-g-format-specifier"></a>常规短（“g”）格式说明符  
  “g”<xref:System.TimeSpan> 格式说明符通过只包含所需元素来返回简洁形式的 <xref:System.TimeSpan> 值的字符串表示形式。 它具有以下形式：  
   
- [-][*d*:]*h*:*mm*:*ss*[.*FFFFFFF*]  
+ [-][ *d* :] *h* : *mm* : *ss* [. *FFFFFFF* ]  
   
  方括号 ([ and ]) 中的元素是可选的。 冒号 (:) 是一种文字符号。 下表介绍了剩余的元素。  
   
@@ -100,7 +100,7 @@ ms.locfileid: "84768113"
 ## <a name="the-general-long-g-format-specifier"></a>常规长（“G”）格式说明符  
  （“G”）<xref:System.TimeSpan> 格式说明符用始终包含日期和秒的小数部分的长格式返回 <xref:System.TimeSpan> 值的字符串表示形式。 “G”标准格式说明符生成的字符串具有以下形式：  
   
- [-]*d*:*hh*:*mm*:*ss*.*fffffff*  
+ [-] *d* : *hh* : *mm* : *ss*. *fffffff*  
   
  方括号 ([ and ]) 中的元素是可选的。 冒号 (:) 是一种文字符号。 下表介绍了剩余的元素。  
   

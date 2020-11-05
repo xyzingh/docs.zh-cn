@@ -3,20 +3,21 @@ title: 线程本地存储区：线程相关的静态字段和数据槽
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 helpviewer_keywords:
-- threading [.NET Framework], local storage
-- threading [.NET Framework], thread-relative static fields
+- threading [.NET], local storage
+- threading [.NET], thread-relative static fields
 - local thread storage
 - TLS
 ms.assetid: c633a4dc-a790-4ed1-96b5-f72bd968b284
-ms.openlocfilehash: adeeb6c95769d8e1ac120d4fb26d8aaedf7a1d4d
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: f80cc09d87116d3daff8047c1d1398c5e6104178
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84291079"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188154"
 ---
 # <a name="thread-local-storage-thread-relative-static-fields-and-data-slots"></a>线程本地存储区：线程相关的静态字段和数据槽
-托管线程本地存储 (TLS) 可用于存储对线程和应用域唯一的数据。 .NET Framework 提供了下面两种托管 TLS 使用方式：线程相对静态字段和数据槽。  
+
+托管线程本地存储 (TLS) 可用于存储对线程和应用程序域唯一的数据。 .NET 提供了下面两种托管 TLS 使用方式：线程相对静态字段和数据槽。  
   
 - 如果可以在编译时预测确切需求，请使用线程相对静态字段（Visual Basic 中的线程相对 `Shared` 字段）。 线程相对静态字段的性能最佳。 它们还支持编译时类型检查。  
   
@@ -24,7 +25,7 @@ ms.locfileid: "84291079"
   
  在非托管 C++ 中，使用 `TlsAlloc` 动态分配槽，使用 `__declspec(thread)` 声明应在线程相对存储中分配变量。 线程相对静态字段和数据槽提供了此行为的托管版本。  
   
- 在 .NET Framework 4 中，可以使用 <xref:System.Threading.ThreadLocal%601?displayProperty=nameWithType> 类，创建在首次使用对象时迟缓初始化的线程本地对象。 若要了解详细信息，请参阅[迟缓初始化](../../framework/performance/lazy-initialization.md)  
+可以使用 <xref:System.Threading.ThreadLocal%601?displayProperty=nameWithType> 类来创建在首次使用对象时迟缓初始化的线程本地对象。 若要了解详细信息，请参阅[迟缓初始化](../../framework/performance/lazy-initialization.md)  
   
 ## <a name="uniqueness-of-data-in-managed-tls"></a>托管 TLS 中数据的唯一性  
  无论使用线程相对静态字段，还是使用数据槽，托管 TLS 中的数据都是对线程和应用域唯一的数据。  
@@ -45,7 +46,8 @@ ms.locfileid: "84291079"
  请注意，任何类构造函数代码都会在访问此字段的首个上下文中的第一个线程上运行。 在同一应用域中的其他所有线程或上下文中，如果字段是引用类型，便会初始化为 `null`（Visual Basic 中的 `Nothing`）；如果字段是值类型，便会初始化为默认值。 因此，不得依赖类构造函数来初始化线程相对静态字段。 相反，请避免初始化线程相对静态字段，而是假设它们初始化为 `null` (`Nothing`) 或默认值。  
   
 ## <a name="data-slots"></a>数据槽  
- .NET Framework 提供了对线程和应用域都是唯一的动态数据槽。 数据槽分为下列两种类型：命名槽和未命名槽。 两种类型都是使用 <xref:System.LocalDataStoreSlot> 结构实现。  
+
+.NET 提供了对于线程和应用程序域都是唯一的动态数据槽。 数据槽分为下列两种类型：命名槽和未命名槽。 两种类型都是使用 <xref:System.LocalDataStoreSlot> 结构实现。  
   
 - 若要创建命名数据槽，请使用 <xref:System.Threading.Thread.AllocateNamedDataSlot%2A?displayProperty=nameWithType> 或 <xref:System.Threading.Thread.GetNamedDataSlot%2A?displayProperty=nameWithType> 方法。 若要获取对现有命名槽的引用，请将它的名称传递给 <xref:System.Threading.Thread.GetNamedDataSlot%2A> 方法。  
   

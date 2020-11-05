@@ -19,12 +19,12 @@ helpviewer_keywords:
 - data storage using isolated storage, options
 - isolation
 ms.assetid: aff939d7-9e49-46f2-a8cd-938d3020e94e
-ms.openlocfilehash: 4ad7779b9810954d110af576dd834daf61888d59
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 4289b809d9a401de92c74063a42216f3051543f6
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90555915"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188557"
 ---
 # <a name="isolated-storage"></a>独立存储
 
@@ -59,7 +59,7 @@ ms.locfileid: "90555915"
 
 管理员可以根据适当的信任级别限制应用程序或用户可以使用多少独立存储。 另外，管理员可以完全移除用户的持久性数据。 若要创建或访问独立存储，则必须授予代码相应的 <xref:System.Security.Permissions.IsolatedStorageFilePermission> 权限。
 
-要访问独立存储，代码必须具有所有必要的本机平台操作系统权限。 必须满足用来控制哪些用户有权使用文件系统的访问控制列表 (ACL)。 除非执行（特定于平台的）模拟，否则 .NET Framework 应用程序已经具有访问独立存储的操作系统权限。 在这种情况下，应用程序负责确保被模拟的用户标识具有访问独立存储的适当操作系统权限。 对于在 Web 上运行或从 Web 下载的代码而言，这种访问为之提供了一种对与特定用户相关的存储区域进行读写操作的简便方法。
+要访问独立存储，代码必须具有所有必要的本机平台操作系统权限。 必须满足用来控制哪些用户有权使用文件系统的访问控制列表 (ACL)。 除非执行（特定于平台的）模拟，否则 .NET 应用程序已经具有访问独立存储的操作系统权限。 在这种情况下，应用程序负责确保被模拟的用户标识具有访问独立存储的适当操作系统权限。 对于在 Web 上运行或从 Web 下载的代码而言，这种访问为之提供了一种对与特定用户相关的存储区域进行读写操作的简便方法。
 
 为了控制对独立存储的访问，公共语言运行时使用 <xref:System.Security.Permissions.IsolatedStorageFilePermission> 对象。 每个对象都具有指定以下值的属性：
 
@@ -195,7 +195,7 @@ __重要提示：__ 如果你的环境具有多个相互不受信任的用户，
 
 ## <a name="creating-enumerating-and-deleting-isolated-storage"></a>创建、枚举和删除独立存储
 
-.NET Framework 在 <xref:System.IO.IsolatedStorage> 命名空间中提供了三个类来帮助你执行涉及独立存储的任务：
+.NET 在 <xref:System.IO.IsolatedStorage> 命名空间中提供了三个类来帮助你执行涉及独立存储的任务：
 
 - <xref:System.IO.IsolatedStorage.IsolatedStorageFile>派生自 <xref:System.IO.IsolatedStorage.IsolatedStorage?displayProperty=nameWithType> ，它提供对存储的程序集和应用程序文件的基本管理。 <xref:System.IO.IsolatedStorage.IsolatedStorageFile> 类的实例表示位于文件系统中的单个存储区。
 

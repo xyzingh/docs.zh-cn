@@ -5,12 +5,12 @@ ms.technology: dotnet-standard
 helpviewer_keywords:
 - PLINQ queries, how to iterate directories
 ms.assetid: 354e8ce3-35c4-431c-99ca-7661d1f3901b
-ms.openlocfilehash: abf31ea69af6a85140efb783959a9a586ef6a59e
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 5033cc24fce5fc17a950e4797de1ef4071e2b98a
+ms.sourcegitcommit: 6d09ae36acba0b0e2ba47999f8f1a725795462a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84277994"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925371"
 ---
 # <a name="how-to-iterate-file-directories-with-plinq"></a>如何：使用 PLINQ 循环访问文件目录
 
@@ -35,7 +35,7 @@ ms.locfileid: "84277994"
   
  使用 <xref:System.IO.Directory.GetFiles%2A> 时，请确保有权访问树中的所有目录。 否则，将引发异常，且不会返回任何结果。 如果在 PLINQ 查询中使用 <xref:System.IO.Directory.EnumerateDirectories%2A>，棘手的是合理处理 I/O 异常，以便能够继续循环访问。 如果代码必须处理 I/O 或未经授权的访问异常，应考虑使用[如何：使用并行类循环访问文件目录](how-to-iterate-file-directories-with-the-parallel-class.md)中介绍的方法。  
   
- 如果 I/O 延迟造成问题（例如，对于通过网络的文件 I/O），请考虑使用 [TPL 和传统 .NET Framework 异步编程](tpl-and-traditional-async-programming.md)和这篇[博客文章](https://devblogs.microsoft.com/pfxteam/parallel-extensions-and-io/)中介绍的异步 I/O 方法之一。  
+ 如果 I/O 延迟造成问题（例如，对于通过网络的文件 I/O），请考虑使用 [TPL 和传统 .NET 异步编程](tpl-and-traditional-async-programming.md)和这篇[博客文章](https://devblogs.microsoft.com/pfxteam/parallel-extensions-and-io/)中介绍的某种异步 I/O 方法。  
   
 ## <a name="see-also"></a>请参阅
 

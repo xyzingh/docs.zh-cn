@@ -8,19 +8,19 @@ helpviewer_keywords:
 - asynchronous programming, design patterns
 - asynchronous programming
 ms.assetid: c6baed9f-2a25-4728-9a9a-53b7b14840cf
-ms.openlocfilehash: 03b4d914d72b96b882c774565654c022b145b5f2
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: 16aabeb55a56c63449a865d00044c463657de740
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84768867"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888836"
 ---
 # <a name="event-based-asynchronous-pattern-eap"></a>基于事件的异步模式 (EAP)
 
 有多种方式可向客户端代码公开异步功能。 基于事件的异步模式规定了类呈现异步行为的一种方式。  
   
 > [!NOTE]
-> 从 .NET Framework 4 开始，任务并行库为异步和并行编程提供了一种新模型。 有关详细信息，请参阅 “[任务并行库 (TPL)](../parallel-programming/task-parallel-library-tpl.md)” 和 “[基于任务的异步模式 (TAP)](task-based-asynchronous-pattern-tap.md)”。
+> 从 .NET Framework 4 开始，任务并行库为异步编程和并行编程提供了一种新模型。 有关详细信息，请参阅 “[任务并行库 (TPL)](../parallel-programming/task-parallel-library-tpl.md)” 和 “[基于任务的异步模式 (TAP)](task-based-asynchronous-pattern-tap.md)”。
   
 ## <a name="in-this-section"></a>本节内容
 

@@ -9,17 +9,18 @@ dev_langs:
 helpviewer_keywords:
 - cancellation in .NET, overview
 ms.assetid: eea11fe5-d8b0-4314-bb5d-8a58166fb1c3
-ms.openlocfilehash: 9af4a64e50eff65023d5ed5bda868af2f8323a96
-ms.sourcegitcommit: 7137e12f54c4e83a94ae43ec320f8cf59c1772ea
+ms.openlocfilehash: 09c39202f1564ac544fdf30a07952990b309b661
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84662831"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188466"
 ---
 # <a name="cancellation-in-managed-threads"></a>托管线程中的取消
-从 .NET Framework 4 开始，.NET Framework 在协作取消异步操作或长时间运行的同步操作时使用统一的模型。 此模型基于被称为取消标记的轻量对象。 调用一个或多个可取消操作的对象（例如通过创建新线程或任务）将标记传递给每个操作。 单个操作反过来可将标记的副本传递给其他操作。 稍后，创建标记的对象可使用此标记请求停止执行操作内容。 只有发出请求的对象，才能发出取消请求，而每个侦听器负责侦听是否有请求，并及时适当地响应请求。  
+
+从 .NET Framework 4 开始，.NET 在协作式取消异步操作或长时间运行的同步操作时使用统一的模型。 此模型基于被称为取消标记的轻量对象。 调用一个或多个可取消操作的对象（例如通过创建新线程或任务）将标记传递给每个操作。 单个操作反过来可将标记的副本传递给其他操作。 稍后，创建标记的对象可使用此标记请求停止执行操作内容。 只有发出请求的对象，才能发出取消请求，而每个侦听器负责侦听是否有请求，并及时适当地响应请求。  
   
- 用于实现协作取消模型的常规模式是：  
+用于实现协作取消模型的常规模式是：  
   
 - 实例化 <xref:System.Threading.CancellationTokenSource> 对象，此对象管理取消通知并将其发送给单个取消标记。  
   
@@ -36,7 +37,7 @@ ms.locfileid: "84662831"
   
  ![CancellationTokenSource 和取消标记](media/vs-cancellationtoken.png "VS_CancellationToken")  
   
- 新的取消模型使创建取消感知应用程序和库更简单，并支持以下功能：  
+ 借助协作式取消模型，可更轻松地创建取消感知应用程序和库，并且该模型支持以下功能：  
   
 - 取消具有协作性，且不会在侦听器上强制执行。 侦听器确定如何适当地以响应取消请求终止操作。  
   
@@ -59,19 +60,19 @@ ms.locfileid: "84662831"
 |<xref:System.Threading.CancellationToken>|通常作为方法参数传递给一个或多个侦听器的轻量值类型。 侦听器通过轮询、回调或等待句柄监视标记的 `IsCancellationRequested` 属性的值。|  
 |<xref:System.OperationCanceledException>|此异常的构造函数的重载将 <xref:System.Threading.CancellationToken> 作为参数接受。 侦听器可能会选择性地引发此异常，议验证取消源并通知其他侦听器它已响应取消请求。|  
   
- 新的取消模型以多种类型集成到 .NET Framework 中。 最重要的类型包括 <xref:System.Threading.Tasks.Parallel?displayProperty=nameWithType>、<xref:System.Threading.Tasks.Task?displayProperty=nameWithType>、<xref:System.Threading.Tasks.Task%601?displayProperty=nameWithType> 和 <xref:System.Linq.ParallelEnumerable?displayProperty=nameWithType>。 建议将此新取消模型用于所有新的库和应用代码。  
+ 取消模型以多种类型集成到 .NET 中。 最重要的类型包括 <xref:System.Threading.Tasks.Parallel?displayProperty=nameWithType>、<xref:System.Threading.Tasks.Task?displayProperty=nameWithType>、<xref:System.Threading.Tasks.Task%601?displayProperty=nameWithType> 和 <xref:System.Linq.ParallelEnumerable?displayProperty=nameWithType>。 建议将此协作式取消模型用于所有新的库和应用程序代码。  
   
 ## <a name="code-example"></a>代码示例  
  在以下示例中，请求对象创建 <xref:System.Threading.CancellationTokenSource> 对象，然后传递其 <xref:System.Threading.CancellationTokenSource.Token%2A> 属性到可取消操作中。 接收请求的操作通过轮询监视标记的 <xref:System.Threading.CancellationToken.IsCancellationRequested%2A> 属性的值。 值变为 `true` 后，侦听器可以适当方式终止操作。 在此示例中，方法只需退出，很多情况下都只需执行此操作。  
   
 > [!NOTE]
-> 此示例使用 <xref:System.Threading.ThreadPool.QueueUserWorkItem%2A> 方法演示新的取消框架与旧版 API 兼容。 有关使用新的首选 <xref:System.Threading.Tasks.Task?displayProperty=nameWithType> 类型的示例，请参阅[如何：取消任务及其子级](../parallel-programming/how-to-cancel-a-task-and-its-children.md)。  
+> 此示例使用 <xref:System.Threading.ThreadPool.QueueUserWorkItem%2A> 方法演示协作式取消框架与旧版 API 兼容。 有关使用首选 <xref:System.Threading.Tasks.Task?displayProperty=nameWithType> 类型的示例，请参阅[操作说明：取消任务及其子级](../parallel-programming/how-to-cancel-a-task-and-its-children.md)。  
   
  [!code-csharp[Cancellation#1](../../../samples/snippets/csharp/VS_Snippets_Misc/cancellation/cs/cancellationex1.cs#1)]
  [!code-vb[Cancellation#1](../../../samples/snippets/visualbasic/VS_Snippets_Misc/cancellation/vb/cancellationex1.vb#1)]  
   
 ## <a name="operation-cancellation-versus-object-cancellation"></a>操作取消与对象取消  
- 在新的取消框架中，取消将引用操作（而不是对象）。 取消请求意味着应在执行任何所需的清理后尽快停止操作。 一个取消标记应代指一个“可取消操作”，但可在程序中实现此操作。 在标记的 <xref:System.Threading.CancellationToken.IsCancellationRequested%2A> 属性设置为 `true` 后，不能重置为 `false`。 因此，取消后不能重用取消标记。  
+ 在协作式取消框架中，取消将引用操作，而不是对象。 取消请求意味着应在执行任何所需的清理后尽快停止操作。 一个取消标记应代指一个“可取消操作”，但可在程序中实现此操作。 在标记的 <xref:System.Threading.CancellationToken.IsCancellationRequested%2A> 属性设置为 `true` 后，不能重置为 `false`。 因此，取消后不能重用取消标记。  
   
  如果需要对象取消机制，可以通过调用 <xref:System.Threading.CancellationToken.Register%2A?displayProperty=nameWithType> 方法将其基于操作取消机制，如以下示例所示。  
   
@@ -121,7 +122,7 @@ ms.locfileid: "84662831"
  [!code-csharp[Cancellation#5](../../../samples/snippets/csharp/VS_Snippets_Misc/cancellation/cs/cancellationex9.cs#5)]
  [!code-vb[Cancellation#5](../../../samples/snippets/visualbasic/VS_Snippets_Misc/cancellation/vb/cancellationex9.vb#5)]  
   
- 在面向 .NET Framework 4 的新代码中，<xref:System.Threading.ManualResetEventSlim?displayProperty=nameWithType> 和 <xref:System.Threading.SemaphoreSlim?displayProperty=nameWithType> 都支持在其 `Wait` 方法中使用新的取消框架。 可以将 <xref:System.Threading.CancellationToken>传递给方法，在取消请求发出后，事件就会唤醒并抛出 <xref:System.OperationCanceledException>。  
+<xref:System.Threading.ManualResetEventSlim?displayProperty=nameWithType> 和 <xref:System.Threading.SemaphoreSlim?displayProperty=nameWithType> 都支持其 `Wait` 方法中的取消框架。 可以将 <xref:System.Threading.CancellationToken>传递给方法，在取消请求发出后，事件就会唤醒并抛出 <xref:System.OperationCanceledException>。  
   
  [!code-csharp[Cancellation#6](../../../samples/snippets/csharp/VS_Snippets_Misc/cancellation/cs/cancellationex10.cs#6)]
  [!code-vb[Cancellation#6](../../../samples/snippets/visualbasic/VS_Snippets_Misc/cancellation/vb/cancellationex10.vb#6)]  

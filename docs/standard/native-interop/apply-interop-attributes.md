@@ -4,22 +4,22 @@ description: 本文汇总了 System.Runtime.InteropServices 命名空间的 COM 
 ms.date: 03/30/2017
 helpviewer_keywords:
 - design-time attributes
-- .NET Framework, exposing components to COM
-- attributes [.NET Framework], design-time functionality
+- .NET, exposing components to COM
+- attributes [.NET], design-time functionality
 - conversion-tool attributes
-- attributes [.NET Framework], interop-specific
-- attributes [.NET Framework], conversion-tool
+- attributes [.NET], interop-specific
+- attributes [.NET], conversion-tool
 - interoperation with unmanaged code, applying attributes
-- interoperation with unmanaged code, exposing .NET Framework components
+- interoperation with unmanaged code, exposing .NET components
 - COM interop, exposing COM components
 - COM interop, applying attributes
 ms.assetid: b6014613-641c-4912-9e2f-83a99210a037
-ms.openlocfilehash: f9ccf59e52c1ef27649cd70a57f7b24bb5a8e9bf
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 7b9e557e36d2ff6aa978eb28d3c82764ffb1980a
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84291326"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188674"
 ---
 # <a name="applying-interop-attributes"></a>应用互操作特性
 <xref:System.Runtime.InteropServices> 命名空间提供三类特定于互操作的特性：在设计时由你应用的特性、在转换进程中由 COM 互操作工具和 API 应用的特性以及由你或 COM 互操作应用的特性。  
@@ -51,7 +51,7 @@ ms.locfileid: "84291326"
 |<xref:System.Runtime.InteropServices.OptionalAttribute>|指示参数是可选的。<br /><br /> COM 互操作工具可以应用此特性。|  
 |<xref:System.Runtime.InteropServices.OutAttribute>|指示字段或参数中的数据必须从调用的对象被封送回其调用方。|  
 |<xref:System.Runtime.InteropServices.PreserveSigAttribute>|取消一般在互操作调用过程中发生的 HRESULT 或 retval 签名转换。 特性会影响封送处理以及类型库导出。<br /><br /> COM 互操作工具可以应用此特性。|  
-|<xref:System.Runtime.InteropServices.ProgIdAttribute>|指定 .NET Framework 类的 ProgID。 可用于特性类。|  
+|<xref:System.Runtime.InteropServices.ProgIdAttribute>|指定 .NET 类的 ProgID。 可用于特性类。|  
 |<xref:System.Runtime.InteropServices.StructLayoutAttribute>|控制类的字段的物理布局。<br /><br /> COM 互操作工具可以应用此特性。|  
   
 ## <a name="conversion-tool-attributes"></a>转换工具特性  

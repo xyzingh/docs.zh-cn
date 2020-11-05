@@ -5,19 +5,19 @@ ms.date: 08/20/2019
 helpviewer_keywords:
 - strong-named assemblies, signing with strong names
 - signing assemblies
-- assemblies [.NET Framework], signing
-- assemblies [.NET Framework], strong-named
+- assemblies [.NET], signing
+- assemblies [.NET], strong-named
 ms.assetid: 2c30799a-a826-46b4-a25d-c584027a6c67
 dev_langs:
 - csharp
 - vb
 - cpp
-ms.openlocfilehash: d4888a12ac0494ca34eac3553a5374c3517fee38
-ms.sourcegitcommit: d6bd7903d7d46698e9d89d3725f3bb4876891aa3
+ms.openlocfilehash: 5192f7f372b9ef7927930c3599aebc6fca9f1f0f
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83378621"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687656"
 ---
 # <a name="how-to-sign-an-assembly-with-a-strong-name"></a>如何：使用强名称为程序集签名
 
@@ -53,7 +53,7 @@ ms.locfileid: "83378621"
   
 在 [Visual Studio 开发人员命令提示](../../framework/tools/developer-command-prompt-for-vs.md)处，输入以下命令：  
 
-**al** **/out:** \<*assemblyName*>  *\<moduleName>* **/keyfile:** \<*keyfileName*>  
+al /out:\<*assemblyName*> \<moduleName> /keyfile:\<*keyfileName*>   
 
 其中：  
 

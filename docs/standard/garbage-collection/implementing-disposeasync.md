@@ -3,19 +3,19 @@ title: 实现 DisposeAsync 方法
 description: 了解如何实现 DisposeAsync 和 DisposeAsyncCore 方法来执行异步资源清理。
 author: IEvangelist
 ms.author: dapine
-ms.date: 09/16/2020
+ms.date: 10/26/2020
 ms.technology: dotnet-standard
 dev_langs:
 - csharp
 helpviewer_keywords:
 - DisposeAsync method
 - garbage collection, DisposeAsync method
-ms.openlocfilehash: 6ddfd860571d883e20fdb18985fe2bc2d9477dec
-ms.sourcegitcommit: fe8877e564deb68d77fa4b79f55584ac8d7e8997
+ms.openlocfilehash: 5aa82c507c22a4795f39267ac8f435599fb9cd92
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90720278"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687724"
 ---
 # <a name="implement-a-disposeasync-method"></a>实现 DisposeAsync 方法
 
@@ -102,9 +102,34 @@ public async ValueTask DisposeAsync()
 
 ## <a name="stacked-usings"></a>堆叠的 using
 
-在创建和使用实现 <xref:System.IAsyncDisposable> 的多个对象的情况下，残存错误条件中堆叠的 `using` 语句可能会阻止调用 <xref:System.IAsyncDisposable.DisposeAsync>。 为了帮助防止潜在的问题，应避免堆叠，并遵循以下示例模式：
+在创建和使用实现 <xref:System.IAsyncDisposable> 的多个对象的情况下，残存错误条件中具有 <xref:System.Threading.Tasks.ValueTask.ConfigureAwait%2A> 的堆叠 `await using` 语句可能会阻止调用 <xref:System.IAsyncDisposable.DisposeAsync>。 若要确保始终调用 <xref:System.IAsyncDisposable.DisposeAsync>，应避免堆叠。 下面的三个代码示例显示要改用的可接受模式。
 
-:::code language="csharp" source="../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.asyncdisposable/stacked-await-usings.cs":::
+### <a name="acceptable-pattern-one"></a>可接受的模式一
+
+:::code language="csharp" id="one" source="../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.asyncdisposable/stacked-await-usings.cs":::
+
+在前面的示例中，每个异步清理操作的范围都显式地限定在 `await using` 块下。 外部范围由 `objOne` 设置其大括号的方法来定义；若将 `objTwo` 括起来，这样就会先处理 `objTwo`，然后处理 `objOne`。 这两个 `IAsyncDisposable` 实例都使三种 <xref:System.IAsyncDisposable.DisposeAsync> 方法等待，从而执行其异步清理操作。 嵌套调用，而不是堆叠调用。
+
+### <a name="acceptable-pattern-two"></a>可接受的模式二
+
+:::code language="csharp" id="two" source="../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.asyncdisposable/stacked-await-usings.cs":::
+
+在前面的示例中，每个异步清理操作的范围都显式地限定在 `await using` 块下。 在每个块的末尾，相应的 `IAsyncDisposable` 实例使其 <xref:System.IAsyncDisposable.DisposeAsync> 方法等待，从而执行其异步清理操作。 按顺序排列调用，而不是堆叠调用。 在此场景中，首先处理 `objOne`，然后处理 `objTwo`。
+
+### <a name="acceptable-pattern-three"></a>可接受的模式三
+
+:::code language="csharp" id="three" source="../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.asyncdisposable/stacked-await-usings.cs":::
+
+在前面的示例中，每个异步清理操作都通过包含的方法主体隐式限定了范围。 在封闭块的末尾，`IAsyncDisposable` 实例执行其异步清理操作。 此运行顺序与它们声明的顺序相反，这意味着 `objTwo` 在 `objOne` 之前被处理。
+
+### <a name="unacceptable-pattern"></a>无法接受的模式
+
+如果从 `AnotherAsyncDisposable` 构造函数引发异常，则 `objOne` 不会得到正确处理：
+
+:::code language="csharp" id="dontdothis" source="../../../samples/snippets/csharp/VS_Snippets_CLR/conceptual.asyncdisposable/stacked-await-usings.cs":::
+
+> [!TIP]
+> 避免此模式，因为它可能导致意外行为。
 
 ## <a name="see-also"></a>请参阅
 

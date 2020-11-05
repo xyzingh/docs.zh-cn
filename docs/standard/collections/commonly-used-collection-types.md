@@ -4,21 +4,21 @@ description: 了解 .NET 中常用的集合类型，如哈希表、队列、堆�
 ms.date: 03/30/2017
 ms.technology: dotnet-standard
 helpviewer_keywords:
-- collections [.NET Framework], generic
-- objects [.NET Framework], grouping in collections
-- generics [.NET Framework], collections
+- collections [.NET], generic
+- objects [.NET], grouping in collections
+- generics [.NET], collections
 - IList interface, grouping data in collections
 - IDictionary interface, grouping data in collections
 - grouping data in collections, generic collection types
 - Collections classes
 - generic collections
 ms.assetid: f5d4c6a4-0d7b-4944-a9fb-3b12d9ebfd55
-ms.openlocfilehash: d0f2abc71524408c2bd2fa35a1a2dde0e664d273
-ms.sourcegitcommit: cdb295dd1db589ce5169ac9ff096f01fd0c2da9d
+ms.openlocfilehash: 8677ba5b4404d49e2f6e07cda19ac437254a5897
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84600836"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889382"
 ---
 # <a name="commonly-used-collection-types"></a>常用的集合类型
 集合类型是数据集合（如哈希表、队列、堆栈、包、字典和列表）的常见变体。  
@@ -35,10 +35,10 @@ ms.locfileid: "84600836"
   
 |Title|描述|  
 |-----------|-----------------|  
-|[集合和数据结构](index.md)|讨论在 .NET Framework 中提供的各种集合类型，包括堆栈、队列、列表、数组和字典。|  
+|[集合和数据结构](index.md)|讨论 .NET 中的各种集合类型，包括堆栈、队列、列表、数组和字典。|  
 |[哈希表和字典集合类型](hashtable-and-dictionary-collection-types.md)|描述泛型和非泛型的基于哈希的字典类型的功能。|  
 |[已排序的集合类型](sorted-collection-types.md)|描述为列表和集提供排序功能的类。|  
-|[泛型](../generics/index.md)|描述泛型功能，包括 .NET Framework 提供的泛型集合、委托和接口。 为 C#、Visual Basic 和 Visual C++ 提供功能文档链接和支持技术（如反射）链接。|  
+|[泛型](../generics/index.md)|描述泛型功能，包括 .NET 提供的泛型集合、委托和接口。 为 C#、Visual Basic 和 Visual C++ 提供功能文档链接和支持技术（如反射）链接。|  
   
 ## <a name="reference"></a>参考  
  <xref:System.Collections?displayProperty=nameWithType>  

@@ -8,12 +8,12 @@ helpviewer_keywords:
 - threading [.NET]
 - threading [.NET], multiple threads
 ms.assetid: 5baac3aa-e603-4fa6-9f89-0f2c1084e6b1
-ms.openlocfilehash: b332db80069e18d3b52cd03eef4995eaad3fda7b
-ms.sourcegitcommit: cdb295dd1db589ce5169ac9ff096f01fd0c2da9d
+ms.openlocfilehash: f7af6e1e73016e67c097b4fdbfb5f5d2d84e00d3
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84583396"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188128"
 ---
 # <a name="threads-and-threading"></a>线程与线程处理
 
@@ -38,7 +38,7 @@ ms.locfileid: "84583396"
 
 ## <a name="how-to-use-multithreading-in-net"></a>如何在 .NET 中使用多线程处理
 
-从 .NET Framework 4 开始，建议的使用多线程的方法是使用[任务并行库 (TPL)](../parallel-programming/task-parallel-library-tpl.md) 和[并行 LINQ (PLINQ)](../parallel-programming/introduction-to-plinq.md)。 有关详细信息，请参阅[并行编程](../parallel-programming/index.md)。
+从 .NET Framework 4 开始，使用多线程的推荐方法是使用[任务并行库 (TPL)](../parallel-programming/task-parallel-library-tpl.md) 和[并行 LINQ (PLINQ)](../parallel-programming/introduction-to-plinq.md)。 有关详细信息，请参阅[并行编程](../parallel-programming/index.md)。
 
 TPL 和 PLINQ 依赖于 <xref:System.Threading.ThreadPool> 线程。 <xref:System.Threading.ThreadPool?displayProperty=nameWithType> 类为 .NET 应用程序提供工作线程池。 还可使用线程池线程。 有关详细信息，请参阅[托管线程池](the-managed-thread-pool.md)。
 

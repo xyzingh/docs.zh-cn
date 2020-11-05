@@ -11,20 +11,21 @@ helpviewer_keywords:
 - reading text files
 - reading data, text files
 - data streams, reading text from files
-- I/O [.NET Framework], reading text from files
+- I/O [.NET], reading text from files
 ms.assetid: ed180baa-dfc6-4c69-a725-46e87edafb27
-ms.openlocfilehash: fafd1cda13b46e56183489aa15d3c4df9051ae06
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 0e90887c2cc4a54355c51facf91c9cc3da7e4320
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90553930"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93189324"
 ---
 # <a name="how-to-read-text-from-a-file"></a>如何：从文件中读取文本
+
 下面的示例演示如何使用适用于桌面应用的 .NET 以异步方式和同步方式从文本文件中读取文本。 在这两个示例中，当你创建 <xref:System.IO.StreamReader> 类的实例时，你会提供文件的绝对路径或相对路径。
   
 > [!NOTE]
-> 这些代码示例不适用于针对通用 Windows (UWP) 应用的开发，因为 Windows 运行时提供了对文件进行读写操作的不同的流类型。 有关演示如何在 UWP 应用中读取文本的示例，请参阅[快速入门：对文件执行读取和写入操作](/previous-versions/windows/apps/hh758325(v=win.10))。 有关演示如何在 .NET Framework 流和 Windows 运行时流之间进行转换的示例，请参阅[如何：在 .NET Framework 流和 Windows 运行时流之间进行转换](how-to-convert-between-dotnet-streams-and-winrt-streams.md)。  
+> 这些代码示例不适用于通用 Windows (UWP) 应用，因为 Windows 运行时提供了对文件进行读写操作的不同流类型。 有关演示如何在 UWP 应用中读取文本的示例，请参阅[快速入门：对文件执行读取和写入操作](/previous-versions/windows/apps/hh758325(v=win.10))。 有关演示如何在 .NET Framework 流和 Windows 运行时流之间进行转换的示例，请参阅[如何：在 .NET Framework 流和 Windows 运行时流之间进行转换](how-to-convert-between-dotnet-streams-and-winrt-streams.md)。  
   
 ## <a name="example-synchronous-read-in-a-console-app"></a>示例：控制台应用中的同步读取  
 以下示例演示控制台应用中的同步读取操作。 此示例使用流读取器打开文本文件，将内容复制到字符串并将字符串输出到控制台。  

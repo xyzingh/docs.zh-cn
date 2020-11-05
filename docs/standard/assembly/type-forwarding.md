@@ -3,30 +3,29 @@ title: 公共语言运行时中的类型转发
 description: 使用类型转发可以将类型移到另一个 .NET 程序集，而不必重新编译使用原始程序集的应用程序。
 ms.date: 08/20/2019
 helpviewer_keywords:
-- assemblies [.NET Framework], type forwarding
+- assemblies [.NET], type forwarding
 - type forwarding
 ms.assetid: 51f8ffa3-c253-4201-a3d3-c4fad85ae097
 dev_langs:
 - csharp
 - cpp
-ms.openlocfilehash: f0be61bd4ce88569e22a350a9ea9490d67e74ff3
-ms.sourcegitcommit: d6bd7903d7d46698e9d89d3725f3bb4876891aa3
+ms.openlocfilehash: cd166068993fb5d1a5164615de3926a06dda8098
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83378597"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687670"
 ---
 # <a name="type-forwarding-in-the-common-language-runtime"></a>公共语言运行时中的类型转发
+
 使用类型转发可以将类型移到另一个程序集，而不必重新编译使用原始程序集的应用程序。  
   
  例如，假设应用程序使用名为 Utility.dll 的程序集中的 `Example` 类。 Utility.dll 的开发人员可能决定重构该程序集，并且在重构过程中可能将 `Example` 类移到另一个程序集。 如果旧版本的 Utility.dll 由新版本的 Utility.dll 及其配套程序集取代，则使用 `Example` 类的应用程序会失败，因其无法在新版本的 Utility.dll 中找到 `Example` 类  。  
   
- Utility.dll 开发人员可使用 <xref:System.Runtime.CompilerServices.TypeForwardedToAttribute> 属性转发 `Example` 类的请求，从而避免这种情况。 如果已向新版本的 Utility.dll 应用了该属性，则对 `Example` 类的请求会转发到该类目前所属的程序集。 现有应用程序将继续正常运行，无需重新编译。  
-  
-> [!NOTE]
-> 在 .NET Framework 2.0 版中，无法从使用 Visual Basic 编写的程序集转发类型。 但是，用 Visual Basic 编写的应用程序可以使用转发的类型。 也就是说，如果应用程序使用通过 C# 或 C++ 编码的程序集，并且该程序集中的某类型被转发至另一个程序集，则 Visual Basic 应用程序可以使用该转发的类型。  
-  
-## <a name="forward-types"></a>转发类型  
+ Utility.dll 开发人员可使用 <xref:System.Runtime.CompilerServices.TypeForwardedToAttribute> 属性转发 `Example` 类的请求，从而避免这种情况。 如果已向新版本的 Utility.dll 应用了该属性，则对 `Example` 类的请求会转发到该类目前所属的程序集。 现有应用程序将继续正常运行，无需重新编译。
+
+## <a name="forward-a-type"></a>转发类型
+
  转发类型有四个步骤：  
   
 1. 将类型的源代码从原始程序集移到目标程序集。  

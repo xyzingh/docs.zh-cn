@@ -9,12 +9,12 @@ dev_langs:
 helpviewer_keywords:
 - parallel programming, pitfalls
 ms.assetid: 1e357177-e699-4b8f-9e49-56d3513ed128
-ms.openlocfilehash: 05d934b80e60a8630db5b70e16a07c014598487a
-ms.sourcegitcommit: cdb295dd1db589ce5169ac9ff096f01fd0c2da9d
+ms.openlocfilehash: c66eae48df54b330843b4967f957264f2bddee1d
+ms.sourcegitcommit: 6d09ae36acba0b0e2ba47999f8f1a725795462a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84599758"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925306"
 ---
 # <a name="potential-pitfalls-in-data-and-task-parallelism"></a>数据并行和任务并行中的潜在缺陷
 在许多情况下，与普通的顺序循环相比，<xref:System.Threading.Tasks.Parallel.For%2A?displayProperty=nameWithType> 和 <xref:System.Threading.Tasks.Parallel.ForEach%2A?displayProperty=nameWithType> 可以显著提升性能。 但是，对循环进行并行化的工作增加了复杂性，可能会导致在顺序代码中出现不常见或根本不会遇到的问题。 本主题列出了一些在编写并行循环时要避免的做法。  
@@ -45,7 +45,7 @@ ms.locfileid: "84599758"
  [!code-vb[TPL_Pitfalls#04](../../../samples/snippets/visualbasic/VS_Snippets_Misc/tpl_pitfalls/vb/pitfalls_vb.vb#04)]  
   
 ## <a name="limit-calls-to-thread-safe-methods"></a>限制调用线程安全方法  
- .NET Framework 中的大多数静态方法是线程安全的，并且可以同时从多个线程中调用。 但是，即使在这些情况下，所涉及到的同步也可能会导致查询速度大幅度下降。  
+ .NET 中的大多数静态方法是线程安全的，并且可以同时从多个线程中调用。 但是，即使在这些情况下，所涉及到的同步也可能会导致查询速度大幅度下降。  
   
 > [!NOTE]
 > 可以自行对此进行测试，具体方法是在查询中插入一些 <xref:System.Console.WriteLine%2A> 调用。 尽管出于演示目的，在文档示例中使用了此方法，但除非必要，否则不要在并行循环中使用它。  

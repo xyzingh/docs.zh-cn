@@ -10,17 +10,18 @@ helpviewer_keywords:
 - memory-mapped files
 - inter-process communication
 ms.assetid: a483d1b5-64aa-45b6-86ef-11b859f7f02e
-ms.openlocfilehash: 74d821aff8308618f7c0efeb1b453db8214b877e
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: e6f9a760d7673eecf161b1d84d890cc14d09235e
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90555941"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93189012"
 ---
 # <a name="memory-mapped-files"></a>内存映射文件
-内存映射文件包含虚拟内存中文件的内容。 借助文件和内存空间之间的这种映射，应用（包括多个进程）可以直接对内存执行读取和写入操作，从而修改文件。 从 .NET Framework 4 开始，可以使用托管代码访问内存映射文件，就像本机 Windows 函数访问内存映射文件（如[管理内存映射文件](/previous-versions/ms810613(v=msdn.10))所述）一样。  
+
+内存映射文件包含虚拟内存中文件的内容。 借助文件和内存空间之间的这种映射，应用（包括多个进程）可以直接对内存执行读取和写入操作，从而修改文件。 可以使用托管代码访问内存映射文件，就像本机 Windows 函数访问内存映射文件（如[管理内存映射文件](/previous-versions/ms810613(v=msdn.10))中所述）一样。  
   
- 内存映射文件分为两种类型：  
+内存映射文件分为两种类型：  
   
 - 持久化内存映射文件  
   
@@ -35,7 +36,7 @@ ms.locfileid: "90555941"
   
  必须创建整个或部分内存映射文件的视图，才能使用内存映射文件。 还可以为内存映射文件的同一部分创建多个视图，从而创建并发内存。 若要让两个视图一直处于并发状态，必须通过同一个内存映射文件创建它们。  
   
- 如果文件大于可用于内存映射的应用逻辑内存空间（在 32 位计算机中为 2GB），可能也有必要使用多个视图。  
+ 如果文件大于可用于内存映射的应用程序逻辑内存空间（在 32 位计算机中为 2 GB），可能也有必要使用多个视图。  
   
  视图分为以下两种类型：流访问视图和随机访问视图。 使用流访问视图，可以顺序访问文件；建议对非持久化文件和 IPC 使用这种类型。 随机访问视图是处理持久化文件的首选类型。  
   

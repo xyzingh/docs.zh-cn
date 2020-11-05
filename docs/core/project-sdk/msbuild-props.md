@@ -4,12 +4,12 @@ description: .NET SDK 可以理解的 MSBuild 属性和项的引用。
 ms.date: 02/14/2020
 ms.topic: reference
 ms.custom: updateeachrelease
-ms.openlocfilehash: ac5d082acae582352680782deadb71a86f977f3b
-ms.sourcegitcommit: 2e4adc490c1d2a705a0592b295d606b10b9f51f1
+ms.openlocfilehash: 463e2a163e6a20f5631b0ab82462614834156ae3
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91354448"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063223"
 ---
 # <a name="msbuild-reference-for-net-sdk-projects"></a>.NET SDK 项目的 MSBuild 引用
 
@@ -230,6 +230,9 @@ ms.locfileid: "91354448"
 > 有关面向 .NET 5.0 之前的 .NET 版本的项目，启用 .NET 代码分析的另一种方法是将 [AnalysisLevel](#analysislevel) 属性设置为 `latest`。
 
 ### <a name="enforcecodestyleinbuild"></a>EnforceCodeStyleInBuild
+
+> [!NOTE]
+> 此功能当前为实验性功能，可能会在 .NET 5 和 .NET 6 版本之间发生更改。
 
 对于所有 .NET 项目的版本，[.NET 代码样式分析](../../fundamentals/code-analysis/overview.md#code-style-analysis)默认处于禁用状态。 通过将 `EnforceCodeStyleInBuild` 属性设置为 `true`，可以为 .NET 项目启用代码样式分析。
 

@@ -11,17 +11,18 @@ helpviewer_keywords:
 - culture, custom case mappings
 - culture-insensitive string operations, method overloads
 ms.assetid: 579ef891-1f83-4c63-9ebd-2f40406b5b91
-ms.openlocfilehash: 79ff899e2964ae2c1e90b7178616c612dddf6d86
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 0f7e8dde395feb548e6808547a223a3fa8855561
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84287501"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063906"
 ---
 # <a name="performing-culture-insensitive-string-operations"></a>执行不区分区域性的字符串操作
-默认情况下，大多数执行区域性敏感型字符串操作的 .NET Framework 方法提供方法重载，以便于通过传递 <xref:System.Globalization.CultureInfo> 参数来显式指定要使用的区域性。 这些重载允许消除大小写映射和排序规则中的区域性差异，保证获得不区分区域性的结果。  
+
+默认情况下，大多数执行区分区域性的字符串操作的 .NET 方法提供方法重载，以便于通过传递 <xref:System.Globalization.CultureInfo> 参数来显式指定要使用的区域性。 这些重载允许消除大小写映射和排序规则中的区域性差异，保证获得不区分区域性的结果。  
   
- 本节提供以下主题，用以说明如何使用默认区分区域性的 .NET Framework 方法执行不区分区域性的字符串操作。  
+ 本节提供以下文章，用以说明如何使用默认区分区域性的 .NET 方法执行不区分区域性的字符串操作。  
   
 ## <a name="in-this-section"></a>本节内容  
  [执行不区分区域性的字符串比较](performing-culture-insensitive-string-comparisons.md)  

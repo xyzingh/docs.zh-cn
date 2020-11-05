@@ -11,12 +11,12 @@ helpviewer_keywords:
 - numerics
 - BigInteger
 ms.assetid: dfebc18e-acde-4510-9fa7-9a0f4aa3bd11
-ms.openlocfilehash: 3b95a322377e82249a0375af589df74c658fcbf4
-ms.sourcegitcommit: 1cb64b53eb1f253e6a3f53ca9510ef0be1fd06fe
+ms.openlocfilehash: 0fdf1b3ec1141dd637f817115bd1d2351c8af7a0
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82507411"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687737"
 ---
 # <a name="numerics-in-net"></a>.NET 中的数字
 
@@ -88,8 +88,9 @@ ms.locfileid: "82507411"
 - <xref:System.Numerics.Quaternion> 类型，表示一个用于对三维物理旋转进行编码的向量。
 
 - <xref:System.Numerics.Vector%601> 类型，表示指定数字类型的向量，并提供受益于 SIMD 支持的一组广泛的运算符。 <xref:System.Numerics.Vector%601> 实例的计数是固定的，但其值 <xref:System.Numerics.Vector%601.Count%2A?displayProperty=nameWithType> 取决于执行代码的计算机的 CPU。
+
   > [!NOTE]
-  > <xref:System.Numerics.Vector%601> 类型未包含在 .NET Framework 中。 必须安装 [System.Numerics.Vectors](https://www.nuget.org/packages/System.Numerics.Vectors) NuGet 包才能访问此类型。
+  > <xref:System.Numerics.Vector%601> 类型随 .NET Core 和 .NET 5+ 一起提供，但 .NET Framework 中不提供。 如果你使用的是 .NET Framework，请安装 [System.Numerics.Vectors](https://www.nuget.org/packages/System.Numerics.Vectors) NuGet 包来访问此类型。
   
 启用了 SIMD 的类型以这样一种方式实现：即它们可以与未启用 SIMD 的硬件或 JIT 编译器一起使用。 要利用 SIMD 指令，你的 64 位应用必须由使用 RyuJIT 编译器的运行时运行，该编译器包含在 .NET Core 和 .NET Framework 4.6 及更高版本中。 它针对 64 位处理器增加了 SIMD 支持。
 

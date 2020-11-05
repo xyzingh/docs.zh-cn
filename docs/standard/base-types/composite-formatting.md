@@ -8,25 +8,25 @@ dev_langs:
 - vb
 helpviewer_keywords:
 - parameter specifiers
-- strings [.NET Framework], alignment
+- strings [.NET], alignment
 - format specifiers, composite formatting
-- strings [.NET Framework], composite
+- strings [.NET], composite
 - composite formatting
-- objects [.NET Framework], formatting multiple objects
+- objects [.NET], formatting multiple objects
 ms.assetid: 87b7d528-73f6-43c6-b71a-f23043039a49
-ms.openlocfilehash: 36197b382c449a2570e1d5530f307c4e66b0d983
-ms.sourcegitcommit: b16c00371ea06398859ecd157defc81301c9070f
+ms.openlocfilehash: e15452016aa61cf44950e8b9e7fca58f23471ae7
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447259"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889460"
 ---
 # <a name="composite-formatting"></a>复合格式设置
 
 .NET 复合格式设置功能使用对象列表和复合格式字符串作为输入。 复合格式字符串由固定文本和索引占位符混和组成，其中索引占位符称为格式项，对应于列表中的对象。 格式设置操作产生的结果字符串由原始固定文本和列表中对象的字符串表示形式混和组成。  
   
 > [!IMPORTANT]
-> 相较使用复合格式字符串，如果正在使用的语言和语言版本支持，则可使用*内插字符串*。 内插字符串是包含内插表达式的字符串。 每个内插表达式都使用表达式的值进行解析，并在分配字符串时包含在结果字符串中。 有关详细信息，请参阅[字符串内插（C# 参考）](../../csharp/language-reference/tokens/interpolated.md)和[内插字符串（Visual Basic 参考）](../../visual-basic/programming-guide/language-features/strings/interpolated-strings.md)。
+> 相较使用复合格式字符串，如果正在使用的语言和语言版本支持，则可使用 *内插字符串* 。 内插字符串是包含内插表达式的字符串。 每个内插表达式都使用表达式的值进行解析，并在分配字符串时包含在结果字符串中。 有关详细信息，请参阅[字符串内插（C# 参考）](../../csharp/language-reference/tokens/interpolated.md)和[内插字符串（Visual Basic 参考）](../../visual-basic/programming-guide/language-features/strings/interpolated-strings.md)。
 
 复合格式设置功能受诸如以下方法的支持：  
   
@@ -56,12 +56,12 @@ ms.locfileid: "84447259"
 ## <a name="format-item-syntax"></a>格式项语法  
  每个格式项都采用下面的形式并包含以下组件：  
   
- `{` *index*[`,`*alignment*][`:`*formatString*]`}`  
+ `{` *index* [`,`*alignment* ][`:`*formatString* ]`}`  
   
  必须使用成对的大括号（“{”和“}”）。  
   
 ### <a name="index-component"></a>索引组件  
- 必需的*索引*组件（也叫参数说明符）是一个从 0 开始的数字，可标识对象列表中对应的项。 也就是说，参数说明符为 0 的格式项列表中的第一个对象，参数说明符为 1 的格式项列表中的第二个对象，依次类推。 下面的示例包括四个参数说明符，编号为 0 到 3，用于表示小于 10 的质数：  
+ 必需的 *索引* 组件（也叫参数说明符）是一个从 0 开始的数字，可标识对象列表中对应的项。 也就是说，参数说明符为 0 的格式项列表中的第一个对象，参数说明符为 1 的格式项列表中的第二个对象，依次类推。 下面的示例包括四个参数说明符，编号为 0 到 3，用于表示小于 10 的质数：  
   
  [!code-csharp[Formatting.Composite#7](../../../samples/snippets/csharp/VS_Snippets_CLR/Formatting.Composite/cs/index1.cs#7)]
  [!code-vb[Formatting.Composite#7](../../../samples/snippets/visualbasic/VS_Snippets_CLR/Formatting.Composite/vb/index1.vb#7)]  
@@ -74,7 +74,7 @@ ms.locfileid: "84447259"
  每个格式项都可以引用列表中的任一对象。 例如，如果有三个对象，可以指定“{1} {0} {2}”等复合格式字符串，以设置第二个、第一个和第三个对象的格式。 格式项未引用的对象会被忽略。 如果参数说明符指定了超出对象列表范围的项，将引发运行时 <xref:System.FormatException>。  
   
 ### <a name="alignment-component"></a>对齐组件  
- 可选的*对齐*组件是一个带符号的整数，指示首选的设置了格式的字段宽度。 如果 *alignment* 值小于设置了格式的字符串的长度，*alignment* 将被忽略，并使用设置了格式的字符串的长度作为字段宽度。 如果 *alignment* 为正数，字段中设置了格式的数据为右对齐；如果 *alignment* 为负数，字段中的设置了格式的数据为左对齐。 如果需要填充，则使用空白。 如果指定 *alignment*，则需要使用逗号。  
+ 可选的 *对齐* 组件是一个带符号的整数，指示首选的设置了格式的字段宽度。 如果 *alignment* 值小于设置了格式的字符串的长度， *alignment* 将被忽略，并使用设置了格式的字符串的长度作为字段宽度。 如果 *alignment* 为正数，字段中设置了格式的数据为右对齐；如果 *alignment* 为负数，字段中的设置了格式的数据为左对齐。 如果需要填充，则使用空白。 如果指定 *alignment* ，则需要使用逗号。  
   
  下面的示例定义两个数组，一个包含雇员的姓名，另一个则包含雇员在两周内的工作小时数。 复合格式字符串使 20 字符字段中的姓名左对齐，使 5 字符字段中的工作小时数右对齐。 请注意“N1”标准格式字符串还用于设置带有小数位的小时数格式。  
   
@@ -82,9 +82,9 @@ ms.locfileid: "84447259"
  [!code-vb[Formatting.Composite#8](../../../samples/snippets/visualbasic/VS_Snippets_CLR/Formatting.Composite/vb/alignment1.vb#8)]  
   
 ### <a name="format-string-component"></a>格式字符串组件  
- 可选的*格式字符串*组件是适合正在设置格式的对象类型的格式字符串。 如果相应对象是数值，指定标准或自定义数字格式字符串；如果相应对象是 <xref:System.DateTime> 对象，指定标准或自定义日期和时间格式字符串；或者，如果相应对象是枚举值，指定[枚举格式字符串](enumeration-format-strings.md)。 如果不指定 *formatString*，则对数字、日期和时间或者枚举类型使用常规（“G”）格式说明符。 如果指定 *formatString*，则需要使用冒号。  
+ 可选的 *格式字符串* 组件是适合正在设置格式的对象类型的格式字符串。 如果相应对象是数值，指定标准或自定义数字格式字符串；如果相应对象是 <xref:System.DateTime> 对象，指定标准或自定义日期和时间格式字符串；或者，如果相应对象是枚举值，指定[枚举格式字符串](enumeration-format-strings.md)。 如果不指定 *formatString* ，则对数字、日期和时间或者枚举类型使用常规（“G”）格式说明符。 如果指定 *formatString* ，则需要使用冒号。  
   
- 下表列出了 .NET Framework 类库中支持预定义的格式字符串集的类型或类型的类别，并提供指向列出了支持的格式字符串的主题的链接。 请注意，字符串格式化是一个可扩展的机制，可使用该机制定义所有现有类型的新的格式字符串，并定义受应用程序定义的类型支持的格式字符串集。 有关详细信息，请参阅 <xref:System.IFormattable> 和 <xref:System.ICustomFormatter> 接口主题。  
+ 下表列出了 .NET 类库中支持预定义的格式字符串集的类型或类型的类别，并提供指向列出了支持的格式字符串的主题的链接。 请注意，字符串格式化是一个可扩展的机制，可使用该机制定义所有现有类型的新的格式字符串，并定义受应用程序定义的类型支持的格式字符串集。 有关详细信息，请参阅 <xref:System.IFormattable> 和 <xref:System.ICustomFormatter> 接口主题。  
   
 |类型或类型类别|查看|  
 |---------------------------|---------|  

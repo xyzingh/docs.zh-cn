@@ -4,15 +4,15 @@ description: 了解如何在 .NET 中使用线程和线程处理，以便编写�
 ms.date: 08/08/2018
 ms.technology: dotnet-standard
 helpviewer_keywords:
-- threading [.NET Framework], about threading
+- threading [.NET], about threading
 - managed threading
 ms.assetid: 9b5ec2cd-121b-4d49-b075-222cf26f2344
-ms.openlocfilehash: c092994818c9105a555acaf63ceba4b8e99bcada
-ms.sourcegitcommit: 7137e12f54c4e83a94ae43ec320f8cf59c1772ea
+ms.openlocfilehash: 127ea9e28d9ce303270512bf86bf4eecf2f86437
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84663026"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188700"
 ---
 # <a name="using-threads-and-threading"></a>使用线程和线程处理
 
@@ -21,7 +21,7 @@ ms.locfileid: "84663026"
 使用多线程处理的应用程序可以更快地响应用户输入，因为在单独的线程上执行处理器密集型任务时，用户界面将保持活动状态。 创建可扩展的应用程序时，多线程编程也很有用，因为可以随着负载的增加添加线程。
 
 > [!NOTE]
-> 如果需要更好地控制应用程序线程的行为，可以自己管理线程。 然而，自 .NET Framework 4 起，由于出现了 <xref:System.Threading.Tasks.Parallel?displayProperty=nameWithType> 和 <xref:System.Threading.Tasks.Task?displayProperty=nameWithType> 类、[并行 LINQ (PLINQ)](../parallel-programming/introduction-to-plinq.md)、<xref:System.Collections.Concurrent?displayProperty=nameWithType> 命名空间中的新并发集合类以及基于任务（而非线程）概念的新编程模型，多线程编程大大得到了简化。 有关详细信息，请参阅[并行编程](../parallel-programming/index.md)和[任务并行库 (TPL)](../parallel-programming/task-parallel-library-tpl.md)。
+> 如果需要更好地控制应用程序线程的行为，可以自己管理线程。 但是，由于出现了 <xref:System.Threading.Tasks.Parallel?displayProperty=nameWithType> 和 <xref:System.Threading.Tasks.Task?displayProperty=nameWithType> 类、[并行 LINQ (PLINQ)](../parallel-programming/introduction-to-plinq.md)、<xref:System.Collections.Concurrent?displayProperty=nameWithType> 命名空间中的并发集合类以及基于任务（而非线程）概念的编程模型，多线程编程大大得到了简化。 有关详细信息，请参阅[并行编程](../parallel-programming/index.md)和[任务并行库 (TPL)](../parallel-programming/task-parallel-library-tpl.md)。
 
 ## <a name="how-to-create-and-start-a-new-thread"></a>如何：创建并启动新线程
 
@@ -33,7 +33,7 @@ ms.locfileid: "84663026"
 
 有时无法以协作方式停止线程，因为它运行的第三方代码不是为协作取消而设计的。 在这种情况下，可能需要强制终止其执行。 若要强制终止线程的执行，可以在 .NET Framework 中使用 <xref:System.Threading.Thread.Abort%2A?displayProperty=nameWithType> 方法。 该方法在调用它的线程上引发 <xref:System.Threading.ThreadAbortException>。 有关详细信息，请参阅[销毁线程](destroying-threads.md)。 .NET Core 中不支持 <xref:System.Threading.Thread.Abort%2A?displayProperty=nameWithType> 方法。 如果需要在 .NET Core 中强制终止第三方代码的执行，请在单独的进程中运行该代码，并使用 <xref:System.Diagnostics.Process.Kill%2A?displayProperty=nameWithType>。
 
-<xref:System.Threading.CancellationToken?displayProperty=nameWithType> 在 .NET Framework 4 之前的版本中不可用。 若要停止较旧 .NET Framework 版本中的线程，应使用线程同步技术手动实现协作取消。 例如，可以创建 volatile 布尔字段 `shouldStop`，并使用它来请求线程执行的代码停止。 有关详细信息，请参阅 C# 参考中的 [volatile](../../csharp/language-reference/keywords/volatile.md) 和 <xref:System.Threading.Volatile?displayProperty=nameWithType>。
+<xref:System.Threading.CancellationToken?displayProperty=nameWithType> 在 .NET Framework 4 之前的版本中不可用。 若要停止旧版 .NET Framework 中的线程，请使用线程同步技术手动实现协作式取消。 例如，可以创建 volatile 布尔字段 `shouldStop`，并使用它来请求线程执行的代码停止。 有关详细信息，请参阅 C# 参考中的 [volatile](../../csharp/language-reference/keywords/volatile.md) 和 <xref:System.Threading.Volatile?displayProperty=nameWithType>。
 
 使用 <xref:System.Threading.Thread.Join%2A?displayProperty=nameWithType> 方法使调用线程等待线程终止停止。
 

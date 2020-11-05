@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 164d7a8277cf985735b959c73eb87391944e795b
-ms.sourcegitcommit: cdb295dd1db589ce5169ac9ff096f01fd0c2da9d
+ms.openlocfilehash: 188fef66444cd60f59a3cb9619c0d86efd155f99
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84602674"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135793"
 ---
 
 ### <a name="install-the-sdk"></a>安装 SDK
@@ -35,7 +35,7 @@ sudo apt-get update; \
 > [!IMPORTANT]
 > 如果收到类似于“找不到包 aspnetcore-runtime-2.1”的错误消息，请参阅 [APT 疑难解答](#apt-troubleshooting)部分。
 
-作为 ASP.NET Core 运行时的一种替代方法，你可以安装不包含 ASP.NET Core 支持的 .NET Core 运行时：将上述命令中的 `aspnetcore-runtime-2.1` 替换为 `dotnet-runtime-2.1`。
+作为 ASP.NET Core 运行时的一种替代方法，你可以安装不包含 ASP.NET Core 支持的 .NET Core 运行时：将上一命令中的 `aspnetcore-runtime-2.1` 替换为 `dotnet-runtime-2.1`。
 
 ```bash
 sudo apt-get install -y dotnet-runtime-2.1

@@ -11,27 +11,27 @@ helpviewer_keywords:
 - asynchronous I/O
 - synchronous I/O
 - streams, asynchronous streams
-- I/O [.NET Framework], asynchronous I/O
+- I/O [.NET], asynchronous I/O
 - Stream class, synchronous I/O
 - data streams, asynchronous streams
 - Stream class, asynchronous I/O
 - multiple I/O requests
 - data streams, synchronous streams
 ms.assetid: dbdd55e7-d6b9-4f9e-8abb-ab0edd4457f7
-ms.openlocfilehash: 9506a366b6f1e363ec13550e5ed68c7176dd4d0a
-ms.sourcegitcommit: cdb295dd1db589ce5169ac9ff096f01fd0c2da9d
+ms.openlocfilehash: a148e6e13ec0ee4ee469a0630f150199c5a3af13
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84598614"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188596"
 ---
 # <a name="asynchronous-file-io"></a>异步文件 I/O
 
 异步操作使您能在不阻塞主线程的情况下执行占用大量资源的 I/O 操作。 在 Windows 8.x 应用商店应用或桌面应用中一个耗时的流操作可能阻塞 UI 线程并让应用看起来好像不工作时，这种性能的考虑就显得尤为重要了。
 
-从 .NET Framework 4.5 开始，I/O 类型包括异步方法来简化异步操作。 异步方法在其名称中包括 `Async` ，例如 <xref:System.IO.Stream.ReadAsync%2A>、 <xref:System.IO.Stream.WriteAsync%2A>、 <xref:System.IO.Stream.CopyToAsync%2A>、 <xref:System.IO.Stream.FlushAsync%2A>、 <xref:System.IO.TextReader.ReadLineAsync%2A>和 <xref:System.IO.TextReader.ReadToEndAsync%2A>。 这些异步方法基于流类（例如 <xref:System.IO.Stream>、 <xref:System.IO.FileStream>和 <xref:System.IO.MemoryStream>）和用来向流中读出或写入数据的类（例如 <xref:System.IO.TextReader> 和 <xref:System.IO.TextWriter>）实现。
+从 .NET Framework 4.5 开始，I/O 类型包括了异步方法，以简化异步操作。 异步方法在其名称中包括 `Async` ，例如 <xref:System.IO.Stream.ReadAsync%2A>、 <xref:System.IO.Stream.WriteAsync%2A>、 <xref:System.IO.Stream.CopyToAsync%2A>、 <xref:System.IO.Stream.FlushAsync%2A>、 <xref:System.IO.TextReader.ReadLineAsync%2A>和 <xref:System.IO.TextReader.ReadToEndAsync%2A>。 这些异步方法基于流类（例如 <xref:System.IO.Stream>、 <xref:System.IO.FileStream>和 <xref:System.IO.MemoryStream>）和用来向流中读出或写入数据的类（例如 <xref:System.IO.TextReader> 和 <xref:System.IO.TextWriter>）实现。
 
-在 .NET Framework 4 和更早的版本中，您必须使用 <xref:System.IO.Stream.BeginRead%2A> 和 <xref:System.IO.Stream.EndRead%2A> 之类的方法来实现异步 I/O 操作。 这些方法仍然在 .NET Framework 4.5 中可用，从而支持传统的代码；但是，异步方法能帮助你更轻松地实现异步 I/O 操作。
+在 .NET Framework 4 和更早的版本中，你必须使用 <xref:System.IO.Stream.BeginRead%2A> 和 <xref:System.IO.Stream.EndRead%2A> 等方法来实现异步 I/O 操作。 这些方法仍然在当前 .NET 版本中可用，从而支持传统的代码；但是，异步方法能帮助你更轻松地实现异步 I/O 操作。
 
 C# 和 Visual Basic 分别具有两个用于异步编程的关键字：
 

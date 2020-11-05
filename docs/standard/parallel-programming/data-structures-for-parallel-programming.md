@@ -5,20 +5,21 @@ ms.technology: dotnet-standard
 helpviewer_keywords:
 - data structures, multi-threading
 ms.assetid: bdc82f2f-4754-45a1-a81e-fe2e9c30cef9
-ms.openlocfilehash: f9c130b73044440f24b7b8bbebe9527490a165c1
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: cea9264a30469881e3ec54fc378af3ddb70bff8e
+ms.sourcegitcommit: 6d09ae36acba0b0e2ba47999f8f1a725795462a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84288519"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925319"
 ---
 # <a name="data-structures-for-parallel-programming"></a>用于并行编程的数据结构
-.NET Framework 版本 4 引入了几种对并行编程非常有用的新类型，包括一组并发回收类、轻型同步基元和迟缓初始化类型。 可以将这些类型与任何多线程应用代码（包括任务并行库和 PLINQ）结合使用。  
+
+.NET 提供了几种对并行编程非常有用的类型，包括一组并发集合类、轻型同步基元和用于迟缓初始化的类型。 可以将这些类型与任何多线程应用代码（包括任务并行库和 PLINQ）结合使用。  
   
 ## <a name="concurrent-collection-classes"></a>并发回收类  
- <xref:System.Collections.Concurrent?displayProperty=nameWithType> 命名空间中的回收类提供线程安全的添加和删除操作，以尽可能地避免锁定，并在需要锁定时使用细粒度锁定。 与 .NET Framework 版本 1.0 和 2.0 中引入的回收不同，并发回收类不要求用户代码在访问项时使用任何锁定。 如果多个线程在回收中添加和删除项，并发回收类可以显著提高 <xref:System.Collections.ArrayList?displayProperty=nameWithType> 和 <xref:System.Collections.Generic.List%601?displayProperty=nameWithType>（具有用户实现的锁定）等类型的性能。  
+ <xref:System.Collections.Concurrent?displayProperty=nameWithType> 命名空间中的回收类提供线程安全的添加和删除操作，以尽可能地避免锁定，并在需要锁定时使用细粒度锁定。 并发集合类在访问项时不需要用户代码执行任何锁定。 如果多个线程在回收中添加和删除项，并发回收类可以显著提高 <xref:System.Collections.ArrayList?displayProperty=nameWithType> 和 <xref:System.Collections.Generic.List%601?displayProperty=nameWithType>（具有用户实现的锁定）等类型的性能。  
   
- 下表列出了新引入的并发回收类：  
+ 下表列出了并发集合类：  
   
 |类型|说明|  
 |----------|-----------------|  
@@ -31,9 +32,9 @@ ms.locfileid: "84288519"
  有关详细信息，请参阅[线程安全集合](../collections/thread-safe/index.md)。  
   
 ## <a name="synchronization-primitives"></a>同步基元  
- 通过消除旧多线程处理代码中高昂的锁定机制，<xref:System.Threading?displayProperty=nameWithType> 命名空间中的新同步基元实现了细粒度并发和更快速的性能。 一些新类型（如 <xref:System.Threading.Barrier?displayProperty=nameWithType> 和 <xref:System.Threading.CountdownEvent?displayProperty=nameWithType>）在旧版 .NET Framework 中并没有对等的类型。  
+ 通过消除旧多线程处理代码中高昂的锁定机制，<xref:System.Threading?displayProperty=nameWithType> 命名空间中的同步基元实现了细粒度并发和更快速的性能。
   
- 下表列出了新引入的同步类型：  
+ 下表列出了同步类型：  
   
 |类型|说明|  
 |----------|-----------------|  
@@ -41,14 +42,14 @@ ms.locfileid: "84288519"
 |<xref:System.Threading.CountdownEvent?displayProperty=nameWithType>|通过提供简单的回收机制，简化分支和联接方案。 有关详细信息，请参阅 [CountdownEvent](../threading/countdownevent.md)。|  
 |<xref:System.Threading.ManualResetEventSlim?displayProperty=nameWithType>|类似于 <xref:System.Threading.ManualResetEvent?displayProperty=nameWithType> 的同步基元。 虽然 <xref:System.Threading.ManualResetEventSlim> 是轻型基元，但只能用于进程内通信。|  
 |<xref:System.Threading.SemaphoreSlim?displayProperty=nameWithType>|限制可同时访问资源或资源池的线程数的同步基元。 有关详细信息，请参阅 [Semaphore 和 SemaphoreSlim](../threading/semaphore-and-semaphoreslim.md)。|  
-|<xref:System.Threading.SpinLock?displayProperty=nameWithType>|互斥锁基元，导致尝试获取锁的线程先在循环中等待或旋转  一段时间，再生成量程。 在应缩短锁等待时间的情况下，<xref:System.Threading.SpinLock> 的性能优于其他形式的锁定。 有关详细信息，请参阅 [SpinLock](../threading/spinlock.md)。|  
+|<xref:System.Threading.SpinLock?displayProperty=nameWithType>|互斥锁基元，导致尝试获取锁的线程先在循环中等待或旋转一段时间，再生成量程。 在应缩短锁等待时间的情况下，<xref:System.Threading.SpinLock> 的性能优于其他形式的锁定。 有关详细信息，请参阅 [SpinLock](../threading/spinlock.md)。|  
 |<xref:System.Threading.SpinWait?displayProperty=nameWithType>|小的轻型类型，它会旋转一段指定的时间，并最终将线程置于等待状态（如果超出旋转计数的话）。  有关详细信息，请参阅 [SpinWait](../threading/spinwait.md)。|  
   
- 有关详情，请参阅：  
+ 有关详细信息，请参阅：  
   
 - [如何：使用 SpinLock 进行低级别同步](../threading/how-to-use-spinlock-for-low-level-synchronization.md)  
   
-- [如何：使用 Barrier 同步并发操作](../threading/how-to-synchronize-concurrent-operations-with-a-barrier.md)。  
+- [如何：使用屏障同步并发操作](../threading/how-to-synchronize-concurrent-operations-with-a-barrier.md)。  
   
 ## <a name="lazy-initialization-classes"></a>迟缓初始化类  
  通过迟缓初始化，除非需要，否则不分配对象内存。 迟缓初始化可以提升性能，具体是通过在整个程序生存期内均匀分布对象分配。 若要为任何自定义类型启用迟缓初始化，可以包装类型 <xref:System.Lazy%601>。  
@@ -66,7 +67,7 @@ ms.locfileid: "84288519"
 ## <a name="aggregate-exceptions"></a>聚合异常  
  <xref:System.AggregateException?displayProperty=nameWithType> 类型可用于捕获对各个线程并发抛出的多个异常，并将它们作为一个异常返回给联接线程。 为此，<xref:System.Threading.Tasks.Task?displayProperty=nameWithType> 和 <xref:System.Threading.Tasks.Parallel?displayProperty=nameWithType> 类型以及 PLINQ 大量使用 <xref:System.AggregateException>。 有关详细信息，请参阅[异常处理](exception-handling-task-parallel-library.md)和[如何：处理 PLINQ 查询中的异常](how-to-handle-exceptions-in-a-plinq-query.md)。  
   
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 - <xref:System.Collections.Concurrent?displayProperty=nameWithType>
 - <xref:System.Threading?displayProperty=nameWithType>

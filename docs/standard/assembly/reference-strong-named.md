@@ -5,19 +5,19 @@ ms.date: 08/20/2019
 helpviewer_keywords:
 - strong-named assemblies, compile-time references
 - compile-time assembly referencing
-- assemblies [.NET Framework], strong-named
+- assemblies [.NET], strong-named
 - assembly binding, strong-named
 ms.assetid: 4c6a406a-b5eb-44fa-b4ed-4e95bb95a813
 dev_langs:
 - csharp
 - vb
 - cpp
-ms.openlocfilehash: e42c1b461da16d7000605b9b9321138bbfebd307
-ms.sourcegitcommit: d6bd7903d7d46698e9d89d3725f3bb4876891aa3
+ms.openlocfilehash: 478f786995cfc4b57f0b18b2159775db104e9cfb
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83379867"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687687"
 ---
 # <a name="how-to-reference-a-strong-named-assembly"></a>如何：引用具有强名称的程序集
 引用强名称程序集中的类型或资源的过程通常是透明的。 可在编译时（早期绑定）或在运行时进行引用。  
@@ -31,7 +31,7 @@ ms.locfileid: "83379867"
 
 在命令提示符下，键入以下命令：  
 
-\<compiler command> /reference:\<assembly name>  
+\<*compiler command*> /reference:\<*assembly name*>  
 
 在此命令中，compiler command 是所用语言的编译器命令，assembly name 是引用的强名称程序集的名称 。 还可使用其他编译器选项，如用于创建库程序集的 /t:library 选项。  
 
@@ -45,7 +45,7 @@ csc /t:library myAssembly.cs /reference:myLibAssembly.dll
   
 对强名称程序集进行运行时引用（例如使用 <xref:System.Reflection.Assembly.Load%2A?displayProperty=nameWithType> 或 <xref:System.Reflection.Assembly.GetType%2A?displayProperty=nameWithType> 方法）时，必须使用引用的强名称程序集的显示名称。 显示名称的语法如下：  
 
-\<*程序集名称*> **,** \<*版本号*> **,** \<*区域性*> **,** \<*公钥标记*>  
+\<*assembly name*>**,** \<*version number*>**,** \<*culture*>**,** \<*public key token*>  
 
 例如：  
 
@@ -74,11 +74,11 @@ Dim myDll As Assembly = _
 
 可使用以下[强名称 (Sn.exe)](../../framework/tools/sn-exe-strong-name-tool.md) 命令为特定程序集打印十六进制格式的公钥和公钥标记：  
 
-**sn -Tp \<** *程序集* **>**  
+sn-Tp \<** *assembly* **>  
 
 如果有公钥文件，则可改用以下命令（请注意命令行选项大小写的区别）：  
 
-**sn -tp \<** *公钥文件* **>**  
+sn-tp \<** *public key file* **>  
 
 ## <a name="see-also"></a>请参阅
 

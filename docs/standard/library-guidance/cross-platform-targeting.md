@@ -2,12 +2,12 @@
 title: .NET 库的跨平台定位
 description: 有关创建跨平台 .NET 库的最佳做法建议。
 ms.date: 08/12/2019
-ms.openlocfilehash: 6309e300861ab286dcaba3256267b3459e6e0d10
-ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
+ms.openlocfilehash: 038a03904c4cfe49758562b5748fef06ae1afa4b
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92223344"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93189246"
 ---
 # <a name="cross-platform-targeting"></a>跨平台定位
 
@@ -33,7 +33,7 @@ ms.locfileid: "92223344"
 
 ❌ 请避免包含 `netstandard1.x` 目标。
 
-> .NET Standard 1.x 作为一组精细的 NuGet 包分发，它创建了一个大型的包依赖项关系图，并导致开发人员在构建时下载大量的包。 新式 .NET 平台（包括 .NET Framework 4.6.1、UWP 和 Xamarin）全部支持 .NET Standard 2.0。 如果需要专门面向较旧的平台，则只能面向 .NET Standard。
+> .NET Standard 1.x 作为一组精细的 NuGet 包分发，它创建了一个大型的包依赖项关系图，并导致开发人员在构建时下载大量的包。 新式 .NET 实现支持 .NET Standard 2.0。 如果需要专门面向较旧的平台，则只能面向 .NET Standard。
 
 ✔️ 如果需要面向 `netstandard1.x` 目标，请务必包括 `netstandard2.0` 目标。
 

@@ -7,18 +7,17 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- .NET Framework, and TAP
-- asynchronous design patterns, .NET Framework
-- TAP, .NET Framework support for
-- Task-based Asynchronous Pattern, .NET Framework support for
-- .NET Framework, asynchronous design patterns
+- asynchronous design patterns, .NET
+- TAP, .NET support for
+- Task-based Asynchronous Pattern, .NET support for
+- .NET, asynchronous design patterns
 ms.assetid: 8cef1fcf-6f9f-417c-b21f-3fd8bac75007
-ms.openlocfilehash: 21675d26fa2f11d93801e2ba4ffec96b238b97b8
-ms.sourcegitcommit: dc2feef0794cf41dbac1451a13b8183258566c0e
+ms.openlocfilehash: 2987e7baa52f627d1da41af21d05bfa22a247fbb
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85325077"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92889239"
 ---
 # <a name="task-based-asynchronous-pattern"></a>基于任务的异步模式
 
@@ -26,7 +25,7 @@ ms.locfileid: "85325077"
   
 ## <a name="naming-parameters-and-return-types"></a>命名、参数和返回类型
 
-TAP 使用单个方法表示异步操作的开始和完成。 这与异步编程模型（APM 或 `IAsyncResult`）模式和基于事件的异步模式 (EAP) 形成对比。 APM 需要 `Begin` 和 `End` 方法。 EAP 需要后缀为 `Async` 的方法，以及一个或多个事件、事件处理程序委托类型和 `EventArg` 派生类型。 TAP 中的异步方法在返回可等待类型（如 <xref:System.Threading.Tasks.Task>、<xref:System.Threading.Tasks.Task%601>、<xref:System.Threading.Tasks.ValueTask> 和 <xref:System.Threading.Tasks.ValueTask%601>）的方法的操作名称后面添加 `Async` 后缀。 例如，返回 `Task<String>` 的异步 `Get` 操作可命名为 `GetAsync`。 若要将 TAP 方法添加到已包含带 `Async` 后缀的 EAP 方法名称的类中，请改用后缀 `TaskAsync`。 例如，如果类具有 `GetAsync` 方法，请使用名称 `GetTaskAsync`。 如果方法启动异步操作，但不返回可等待类型，它的名称应以 `Begin`、`Start` 或表明此方法不返回或抛出操作结果的其他某谓词开头。  
+TAP 使用单个方法表示异步操作的开始和完成。 这与异步编程模型（APM 或 `IAsyncResult`）模式和基于事件的异步模式 (EAP) 形成对比。 APM 需要 `Begin` 和 `End` 方法。 EAP 需要后缀为 `Async` 的方法，以及一个或多个事件、事件处理程序委托类型和 `EventArg` 派生类型。 TAP 中的异步方法在返回可等待类型（如 <xref:System.Threading.Tasks.Task>、<xref:System.Threading.Tasks.Task%601>、<xref:System.Threading.Tasks.ValueTask> 和 <xref:System.Threading.Tasks.ValueTask%601>）的方法的操作名称后面添加 `Async` 后缀。 例如，返回 `Task<String>` 的异步 `Get` 操作可命名为 `GetAsync`。 若要将 TAP 方法添加到已包含带 `Async` 后缀的 EAP 方法名称的类中，请改用后缀 `TaskAsync`。 例如，如果类具有 `GetAsync` 方法，请使用名称 `GetTaskAsync`。 如果方法启动异步操作，但不返回可等待类型，它的名称应以 `Begin`、`Start` 或表明此方法不返回或抛出操作结果的其他某谓词开头。  
   
  TAP 方法返回 <xref:System.Threading.Tasks.Task?displayProperty=nameWithType> 或 <xref:System.Threading.Tasks.Task%601?displayProperty=nameWithType>，具体取决于相应同步方法返回的是 void 还是类型 `TResult`。  
   
@@ -95,7 +94,7 @@ TAP 使用单个方法表示异步操作的开始和完成。 这与异步编程
  如果 TAP 实现提供接受 `progress` 参数的重载，则必须允许该参数为 `null`，在这种情况下，不会报告任何进度。 TAP 实现应向 <xref:System.Progress%601> 对象同步报告进度，这使异步方法能够快速提供进度。 它还允许进度使用方确定处理信息的最佳方式和位置。 例如，进度实例可以选择将回调封送，并引发有关捕获到的同步上下文的事件。  
   
 ## <a name="iprogresst-implementations"></a>IProgress\<T> 实现  
- .NET Framework 4.5 提供单个 <xref:System.IProgress%601> 实现：<xref:System.Progress%601>。 <xref:System.Progress%601> 类的声明方式如下：  
+.NET 提供 <xref:System.Progress%601> 类，该类实现 <xref:System.IProgress%601>。 <xref:System.Progress%601> 类的声明方式如下：  
   
 ```csharp  
 public class Progress<T> : IProgress<T>  
@@ -103,18 +102,9 @@ public class Progress<T> : IProgress<T>
     public Progress();  
     public Progress(Action<T> handler);  
     protected virtual void OnReport(T value);  
-    public event EventHandler<T> ProgressChanged;  
+    public event EventHandler<T>? ProgressChanged;  
 }  
-```  
-  
-```vb  
-Public Class Progress(Of T) : Inherits IProgress(Of T)  
-    Public Sub New()  
-    Public Sub New(handler As Action(Of T))  
-    Protected Overridable Sub OnReport(value As T)  
-    Public Event ProgressChanged As EventHandler(Of T>  
-End Class  
-```  
+```
   
  <xref:System.Progress%601> 的实例公开 <xref:System.Progress%601.ProgressChanged> 事件，此事件在异步操作每次报告进度更新时引发。 实例化 <xref:System.Progress%601.ProgressChanged> 实例后，会在捕获到的 <xref:System.Threading.SynchronizationContext> 对象上引发 <xref:System.Progress%601> 事件。 如果没有可用的同步上下文，则使用针对线程池的默认上下文。 可以向此事件注册处理程序。 为了方便起见，也可将单个处理程序提供给 <xref:System.Progress%601> 构造函数，并且行为与 <xref:System.Progress%601.ProgressChanged> 事件的事件处理程序一样。 异步引发进度更新以避免延迟异步操作，同时执行事件处理程序。 另一个 <xref:System.IProgress%601> 实现可以选择应用不同的语义。  
   

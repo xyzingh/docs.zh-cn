@@ -4,12 +4,12 @@ description: 了解如何剪裁独立应用以减小其大小。 .NET Core 将�
 author: jamshedd
 ms.author: jamshedd
 ms.date: 04/03/2020
-ms.openlocfilehash: 1ebcac51331407069e26b49e40bb6e071cefb752
-ms.sourcegitcommit: 261e0c98a111357692b3b63c596edf0cacf72991
+ms.openlocfilehash: bf38ffe4d47986ae78c6cf2b2e5ecb292411ba6c
+ms.sourcegitcommit: 6d09ae36acba0b0e2ba47999f8f1a725795462a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/18/2020
-ms.locfileid: "90770450"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925280"
 ---
 # <a name="trim-self-contained-deployments-and-executables"></a>剪裁独立部署和可执行文件
 
@@ -36,6 +36,39 @@ ms.locfileid: "90770450"
 <ItemGroup>
     <TrimmerRootAssembly Include="System.Security" />
 </ItemGroup>
+```
+
+### <a name="support-for-ssl-certificates"></a>支持 SSL 证书
+
+如果你的应用加载 SSL 证书（如在 ASP.NET Core 应用中），则需要确保在剪裁时阻止剪裁有助于加载 SSL 证书的程序集。
+
+我们可以更新项目文件，使其包含以下 ASP.NET Core 3.1 内容：
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>...</PropertyGroup>
+  <!--Include the following for .aspnetcore 3.1-->
+  <ItemGroup>
+    <TrimmerRootAssembly Include="System.Net" />
+    <TrimmerRootAssembly Include="System.Net.Security" />
+    <TrimmerRootAssembly Include="System.Security" />
+  </ItemGroup>
+  ...
+</Project>
+```
+
+如果使用的是 .Net 5.0，则可以更新项目文件，使其包含以下内容：
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+ <PropertyGroup>...</PropertyGroup>
+ <!--Include the following for .net 5.0-->
+ <ItemGroup>
+    <TrimmerRootAssembly Include="System.Net.Security" />
+    <TrimmerRootAssembly Include="System.Security" />
+  </ItemGroup>
+  ...
+</Project>
 ```
 
 ## <a name="trim-your-app---cli"></a>剪裁应用 - CLI

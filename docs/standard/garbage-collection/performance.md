@@ -7,12 +7,12 @@ helpviewer_keywords:
 - garbage collection, troubleshooting
 - garbage collection, performance
 ms.assetid: c203467b-e95c-4ccf-b30b-953eb3463134
-ms.openlocfilehash: dee5a4b54806bdadc18d759c5df7016da060fd75
-ms.sourcegitcommit: 7137e12f54c4e83a94ae43ec320f8cf59c1772ea
+ms.openlocfilehash: 7c4a61c1e5e735313a355bcab348fd6ef58a8686
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84662844"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93062966"
 ---
 # <a name="garbage-collection-and-performance"></a>垃圾回收和性能
 
@@ -24,7 +24,7 @@ ms.locfileid: "84662844"
 
 ### <a name="memory-performance-counters"></a>内存性能计数器
 
-可以使用性能计数器来收集性能数据。 有关说明，请参阅[运行时分析](../../framework/debug-trace-profile/runtime-profiling.md)。 如 [.NET Framework 中的性能计数器](../../framework/debug-trace-profile/performance-counters.md)中所述，性能计数器的 .NET CLR 内存类别提供有关垃圾回收器的信息。
+可以使用性能计数器来收集性能数据。 有关说明，请参阅[运行时分析](../../framework/debug-trace-profile/runtime-profiling.md)。 如 [.NET 中的性能计数器](../../framework/debug-trace-profile/performance-counters.md)中所述，性能计数器的 .NET CLR 内存类别提供有关垃圾回收器的信息。
 
 ### <a name="debugging-with-sos"></a>用 SOS 调试
 
@@ -34,7 +34,7 @@ ms.locfileid: "84662844"
 
 ### <a name="garbage-collection-etw-events"></a>垃圾回收 ETW 事件
 
-Windows 事件跟踪 (ETW) 是一个跟踪系统，对由 .NET Framework 提供的分析和调试支持提供补充。 从 .NET Framework 4 开始，[垃圾回收 ETW 事件](../../framework/performance/garbage-collection-etw-events.md)将捕获有用信息，用于从统计的角度来分析托管堆。 例如，在将要发生垃圾回收时引发的 `GCStart_V1` 事件提供了以下信息：
+Windows 事件跟踪 (ETW) 是一个跟踪系统，对由 .NET 提供的分析和调试支持提供补充。 从 .NET Framework 4 开始，[垃圾回收 ETW 事件](../../framework/performance/garbage-collection-etw-events.md)将捕获有用信息，用于从统计的角度来分析托管堆。 例如，在将要发生垃圾回收时引发的 `GCStart_V1` 事件提供了以下信息：
 
 - 正在收集哪一代对象。
 
@@ -182,7 +182,7 @@ ETW 事件日志有效，且不会掩盖与垃圾回收相关的任何性能问�
 
 在垃圾回收期间，CPU 的使用率会很高。 如果在垃圾回收中花费大量的处理时间，则回收的数量将过于频繁或回收的持续时间将过长。 托管堆上增加的对象分配率将导致垃圾回收更频繁地发生。 减少分配速率可减少垃圾回收的频率。
 
-可以通过使用 `Allocated Bytes/second` 性能计数器来监视分配速率。 有关详细信息，请参阅 [.NET Framework 中的性能计数器](../../framework/debug-trace-profile/performance-counters.md)。
+可以通过使用 `Allocated Bytes/second` 性能计数器来监视分配速率。 有关更多信息，请参阅 [.NET 中的性能计数器](../../framework/debug-trace-profile/performance-counters.md)。
 
 收集的持续时间是分配后幸存对象数量的主要因素。 如果有许多对象仍需收集，则垃圾回收器必须要检查大量的内存。 压缩幸存对象的工作很耗时。 若要确定回收期间处理对象的数量，请在指定代的垃圾回收结束时，在调试器中设置一个断点。
 
@@ -226,11 +226,11 @@ ETW 事件日志有效，且不会掩盖与垃圾回收相关的任何性能问�
 
   **bp mscorwks!WKS::GCHeap::RestartEE "j (dwo(mscorwks!WKS::GCHeap::GcCondemnedGeneration)==2) 'kb';'g'"**
 
-  其中，**GcCondemnedGeneration** 设置为所需的代。 此命令要求私有符号。
+  其中， **GcCondemnedGeneration** 设置为所需的代。 此命令要求私有符号。
 
-  如果在已回收第 2 代对象以进行垃圾回收后执行 **RestartEE**，则此命令会强制中断。
+  如果在已回收第 2 代对象以进行垃圾回收后执行 **RestartEE** ，则此命令会强制中断。
 
-  在服务器垃圾回收中，只有一个线程调用 **RestartEE**，因此在第 2 代垃圾回收期间，此断点只会出现一次。
+  在服务器垃圾回收中，只有一个线程调用 **RestartEE** ，因此在第 2 代垃圾回收期间，此断点只会出现一次。
 
 ## <a name="performance-check-procedures"></a>性能检查过程
 
@@ -272,9 +272,9 @@ ETW 事件日志有效，且不会掩盖与垃圾回收相关的任何性能问�
 
 - 请检查以下两个内存性能计数器：
 
-  - **GC 所占时间百分比**。 显示执行最后一个垃圾回收周期后，执行垃圾回收所用运行时间的百分比。 使用此计数器确定垃圾回收器是否花费太多时间来使托管堆空间可用。 如果垃圾回收所用的时间相对较短，这可能表示托管堆之外存在资源问题。 当涉及并发或后台垃圾回收时，此计数器可能不准确。
+  - **GC 所占时间百分比** 。 显示执行最后一个垃圾回收周期后，执行垃圾回收所用运行时间的百分比。 使用此计数器确定垃圾回收器是否花费太多时间来使托管堆空间可用。 如果垃圾回收所用的时间相对较短，这可能表示托管堆之外存在资源问题。 当涉及并发或后台垃圾回收时，此计数器可能不准确。
 
-  - **已提交的字节总数**。 显示垃圾回收器当前已提交的虚拟内存量。 使用此计数器确定垃圾回收器所占用的内存是否是应用程序所使用的内存的过多部分。
+  - **已提交的字节总数** 。 显示垃圾回收器当前已提交的虚拟内存量。 使用此计数器确定垃圾回收器所占用的内存是否是应用程序所使用的内存的过多部分。
 
   大多数的内存性能计数器会在每次垃圾回收结束时进行更新。 因此，它们可能不会反映你希望了解的当前情况。
 
@@ -282,7 +282,7 @@ ETW 事件日志有效，且不会掩盖与垃圾回收相关的任何性能问�
 
 ### <a name="to-determine-whether-the-out-of-memory-exception-is-managed"></a>若要确定是否已托管内存不足异常
 
-1. 在加载了 SOS 调试器扩展的 WinDbg 或 Visual Studio 调试器中，键入打印异常 (**pe**) 命令：
+1. 在加载了 SOS 调试器扩展的 WinDbg 或 Visual Studio 调试器中，键入打印异常 ( **pe** ) 命令：
 
     **!pe**
 

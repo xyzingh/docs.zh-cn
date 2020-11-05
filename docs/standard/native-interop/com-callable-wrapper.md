@@ -13,12 +13,12 @@ helpviewer_keywords:
 - interoperation with unmanaged code, COM wrappers
 - COM callable wrappers
 ms.assetid: d04be3b5-27b9-4f5b-8469-a44149fabf78
-ms.openlocfilehash: c42ea0b5ba4cb01304ceae4ba2d2fc91b629a9b3
-ms.sourcegitcommit: 9a4488a3625866335e83a20da5e9c5286b1f034c
+ms.openlocfilehash: cc27ba47c88d424a80eb47aaa310bdfd6d18433a
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2020
-ms.locfileid: "83420521"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93187913"
 ---
 # <a name="com-callable-wrapper"></a>COM 可调用包装
 
@@ -54,7 +54,7 @@ CCW 公开所有公共的 COM 可见接口和数据类型，并以与 COM 对基
 |**IErrorInfo**|提供以下内容的文字描述：错误、错误源、帮助文件，帮助上下文以及定义错误的接口的 GUID（.NET 类始终为 GUID_NULL）。|
 |**IProvideClassInfo**|启用 COM 客户端，以获取对由托管类实现的 ITypeInfo 接口的访问。 对于未从 COM 导入的类型，在 .NET Core 上返回 `COR_E_NOTSUPPORTED`。 |
 |**ISupportErrorInfo**|启用 COM 客户端，以确定托管对象是否支持 IErrorInfo 接口。 如果支持，则启用客户端，以获取指向最新异常对象的指针。 所有托管类型都支持 IErrorInfo 接口。|
-|**ITypeInfo**（仅限 .NET Framework）|为类提供与 Tlbexp.exe 生成的类型信息完全相同的类型信息。|
+|**ITypeInfo** （仅限 .NET Framework）|为类提供与 Tlbexp.exe 生成的类型信息完全相同的类型信息。|
 |**IUnknown**|提供 IUnknown 接口的标准实现，COM 客户端使用该接口管理 CCW 的生存期并提供类型强制转换。|
 
  托管类还可以提供下表中介绍的 COM 接口。
@@ -63,7 +63,7 @@ CCW 公开所有公共的 COM 可见接口和数据类型，并以与 COM 对基
 |---------------|-----------------|
 |(\_classname) 类接口|该接口由运行时公开但未显式定义，它公开托管对象上显式公开的所有公共接口、方法、属性和字段。|
 |**IConnectionPoint** 和 **IConnectionPointContainer**|以基于委托的事件（用于注册事件订阅服务器的接口）为源的对象的接口。|
-|**IDispatchEx**（仅限 .NET Framework）|如果类实现 IExpando，则为由运行时提供的接口。 IDispatchEx 接口是 IDispatch 接口的扩展，与 IDispatch 不同，它可枚举、添加、删除和以区分大小的方式调用成员  。|
+|**IDispatchEx** （仅限 .NET Framework）|如果类实现 IExpando，则为由运行时提供的接口。 IDispatchEx 接口是 IDispatch 接口的扩展，与 IDispatch 不同，它可枚举、添加、删除和以区分大小的方式调用成员  。|
 |**IEnumVARIANT**|集合类型类的接口，如果类实现 IEnumerable，则该接口将枚举集合中的对象。|
 
 ## <a name="introducing-the-class-interface"></a>类接口简介

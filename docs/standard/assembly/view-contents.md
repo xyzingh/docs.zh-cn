@@ -6,7 +6,7 @@ helpviewer_keywords:
 - assembly manifest, viewing information
 - Ildasm.exe
 - MSIL Disassembler
-- assemblies [.NET Framework], viewing contents
+- assemblies [.NET], viewing contents
 - viewing assembly information
 - MSIL
 - viewing MSIL information
@@ -15,18 +15,18 @@ dev_langs:
 - csharp
 - vb
 - cpp
-ms.openlocfilehash: aed490459252466c6da06e5422b83b1bc20fb885
-ms.sourcegitcommit: d6bd7903d7d46698e9d89d3725f3bb4876891aa3
+ms.openlocfilehash: be2311c601effbebd519e33b7a5e13d49f44bd05
+ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83380071"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92687494"
 ---
 # <a name="how-to-view-assembly-contents"></a>如何：查看程序集内容
 
 可使用 [Ildasm.exe（IL 反汇编程序）](../../framework/tools/ildasm-exe-il-disassembler.md)查看文件中的 Microsoft 中间语言 (MSIL) 信息。 如果要检查的文件是程序集，此信息可包括程序集的属性以及对其他模块和程序集的引用。 此信息有助于确定文件是程序集还是程序集的一部分，以及文件是否具有对其他模块或程序集的引用。
 
-若要使用 Ildasm.exe 来显示程序集的内容，请在命令提示符下键入“ildasm \<assembly name>”。 例如，以下命令反汇编 Hello.exe 程序集。
+若要使用 Ildasm.exe 来显示程序集的内容，请在命令提示符下键入 ildasm \<assembly name>。 例如，以下命令反汇编 Hello.exe 程序集。
 
 ```cmd
 ildasm Hello.exe
@@ -107,14 +107,14 @@ End Class
 
 |指令|描述|
 |---------------|-----------------|
-|.assembly extern \<assembly name>|指定包含当前模块所引用项目的另一程序集（在此示例中为 `mscorlib`）。|
-|.publickeytoken \<token>|指定引用程序集的实际密钥的标记。|
-|.ver \<version number>|指定引用程序集的版本号。|
-|.assembly \<assembly name>|指定程序集名称。|
-|.hash algorithm \<int32 value>|指定使用的哈希算法。|
-|.ver \<version number>|指定程序集的版本号。|
-|.module \<file name>|指定组成程序集的模块名称。 在此示例中，程序集只包含一个文件。|
-|.subsystem \<value>|指定程序要求的应用程序环境。 在此示例中，值 3 表示该可执行文件从控制台运行。|
+|**.assembly extern \<assembly name>**|指定包含当前模块所引用项目的另一程序集（在此示例中为 `mscorlib`）。|
+|**.publickeytoken \<token>**|指定引用程序集的实际密钥的标记。|
+|**.ver \<version number>**|指定引用程序集的版本号。|
+|**.assembly \<assembly name>**|指定程序集名称。|
+|**.hash algorithm \<int32 value>**|指定使用的哈希算法。|
+|**.ver \<version number>**|指定程序集的版本号。|
+|**.module \<file name>**|指定组成程序集的模块名称。 在此示例中，程序集只包含一个文件。|
+|**.subsystem \<value>**|指定程序要求的应用程序环境。 在此示例中，值 3 表示该可执行文件从控制台运行。|
 |.corflags|当前是元数据中的一个保留字段。|
 
 根据程序集的内容，程序集清单可包含许多不同的指令。 有关程序集清单中指令的详尽列表，请参阅 Ecma 文档，特别是“第 II 部分：Metadata Definition and Semantics”（第 2 部分：元数据定义和语义）和“Partition III:CIL 指令集”：

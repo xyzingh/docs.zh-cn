@@ -6,19 +6,19 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- globalization [.NET Framework], about globalization
+- globalization [.NET], about globalization
 - global applications, globalization
-- international applications [.NET Framework], globalization
+- international applications [.NET], globalization
 - world-ready applications, globalization
-- application development [.NET Framework], globalization
+- application development [.NET], globalization
 - culture, globalization
 ms.assetid: 4e919934-6b19-42f2-b770-275a4fae87c9
-ms.openlocfilehash: adc617362cf3ba07ff63f1095968e2bd88df88d9
-ms.sourcegitcommit: 33deec3e814238fb18a49b2a7e89278e27888291
+ms.openlocfilehash: 66ed197f102583553112083e3a21f89e33cd3e3f
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84291911"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064166"
 ---
 # <a name="globalization"></a>全球化
 
@@ -102,7 +102,7 @@ ms.locfileid: "84291911"
 
 区分区域性的字符串比较是由 <xref:System.Globalization.CompareInfo> 对象定义的，该对象由每个区域性的 <xref:System.Globalization.CultureInfo.CompareInfo%2A?displayProperty=nameWithType> 属性返回。 使用 <xref:System.String.Compare%2A?displayProperty=nameWithType> 方法重载的区分区域性的字符串比较也使用 <xref:System.Globalization.CompareInfo> 对象。
 
-.NET 使用表格对字符串数据进行区分区域性的排序。 这些表格的内容包含了数据的排序权重和字符串标准化，而这些内容是通过 .NET 的特定版本实现的 Unicode 标准版确定的。 下表列出了通过 .NET Framework 和 .NET Core 的指定版本所实现的 Unicode 版本。 请注意，受支持的 Unicode 版本的列表仅适用于字符比较和排序；不适用于 Unicode 字符串按类别分类。 有关详细信息，请参阅 <xref:System.String> 文章中“字符串和 Unicode 标准”部分。
+.NET 使用表格对字符串数据进行区分区域性的排序。 这些表格的内容包含了数据的排序权重和字符串标准化，而这些内容是通过 .NET 的特定版本实现的 Unicode 标准版确定的。 下表列出了通过 .NET 指定版本所实现的 Unicode 版本。 受支持的 Unicode 版本列表仅适用于字符比较和排序；不适用于按类别分类的 Unicode 字符。 有关详细信息，请参阅 <xref:System.String> 文章中“字符串和 Unicode 标准”部分。
 
 |.NET Framework 版本|操作系统|Unicode 版本|
 |----------------------------|----------------------|---------------------|
@@ -112,9 +112,9 @@ ms.locfileid: "84291911"
 |.NET Framework 4|所有操作系统|Unicode 5.0|
 |Windows 7 上的 .NET Framework 4.5 及更高版本|Unicode 5.0|
 |Windows 8 和更高版本的操作系统上的 .NET Framework 4.5 及更高版本|Unicode 6.3.0|
-|.NET Core（所有版本）|取决于基础操作系统支持的 Unicode 标准版本。|
+|.NET Core 和 .NET 5+|取决于基础操作系统支持的 Unicode 标准版本。|
 
-从 .NET Framework 4.5 起以及在 .NET Core 的所有版本中，字符串比较和排序取决于操作系统。 在 Windows 7 上运行的 .NET Framework 4.5 及更高版本从其自身实现 Unicode 5.0 的表中检索数据。 在 Windows 8 及更高版本上运行的 .NET Framework 4.5 及更高版本从实现 Unicode 6.3 的操作系统表中检索数据。 .NET Core 上支持的 Unicode 版本取决于基础操作系统。 如果对区分区域性的已排序数据进行序列化，可使用 <xref:System.Globalization.SortVersion> 类来确定何时需要对序列化数据进行排序，使其与 .NET 和操作系统的排序顺序保持一致。 有关示例，请参阅 <xref:System.Globalization.SortVersion> 类主题。
+从 .NET Framework 4.5 起以及在 .NET Core 和 .NET 5+ 的所有版本中，字符串比较和排序取决于操作系统。 在 Windows 7 上运行的 .NET Framework 4.5 及更高版本从其自身实现 Unicode 5.0 的表中检索数据。 在 Windows 8 及更高版本上运行的 .NET Framework 4.5 及更高版本从实现 Unicode 6.3 的操作系统表中检索数据。 在 .NET Core 和 .NET 5+ 上，受支持的 Unicode 版本取决于基础操作系统。 如果对区分区域性的已排序数据进行序列化，可使用 <xref:System.Globalization.SortVersion> 类来确定何时需要对序列化数据进行排序，使其与 .NET 和操作系统的排序顺序保持一致。 有关示例，请参阅 <xref:System.Globalization.SortVersion> 类主题。
 
 如果应用对字符串数据执行大量特定于区域性的排序，则可使用 <xref:System.Globalization.SortKey> 类来比较字符串。 排序关键字反映了特定字符串的特定于区域性的排序权重，包括字母顺序、大小写和音调符号权重。 由于使用排序关键字的比较为二进制，因此与显示或隐式使用 <xref:System.Globalization.CompareInfo> 对象的比较相比，这类比较速度更快。 可通过将字符串传递给 <xref:System.Globalization.CompareInfo.GetSortKey%2A?displayProperty=nameWithType> 方法为特定字符串创建区分区域性的排序关键字。
 

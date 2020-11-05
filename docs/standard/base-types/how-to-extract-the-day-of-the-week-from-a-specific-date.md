@@ -7,33 +7,34 @@ dev_langs:
 - csharp
 - vb
 helpviewer_keywords:
-- formatting [.NET Framework], dates
+- formatting [.NET], dates
 - DateTime.DayOfWeek property
 - DateTime.ToString method
-- dates [.NET Framework], retrieving week information
+- dates [.NET], retrieving week information
 - DateTimeOffset.DayOfWeek property
-- dates [.NET Framework], day of week
+- dates [.NET], day of week
 - Weekday function
-- day of week [.NET Framework]
+- day of week [.NET]
 - extracting day of week
 - weekday names
 - WeekdayName function
-- numbers [.NET Framework], day of week
-- formatting [.NET Framework], time
+- numbers [.NET], day of week
+- formatting [.NET], time
 - DateTimeOffset.ToString method
 - full weekday names
 ms.assetid: 1c9bef76-5634-46cf-b91c-9b9eb72091d7
-ms.openlocfilehash: fa0eb6c36b88594543d08680af104b5408c295f9
-ms.sourcegitcommit: 7137e12f54c4e83a94ae43ec320f8cf59c1772ea
+ms.openlocfilehash: f7a18a3ab414a07fa4908c67c5ec9334ce63953f
+ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84662610"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92888516"
 ---
 # <a name="how-to-extract-the-day-of-the-week-from-a-specific-date"></a>如何：从特定日期中提取星期几
-利用 .NET Framework，可以很容易地确定某个特定日期是星期几，以及显示某个特定日期的本地化星期几名称。 指示与特定日期相对应的星期几的枚举值可以从 <xref:System.DateTime.DayOfWeek%2A> 或 <xref:System.DateTimeOffset.DayOfWeek%2A> 属性中获取。 与此不同的是，检索星期几名称是一项格式化操作，可通过调用格式化方法来执行，例如日期和时间值的 `ToString` 方法或 <xref:System.String.Format%2A?displayProperty=nameWithType> 方法。 本主题演示如何执行这些格式化操作。  
+
+利用 .NET，可以很容易地确定某个特定日期是星期几，以及显示某个特定日期的本地化星期几名称。 指示与特定日期相对应的星期几的枚举值可以从 <xref:System.DateTime.DayOfWeek%2A> 或 <xref:System.DateTimeOffset.DayOfWeek%2A> 属性中获取。 与此不同的是，检索星期几名称是一项格式化操作，可通过调用格式化方法来执行，例如日期和时间值的 `ToString` 方法或 <xref:System.String.Format%2A?displayProperty=nameWithType> 方法。 本主题演示如何执行这些格式化操作。  
   
-### <a name="to-extract-a-number-indicating-the-day-of-the-week-from-a-specific-date"></a>从特定日期中提取指示星期几的数字  
+## <a name="extract-a-number-indicating-the-day-of-the-week"></a>提取指示星期几的数字
   
 1. 如果要使用日期的字符串表示形式，请使用静态 <xref:System.DateTime> 或 <xref:System.DateTimeOffset> 方法将其转换为 <xref:System.DateTime.Parse%2A?displayProperty=nameWithType> 或 <xref:System.DateTimeOffset.Parse%2A?displayProperty=nameWithType> 值。  
   
@@ -46,7 +47,7 @@ ms.locfileid: "84662610"
  [!code-csharp[Formatting.Howto.WeekdayName#7](../../../samples/snippets/csharp/VS_Snippets_CLR/Formatting.HowTo.WeekdayName/cs/weekdaynumber7.cs#7)]
  [!code-vb[Formatting.Howto.WeekdayName#7](../../../samples/snippets/visualbasic/VS_Snippets_CLR/Formatting.HowTo.WeekdayName/vb/weekdaynumber7.vb#7)]  
   
-### <a name="to-extract-the-abbreviated-weekday-name-from-a-specific-date"></a>从特定日期中提取缩写的星期几名称  
+## <a name="extract-the-abbreviated-weekday-name"></a>提取缩写的工作日名称
   
 1. 如果要使用日期的字符串表示形式，请使用静态 <xref:System.DateTime> 或 <xref:System.DateTimeOffset> 方法将其转换为 <xref:System.DateTime.Parse%2A?displayProperty=nameWithType> 或 <xref:System.DateTimeOffset.Parse%2A?displayProperty=nameWithType> 值。  
   
@@ -62,7 +63,7 @@ ms.locfileid: "84662610"
          [!code-csharp[Formatting.Howto.WeekdayName#2](../../../samples/snippets/csharp/VS_Snippets_CLR/Formatting.HowTo.WeekdayName/cs/abbrname2.cs#2)]
          [!code-vb[Formatting.Howto.WeekdayName#2](../../../samples/snippets/visualbasic/VS_Snippets_CLR/Formatting.HowTo.WeekdayName/vb/abbrname2.vb#2)]  
   
-### <a name="to-extract-the-full-weekday-name-from-a-specific-date"></a>从特定日期中提取完整的星期几名称  
+## <a name="extract-the-full-weekday-name"></a>提取完整的工作日名称
   
 1. 如果要使用日期的字符串表示形式，请使用静态 <xref:System.DateTime> 或 <xref:System.DateTimeOffset> 方法将其转换为 <xref:System.DateTime.Parse%2A?displayProperty=nameWithType> 或 <xref:System.DateTimeOffset.Parse%2A?displayProperty=nameWithType> 值。  
   
@@ -84,7 +85,7 @@ ms.locfileid: "84662610"
  [!code-csharp[Formatting.Howto.WeekdayName#6](../../../samples/snippets/csharp/VS_Snippets_CLR/Formatting.HowTo.WeekdayName/cs/example6.cs#6)]
  [!code-vb[Formatting.Howto.WeekdayName#6](../../../samples/snippets/visualbasic/VS_Snippets_CLR/Formatting.HowTo.WeekdayName/vb/example6.vb#6)]  
   
- 个别语言可能提供与 .NET Framework 所提供的功能相同或互为补充的功能。 例如，Visual Basic 包括这样的两个函数：  
+ 个别语言可能提供与 .NET 所提供的功能相同或互为补充的功能。 例如，Visual Basic 包括这样的两个函数：  
   
 - `Weekday`，它返回指示特定日期中表示星期几的数字。 此函数将一周中第一天的序数值视为一，而 <xref:System.DateTime.DayOfWeek%2A?displayProperty=nameWithType> 属性却将其视为零。  
   

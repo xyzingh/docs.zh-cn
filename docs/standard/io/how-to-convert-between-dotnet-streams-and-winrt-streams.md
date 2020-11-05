@@ -6,12 +6,12 @@ dev_langs:
 - csharp
 - vb
 ms.assetid: 23a763ea-8348-4244-9f8c-a4280b870b47
-ms.openlocfilehash: 037ae0dff80c96d08d8778146b5683454b1f80b1
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 7833dd16cec8d6ef1cbdb51702ea72f50231c52d
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90543681"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93187952"
 ---
 # <a name="how-to-convert-between-net-framework-and-windows-runtime-streams-windows-only"></a>如何：在 .NET Framework 和 Windows 运行时流之间进行转换（仅限 Windows）
 

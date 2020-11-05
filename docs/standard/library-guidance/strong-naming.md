@@ -2,12 +2,12 @@
 title: 强命名和 .NET 库
 description: 强命名 .NET 库的最佳实践建议。
 ms.date: 10/16/2018
-ms.openlocfilehash: b72d4a8c320ac857fbcd6abe44f467805f72b5b3
-ms.sourcegitcommit: 4d45bda8cd9558ea8af4be591e3d5a29360c1ece
+ms.openlocfilehash: 6f9533d768331964a8e640243536b12ddde158e5
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91654555"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93189207"
 ---
 # <a name="strong-naming"></a>强命名
 
@@ -28,7 +28,7 @@ ms.locfileid: "91654555"
 </configuration>
 ```
 
-当 .NET 开发人员抱怨强命名时，通常抱怨的是严格的程序集加载。 幸运的是，此问题独立于 .NET Framework。 .NET Core、Xamarin、UWP 和大多数其他 .NET 实现没有严格的程序集加载，因此不会存在强命名的主要缺点。
+当 .NET 开发人员抱怨强命名时，通常抱怨的是严格的程序集加载。 幸运的是，此问题独立于 .NET Framework。 .NET 5+、.NET Core、Xamarin、UWP 和大多数其他 .NET 实现没有严格的程序集加载（强命名的主要缺点）。
 
 强命名的一个重要方面是它已迅速传播开了：某个强名称程序集只能引用其他强名称程序集。 如果你的库未强命名，则会阻止生成需要强命名的应用程序或库的开发人员使用该库。
 

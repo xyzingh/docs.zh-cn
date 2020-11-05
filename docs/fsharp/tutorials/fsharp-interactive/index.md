@@ -4,12 +4,12 @@ description: 了解如何使用 F# 交互窗口 (dotnet fsi) 在控制台以交�
 ms.date: 10/31/2020
 f1_keywords:
 - VS.ToolsOptionsPages.F#_Tools.F#_Interactive
-ms.openlocfilehash: 770ac24feababcfc840ae26196ba8b6180d378a0
-ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
+ms.openlocfilehash: ba9111efccceca03fda43ff11c3f111610541595
+ms.sourcegitcommit: ffd4d5e824db6c5f0c3521c0e802fd9e8f0edcbe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93282009"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342678"
 ---
 # <a name="interactive-programming-with-f"></a>使用 F\# 进行交互式编程
 
@@ -86,11 +86,12 @@ dotnet fsi Script.fsx
 [1; 9; 25; 49; 81]
 ```
 
-F# 脚本在 [Visual Studio](../../get-started/get-started-visual-studio.md)、[Visual Studio Code](../../get-started/get-started-vscode.md) 和 [Visual Studio for Mac](../../get-started/get-started-visual-studio-for-mac.md) 中都是原生支持的。
+F# 脚本在 [Visual Studio](../../get-started/get-started-visual-studio.md)、[Visual Studio Code](../../get-started/get-started-vscode.md) 和 [Visual Studio for Mac](../../get-started/get-started-with-visual-studio-for-mac.md) 中都是原生支持的。
 
 ## <a name="referencing-packages-in-f-interactive"></a>在 F# 交互窗口中引用包
 
-> [!NOTE] 包管理是 F# 5 功能，目前可以使用最新的 .NET 5 SDK 来使用它。
+> [!NOTE]
+> 包管理是 F# 5 功能，目前可以使用最新的 .NET 5 SDK 来使用它。
 
 F# 交互窗口支持使用 `#r "nuget:"` 语法和可选版本来引用 NuGet 包：
 

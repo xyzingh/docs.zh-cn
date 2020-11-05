@@ -9,12 +9,12 @@ helpviewer_keywords:
 - threading [.NET], thread pool
 - threading [.NET], pooling
 ms.assetid: 2be05b06-a42e-4c9d-a739-96c21d673927
-ms.openlocfilehash: 2671ce7c9721b15de8a3805da27040e973a62804
-ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
+ms.openlocfilehash: 099670f8451e9e2cf78b372d3a4d393882a30407
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92223788"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188687"
 ---
 # <a name="the-managed-thread-pool"></a>托管线程池
 
@@ -40,7 +40,7 @@ ms.locfileid: "92223788"
   
 ### <a name="maximum-number-of-thread-pool-threads"></a>最大线程池线程数
 
-可以排队到线程池中的操作数仅受可用内存限制。 但是，线程池会限制进程中可同时处于活动状态的线程数。 如果所有线程池线程都处于忙碌状态，则其他工作项将进行排队，直到要执行它们的线程空闲。 从 .NET Framework 4 开始，进程的线程池的默认大小取决于若干因素，例如虚拟地址空间的大小。 进程可以调用 <xref:System.Threading.ThreadPool.GetMaxThreads%2A?displayProperty=nameWithType> 方法，以确定线程数。  
+可以排队到线程池中的操作数仅受可用内存限制。 但是，线程池会限制进程中可同时处于活动状态的线程数。 如果所有线程池线程都处于忙碌状态，则其他工作项将进行排队，直到要执行它们的线程空闲。 进程的线程池的默认大小取决于若干因素，例如虚拟地址空间的大小。 进程可以调用 <xref:System.Threading.ThreadPool.GetMaxThreads%2A?displayProperty=nameWithType> 方法，以确定线程数。  
   
 可以使用 <xref:System.Threading.ThreadPool.GetMaxThreads%2A?displayProperty=nameWithType> 和 <xref:System.Threading.ThreadPool.SetMaxThreads%2A?displayProperty=nameWithType> 方法来控制最大线程数。  
 
@@ -54,14 +54,14 @@ ms.locfileid: "92223788"
 > [!NOTE]
 > 需求较低时，线程池线程的实际数量可以低于最小值。  
   
-达到最小值时，线程池可以创建其他线程或等待，直到一些任务完成。 从 .NET Framework 4 开始，线程池创建和销毁工作线程以优化吞吐量，吞吐量被定义为每个单位时间完成的任务数。 线程过少可能无法实现可用资源的最优利用，而线程过多则可能增加资源争用。  
+达到最小值时，线程池可以创建其他线程或等待，直到一些任务完成。 线程池创建和销毁工作线程以优化吞吐量，吞吐量被定义为每个单位时间完成的任务数。 线程过少可能无法实现可用资源的最优利用，而线程过多则可能增加资源争用。  
   
 > [!CAUTION]
 > 可以使用 <xref:System.Threading.ThreadPool.SetMinThreads%2A?displayProperty=nameWithType> 方法来增加最小空闲线程数。 但是，不必要地增加这些值可能导致性能问题。 如果在同一时间开始太多的任务，则所有任务均可能会很慢。 大多数情况下，使用自己的分配线程算法，线程池将更好地执行任务。  
 
 ## <a name="using-the-thread-pool"></a>使用线程池
 
-自 .NET Framework 4 起，使用线程池的最简单方法是使用[任务并行库 (TPL)](../parallel-programming/task-parallel-library-tpl.md)。 默认情况下，TPL 类型（例如 <xref:System.Threading.Tasks.Task> 和 <xref:System.Threading.Tasks.Task%601>）使用线程池线程来运行任务。
+使用线程池的最简单方法是使用[任务并行库 (TPL)](../parallel-programming/task-parallel-library-tpl.md)。 默认情况下，TPL 类型（例如 <xref:System.Threading.Tasks.Task> 和 <xref:System.Threading.Tasks.Task%601>）使用线程池线程来运行任务。
 
 也可以通过从托管代码调用 <xref:System.Threading.ThreadPool.QueueUserWorkItem%2A?displayProperty=nameWithType>（或从非托管代码调用 [`ICorThreadpool::CorQueueUserWorkItem`](../../framework/unmanaged-api/hosting/icorthreadpool-corqueueuserworkitem-method.md)）并传递表示执行任务的方法的 <xref:System.Threading.WaitCallback?displayProperty=nameWithType> 委托来使用线程池。
 

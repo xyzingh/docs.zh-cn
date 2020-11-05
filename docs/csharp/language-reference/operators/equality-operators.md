@@ -1,7 +1,7 @@
 ---
 title: 相等运算符 - C# 参考
 description: 了解 C# 相等比较运算符和 C# 类型相等。
-ms.date: 06/26/2019
+ms.date: 10/30/2020
 author: pkulikov
 f1_keywords:
 - ==_CSharpKeyword
@@ -15,12 +15,12 @@ helpviewer_keywords:
 - inequality operator [C#]
 - not equals operator [C#]
 - '!= operator [C#]'
-ms.openlocfilehash: 33215e2440b14fb888a6f0df5c220c891ebed0e2
-ms.sourcegitcommit: 7476c20d2f911a834a00b8a7f5e8926bae6804d9
+ms.openlocfilehash: 39461157c33fea0effb5c8808ded1c9981900e17
+ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88063089"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93063210"
 ---
 # <a name="equality-operators-c-reference"></a>相等运算符（C# 参考）
 
@@ -47,11 +47,19 @@ ms.locfileid: "88063089"
 
 ### <a name="reference-types-equality"></a>引用类型的相等性
 
-默认情况下，如果两个引用类型操作符引用同一对象，则这两个操作符相等：
+默认情况下，如果两个非记录引用类型操作符引用同一对象，则这两个操作符相等：
 
 [!code-csharp[reference type equality](snippets/shared/EqualityOperators.cs#ReferenceTypesEquality)]
 
 如示例所示，默认情况下，用户定义的引用类型支持 `==` 运算符。 但是，引用类型可重载 `==` 运算符。 如果引用类型重载 `==` 运算符，使用 <xref:System.Object.ReferenceEquals%2A?displayProperty=nameWithType> 方法来检查该类型的两个引用是否引用同一对象。
+
+### <a name="record-types-equality"></a>记录类型相等性
+
+在 C# 9.0 和更高版本中提供，[记录类型](../../whats-new/csharp-9.md#record-types)支持 `==` 和 `!=` 运算符，这些运算符默认提供值相等性语义。 也就是说，当两个记录操作数均为 `null` 或所有字段的对应值和自动实现的属性相等时，两个记录操作数都相等。
+
+:::code language="csharp" source="snippets/shared/EqualityOperators.cs" id="RecordTypesEquality":::
+
+如前面的示例所示，对于非记录引用类型成员，比较的是它们的引用值，而不是所引用的实例。
 
 ### <a name="string-equality"></a>字符串相等性
 
@@ -85,9 +93,17 @@ ms.locfileid: "88063089"
 
 用户定义类型可以[重载](operator-overloading.md)`==` 和 `!=` 运算符。 如果某类型重载这两个运算符之一，它还必须重载另一个运算符。
 
+记录类型不能显式重载 `==` 和 `!=` 运算符。 如果需要更改记录类型 `T` 的 `==` 和 `!=` 运算符的行为，请使用以下签名实现 <xref:System.IEquatable%601.Equals%2A?displayProperty=nameWithType> 方法：
+
+```csharp
+public virtual bool Equals(T? other);
+```
+
 ## <a name="c-language-specification"></a>C# 语言规范
 
 有关详细信息，请参阅 [C# 语言规范](~/_csharplang/spec/introduction.md)中的[关系和类型测试运算符](~/_csharplang/spec/expressions.md#relational-and-type-testing-operators)部分。
+
+有关记录类型相等性的详细信息，请参阅[记录功能建议附注](~/_csharplang/proposals/csharp-9.0/records.md)中的[相等性成员](~/_csharplang/proposals/csharp-9.0/records.md#equality-members)部分。
 
 ## <a name="see-also"></a>请参阅
 

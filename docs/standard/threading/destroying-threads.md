@@ -8,18 +8,18 @@ dev_langs:
 - vb
 helpviewer_keywords:
 - destroying threads
-- threading [.NET Framework], destroying threads
+- threading [.NET], destroying threads
 ms.assetid: df54e648-c5d1-47c9-bd29-8e4438c1db6d
-ms.openlocfilehash: baf9289413de0e99533f121eb2a404ff0d873511
-ms.sourcegitcommit: 5fd4696a3e5791b2a8c449ccffda87f2cc2d4894
+ms.openlocfilehash: caf7e29742bd7c0481badeeace91b7851520ad12
+ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84768503"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93188362"
 ---
 # <a name="destroying-threads"></a>销毁线程
 
-若要终止线程的执行，通常使用[协作取消模型](cancellation-in-managed-threads.md)。 有时无法以协作方式停止线程，因为它运行的第三方代码不是为协作取消而设计的。 .NET Framework 中的 <xref:System.Threading.Thread.Abort%2A?displayProperty=nameWithType> 方法可用于强制终止托管线程。 调用 <xref:System.Threading.Thread.Abort%2A> 时，公共语言运行时在目标线程中引发目标线程可以捕获的 <xref:System.Threading.ThreadAbortException>。 有关详细信息，请参阅 <xref:System.Threading.Thread.Abort%2A?displayProperty=nameWithType>。 .NET Core 中不支持 <xref:System.Threading.Thread.Abort%2A?displayProperty=nameWithType> 方法。 如果需要在 .NET Core 中强制终止第三方代码的执行，请在单独的进程中运行该代码，并使用 <xref:System.Diagnostics.Process.Kill%2A?displayProperty=nameWithType>。
+若要终止线程的执行，通常使用[协作取消模型](cancellation-in-managed-threads.md)。 有时无法以协作方式停止线程，因为它运行的第三方代码不是为协作取消而设计的。 .NET Framework 中的 <xref:System.Threading.Thread.Abort%2A?displayProperty=nameWithType> 方法可用于强制终止托管线程。 调用 <xref:System.Threading.Thread.Abort%2A> 时，公共语言运行时在目标线程中引发目标线程可以捕获的 <xref:System.Threading.ThreadAbortException>。 有关详细信息，请参阅 <xref:System.Threading.Thread.Abort%2A?displayProperty=nameWithType>。 .NET 5（包括 .NET Core）及更高版本不支持 <xref:System.Threading.Thread.Abort%2A?displayProperty=nameWithType> 方法。 如果需要在 .NET 5+ 中强制终止第三方代码的执行，请在单独的进程中运行该代码，并使用 <xref:System.Diagnostics.Process.Kill%2A?displayProperty=nameWithType>。
 
 > [!NOTE]
 > 如果线程在调用 <xref:System.Threading.Thread.Abort%2A> 方法时执行的是非托管代码，运行时将它标记为 <xref:System.Threading.ThreadState.AbortRequested?displayProperty=nameWithType>。 当线程返回到托管代码时，异常就会抛出。  
