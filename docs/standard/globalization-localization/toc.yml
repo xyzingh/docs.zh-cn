@@ -12,16 +12,15 @@
     - name: 不区分区域性的字符串操作
       href: culture-insensitive-string-operations.md
       items:
-        - name: 执行不区分区域性的字符串操作
+        - name: 概述
           href: performing-culture-insensitive-string-operations.md
-          items:
-            - name: 字符串比较
-              href: performing-culture-insensitive-string-comparisons.md
-            - name: 大小写更改
-              href: performing-culture-insensitive-case-changes.md
-            - name: 集合中的字符串操作
-              href: performing-culture-insensitive-string-operations-in-collections.md
-            - name: 数组中的字符串操作
-              href: performing-culture-insensitive-string-operations-in-arrays.md
+        - name: 字符串比较
+          href: performing-culture-insensitive-string-comparisons.md
+        - name: 大小写更改
+          href: performing-culture-insensitive-case-changes.md
+        - name: 集合中的字符串操作
+          href: performing-culture-insensitive-string-operations-in-collections.md
+        - name: 数组中的字符串操作
+          href: performing-culture-insensitive-string-operations-in-arrays.md
     - name: 开发全球通用应用的最佳做法
       href: best-practices-for-developing-world-ready-apps.md
