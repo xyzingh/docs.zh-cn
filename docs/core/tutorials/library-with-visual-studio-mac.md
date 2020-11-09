@@ -2,12 +2,12 @@
 title: 使用 Visual Studio for Mac 创建 .NET Standard 类库
 description: 了解如何使用 Visual Studio for Mac 创建 .NET Standard 类库。
 ms.date: 06/08/2020
-ms.openlocfilehash: 433f6e0e2d784878c9a1616139b39ec56d695bcf
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: a78cc68d29095e4fefcaf1d3b2158d673b8892ec
+ms.sourcegitcommit: 48466b8fb7332ececff5dc388f19f6b3ff503dd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90537634"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93400560"
 ---
 # <a name="tutorial-create-a-net-standard-library-using-visual-studio-for-mac"></a>教程：使用 Visual Studio for Mac 创建 .NET Standard 库
 
@@ -18,8 +18,8 @@ ms.locfileid: "90537634"
 > [!NOTE]
 > 你的反馈非常有价值。 有两种方法可以向开发团队提供有关 Visual Studio for Mac 的反馈：
 >
-> - 在 Visual Studio for Mac 中，从菜单选择“帮助” > “报告问题”，或从欢迎屏幕中选择“报告问题”，将打开一个窗口，以供填写 bug 报告。 可在[开发人员社区](https://developercommunity.visualstudio.com/spaces/41/index.html)门户中跟踪自己的反馈。
-> - 若要提出建议，从菜单中选择“帮助” > “提供建议”，或从欢迎屏幕中选择“提供建议”，转到 [Visual Studio for Mac 开发人员社区网页](https://developercommunity.visualstudio.com/content/idea/post.html?space=41)。
+> - 在 Visual Studio for Mac 中，从菜单选择“帮助” > “报告问题”，或从欢迎屏幕中选择“报告问题”，将打开一个窗口，以供填写 bug 报告。 可在[开发人员社区](https://aka.ms/feedback/report?space=41)门户中跟踪自己的反馈。
+> - 若要提出建议，从菜单中选择“帮助” > “提供建议”，或从欢迎屏幕中选择“提供建议”，转到 [Visual Studio for Mac 开发人员社区网页](https://aka.ms/feedback/suggest?space=41)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -53,7 +53,7 @@ Visual Studio 解决方案用作一个或多个项目的容器。 创建解决�
 
    :::image type="content" source="media/library-with-visual-studio-mac/solution-dock-icon.png" alt-text="“解决方案”边栏的“停靠”图标":::
 
-1. 在“解决方案”边栏中，展开 `StringLibrary` 节点以显示模板提供的类文件 *Class1.cs*。 按住 <kbd>Ctrl</kbd> 并单击该文件，从上下文菜单中选择“重命名”，然后将该文件重命名为“StringLibrary.cs”。 打开文件并将内容替换为以下代码：
+1. 在“解决方案”边栏中，展开 `StringLibrary` 节点以显示模板提供的类文件 *Class1.cs* 。 按住 <kbd>Ctrl</kbd> 并单击该文件，从上下文菜单中选择“重命名”，然后将该文件重命名为“StringLibrary.cs”。 打开文件并将内容替换为以下代码：
 
    :::code language="csharp" source="./snippets/library-with-visual-studio/csharp/StringLibrary/Class1.cs":::
 

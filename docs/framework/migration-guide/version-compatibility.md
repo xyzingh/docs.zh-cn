@@ -7,12 +7,12 @@ helpviewer_keywords:
 - .NET Framework, compatibility with earlier versions
 - .NET Framework versions, compatibility
 ms.assetid: 2f25e522-456a-48c3-8a53-e5f39275649f
-ms.openlocfilehash: 824765e1f3ecfd1381f9c5f8b144b7b11aee8f0b
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 2be9c4e12d6a613e7f1062ec7492b0b99203f39d
+ms.sourcegitcommit: 48466b8fb7332ececff5dc388f19f6b3ff503dd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90550379"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93400691"
 ---
 # <a name="version-compatibility"></a>版本兼容性
 
@@ -61,7 +61,7 @@ ms.locfileid: "90550379"
 
 - 如果确定 .NET Framework 4.5 中的更改已损坏应用，请查看[运行时设置架构](../configure-apps/file-schema/runtime/index.md)（特别是 [\<AppContextSwitchOverrides> 元素](../configure-apps/file-schema/runtime/appcontextswitchoverrides-element.md)），以确定是否能够在应用的配置文件中使用运行时设置来还原以前的行为。
 
-- 如果遇到未记录的问题，请在[适用于 .NET 的开发人员社区网站](https://developercommunity.visualstudio.com/spaces/61/index.html)中新开一个问题，或在 [Microsoft/dotnet GitHub 存储库](https://github.com/microsoft/dotnet/issues)中新开一个问题。
+- 如果遇到未记录的问题，请在[适用于 .NET 的开发人员社区网站](https://aka.ms/feedback/report?space=61)中新开一个问题，或在 [Microsoft/dotnet GitHub 存储库](https://github.com/microsoft/dotnet/issues)中新开一个问题。
 
 ## <a name="side-by-side-execution"></a>并行执行
 

@@ -10,12 +10,12 @@ dev_langs:
 - csharp
 helpviewer_keywords:
 - encoding, understanding
-ms.openlocfilehash: d1f9878c7e7c07944a943c0b05e557ceaa5d1b2f
-ms.sourcegitcommit: 9c45035b781caebc63ec8ecf912dc83fb6723b1f
+ms.openlocfilehash: 572fcd289eea720873d94e7fc71f3b4a030d1d70
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812115"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282317"
 ---
 # <a name="character-encoding-in-net"></a>.NET 中的字符编码
 
@@ -110,7 +110,7 @@ Unicode 标准定义了超过 110 万个[码位](https://www.unicode.org/glossar
 |十进制|Hex       |示例|描述|
 |------:|----------|-------|-----------|
 |10     | `U+000A` |不可用| [换行](https://www.unicode.org/charts/PDF/U0000.pdf) |
-|65     | `U+0061` | a | [拉丁文小写字母 a](https://www.unicode.org/charts/PDF/U0000.pdf) |
+|97     | `U+0061` | a | [拉丁文小写字母 a](https://www.unicode.org/charts/PDF/U0000.pdf) |
 |562    | `U+0232` | Ȳ | [带长音符的拉丁文大写字母 Y](https://www.unicode.org/charts/PDF/U0180.pdf) |
 |68,675 | `U+10C43`| 𐱃 | [古突厥文字母鄂尔浑文 AT](https://www.unicode.org/charts/PDF/U10C00.pdf) |
 |127,801| `U+1F339`| 🌹 | [玫瑰花表情符号](https://www.unicode.org/charts/PDF/U1F300.pdf) |

@@ -2,12 +2,12 @@
 title: 顶级语句 - C# 教程
 description: 本教程介绍如何使用顶级语句来试验和证明概念，同时探索你的想法
 ms.date: 10/28/2020
-ms.openlocfilehash: 210fbd83bf4677061cab303089d0b27f1a4a7d01
-ms.sourcegitcommit: 7588b1f16b7608bc6833c05f91ae670c22ef56f8
+ms.openlocfilehash: 5e5dc6cec382baa69ac8cb4625684315bb2cd5e0
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93189362"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282255"
 ---
 # <a name="tutorial-explore-ideas-using-top-level-statements-to-build-code-as-you-learn"></a>教程：在学习过程中，探索使用顶级语句生成代码的想法
 
@@ -210,7 +210,7 @@ static async Task ShowConsoleAnimation()
 
 最后，你可以清理动画代码以删除一些重复项：
 
-:::code language="csharp" source="snippets/top-level-statements/Utiliities.cs" ID="Animation":::
+:::code language="csharp" source="snippets/top-level-statements/Utilities.cs" ID="Animation":::
 
 现在你有了一个完整的应用程序，并且已经重构了可重用部分供以后使用。
 

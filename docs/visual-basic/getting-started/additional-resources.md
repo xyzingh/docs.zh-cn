@@ -8,12 +8,12 @@ helpviewer_keywords:
 - Help, Visual Basic Web sites
 - Visual Basic, videos
 ms.assetid: 9bfb42e9-327f-439b-935e-8884f6aca80c
-ms.openlocfilehash: ea645e33c67bf1d39b477d8e4ce82b7a69a177fd
-ms.sourcegitcommit: f8c270376ed905f6a8896ce0fe25b4f4b38ff498
+ms.openlocfilehash: 4b2d671e310763e6ddfa114bd63b031afba83a20
+ms.sourcegitcommit: 48466b8fb7332ececff5dc388f19f6b3ff503dd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84398228"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93400612"
 ---
 # <a name="additional-resources"></a>其他资源
 
@@ -51,7 +51,7 @@ ms.locfileid: "84398228"
 |URL|描述|
 |----------|----------------|
 |[Microsoft 支持](https://support.microsoft.com)|提供对知识库 (KB) 文章、下载和更新、支持 Webcast 以及其他服务的访问。|
-|[Visual Studio 问题](https://developercommunity.visualstudio.com)|可供你报告 Bug 或向 Microsoft 提供有关 .NET 和 Visual Studio 的建议。 也可在 Visual Studio 中通过选择“帮助” > “发送反馈” > “报告问题”来报告错误  。|
+|[Visual Studio 问题](https://aka.ms/feedback/report?space=61)|可供你报告 Bug 或向 Microsoft 提供有关 .NET 和 Visual Studio 的建议。 也可在 Visual Studio 中通过选择“帮助” > “发送反馈” > “报告问题”来报告错误  。|
 
 ## <a name="third-party-resources"></a>第三方资源
 
