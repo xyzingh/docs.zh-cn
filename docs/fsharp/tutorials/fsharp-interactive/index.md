@@ -4,12 +4,12 @@ description: 了解如何使用 F# 交互窗口 (dotnet fsi) 在控制台以交�
 ms.date: 10/31/2020
 f1_keywords:
 - VS.ToolsOptionsPages.F#_Tools.F#_Interactive
-ms.openlocfilehash: ba9111efccceca03fda43ff11c3f111610541595
-ms.sourcegitcommit: ffd4d5e824db6c5f0c3521c0e802fd9e8f0edcbe
+ms.openlocfilehash: 89570a54ecebe625a1612e4b97b01c3693e4707c
+ms.sourcegitcommit: 48466b8fb7332ececff5dc388f19f6b3ff503dd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342678"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93400861"
 ---
 # <a name="interactive-programming-with-f"></a>使用 F\# 进行交互式编程
 
@@ -17,7 +17,7 @@ ms.locfileid: "93342678"
 
 若要从控制台运行 F# 交互窗口，请运行 `dotnet fsi`。 你将在任何 .NET SDK 中找到 `dotnet fsi`。
 
-有关可用命令行选项的信息，请参阅 [F# Interactive 选项](../../language-reference/fsharp-interactive-options.md)。
+若要了解可用的命令行选项，请参阅 [F# 交互窗口选项](../../language-reference/fsharp-interactive-options.md)。
 
 ## <a name="executing-code-directly-in-f-interactive"></a>在 F# 交互窗口中直接执行代码
 
@@ -204,7 +204,7 @@ from
 fsi
 ```
 
-请注意，也可以使用 `System.Environment.GetCommandLineArgs()` 访问相同的参数。
+也可以使用 `System.Environment.GetCommandLineArgs()` 访问相同的参数。
 
 ## <a name="f-interactive-directive-reference"></a>F# 交互窗口指令参考
 
@@ -212,7 +212,7 @@ fsi
 
 |指令|描述|
 |---------|-----------|
-|`#r "nuget:..."`|通过 Nuget 引用包|
+|`#r "nuget:..."`|通过 NuGet 引用包|
 |`#r "assembly-name.dll"`|引用磁盘上的程序集|
 |`#load "file-name.fsx"`|读取、编译并运行源文件。|
 |`#help`|显示有关可用指令的信息。|
@@ -245,7 +245,7 @@ F# Interactive 试图编译代码，如果成功，它将执行代码并打印�
 
 当在 Visual Studio 中运行时，F# Interactive 将独立于你的项目运行，因此，你不能在 F# Interactive 中使用在项目中定义的构造，除非你将函数的代码复制到交互式窗口中。
 
-你可以通过调整设置控制 F# Interactive 命令行自变量（选项）。 在“工具”菜单上，选择“选项...”，然后展开“F# 工具”。 可以更改的两种设置是 F# Interactive 选项和“64 位F# Interactive”，只有在 64 位计算机上运行 F# Interactive 时，更改才有意义。 此设置确定是要运行 fsi.exe 还是 fsianycpu.exe 的专用 64 位版本，它使用计算机体系结构来确定是作为 32 位还是 64 位进程来运行。
+可以通过调整设置来控制 F# 交互窗口命令行参数（选项）。 在“工具”菜单上，选择“选项...”，然后展开“F# 工具”。 可以更改的两种设置是 F# Interactive 选项和“64 位F# Interactive”，只有在 64 位计算机上运行 F# Interactive 时，更改才有意义。 此设置确定是要运行 fsi.exe 还是 fsianycpu.exe 的专用 64 位版本，它使用计算机体系结构来确定是作为 32 位还是 64 位进程来运行。
 
 ## <a name="related-articles"></a>相关文章
 
