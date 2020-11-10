@@ -2,12 +2,12 @@
 title: 将 Windows 应用商店应用迁移到 .NET Native
 ms.date: 03/30/2017
 ms.assetid: 4153aa18-6f56-4a0a-865b-d3da743a1d05
-ms.openlocfilehash: cef985200efaf2ed7488d5e99394a5f01cc38594
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: ee17e50590a80d8973197b46910d5e22296c265f
+ms.sourcegitcommit: 30a686fd4377fe6472aa04e215c0de711bc1c322
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90556923"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94440889"
 ---
 # <a name="migrate-your-windows-store-app-to-net-native"></a>将 Windows 应用商店应用迁移到 .NET Native
 
@@ -208,7 +208,9 @@ Cookie 处理由 <xref:System.Net.Http.HttpClient> 和 WinINet 同时执行。  
 - 响应中的 `SetCookie2` 标题忽略为废弃。
 
 <a name="Interop"></a>
+
 ### <a name="interop-differences"></a>互操作差异性
+
  **弃用的 API**
 
  多个带有托管代码的不常使用的互操作性 API 已弃用。 与 .NET Native 一起使用时，这些 Api 可能会引发 <xref:System.NotImplementedException> 或 <xref:System.PlatformNotSupportedException> 异常，或导致编译器错误。 在 Windows 应用商店应用的 .NET 中，这些 API 标记为废弃，尽管调用这些 API 会生成编译器警告而非编译器错误。
@@ -661,9 +663,9 @@ Cookie 处理由 <xref:System.Net.Http.HttpClient> 和 WinINet 同时执行。  
 
 不支持在 Windows 应用商店应用项目的单元测试库上启用 .NET Native，并导致项目未能生成。
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [入门](getting-started-with-net-native.md)
 - [运行时指令 (rd.xml) 配置文件引用](runtime-directives-rd-xml-configuration-file-reference.md)
 - [适用于 Windows 应用商店应用的 .NET 概述](/previous-versions/windows/apps/br230302(v=vs.140))
-- [.NET Framework 对 Windows 应用商店应用和 Windows 运行时的支持情况](../../standard/cross-platform/support-for-windows-store-apps-and-windows-runtime.md)
+- [.NET Framework 对 Windows 应用商店应用和 Windows 运行时的支持情况](../cross-platform/support-for-windows-store-apps-and-windows-runtime.md)

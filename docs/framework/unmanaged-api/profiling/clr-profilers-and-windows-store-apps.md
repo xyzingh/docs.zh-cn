@@ -12,12 +12,12 @@ helpviewer_keywords:
 - profiling managed code
 - profiling managed code [Windows Store Apps]
 ms.assetid: 1c8eb2e7-f20a-42f9-a795-71503486a0f5
-ms.openlocfilehash: 8922f057cb59258e2dd002cec4015af518dc255f
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 04b4b529a5a1adaa40e804988dee506942c863c4
+ms.sourcegitcommit: 30a686fd4377fe6472aa04e215c0de711bc1c322
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90553351"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94440075"
 ---
 # <a name="clr-profilers-and-windows-store-apps"></a>CLR 探查器和 Windows 应用商店应用
 
@@ -47,7 +47,7 @@ ms.locfileid: "90553351"
 
 本主题中使用了以下术语：
 
-**应用程序**
+应用程序
 
 这是探查器正在分析的应用程序。 通常，此应用程序的开发人员现在使用探查器来帮助诊断应用程序的问题。 通常，此应用程序将是 Windows 桌面应用程序，但在本主题中，我们将查看 Windows 应用商店应用。
 
@@ -94,7 +94,7 @@ Windows RT 设备已被锁定。 此类设备上不能加载第三方探查器�
 
 **对探查器 DLL 进行签名**
 
-当 Windows 尝试加载探查器 DLL 时，它将验证探查器 DLL 是否已正确签名。 如果不是，则默认情况下加载失败。 有两种方法可以实现此目的：
+当 Windows 尝试加载探查器 DLL 时，它将验证探查器 DLL 是否已正确签名。 如果不是，则默认情况下加载失败。 可通过两种方式实现此目的：
 
 - 确保探查器 DLL 已签名。
 
@@ -249,7 +249,7 @@ pkgDebugSettings.EnableDebugging(packageFullName, null /* debuggerCommandLine */
 
 ### <a name="stick-to-the-windows-store-app-apis"></a>坚持 Windows 应用商店应用 Api
 
-浏览 Windows API 时，你会注意到，每个 API 都记录为适用于桌面应用、Windows 应用商店应用或两者。 例如， [InitializeCriticalSectionAndSpinCount](/windows/desktop/api/synchapi/nf-synchapi-initializecriticalsectionandspincount)函数文档的 "**要求**" 部分指示该函数仅适用于桌面应用程序。 与此相反， [InitializeCriticalSectionEx](/windows/desktop/api/synchapi/nf-synchapi-initializecriticalsectionex) 函数可用于桌面应用和 Windows 应用商店应用。
+浏览 Windows API 时，你会注意到，每个 API 都记录为适用于桌面应用、Windows 应用商店应用或两者。 例如， [InitializeCriticalSectionAndSpinCount](/windows/desktop/api/synchapi/nf-synchapi-initializecriticalsectionandspincount)函数文档的 " **要求** " 部分指示该函数仅适用于桌面应用程序。 与此相反， [InitializeCriticalSectionEx](/windows/desktop/api/synchapi/nf-synchapi-initializecriticalsectionex) 函数可用于桌面应用和 Windows 应用商店应用。
 
 在开发探查器 DLL 时，将它视为 Windows 应用商店应用程序，并且仅使用 Windows 应用商店应用程序所记录的 Api。 分析依赖关系 (例如，你可以 `link /dump /imports` 针对探查器 DLL 运行审核) ，然后在文档中搜索，以查看哪些依赖项正常，哪些依赖项不正常。 在大多数情况下，只需将冲突替换为一种较新的 API 形式，将其替换为安全 (（例如，将 [InitializeCriticalSectionAndSpinCount](/windows/desktop/api/synchapi/nf-synchapi-initializecriticalsectionandspincount) 替换为 [InitializeCriticalSectionEx](/windows/desktop/api/synchapi/nf-synchapi-initializecriticalsectionex)) ，即可解决冲突。
 
@@ -273,7 +273,7 @@ pkgDebugSettings.EnableDebugging(packageFullName, null /* debuggerCommandLine */
 
 本主题的范围超出了 Windows 应用商店应用程序权限与桌面应用程序的不同之处。 但在加载到 Windows 应用商店应用程序中时，与桌面应用程序) 尝试访问任何资源时，每次加载到 Windows 应用商店应用程序时，行为都是不同的 (。 文件系统是最常见的示例。 某些情况下，给定的 Windows 应用商店应用程序可以访问磁盘上的一些位置 (请参阅 [文件访问和权限 (Windows 运行时应用程序](/previous-versions/windows/apps/hh967755(v=win.10))) ，探查器 DLL 将受到相同的限制。 彻底测试你的代码。
 
-### <a name="inter-process-communication"></a>进程间通信
+### <a name="inter-process-communication"></a>进程内通信
 
 正如本文开头的关系图中所示，探查器 DLL (加载到 Windows 应用商店应用程序的进程空间中) 可能需要与探查器 UI 通信， (在单独的桌面应用程序进程空间中运行) 通过自定义的进程间通信 (IPC) 通道。 探查器 UI 将信号发送到探查器 DLL 以修改其行为，探查器 DLL 将数据从经过分析的 Windows 应用商店应用程序发送回探查器 UI，以便后期处理和向探查器用户显示。
 
@@ -356,7 +356,7 @@ GetAppContainerFolderPath(acSid, out acDir);
 
 ### <a name="reading-metadata-from-winmds"></a>从 Winmd 读取元数据
 
-WinMD 文件（如常规模块）包含可通过 [元数据 api](../metadata/index.md)读取的元数据。 但是，在读取 WinMD 文件时，CLR 将 Windows 运行时类型映射到 .NET Framework 类型，以便在托管代码中编写和使用 WinMD 文件的开发人员具有更自然的编程体验。 有关这些映射的一些示例，请参阅 [Windows 应用商店应用和 Windows 运行时 .NET Framework 支持](../../../standard/cross-platform/support-for-windows-store-apps-and-windows-runtime.md)。
+WinMD 文件（如常规模块）包含可通过 [元数据 api](../metadata/index.md)读取的元数据。 但是，在读取 WinMD 文件时，CLR 将 Windows 运行时类型映射到 .NET Framework 类型，以便在托管代码中编写和使用 WinMD 文件的开发人员具有更自然的编程体验。 有关这些映射的一些示例，请参阅 [Windows 应用商店应用和 Windows 运行时 .NET Framework 支持](../../cross-platform/support-for-windows-store-apps-and-windows-runtime.md)。
 
 在使用元数据 Api 时，探查器会获得哪个视图：原始 Windows 运行时视图或映射的 .NET Framework 视图？  答案是：由您负责。
 
@@ -388,7 +388,7 @@ WinMD 文件（如常规模块）包含可通过 [元数据 api](../metadata/ind
 
 ### <a name="conditionalweaktablereferences"></a>ConditionalWeakTableReferences
 
-从 .NET Framework 4.5 开始，有一个新的 GC 回调 [ConditionalWeakTableElementReferences](icorprofilercallback5-conditionalweaktableelementreferences-method.md)，它为探查器提供有关 *依赖句柄*的更完整信息。 出于 GC 生存期管理的目的，这些处理会有效地将从源对象的引用添加到目标对象。 从属句柄并不新，并且在托管代码中编程的开发人员可以使用类创建自己的依赖句柄， <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602?displayProperty=nameWithType> 即使在 Windows 8 和 .NET Framework 4.5 之前也是如此。
+从 .NET Framework 4.5 开始，有一个新的 GC 回调 [ConditionalWeakTableElementReferences](icorprofilercallback5-conditionalweaktableelementreferences-method.md)，它为探查器提供有关 *依赖句柄* 的更完整信息。 出于 GC 生存期管理的目的，这些处理会有效地将从源对象的引用添加到目标对象。 从属句柄并不新，并且在托管代码中编程的开发人员可以使用类创建自己的依赖句柄， <xref:System.Runtime.CompilerServices.ConditionalWeakTable%602?displayProperty=nameWithType> 即使在 Windows 8 和 .NET Framework 4.5 之前也是如此。
 
 但是，托管的 XAML Windows 应用商店应用现在会大量使用依赖句柄。 具体而言，CLR 使用它们来帮助管理托管对象和非托管 Windows 运行时对象之间的引用周期。 这意味着，与以往相比，要通知这些从属句柄的内存探查器比以往更重要，这样，就可以与堆图中的其余边缘一起可视化。 探查器 DLL 应将 [RootReferences2](icorprofilercallback2-rootreferences2-method.md)、 [ObjectReferences](icorprofilercallback-objectreferences-method.md)和 [ConditionalWeakTableElementReferences](icorprofilercallback5-conditionalweaktableelementreferences-method.md) 一起使用，以形成堆关系图的完整视图。
 
@@ -406,9 +406,9 @@ WinMD 文件（如常规模块）包含可通过 [元数据 api](../metadata/ind
 
 **CLR 与 Windows 运行时的交互**
 
-- [.NET Framework 对 Windows 应用商店应用和 Windows 运行时的支持情况](../../../standard/cross-platform/support-for-windows-store-apps-and-windows-runtime.md)
+- [.NET Framework 对 Windows 应用商店应用和 Windows 运行时的支持情况](../../cross-platform/support-for-windows-store-apps-and-windows-runtime.md)
 
-**Windows 应用商店应用**
+**Windows 应用商店应用程序**
 
 - [Windows 运行时应用 (的文件访问和权限](/previous-versions/windows/apps/hh967755(v=win.10))
 

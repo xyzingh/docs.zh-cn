@@ -1,26 +1,25 @@
 ---
-title: F# 是什么
-description: 了解F#编程语言和F#编程的作用。 了解丰富的数据类型、函数以及它们如何组合在一起。
+title: 什么是 F#
+description: '了解 F # 编程语言的定义，以及 F # 编程的作用。 了解丰富的数据类型、函数以及它们如何组合在一起。'
 ms.date: 08/03/2018
-ms.openlocfilehash: 3cba509f59a8e81e1a0264de7451e9d80304d768
-ms.sourcegitcommit: 8b8dd14dde727026fd0b6ead1ec1df2e9d747a48
+ms.openlocfilehash: 37dc2f472d65a046e4bf67e672e2a96f4d4afded
+ms.sourcegitcommit: 30a686fd4377fe6472aa04e215c0de711bc1c322
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71332735"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94439646"
 ---
-# <a name="what-is-f"></a>F\# 是什么
+# <a name="what-is-f"></a>什么是 F\#
 
-F# 是一种函数式编程语言，可用于轻松地编写正确和可维护的代码。
+F # 是一种函数编程语言，可方便编写正确且可维护的代码。
 
-F# 编程主要包括定义类型以及自动通过类型进行推断和通用化的函数。 这样，你只需重点关注问题域并操作其数据，而不需关注编程细节。
+F # 编程主要涉及如何定义自动推断和通用化的类型和函数。 这样，你的关注点将保留在问题域上并操作其数据，而不是编程的详细信息。
 
 ```fsharp
 open System // Gets access to functionality in System namespace.
 
 // Defines a function that takes a name and produces a greeting.
-let getGreeting name =
-    sprintf "Hello, %s! Isn't F# great?" name
+let getGreeting name = $"Hello, {name}! Isn't F# great?"
 
 [<EntryPoint>]
 let main args =
@@ -35,21 +34,21 @@ let main args =
     0
 ```
 
-F# 具有许多特性，包括：
+F # 具有许多功能，包括：
 
 * 轻型语法
 * 默认情况下不可变
-* 类型推断和自动泛化
-* 头等函数
+* 类型推理和自动通用化
+* 第一类函数
 * 强大的数据类型
 * 模式匹配
 * 异步编程
 
-[F# 语言参考](./language-reference/index.md)中介绍了完整的特性。
+[F # 语言参考](./language-reference/index.md)中记录了一组完整的功能。
 
 ## <a name="rich-data-types"></a>丰富的数据类型
 
-[记录](./language-reference/records.md)和[可区分联合](./language-reference/discriminated-unions.md)等数据类型可以表示复杂的数据和域。
+数据类型（如 [记录](./language-reference/records.md) 和可 [区分联合](./language-reference/discriminated-unions.md) ）允许您表示复杂的数据和域。
 
 ```fsharp
 // Group data with Records
@@ -72,11 +71,11 @@ type WithdrawalResult =
     | UndisclosedFailure
 ```
 
-F# 的记录和可区分联合默认情况下非 null、不可变且可比较，因此非常易于使用。
+F # 记录和可区分联合默认情况下为非 null、不可变和可比较，因此它们非常易于使用。
 
-## <a name="enforced-correctness-with-functions-and-pattern-matching"></a>利用函数和模式匹配强制实现正确性
+## <a name="enforced-correctness-with-functions-and-pattern-matching"></a>使用函数和模式匹配强制实现的正确性
 
-F# 函数易于声明且实用性强。 与[模式匹配](./language-reference/pattern-matching.md)结合使用时，可以定义其正确性获得编译器保障的行为。
+F # 函数在实践中易于声明和强大。 与 [模式匹配](./language-reference/pattern-matching.md)一起使用时，它们允许您定义由编译器强制执行的行为。
 
 ```fsharp
 // Returns a WithdrawalResult
@@ -93,11 +92,11 @@ let handleWithdrawal amount =
     | UndisclosedFailure -> printfn "Failed: unknown :("
 ```
 
-F# 函数也是头等函数，也就是说，它们可以作为参数传递，还可以从其他函数返回。
+F # 函数也是第一类，这意味着它们可以作为参数传递，并从其他函数返回。
 
-## <a name="functions-to-define-operations-on-objects"></a>用于定义对对象执行的操作的函数。
+## <a name="functions-to-define-operations-on-objects"></a>用于定义对象操作的函数
 
-F# 提供对对象（在需要揉合数据和功能时非常有用的数据类型）的完整支持。 F# 函数用于操作对象。
+F # 完全支持对象，当你需要混合数据和功能时，它们是有用的数据类型。 F # 函数用于处理对象。
 
 ```fsharp
 type Set<'T when 'T: comparison>(elements: seq<'T>) =
@@ -118,8 +117,8 @@ module Set =
     let add value (set: Set<'T>) = set.Add(value)
 ```
 
-在 F# 中，你会经常编写一类代码，这些代码将对象视为供函数操作的另一种数据类型，而不是编写面向对象的代码。 在较大型的 F# 程序中，通常需要使用[泛型接口](./language-reference/interfaces.md)、[对象表达式](./language-reference/object-expressions.md)等功能，此文还需正确使用[成员](./language-reference/members/index.md)。
+不是编写面向对象的代码，在 F # 中，你通常会编写将对象视为函数的另一个数据类型的代码。 [泛型接口](./language-reference/interfaces.md)、[对象表达式](./language-reference/object-expressions.md)和明智使用[成员](./language-reference/members/index.md)等功能在较大的 F # 程序中很常见。
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解更多 F# 功能，请查看 [F# 教程](tour.md)。
+若要详细了解更多 F # 功能，请查看 [f # 教程](tour.md)。

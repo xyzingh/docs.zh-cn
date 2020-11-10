@@ -12,12 +12,12 @@ helpviewer_keywords:
 - cryptography [.NET], asymmetric
 - asymmetric encryption
 ms.assetid: 7ecce51f-db5f-4bd4-9321-cceb6fcb2a77
-ms.openlocfilehash: 8a8b5988a13ab571284b08c7aaece3542467aa71
-ms.sourcegitcommit: b7a8b09828bab4e90f66af8d495ecd7024c45042
+ms.openlocfilehash: 75bb0fa52b8002efe0027f026de8c0910735e55e
+ms.sourcegitcommit: 30a686fd4377fe6472aa04e215c0de711bc1c322
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87556964"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94440967"
 ---
 # <a name="encrypting-data"></a>加密数据
 
@@ -25,9 +25,9 @@ ms.locfileid: "87556964"
   
 ## <a name="symmetric-encryption"></a>对称加密  
 
-托管对称加密类与名为 <xref:System.Security.Cryptography.CryptoStream> 的特殊流类一起使用，后者用于加密读入流中的数据。 使用托管流类（ **CryptoStream**类）初始化一个类，该类实现 <xref:System.Security.Cryptography.ICryptoTransform> 接口 (从实现加密算法的类创建) ，以及 <xref:System.Security.Cryptography.CryptoStreamMode> 描述允许**CryptoStream**的访问类型的枚举。 可以**CryptoStream**使用从类派生的任何类 <xref:System.IO.Stream> （包括 <xref:System.IO.FileStream> 、和）初始化 CryptoStream 类 <xref:System.IO.MemoryStream> <xref:System.Net.Sockets.NetworkStream> 。 使用这些类，可以对多个流对象执行对称加密。  
+托管对称加密类与名为 <xref:System.Security.Cryptography.CryptoStream> 的特殊流类一起使用，后者用于加密读入流中的数据。 使用托管流类（ **CryptoStream** 类）初始化一个类，该类实现 <xref:System.Security.Cryptography.ICryptoTransform> 接口 (从实现加密算法的类创建) ，以及 <xref:System.Security.Cryptography.CryptoStreamMode> 描述允许 **CryptoStream** 的访问类型的枚举。 可以 **CryptoStream** 使用从类派生的任何类 <xref:System.IO.Stream> （包括 <xref:System.IO.FileStream> 、和）初始化 CryptoStream 类 <xref:System.IO.MemoryStream> <xref:System.Net.Sockets.NetworkStream> 。 使用这些类，可以对多个流对象执行对称加密。  
   
-下面的示例演示如何创建算法的默认实现类的新实例 <xref:System.Security.Cryptography.Aes> 。 实例用于对**CryptoStream**类执行加密。 在此示例中，使用名为 **的流对象初始化** CryptoStream `myStream` ，该流对象可以是任何类型的托管流。 **Aes**类中的**CreateEncryptor**方法传递用于加密的密钥和 IV。 在此例中，使用了由 `aes` 生成的默认密钥和 IV。
+下面的示例演示如何创建算法的默认实现类的新实例 <xref:System.Security.Cryptography.Aes> 。 实例用于对 **CryptoStream** 类执行加密。 在此示例中，使用名为 **的流对象初始化** CryptoStream `myStream` ，该流对象可以是任何类型的托管流。 **Aes** 类中的 **CreateEncryptor** 方法传递用于加密的密钥和 IV。 在此例中，使用了由 `aes` 生成的默认密钥和 IV。
   
 ```vb  
 Dim aes As Aes = Aes.Create()  
@@ -39,32 +39,32 @@ Aes aes = Aes.Create();
 CryptoStream cryptStream = new CryptoStream(myStream, aes.CreateEncryptor(key, iv), CryptoStreamMode.Write);  
 ```  
   
-执行此代码后，将使用 AES 算法对写入到**CryptoStream**对象的任何数据进行加密。  
+执行此代码后，将使用 AES 算法对写入到 **CryptoStream** 对象的任何数据进行加密。  
   
-下面的示例演示创建流、加密流、写入流和关闭流的整个过程。 此示例创建使用**CryptoStream**类和**Aes**类加密的文件流。 使用 <xref:System.IO.StreamWriter> 类将消息写入到加密流。
+下面的示例演示创建流、加密流、写入流和关闭流的整个过程。 此示例创建使用 **CryptoStream** 类和 **Aes** 类加密的文件流。 生成的 IV 将写入到的开头 <xref:System.IO.FileStream> ，因此它可以读取并用于解密。 然后，使用类将消息写入到加密流 <xref:System.IO.StreamWriter> 。 尽管可以多次使用同一密钥来加密和解密数据，但建议每次生成新的随机 IV。 这样，即使在纯文本相同的情况下，加密的数据也总是不同。
   
 :::code language="csharp" source="snippets/encrypting-data/csharp/aes-encrypt.cs":::
 :::code language="vb" source="snippets/encrypting-data/vb/aes-encrypt.vb":::
 
-代码使用 AES 对称算法加密流，并将 "Hello World！" 写入流。 如果代码成功，它将创建一个名为*TestData.txt*的加密文件，并在控制台中显示以下文本：  
+此代码使用 AES 对称算法加密流，并编写 IV，然后加密 "Hello World！" 写入流。 如果代码成功，它将创建一个名为 *TestData.txt* 的加密文件，并在控制台中显示以下文本：
   
 ```console  
-The text was encrypted.  
+The text was encrypted.
 ```  
 
-您可以使用对称解密示例对[数据](decrypting-data.md)进行解密。 该示例和此示例指定了相同的密钥和 IV。
+您可以使用对称解密示例对 [数据](decrypting-data.md)进行解密。 该示例和此示例指定了相同的密钥。
 
-但是，如果引发异常，则代码会在控制台中显示以下文本：  
+但是，如果引发异常，则代码会在控制台中显示以下文本：
   
 ```console  
-The encryption failed.  
+The encryption failed.
 ```
 
 ## <a name="asymmetric-encryption"></a>非对称加密
 
 非对称算法通常用于加密少量数据，例如加密对称密钥和 IV。 通常情况下，单独执行的非对称加密使用另一方生成的公共密钥。 <xref:System.Security.Cryptography.RSA>该类由 .net 提供，用于实现此目的。  
   
-下面的示例使用公钥信息加密对称密钥和 IV。 初始化了代表第三方公钥的两个字节数组。 <xref:System.Security.Cryptography.RSAParameters> 对象初始化为这些值。 接下来，使用方法将**RSAParameters**对象与它) 表示的公钥 (一起导入到**RSA**实例中 <xref:System.Security.Cryptography.RSA.ImportParameters%2A?displayProperty=nameWithType> 。 最后，通过类创建私钥和 IV <xref:System.Security.Cryptography.Aes> 进行加密。 此示例要求系统安装 128 位加密。  
+下面的示例使用公钥信息加密对称密钥和 IV。 初始化了代表第三方公钥的两个字节数组。 <xref:System.Security.Cryptography.RSAParameters> 对象初始化为这些值。 接下来，使用方法将 **RSAParameters** 对象与它) 表示的公钥 (一起导入到 **RSA** 实例中 <xref:System.Security.Cryptography.RSA.ImportParameters%2A?displayProperty=nameWithType> 。 最后，通过类创建私钥和 IV <xref:System.Security.Cryptography.Aes> 进行加密。 此示例要求系统安装 128 位加密。  
   
 ```vb  
 Imports System
@@ -153,7 +153,7 @@ class Class1
 }
 ```  
   
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
 - [生成加密和解密的密钥](generating-keys-for-encryption-and-decryption.md)
 - [解密数据](decrypting-data.md)
