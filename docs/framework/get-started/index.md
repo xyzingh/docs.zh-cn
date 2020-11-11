@@ -6,12 +6,12 @@ helpviewer_keywords:
 - .NET Framework, getting started
 - getting started [.NET Framework]
 ms.assetid: c693fd34-88fe-4d90-b332-19eeadf3b7e7
-ms.openlocfilehash: 02480641af5ad2c973f7dbbbc233d3d89ff4617e
-ms.sourcegitcommit: 870bc4b4087510f6fba3c7b1c0d391f02bcc1f3e
+ms.openlocfilehash: 3ab1c502508dd042940a6c5d2a73a5b71af6a9f4
+ms.sourcegitcommit: 30a686fd4377fe6472aa04e215c0de711bc1c322
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92471661"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94440837"
 ---
 # <a name="get-started-with-net-framework"></a>.NET Framework 入门
 
@@ -40,6 +40,7 @@ ms.locfileid: "92471661"
 - 多定向。 通过面向 [.NET Standard](../../standard/net-standard.md)，开发人员可创建适用于该标准版本支持的多种 .NET Framework 平台的类库。 例如，面向 .NET Framework 4.6.1、NET Core 2.0 和 UWP 10.0.16299 的应用可以使用面向 .NET Standard 2.0 的库。
 
 <a name="ForUsers"></a>
+
 ## <a name="net-framework-for-users"></a>面向用户的 .NET Framework
 
 如果你不开发 .NET Framework 应用，而只需要使用它们，则不需要掌握有关 .NET Framework 或其操作的特定知识。 大多数情况下，框架对用户是完全透明的。
@@ -78,7 +79,6 @@ ms.locfileid: "92471661"
 | [安装指南](../install/index.md) | 提供有关安装 .NET Framework 的信息。 |
 | [.NET Framework 和带外版本](the-net-framework-and-out-of-band-releases.md) | 描述 .NET Framework 带外版本以及如何在应用程序中使用它们。 |
 | [系统要求](system-requirements.md) | 列出运行 .NET Framework 的硬件和软件要求。 |
-| [.NET Core 和开放源代码](net-core-and-open-source.md) | 介绍 .NET Core 与 .NET Framework 的关系，以及如何访问开放源代码 .NET Core 项目。 |
 | [.NET Core 文档](../../core/introduction.md) | 提供 .NET Core 的概念和 API 参考文档。 |
 | [.NET Standard](../../standard/net-standard.md) | 讨论 .NET Standard，这是 .NET 实现支持的版本管理规范，用于保证可在多个平台上使用一致的 API 集。
 

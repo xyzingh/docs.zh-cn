@@ -11,12 +11,12 @@ metadata:
   helpviewer_keywords:
   - .NET Framework guide
   ms.date: 04/22/2020
-  ms.openlocfilehash: 376eeb8d1a195bed959e04a715ca9661d2f14db2
-  ms.sourcegitcommit: a6bd4cad438fe479cbd112eae10f2cd449f06e40
+  ms.openlocfilehash: 54133d7cd73c9a4d097b601f92b685c27575dc8b
+  ms.sourcegitcommit: 30a686fd4377fe6472aa04e215c0de711bc1c322
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/08/2020
-  ms.locfileid: "91844584"
+  ms.lasthandoff: 11/10/2020
+  ms.locfileid: "94439503"
 landingContent:
 - title: 了解 .NET Framework
   linkLists:
@@ -37,7 +37,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: .NET Framework API
-      url: /dotnet/api/?view=netframework-4.8
+      url: ../../api/index.md?view=netframework-4.8
 - title: 安装 .NET Framework
   linkLists:
   - linkListType: download
