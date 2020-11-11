@@ -48,6 +48,8 @@
               href: tutorials/intro-to-csharp/object-oriented-programming.md
     - name: 探索顶级语句
       href: tutorials/exploration/top-level-statements.md
+    - name: 探索对象中的模式
+      href: tutorials/exploration/patterns-objects.md
     - name: 探索 C# 6
       href: tutorials/exploration/csharp-6.yml
     - name: 探索字符串内插 - 交互式
@@ -224,7 +226,7 @@
     - name: 文章索引
       displayName: how to's
       href: how-to/index.md
-    - name: 使用 `String.Split` 分析字符串
+    - name: 将字符串拆分为子字符串
       href: how-to/parse-strings-using-split.md
     - name: 连接字符串
       href: how-to/concatenate-multiple-strings.md
@@ -234,7 +236,7 @@
       href: how-to/modify-string-contents.md
     - name: 比较字符串
       href: how-to/compare-strings.md
-    - name: 使用模式匹配 is 和 as 运算符安全地进行强制转换
+    - name: 使用模式匹配以及 is/as 运算符安全地进行强制转换
       href: how-to/safely-cast-using-pattern-matching-is-and-as-operators.md
 - name: .NET Compiler Platform SDK (Roslyn API)
   items:
