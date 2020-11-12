@@ -11,12 +11,12 @@ helpviewer_keywords:
 - '@ keyword'
 ms.custom: updateeachrelease
 ms.assetid: e929b0f2-4b92-4d37-8060-23d323b098ad
-ms.openlocfilehash: a6658fe7bb97309d35ca2a9177a90a2443f1a3ca
-ms.sourcegitcommit: d579fb5e4b46745fd0f1f8874c94c6469ce58604
+ms.openlocfilehash: 3991fc62d75982b395162e085f0adfcc6d3cfb9a
+ms.sourcegitcommit: 30a686fd4377fe6472aa04e215c0de711bc1c322
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89134609"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94439633"
 ---
 # <a name="c-keywords"></a>C# 关键字
 
@@ -61,9 +61,9 @@ ms.locfileid: "89134609"
 |[let](let-clause.md)|[nameof](../operators/nameof.md)|[notnull](../../programming-guide/generics/constraints-on-type-parameters.md#notnull-constraint)|
 |[on](on.md)|[orderby](orderby-clause.md)|[partial（类型）](partial-type.md)|
 |[partial（方法）](partial-method.md)|[remove](remove.md)|[select](select-clause.md)|
-|[set](set.md)|[unmanaged（泛型类型约束）](where-generic-type-constraint.md)|[value](value.md)|
+|[set](set.md)|[unmanaged（泛型类型约束）](../../programming-guide/generics/constraints-on-type-parameters.md#unmanaged-constraint)|[value](value.md)|
 |[var](var.md)|[when（筛选条件）](when.md)|[where（泛型类型约束）](where-generic-type-constraint.md)|
-|[where（查询子句）](where-clause.md)|[yield](yield.md)| |
+|[where（查询子句）](where-clause.md)|[with](../operators/with-expression.md)|[yield](yield.md)|
   
 ## <a name="see-also"></a>请参阅
 

@@ -2,16 +2,18 @@
 title: 'F # 5.0 中的新增功能-F # 指南'
 description: '获取 F # 5.0 中提供的新功能的概述。'
 ms.date: 11/06/2020
-ms.openlocfilehash: 0c4c9f42c63a1dc8c90213c43edbadd4061c132d
-ms.sourcegitcommit: 30a686fd4377fe6472aa04e215c0de711bc1c322
+ms.openlocfilehash: 51d6dd2457ee9966a86d0d9ac686f2af15772999
+ms.sourcegitcommit: f99115e12a5eb75638abe45072e023a3ce3351ac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445839"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94557137"
 ---
-# <a name="whats-new-in-f-50"></a>F # 5.0 中的新增功能
+# <a name="whats-new-in-f-50"></a>F# 5.0 中的新增功能
 
 F # 5.0 向 F # 语言和 F# 交互窗口增加了几项改进。 它随 **.net 5** 一起发布。
+
+可以从 [.net 下载页](https://dotnet.microsoft.com/download)下载最新的 .net SDK。
 
 ## <a name="get-started"></a>入门
 
@@ -149,7 +151,6 @@ nameof op_Addition // "op_Addition"
 采用类型参数的名称需要略有不同的语法：
 
 ```fsharp
-
 type C<'TType> =
     member _.TypeName = nameof<'TType>
 ```
@@ -228,16 +229,16 @@ F # 5.0 为内置3D 和4D 数组类型中具有固定索引的切片提供支持
 为了说明这一点，请考虑下面的三维数组：
 
 *z = 0*
-|x\y|0|1|
-|---|-|-|
-|**0**|0|1|
-|**1**|2|3|
+| x\y   | 0 | 1 |
+|-------|---|---|
+| **0** | 0 | 1 |
+| **1** | 2 | 3 |
 
 *z = 1*
-|x\y|0|1|
-|---|-|-|
-|**0**|4|5|
-|**1**|6|7|
+| x\y   | 0 | 1 |
+|-------|---|---|
+| **0** | 4 | 5 |
+| **1** | 6 | 7 |
 
 如果要从数组中提取切片，该怎么办 `[| 4; 5 |]` ？ 这现在非常简单！
 
@@ -258,6 +259,23 @@ for z in 0..dim-1 do
 // Now let's get the [4;5] slice!
 m.[*, 0, 1]
 ```
+
+## <a name="f-quotations-improvements"></a>F # 报价改进
+
+F # [代码引用](../language-reference/code-quotations.md) 现在能够保留类型约束信息。 请看下面的示例：
+
+```fsharp
+open FSharp.Linq.RuntimeHelpers
+
+let eval q = LeafExpressionConverter.EvaluateQuotation q
+
+let inline negate x = -x
+// val inline negate: x: ^a ->  ^a when  ^a : (static member ( ~- ) :  ^a ->  ^a)
+
+<@ negate 1.0 @>  |> eval
+```
+
+函数生成的约束 `inline` 保留在代码 qutoation 中。 `negate`现在可以计算该函数的 quotated 窗体。
 
 ## <a name="applicative-computation-expressions"></a>Applicative 计算表达式
 

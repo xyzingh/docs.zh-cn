@@ -2,21 +2,22 @@
 title: 导入声明：open 关键字
 description: '了解 F # 导入声明以及如何指定可在不使用完全限定名称的情况下引用其元素的模块或命名空间。'
 ms.date: 08/15/2020
-ms.openlocfilehash: 6420df071f86159c44606c2710331d5f587023cc
-ms.sourcegitcommit: 8bfeb5930ca48b2ee6053f16082dcaf24d46d221
+ms.openlocfilehash: ab208c53809e120bc216c8f8b4d04a322d67cf2f
+ms.sourcegitcommit: f99115e12a5eb75638abe45072e023a3ce3351ac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88557602"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94557176"
 ---
 # <a name="import-declarations-the-open-keyword"></a>导入声明： `open` 关键字
 
-*导入声明*指定了一个模块或命名空间，在不使用完全限定名称的情况下，可以引用这些元素。
+*导入声明* 指定了一个模块或命名空间，在不使用完全限定名称的情况下，可以引用这些元素。
 
 ## <a name="syntax"></a>语法
 
 ```fsharp
 open module-or-namespace-name
+open type type-name
 ```
 
 ## <a name="remarks"></a>备注
@@ -42,6 +43,31 @@ printfn "%A" empty
 ```
 
 因此，当您打开包含具有相同名称的成员的模块或命名空间（如或）时，请务必小心 `List` `Seq` ; 相反，请考虑使用限定名。 应避免代码依赖于导入声明顺序的任何情况。
+
+## <a name="open-type-declarations"></a>开放式类型声明
+
+F # 支持 `open` 类型，如下所示：
+
+```fsharp
+open type System.Math
+PI
+```
+
+这将公开此类型上所有可访问的静态字段和成员。
+
+还可以通过 `open` F # 定义的 [记录](records.md) 和可 [区分的联合](discriminated-unions.md) 类型来公开静态成员。 对于可区分联合，还可以公开联合用例。 这对于在你可能不想打开的模块内声明的类型中访问联合用例非常有用，如下所示：
+
+```fsharp
+module M =
+    type DU = A | B | C
+
+    let someOtherFunction x = x + 1
+
+// Open only the type inside the module
+open type M.DU
+
+printfn "%A" A
+```
 
 ## <a name="namespaces-that-are-open-by-default"></a>默认情况下打开的命名空间
 

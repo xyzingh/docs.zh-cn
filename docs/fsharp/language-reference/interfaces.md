@@ -1,15 +1,15 @@
 ---
-title: 接口
+title: 界面
 description: '了解 F # 接口如何指定其他类实现的相关成员集。'
 ms.date: 08/15/2020
-ms.openlocfilehash: 36272b52fcff83e8e8a54ccc4e6ecd1252a91819
-ms.sourcegitcommit: 8bfeb5930ca48b2ee6053f16082dcaf24d46d221
+ms.openlocfilehash: 0cef2932045dae401f5aa069107815543457ca4a
+ms.sourcegitcommit: f99115e12a5eb75638abe45072e023a3ce3351ac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88558122"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94557046"
 ---
-# <a name="interfaces"></a>接口
+# <a name="interfaces"></a>界面
 
 *接口* 指定其他类实现的一组相关成员。
 
@@ -100,6 +100,67 @@ type INumeric2 =
 接口可从一个或多个基接口继承。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-1/snippet2805.fs)]
+
+## <a name="implementing-interfaces-with-default-implementations"></a>实现具有默认实现的接口
+
+C # 支持用默认实现定义接口，如下所示：
+
+```csharp
+using System;
+
+namespace CSharp
+{
+    public interface MyDim
+    {
+        public int Z => 0;
+    }
+}
+```
+
+可以直接从 F # 中利用这些内容：
+
+```fsharp
+open CSharp
+
+// You can implement the interface via a class
+type MyType() =
+    member _.M() = ()
+
+    interface MyDim
+
+let md = MyType() :> MyDim
+printfn $"DIM from C#: %d{md.Z}"
+
+// You can also implement it via an object expression
+let md' = { new MyDim }
+printfn $"DIM from C# but via Object Expression: %d{md'.Z}"
+```
+
+您可以使用重写默认实现 `override` ，如重写任何虚拟成员。
+
+接口中没有默认实现的所有成员仍必须显式实现。
+
+## <a name="implementing-the-same-interface-at-different-generic-instantiations"></a>在不同的泛型实例化上实现相同的接口
+
+F # 支持在不同的泛型实例化实现相同的接口，如下所示：
+
+```fsharp
+type IA<'T> =
+    abstract member Get : unit -> 'T
+
+type MyClass() =
+    interface IA<int> with
+        member x.Get() = 1
+    interface IA<string> with
+        member x.Get() = "hello"
+
+let mc = MyClass()
+let iaInt = mc :> IA<int>
+let iaString = mc :> IA<string>
+
+iaInt.Get() // 1
+iaString.Get() // "hello"
+```
 
 ## <a name="see-also"></a>另请参阅
 

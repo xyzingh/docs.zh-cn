@@ -8,12 +8,12 @@ dev_langs:
 helpviewer_keywords:
 - what's new [.NET Framework]
 ms.assetid: 1d971dd7-10fc-4692-8dac-30ca308fc0fa
-ms.openlocfilehash: 13346836b6cc1c9db4a1b6fd93a11615c2a843c0
-ms.sourcegitcommit: 279fb6e8d515df51676528a7424a1df2f0917116
+ms.openlocfilehash: da0e92f394507a37b0b6c163b41a575abc1c1a2b
+ms.sourcegitcommit: 30a686fd4377fe6472aa04e215c0de711bc1c322
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92687566"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441104"
 ---
 # <a name="whats-new-in-net-framework"></a>.NET Framework 中的新增功能
 
@@ -506,7 +506,7 @@ NET Framework 4.7.2 为基于 enclave 的 Always Encrypted 添加支持。 Alway
 <ResourceDictionary Source="MyRD.xaml" />
 ```
 
-编辑 MyRD.xaml 中的原始标记的诊断助手可以使用新功能来找到字典  。  此功能通过新的静态方法 <xref:System.Windows.Diagnostics.ResourceDictionaryDiagnostics.GetResourceDictionariesForSource%2A?displayProperty=nameWithType> 实现。 诊断助手使用标识原始标记的绝对 URI 调用新方法，如以下代码所示：
+编辑 MyRD.xaml 中的原始标记的诊断助手可以使用新功能来找到字典。  此功能通过新的静态方法 <xref:System.Windows.Diagnostics.ResourceDictionaryDiagnostics.GetResourceDictionariesForSource%2A?displayProperty=nameWithType> 实现。 诊断助手使用标识原始标记的绝对 URI 调用新方法，如以下代码所示：
 
 ```csharp
 IEnumerable<ResourceDictionary> dictionaries = ResourceDictionaryDiagnostics.GetResourceDictionariesForSource(new Uri("pack://application:,,,/MyApp;component/MyRD.xaml"));
@@ -1585,9 +1585,9 @@ WPF 包括一个 [NuGet 包](https://www.nuget.org/packages/Microsoft.Wpf.Intero
 
     使用一致的开关格式是有益的，因为它们是由库公开的正式协定。 以下是两种明显的格式。
 
-    - *Switch* . *namespace* . *switchname*
+    - *Switch*. *namespace*. *switchname*
 
-    - *Switch* . *library* . *switchname*
+    - *Switch*. *library*. *switchname*
 
   - **更改为基于任务的异步模式 (TAP)**
 
@@ -1758,7 +1758,7 @@ WPF 包括一个 [NuGet 包](https://www.nuget.org/packages/Microsoft.Wpf.Intero
 
 - **开放源代码 .NET Framework 包**
 
-  .NET Core 包（如不可变集合）、[SIMD API](https://www.nuget.org/packages/Microsoft.Bcl.Simd) 以及网络 API（如在 <xref:System.Net.Http> 命名空间中找到的网络 API）现在都可在 [GitHub](https://github.com/) 上用作开放源代码程序包。 要访问代码，请参阅 [GitHub 上的 .NET](https://github.com/dotnet/runtime)。 有关详细信息以及如何参与这些包，请参阅 [.NET Core 和开放源代码](../get-started/net-core-and-open-source.md)、[GitHub 上的 .NET 主页](https://github.com/dotnet/home)。
+  .NET Core 包（如不可变集合）、[SIMD API](https://www.nuget.org/packages/Microsoft.Bcl.Simd) 以及网络 API（如在 <xref:System.Net.Http> 命名空间中找到的网络 API）现在都可在 [GitHub](https://github.com/) 上用作开放源代码程序包。 要访问代码，请参阅 [GitHub 上的 .NET](https://github.com/dotnet/runtime)。 有关详细信息以及如何参与这些包的方法，请参阅 [.NET 简介](../../core/introduction.md)、[GitHub 上的 .NET 主页](https://github.com/dotnet/home)。
 
 <a name="v452"></a>
 

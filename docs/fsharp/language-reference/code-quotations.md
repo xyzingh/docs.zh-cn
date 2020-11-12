@@ -2,20 +2,20 @@
 title: 代码引用
 description: '了解 F # 代码引用，它是一种语言功能，可用于以编程方式生成和使用 F # 代码表达式。'
 ms.date: 08/13/2020
-ms.openlocfilehash: 070e127397a5da7d70281d08ef7cafdb9b4f4fe5
-ms.sourcegitcommit: 8bfeb5930ca48b2ee6053f16082dcaf24d46d221
+ms.openlocfilehash: dc37fdbd6cd29e5ee94e5c0186dfe2bfeb666f32
+ms.sourcegitcommit: f99115e12a5eb75638abe45072e023a3ce3351ac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88558330"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94557189"
 ---
 # <a name="code-quotations"></a>代码引用
 
-本文介绍 *代码引用*，它是一种语言功能，可用于以编程方式生成和使用 F # 代码表达式。 利用此功能，您可以生成一个表示 F # 代码的抽象语法树。 然后，可以根据应用程序的需要遍历和处理抽象语法树。 例如，您可以使用树生成 F # 代码或以某种其他语言生成代码。
+本文介绍 *代码引用* ，它是一种语言功能，可用于以编程方式生成和使用 F # 代码表达式。 利用此功能，您可以生成一个表示 F # 代码的抽象语法树。 然后，可以根据应用程序的需要遍历和处理抽象语法树。 例如，您可以使用树生成 F # 代码或以某种其他语言生成代码。
 
 ## <a name="quoted-expressions"></a>带引号的表达式
 
-*带引号的表达式*是代码中的 F # 表达式，它以不作为程序的一部分进行编译，而是编译为表示 F # 表达式的对象。 可以通过以下两种方式之一来标记带引号的表达式：使用类型信息或不包含类型信息。 如果要包括类型信息，请使用符号 `<@` 并 `@>` 分隔带引号的表达式。 如果不需要类型信息，则使用符号 `<@@` 和 `@@>` 。 下面的代码显示类型化和非类型化的引用。
+*带引号的表达式* 是代码中的 F # 表达式，它以不作为程序的一部分进行编译，而是编译为表示 F # 表达式的对象。 可以通过以下两种方式之一来标记带引号的表达式：使用类型信息或不包含类型信息。 如果要包括类型信息，请使用符号 `<@` 并 `@>` 分隔带引号的表达式。 如果不需要类型信息，则使用符号 `<@@` 和 `@@>` 。 下面的代码显示类型化和非类型化的引用。
 
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-3/snippet501.fs)]
 
@@ -37,6 +37,21 @@ ms.locfileid: "88558330"
 [!code-fsharp[Main](~/samples/snippets/fsharp/lang-ref-3/snippet502.fs)]
 
 若要计算 F # 引号，必须使用 [f # 引号计算](https://github.com/fsprojects/FSharp.Quotations.Evaluator)器。 它提供对计算和执行 F # 表达式对象的支持。
+
+F # 引号还会保留类型约束信息。 请看下面的示例：
+
+```fsharp
+open FSharp.Linq.RuntimeHelpers
+
+let eval q = LeafExpressionConverter.EvaluateQuotation q
+
+let inline negate x = -x
+// val inline negate: x: ^a ->  ^a when  ^a : (static member ( ~- ) :  ^a ->  ^a)
+
+<@ negate 1.0 @>  |> eval
+```
+
+函数生成的约束 `inline` 保留在代码 qutoation 中。 `negate`现在可以计算该函数的 quotated 窗体。
 
 ## <a name="expr-type"></a>Expr 类型
 
@@ -95,6 +110,6 @@ let f = fun (x:System.Int32) -> x + 10 in f 10
 1 + Module1.mul(2,Module1.mul(3,4))
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 - [F# 语言参考](index.md)

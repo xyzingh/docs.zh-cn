@@ -1,53 +1,53 @@
 ---
 title: 安装本地化的 IntelliSense 文件
-description: 了解如何设置开发计算机，以便在 Visual Studio 中为 .NET Core 项目使用本地化的 IntelliSense 文件。
-ms.date: 01/23/2020
-ms.openlocfilehash: e45e225e58865ca2b529000ada0984fbeca850f3
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+description: 了解如何设置开发计算机，以便在 Visual Studio 中为 .NET 5+ 项目（包含 .NET Core）使用本地化的 IntelliSense 文件。
+ms.date: 11/06/2020
+ms.openlocfilehash: 121439199f0de6d29a18ea55031976680fc1f833
+ms.sourcegitcommit: 30a686fd4377fe6472aa04e215c0de711bc1c322
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "78157708"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94439815"
 ---
-# <a name="how-to-install-localized-intellisense-files-for-net-core"></a>如何为 .NET Core 安装本地化的 IntelliSense 文件
+# <a name="how-to-install-localized-intellisense-files-for-net"></a>如何为 .NET 安装本地化的 IntelliSense 文件
 
-[IntelliSense](/visualstudio/ide/using-intellisense) 是一种代码完成辅助工具，可以在不同的集成开发环境 (IDE) 中使用，例如 Visual Studio。 默认情况下，在开发 .NET Core 项目时，SDK 仅包含英语版本的 IntelliSense 文件。 本文介绍：
+[IntelliSense](/visualstudio/ide/using-intellisense) 是一种代码完成辅助工具，可以在不同的集成开发环境 (IDE) 中使用，例如 Visual Studio。 默认情况下，在开发 .NET 项目时，SDK 仅包含英语版本的 IntelliSense 文件。 本文介绍：
 
 - 如何安装这些文件的本地化版本。
 - 如何修改 Visual Studio 安装以使用其他语言。
 
 ## <a name="prerequisites"></a>系统必备
 
-- [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core) 或更高版本。
+- [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core) 或更高版本，例如 [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)。
 - [Visual Studio 2019 版本 16.3](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) 或更高版本。
 
 ## <a name="download-and-install-the-localized-intellisense-files"></a>下载并安装本地化的 IntelliSense 文件
 
 > [!IMPORTANT]
-> 此过程需具有管理员权限，才能将 IntelliSense 文件复制到 .NET Core 安装文件夹中。
+> 此过程需具有管理员权限，才能将 IntelliSense 文件复制到 .NET 安装文件夹中。
 
-1. 转到[下载 IntelliSense 文件](https://dotnet.microsoft.com/download/dotnet-core/intellisense)页面。
+1. 转到[下载 IntelliSense 文件](https://dotnet.microsoft.com/download/intellisense)页面。
 
 1. 下载要使用的语言和版本的 IntelliSense 文件。
 
 1. 提取 zip 文件的内容。
 
-1. 导航到 .NET Core Intellisense 文件夹。
+1. 导航到 .NET Intellisense 文件夹。
 
-   1. 导航至 .NET Core 安装文件夹。 默认情况下，它位于 %ProgramFiles%\dotnet\packs 下  。
+   1. 导航到 .NET 安装文件夹。 默认情况下，它位于 %ProgramFiles%\dotnet\packs 下  。
    1. 选择要为其安装 IntelliSense 的 SDK，然后导航到关联的路径。 有下列选项：
 
-      | SDK 类型        | 路径                               |
-      | --------------- | ---------------------------------- |
-      | .NET Core       | Microsoft.NETCore.App.Ref         |
-      | Windows 桌面 | Microsoft.WindowsDesktop.App.Ref  |
-      | .NET Standard   | NETStandard.Library.Ref           |
+      | SDK 类型              | 路径                               |
+      |-----------------------|------------------------------------|
+      | .NET 5+ 和 .NET Core | Microsoft.NETCore.App.Ref         |
+      | Windows 桌面       | Microsoft.WindowsDesktop.App.Ref  |
+      | .NET Standard         | NETStandard.Library.Ref           |
 
    1. 导航到要为其安装本地化 IntelliSense 的版本。 例如，3.1.0  。
    1. 打开 ref 文件夹  。
-   1. 打开 moniker 文件夹。 例如，netcoreapp3.1  。
+   1. 打开 moniker 文件夹。 例如 net5.0。
 
-   因此，要导航到的完整路径看起来将类似于 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\3.1.0\ref\netcoreapp3.1  。
+   因此，要导航到的完整路径看起来将类似于 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\5.0.0\ref\net5.0。
 
 1. 在刚打开的 moniker 文件夹中创建一个子文件夹。 文件夹名称指示要使用的语言。 下表指定了不同的选项：
 
@@ -64,7 +64,7 @@ ms.locfileid: "78157708"
    | 俄语               | ru         |
    | 西班牙语               | es         |
 
-1. 将在步骤3中提取的 .xml 文件复制到此新文件夹  。 .xml 文件按 SDK 文件夹细分，因此，请将它们复制到步骤 4 中选择的相应 SDK  。
+1. 将在步骤 3 中提取的 .xml 文件复制到此新文件夹。 .xml 文件按 SDK 文件夹细分，因此，请将它们复制到步骤 4 中选择的相应 SDK。
 
 ## <a name="modify-visual-studio-language"></a>修改 Visual Studio 语言
 
@@ -122,7 +122,7 @@ ms.locfileid: "78157708"
 
 1. 重新启动 Visual Studio。
 
-之后，当打开面向刚安装的 IntelliSense 文件版本的 .NET Core 项目时，IntelliSense 应会按预期方式工作。
+之后，当打开面向刚安装的 IntelliSense 文件版本的 .NET 项目时，IntelliSense 应会按预期方式工作。
 
 ## <a name="see-also"></a>另请参阅
 

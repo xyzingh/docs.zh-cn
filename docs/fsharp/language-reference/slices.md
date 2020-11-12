@@ -2,12 +2,12 @@
 title: 切片
 description: '了解如何使用现有 F # 数据类型的切片，以及如何为其他数据类型定义自己的切片。'
 ms.date: 12/23/2019
-ms.openlocfilehash: d3ddb2c247c36a85842f565f051372c5f2c9a9e9
-ms.sourcegitcommit: 8bfeb5930ca48b2ee6053f16082dcaf24d46d221
+ms.openlocfilehash: a3920ad9e1b205b506aaee92c4606bcebf94feba
+ms.sourcegitcommit: f99115e12a5eb75638abe45072e023a3ce3351ac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88559006"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94557072"
 ---
 # <a name="slices"></a>切片
 
@@ -149,6 +149,62 @@ let xs = [1 .. 10]
 printfn "%A" xs.[2..5] // Includes the 5th index
 ```
 
-## <a name="see-also"></a>另请参阅
+## <a name="built-in-f-empty-slices"></a>内置 F # 空切片
+
+如果语法可能生成不存在的切片，则 F # 列表、数组、序列、字符串、二维数组、3D 数组和4D 数组将生成一个空切片。
+
+考虑以下情况：
+
+```fsharp
+let l = [ 1..10 ]
+let a = [| 1..10 |]
+let s = "hello!"
+
+let emptyList = l.[-2..(-1)]
+let emptyArray = a.[-2..(-1)]
+let emptyString = s.[-2..(-1)]
+```
+
+C # 开发人员可能希望它们引发异常，而不是生成空切片。 这是一个以 F # 编写的空集合为基础的设计决策。 空 F # 列表可以用另一个 F # 列表撰写，空字符串可添加到现有字符串，等等。 基于作为参数传入的值拍摄切片很常见，并且通过生成一个空集合（与 F # 代码的复合特性相匹配），可以更容错。
+
+## <a name="fixed-index-slices-for-3d-and-4d-arrays"></a>用于3D 和4D 数组的固定索引切片
+
+对于 F # 3D 和4D 数组，可以 "修复" 特定索引，并切分已修复索引的其他维度。
+
+为了说明这一点，请考虑下面的三维数组：
+
+*z = 0*
+| x\y   | 0 | 1 |
+|-------|---|---|
+| **0** | 0 | 1 |
+| **1** | 2 | 3 |
+
+*z = 1*
+| x\y   | 0 | 1 |
+|-------|---|---|
+| **0** | 4 | 5 |
+| **1** | 6 | 7 |
+
+如果要 `[| 4; 5 |]` 从数组中提取切片，请使用固定索引切片。
+
+```fsharp
+let dim = 2
+let m = Array3D.zeroCreate<int> dim dim dim
+
+let mutable count = 0
+
+for z in 0..dim-1 do
+    for y in 0..dim-1 do
+        for x in 0..dim-1 do
+            m.[x,y,z] <- count
+            count <- count + 1
+
+// Now let's get the [4;5] slice!
+m.[*, 0, 1]
+```
+
+最后一行修复了 `y` `z` 三维数组的和索引，并采用了对应于矩阵的其余 `x` 值。
+
+## <a name="see-also"></a>请参阅
 
 - [索引属性](./members/indexed-properties.md)

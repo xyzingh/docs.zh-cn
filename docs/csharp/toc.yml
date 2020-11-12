@@ -1270,6 +1270,9 @@
           displayName: 'switch, pattern matching, patterns'
         - name: true 和 false 运算符
           href: language-reference/operators/true-false-operators.md
+        - name: with 表达式
+          href: language-reference/operators/with-expression.md
+          displayName: 'records, copy'
         - name: 运算符重载
           href: language-reference/operators/operator-overloading.md
     - name: 特殊字符

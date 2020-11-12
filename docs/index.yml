@@ -11,12 +11,12 @@ metadata:
   author: BillWagner
   ms.author: wiwagn
   ms.date: 10/9/2020
-  ms.openlocfilehash: 0a173d85f5e7969831a2ace6aa860b6fde8cf579
-  ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
+  ms.openlocfilehash: 65e2dbf0613a9bdd63bd8695f06b8c931e28268d
+  ms.sourcegitcommit: 30a686fd4377fe6472aa04e215c0de711bc1c322
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93064179"
+  ms.lasthandoff: 11/10/2020
+  ms.locfileid: "94441039"
 highlightedContent:
   items:
   - title: 下载 .NET
@@ -228,14 +228,14 @@ additionalContent:
         text: .NET for Apache Spark
     - title: 物联网 (IoT)
       links:
-      - url: https://channel9.msdn.com/Shows/On-NET/IoT-support-for-NET-Core
-        text: 在 .NET 上：了解 .NET Core 中的 IoT 支持
-      - url: /archive/msdn-magazine/2019/august/net-core-cross-platform-iot-programming-with-net-core-3-0
-        text: 通过 .NET Core 3.0 进行跨平台 IoT 编程
-      - url: https://github.com/dotnet/iot
-        text: .NET Core IoT 库
-      - url: https://www.nuget.org/packages/System.Device.Gpio
-        text: System.Device.Gpio NuGet 包
+      - url: /dotnet/iot/
+        text: .NET IoT 库
+      - url: /dotnet/iot/quickstarts/sensehat
+        text: 5 分钟入门
+      - url: /dotnet/iot/tutorials/blink-led
+        text: 闪烁 LED
+      - url: https://aka.ms/IoTNet101
+        text: .NET IoT 101 视频系列
   - title: API 和语言参考
     summary: 搜索 .NET API 和语言参考文档。
     items:
