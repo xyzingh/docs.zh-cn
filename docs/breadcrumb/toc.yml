@@ -578,3 +578,6 @@ items:
               - name: 面向 .NET 开发人员的 Azure
                 tocHref: /dotnet/azure/
                 topicHref: /dotnet/azure/index
+          - name: .NET IoT 库
+            tocHref: /dotnet/iot/
+            topicHref: /dotnet/iot/index

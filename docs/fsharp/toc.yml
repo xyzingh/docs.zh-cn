@@ -41,6 +41,8 @@
       href: tutorials/fsharp-interactive/index.md
 - name: F# 中的新增内容
   items:
+    - name: F# 5.0
+      href: whats-new/fsharp-50.md
     - name: F# 4.7
       href: whats-new/fsharp-47.md
     - name: F# 4.6
