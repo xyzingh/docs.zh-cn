@@ -6,12 +6,12 @@ metadata:
   description: 了解 C# 编程 - 面向新手开发人员、刚开始接触 C# 的开发人员、以及经验丰富的 C# / .NET 开发人员
   ms.topic: landing-page
   ms.date: 11/19/2019
-  ms.openlocfilehash: 7a9818ea24af237242ddd55afb53d691400ce008
-  ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+  ms.openlocfilehash: f31d24add06b958f6c5bc00baf4c09601616604e
+  ms.sourcegitcommit: f99115e12a5eb75638abe45072e023a3ce3351ac
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90537374"
+  ms.lasthandoff: 11/12/2020
+  ms.locfileid: "94556811"
 landingContent:
 - title: 了解如何使用 C# 编程
   linkLists:
@@ -33,7 +33,7 @@ landingContent:
       url: https://aka.ms/dotnet3-csharp
   - linkListType: download
     links:
-    - text: 下载 .NET Core SDK
+    - text: 下载 .NET SDK
       url: https://dotnet.microsoft.com/download
 - title: C# 基础知识
   linkLists:

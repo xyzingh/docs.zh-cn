@@ -20,10 +20,18 @@ groups:
     title: xUnit
   - id: nunit
     title: NUnit
+- id: dotnet-version
+  title: .NET 版本
+  prompt: 选择 .NET 版本
+  pivots:
+  - id: dotnet-5-0
+    title: .NET 5.0
+  - id: dotnet-core-3-1
+    title: .NET Core 3.1
 metadata:
-  ms.openlocfilehash: 91fc1110fbbec2e8435b701014630159ab3077d7
-  ms.sourcegitcommit: 0926684d8d34f4c6b5acce58d2193db093cb9cf2
+  ms.openlocfilehash: 0709cc3ded8a139241a043b9489b81c16e57227f
+  ms.sourcegitcommit: 6bef8abde346c59771a35f4f76bf037ff61c5ba3
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 05/20/2020
-  ms.locfileid: "83703627"
+  ms.lasthandoff: 11/06/2020
+  ms.locfileid: "94329737"
