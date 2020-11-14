@@ -7,12 +7,12 @@ helpviewer_keywords:
 - XML serialization, configuration
 - <system.xml.serialization> element
 ms.assetid: 3ce45919-388a-418c-8968-6df0372c73ec
-ms.openlocfilehash: f69e80592e9321de64421b977a63b83d8be2ad9e
-ms.sourcegitcommit: b16c00371ea06398859ecd157defc81301c9070f
+ms.openlocfilehash: 6291799aadc429e943996f2256d773ac36dd370f
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84289481"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282389"
 ---
 # <a name="systemxmlserialization-element"></a>\<system.xml.serialization> 元素
 
@@ -41,7 +41,7 @@ ms.locfileid: "84289481"
 |元素|描述|
 |-------------|-----------------|
 |[\<dateTimeSerialization> 元素](datetimeserialization-element.md)|确定 <xref:System.DateTime> 对象的序列化模式。|
-|[\<schemaImporterExtensions> 元素](schemaimporterextensions-element.md)|包含将 XSD 类型映射到 .NET Framework 类型时 <xref:System.Xml.Serialization.XmlSchemaImporter> 所用的类型。|
+|[\<schemaImporterExtensions> 元素](schemaimporterextensions-element.md)|包含将 XSD 类型映射到 .NET 类型时 <xref:System.Xml.Serialization.XmlSchemaImporter> 所用的类型。|
 
 ### <a name="parent-elements"></a>父元素
 
@@ -51,7 +51,7 @@ ms.locfileid: "84289481"
 
 ## <a name="example"></a>示例
 
-下面的代码示例演示如何指定 <xref:System.DateTime> 对象的序列化模式，以及将 XSD 类型映射到 .NET Framework 类型时 <xref:System.Xml.Serialization.XmlSchemaImporter> 所用的其他类型。
+下面的代码示例演示如何指定 <xref:System.DateTime> 对象的序列化模式，以及将 XSD 类型映射到 .NET 类型时 <xref:System.Xml.Serialization.XmlSchemaImporter> 所用的其他类型。
 
 ```xml
 <system.xml.serialization>

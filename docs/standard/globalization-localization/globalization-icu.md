@@ -10,12 +10,12 @@ helpviewer_keywords:
 - application development [.NET], globalization
 - culture, globalization
 - icu, icu on windows, ms-icu
-ms.openlocfilehash: 87d0103e90d46ae83b23c9cc05e9efcaa51c831f
-ms.sourcegitcommit: b1442669f1982d3a1cb18ea35b5acfb0fc7d93e4
+ms.openlocfilehash: e0ca78871d1ddf851148096c8c6cfd10076763ab
+ms.sourcegitcommit: 48466b8fb7332ececff5dc388f19f6b3ff503dd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93063984"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93400874"
 ---
 # <a name="net-globalization-and-icu"></a>.NET 全球化和 ICU
 
@@ -33,34 +33,34 @@ ms.locfileid: "93063984"
 
 ## <a name="icu-on-windows"></a>Windows 上的 ICU
 
-Windows 2019 年 5 月 10 日更新及更高版本将 [icu.dll](/windows/win32/intl/international-components-for-unicode--icu-) 作为 OS 的一部分，并且 .NET 5.0 和更高版本默认使用 ICU。 在 Windows 上运行时，.NET 5.0 和更高版本尝试加载 `icu.dll`，如果此库可用，将使用它进行全球化实现。  如果无法找到或无法加载此库，如在较早版本的 Windows 上运行时，.NET 5.0 和更高版本将回退到基于 NLS 的实现。
+Windows 2019 年 5 月 10 日更新及更高版本将 [icu.dll](/windows/win32/intl/international-components-for-unicode--icu-) 作为 OS 的一部分，并且 .NET 5.0 和更高版本默认使用 ICU。 在 Windows 上运行时，.NET 5.0 和更高版本尝试加载 `icu.dll`，如果此库可用，将使用它进行全球化实现。 如果无法找到或无法加载 ICU 库，如在较早版本的 Windows 上运行时，.NET 5.0 和更高版本将回退到基于 NLS 的实现。
 
 > [!NOTE]
 > 即使使用 ICU，`CurrentCulture`、`CurrentUICulture` 和 `CurrentRegion` 成员仍使用 Windows 操作系统 API 来遵从用户设置。
 
-### <a name="using-nls-instead-of-icu"></a>使用 NLS 而不是 ICU
+### <a name="use-nls-instead-of-icu"></a>使用 NLS 而不是 ICU
 
 使用 ICU 代替 NLS 可能会导致与一些与全球化相关的操作存在行为差异。 若要恢复为使用 NLS，开发人员可以选择退出 ICU 实现。 应用程序可以通过以下任意方式启用 NLS 模式：
 
 - 在项目文件中：
 
-```xml
-<ItemGroup>
-  <RuntimeHostConfigurationOption Include="System.Globalization.UseNls" Value="true" />
-</ItemGroup>
-```
+  ```xml
+  <ItemGroup>
+    <RuntimeHostConfigurationOption Include="System.Globalization.UseNls" Value="true" />
+  </ItemGroup>
+  ```
 
 - 在 `runtimeconfig.json` 文件中：
 
-```json
-{
-  "runtimeOptions": {
-     "configProperties": {
-       "System.Globalization.UseNls": true
-      }
+  ```json
+  {
+    "runtimeOptions": {
+       "configProperties": {
+         "System.Globalization.UseNls": true
+        }
+    }
   }
-}
-```
+  ```
 
 - 通过将环境变量 `DOTNET_SYSTEM_GLOBALIZATION_USENLS` 设置为值 `true` 或 `1`。
 
@@ -71,35 +71,35 @@ Windows 2019 年 5 月 10 日更新及更高版本将 [icu.dll](/windows/win32/i
 
 ## <a name="app-local-icu"></a>应用本地 ICU
 
-每个版本的 ICU 都可能附带了 bug 修复以及描述世界语言的更新公共区域设置数据存储库 (CLDR) 数据。 当涉及与全球化相关的操作时，在 ICU 版本间移动可能会对应用行为产生细微影响。  为了帮助应用程序开发人员确保所有部署之间的一致性，.NET 5.0 和更高版本使 Windows 和 Unix 上的应用能够携带和使用其自己的 ICU 副本。
+每个版本的 ICU 都可能附带了 bug 修复以及描述世界语言的更新公共区域设置数据存储库 (CLDR) 数据。 当涉及与全球化相关的操作时，在 ICU 版本间移动可能会对应用行为产生细微影响。 为了帮助应用程序开发人员确保所有部署之间的一致性，.NET 5.0 和更高版本使 Windows 和 Unix 上的应用能够携带和使用其自己的 ICU 副本。
 
 应用程序可以通过以下任一方式选择使用应用本地 ICU 实现模式：
 
 - 在项目文件中：
 
-```xml
-<ItemGroup>
-  <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="<suffix>:<version> or <version>" />
-</ItemGroup>
-```
+  ```xml
+  <ItemGroup>
+    <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="<suffix>:<version> or <version>" />
+  </ItemGroup>
+  ```
 
 - 在 `runtimeconfig.json` 文件中：
 
-```json
-{
-  "runtimeOptions": {
-     "configProperties": {
-       "System.Globalization.AppLocalIcu": "<suffix>:<version> or <version>"
-      }
+  ```json
+  {
+    "runtimeOptions": {
+       "configProperties": {
+         "System.Globalization.AppLocalIcu": "<suffix>:<version> or <version>"
+       }
+    }
   }
-}
-```
+  ```
 
 - 通过将环境变量 `DOTNET_SYSTEM_GLOBALIZATION_APPLOCALICU` 设置为值 `<suffix>:<version>` 或 `<version>`。
 
-`<suffix>`：长度小于 36 个字符的可选后缀，遵循公共 ICU 打包约定。 在生成自定义 ICU 时，可以对其自定义以生成 lib 名称并导出符号名称以包含后缀，例如 `libicuucmyapp`，其中 `myapp` 是后缀。
+  `<suffix>`：长度小于 36 个字符的可选后缀，遵循公共 ICU 打包约定。 在生成自定义 ICU 时，可以对其自定义以生成 lib 名称并导出符号名称以包含后缀，例如 `libicuucmyapp`，其中 `myapp` 是后缀。
 
-`<version>`：有效的 ICU 版本，例如 67.1。 此版本用于加载二进制文件和获取导出的符号。
+  `<version>`：有效的 ICU 版本，例如 67.1。 此版本用于加载二进制文件和获取导出的符号。
 
 为了在设置应用本地开关时加载 ICU，.NET 使用 <xref:System.Runtime.InteropServices.NativeLibrary.TryLoad%2A?displayProperty=nameWithType> 方法探测多个路径。 该方法首先尝试在 `NATIVE_DLL_SEARCH_DIRECTORIES` 属性中查找库，该属性由 dotnet 主机基于应用的 `deps.json` 文件创建。 有关更多信息，请参阅[默认探测](../../core/dependency-loading/default-probing.md)。
 
@@ -120,7 +120,7 @@ Windows 2019 年 5 月 10 日更新及更高版本将 [icu.dll](/windows/win32/i
 
 ### <a name="macos-behavior"></a>macOS 行为
 
-`macOS` 关于使用 `match-o` 文件中指定的加载命令解析依赖的动态库的行为与 Linux 加载程序不同。 在 Linux 加载程序中，.NET 可以尝试使用 `libicudata`、`libicuuc` 和 `libicui18n`（按此顺序）来满足 ICU 依赖项关系图。 但在 macOS 上，这不起作用。 在 macOS 上生成 ICU 时，默认情况下，可以使用 `libicuuc` 中的这些加载命令获取动态库。 例如：
+`macOS` 关于使用 `match-o` 文件中指定的加载命令解析依赖的动态库的行为与 Linux 加载程序不同。 在 Linux 加载程序中，.NET 可以尝试使用 `libicudata`、`libicuuc` 和 `libicui18n`（按此顺序）来满足 ICU 依赖项关系图。 但在 macOS 上，这不起作用。 在 macOS 上生成 ICU 时，默认情况下，可以使用 `libicuuc` 中的这些加载命令获取动态库。 以下代码片段演示了一个示例。
 
 ```sh
 ~/ % otool -L /Users/santifdezm/repos/icu-build/icu/install/lib/libicuuc.67.1.dylib
@@ -139,19 +139,19 @@ Windows 2019 年 5 月 10 日更新及更高版本将 [icu.dll](/windows/win32/i
 
   运行以下命令：
 
-```bash
-install_name_tool -change "libicudata.67.dylib" "@loader_path/libicudata.67.dylib" /path/to/libicuuc.67.1.dylib
-install_name_tool -change "libicudata.67.dylib" "@loader_path/libicudata.67.dylib" /path/to/libicui18n.67.1.dylib
-install_name_tool -change "libicuuc.67.dylib" "@loader_path/libicuuc.67.dylib" /path/to/libicui18n.67.1.dylib
-```
+  ```bash
+  install_name_tool -change "libicudata.67.dylib" "@loader_path/libicudata.67.dylib" /path/to/libicuuc.67.1.dylib
+  install_name_tool -change "libicudata.67.dylib" "@loader_path/libicudata.67.dylib" /path/to/libicui18n.67.1.dylib
+  install_name_tool -change "libicuuc.67.dylib" "@loader_path/libicuuc.67.dylib" /path/to/libicui18n.67.1.dylib
+  ```
 
 - 修补 ICU 以生成含有 `@loader_path` 的安装名称
 
   在运行 autoconf (`./runConfigureICU`) 之前，将[这些行](https://github.com/unicode-org/icu/blob/ef91cc3673d69a5e00407cda94f39fcda3131451/icu4c/source/config/mh-darwin#L32-L37)更改为以下内容：
 
-```
-LD_SONAME = -Wl,-compatibility_version -Wl,$(SO_TARGET_VERSION_MAJOR) -Wl,-current_version -Wl,$(SO_TARGET_VERSION) -install_name @loader_path/$(notdir $(MIDDLE_SO_TARGET))
-```
+  ```
+  LD_SONAME = -Wl,-compatibility_version -Wl,$(SO_TARGET_VERSION_MAJOR) -Wl,-current_version -Wl,$(SO_TARGET_VERSION) -install_name @loader_path/$(notdir $(MIDDLE_SO_TARGET))
+  ```
 
 ## <a name="icu-on-webassembly"></a>WebAssembly 上的 ICU
 

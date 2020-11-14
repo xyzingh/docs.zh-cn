@@ -10,12 +10,12 @@ helpviewer_keywords:
 - serializing objects
 - serialization
 - objects, serializing
-ms.openlocfilehash: 909d979d46b30939e304af071de65d230febd92d
-ms.sourcegitcommit: d6bd7903d7d46698e9d89d3725f3bb4876891aa3
+ms.openlocfilehash: d8bd5bcf78db534bd722972db01253cbd13a7a06
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83380128"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282397"
 ---
 # <a name="json-serialization-and-deserialization-marshalling-and-unmarshalling-in-net---overview"></a>.NET 中的 JSON 序列化和反序列化（封送和拆收）- 概述
 
@@ -27,8 +27,9 @@ ms.locfileid: "83380128"
 
 ## <a name="how-to-get-the-library"></a>如何获取库
 
-* 该库是作为 [.NET Core 3.0](https://aka.ms/netcore3download) 共享框架的一部分内置的。
-* 对于其他目标框架，请安装 [System.Text.Json](https://www.nuget.org/packages/System.Text.Json) NuGet 包。 包支持以下框架：
+* 该库是作为 .NET Core 3.0 及更高版本共享框架的一部分内置的。
+* 对于早期版本的框架，请安装 [System.Text.Json](https://www.nuget.org/packages/System.Text.Json) NuGet 包。 包支持以下框架：
+
   * .NET Standard 2.0 及更高版本
   * .NET Framework 4.7.2 及更高版本
   * .NET Core 2.0、2.1 和 2.2

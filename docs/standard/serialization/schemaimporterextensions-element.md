@@ -1,21 +1,22 @@
 ---
 title: <schemaImporterExtensions> 元素
-description: <schemaImporterExtensions> 元素包含将 XSD 类型映射到 .NET Framework 类型时 XmlSchemaImporter 所用的类型。
+description: <schemaImporterExtensions> 元素包含将 XSD 类型映射到 .NET 类型时 XmlSchemaImporter 所用的类型。
 ms.date: 03/30/2017
 helpviewer_keywords:
 - XML serialization, configuration
 - schemaImporterExtensions element
 - <schemaImporterExtensions> element
 ms.assetid: 465ef2a0-f909-4ac1-9a56-0ead5c849698
-ms.openlocfilehash: c46c5cb6e01463723f0f2ce3873fb4a6ec0b4e60
-ms.sourcegitcommit: b16c00371ea06398859ecd157defc81301c9070f
+ms.openlocfilehash: 35626618a8dd7c63a7008d10bc3568484836a488
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84278397"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282278"
 ---
 # <a name="schemaimporterextensions-element"></a>\<schemaImporterExtensions> 元素
-包含将 XSD 类型映射到 .NET Framework 类型时 <xref:System.Xml.Serialization.XmlSchemaImporter> 所用的类型。 有关配置文件的详细信息，请参阅[配置文件架构](../../framework/configure-apps/file-schema/index.md)。  
+
+包含将 XSD 类型映射到 .NET 类型时 <xref:System.Xml.Serialization.XmlSchemaImporter> 所用的类型。 有关配置文件的详细信息，请参阅[配置文件架构](../../framework/configure-apps/file-schema/index.md)。  
   
 ## <a name="syntax"></a>语法  
   
@@ -38,7 +39,7 @@ ms.locfileid: "84278397"
 |[\<system.xml.serialization> 元素](system-xml-serialization-element.md)|用于控制 XML 序列化的顶级元素。|  
   
 ## <a name="example"></a>示例  
- 下面的代码示例演示如何添加将 XSD 类型映射到 .NET Framework 类型时 <xref:System.Xml.Serialization.XmlSchemaImporter> 所用的类型。  
+ 下面的代码示例演示如何添加将 XSD 类型映射到 .NET 类型时 <xref:System.Xml.Serialization.XmlSchemaImporter> 所用的类型。  
   
 ```xml  
 <system.xml.serialization>  

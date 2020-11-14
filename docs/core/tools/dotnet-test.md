@@ -2,12 +2,12 @@
 title: dotnet test 命令
 description: dotnet test 命令可用于在给定项目中执行单元测试。
 ms.date: 04/29/2020
-ms.openlocfilehash: 5ecfa24905537a663cd967142b765c258495fb22
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 6805564ccd8a8b4911c7c687d97a06df2910c015
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90537727"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93281605"
 ---
 # <a name="dotnet-test"></a>dotnet test
 
@@ -77,7 +77,13 @@ dotnet test -h|--help
 
 - **`--blame-crash`** （自 .NET 5.0 预览版 SDK 起可用）
 
-  在追责模式下运行测试，并在测试主机意外退出时收集故障转储。 此选项仅可用于 Windows。 包含 procdump.exe 和 procdump64.exe 的目录必须位于 PATH 或 PROCDUMP_PATH 环境变量中。 [下载工具](/sysinternals/downloads/procdump)。 意味着 `--blame`。
+  在追责模式下运行测试，并在测试主机意外退出时收集故障转储。 此选项取决于所使用的 .NET 版本、错误的类型和操作系统。
+  
+  对于托管代码中的异常，将在 .NET 5.0 及更高版本上自动收集转储。 对于 testhost 或也在 .NET 5.0 上运行并且出现故障的任何子进程，它将生成转储。 本机代码中的故障将不会生成转储。 此选项适用于 Windows、macOS 和 Linux。
+  
+  本机代码中的故障转储（或者当使用 .NET Core 3.1 或更早版本时）只能使用 Procdump 在 Windows 上进行收集。 包含 procdump.exe 和 procdump64.exe 的目录必须位于 PATH 或 PROCDUMP_PATH 环境变量中。 [下载工具](/sysinternals/downloads/procdump)。 意味着 `--blame`。
+  
+  若要从 .NET 5.0 或更高版本上运行的本机应用程序收集故障转储，可以通过将 `VSTEST_DUMP_FORCEPROCDUMP` 环境变量设置为 `1` 来强制执行 Procdump 的使用。
 
 - **`--blame-crash-dump-type <DUMP_TYPE>`** （自 .NET 5.0 预览版 SDK 起可用）
 
@@ -97,14 +103,14 @@ dotnet test -h|--help
 
 - **`--blame-hang-timeout <TIMESPAN>`** （自 .NET 5.0 预览版 SDK 起可用）
 
-  每测试超时时间，在此时间后，将触发挂起转储并终止测试宿主进程。 超时值是采用以下格式之一指定的：
+  每个测试超时时间，在此时间后，将触发挂起转储，并转储和终止测试主机进程及其所有子进程。 超时值是采用以下格式之一指定的：
   
-  - 1.5 h
-  - 90 m
-  - 5400 s
-  - 5400000 ms
+  - 1.5h、1.5hour、1.5hours
+  - 90m、90min、90minute、90minutes
+  - 5400s、5400sec、5400second、5400seconds
+  - 5400000ms、5400000mil、5400000millisecond、5400000milliseconds
 
-  如果未使用单位（例如，5400000），则假定该值以毫秒为单位。 与数据驱动的测试一起使用时，超时行为取决于所使用的测试适配器。 对于 xUnit 和 NUnit，会在每个测试用例后更新超时。 对于 MSTest，超时用于所有测试用例。 此选项在使用 netcoreapp 2.1 和更高版本的 Windows 上以及在使用 netcoreapp 3.1 和更高版本的 Linux 上受支持。 不支持 macOS。
+  如果未使用单位（例如，5400000），则假定该值以毫秒为单位。 与数据驱动的测试一起使用时，超时行为取决于所使用的测试适配器。 对于 xUnit 和 NUnit，会在每个测试用例后更新超时。 对于 MSTest，超时用于所有测试用例。 此选项在使用 netcoreapp 2.1 和更高版本的 Windows 上，在使用 netcoreapp 3.1 和更高版本的 Linux 上以及在使用 net5.0 或更高版本的 macOS 上受支持。 意味着 `--blame` 和 `--blame-hang`。
 
 - **`-c|--configuration <CONFIGURATION>`**
 
@@ -264,7 +270,7 @@ dotnet test -h|--help
 
 | 运算符            | 函数 |
 | ------------------- | -------- |
-| <code>&#124;</code> | 或       |
+| <code>&#124;</code> | 或       |
 | `&`                 | AND      |
 
 使用条件运算符时，可以用括号将表达式括起来（例如，`(Name~TestMethod1) | (Name~TestMethod2)`）。

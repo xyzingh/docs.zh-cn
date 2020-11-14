@@ -3,12 +3,12 @@ title: 序列化概念
 description: 序列化可用于捕获对象的状态，以便可以创建副本或按值将对象从一个应用程序域发送到另一个应用程序域。
 ms.date: 08/07/2017
 ms.assetid: e1ff4740-20a1-4c76-a8ad-d857db307054
-ms.openlocfilehash: a185855f4b6913c8e1d57bf36fc5c37411123e68
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: dcaa3fa0d9080c958e63a3ae9d1e8f951ea1f70b
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90541195"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282297"
 ---
 # <a name="serialization-concepts"></a>序列化概念
 为什么要使用序列化？ 两个最重要的原因是将对象状态保存到存储媒体，以便可以在以后阶段重新创建精确副本；以及将对象按值从一个应用程序域发送至另一个应用程序域。 例如，序列化用于在 ASP.NET 中保存会话状态，并将对象复制到 Windows 窗体的剪贴板中。 它还可用于在远程处理中将对象按值从一个应用程序域传递至另一个应用程序域。
@@ -18,7 +18,7 @@ ms.locfileid: "90541195"
 ## <a name="persistent-storage"></a>永久性存储
 经常有必要将对象的字段值存储至磁盘，以后再检索此数据。 尽管不依赖序列化也能很容易地实现这一点，但方法通常麻烦而容易出错，并且需要跟踪对象的层次结构时会逐渐变得更加复杂。 假设要编写一个包含数千个对象的大型商务应用程序，并且必须为每个对象编写代码，以便将字段和属性保存至磁盘以及从磁盘进行还原。 序列化为实现这一目标提供了方便的机制。
 
-公共语言运行库可管理对象在内存中存储的方式，并通过使用[反射](../../framework/reflection-and-codedom/reflection.md)提供一种自动序列化机制。 当序列化对象时，类的名称、程序集和类实例的所有数据成员被写入存储区。 对象经常以成员变量方式将引用存储至其他实例。 当序列化类时，序列化引擎跟踪被引用的对象（已序列化），以确保同一对象不会被多次序列化。 随 .NET Framework 一起提供的序列化体系结构可自动正确地处理对象图和循环引用。 对于对象图的唯一要求是，必须将已序列化对象引用的所有对象也标记为 `Serializable`（有关详细信息，请参阅[基本序列化](basic-serialization.md)）。 如果未进行标记，序列化程序尝试序列化未标记的对象时将引发异常。
+公共语言运行库可管理对象在内存中存储的方式，并通过使用[反射](../../framework/reflection-and-codedom/reflection.md)提供一种自动序列化机制。 当序列化对象时，类的名称、程序集和类实例的所有数据成员被写入存储区。 对象经常以成员变量方式将引用存储至其他实例。 当序列化类时，序列化引擎跟踪被引用的对象（已序列化），以确保同一对象不会被多次序列化。 .NET 提供的序列化体系结构可自动正确地处理对象图和循环引用。 对于对象图的唯一要求是，必须将已序列化对象引用的所有对象也标记为 `Serializable`（有关详细信息，请参阅[基本序列化](basic-serialization.md)）。 如果未进行标记，序列化程序尝试序列化未标记的对象时将引发异常。
 
 反序列化已序列化的类时，将重新创建该类，并且将自动还原所有数据成员的值。
 
@@ -29,10 +29,7 @@ ms.locfileid: "90541195"
 
 ## <a name="related-sections"></a>相关章节  
  [二进制序列化](binary-serialization.md)  
- 描述随公共语言运行库一起提供的二进制序列化机制。  
-  
- [.NET 远程处理](/previous-versions/dotnet/netframework-4.0/72x4h507(v=vs.100))\
- 描述 .NET Framework 中为远程通信提供的多种通信方法。  
+ 描述随公共语言运行库一起提供的二进制序列化机制。
   
  [XML 和 SOAP 序列化](xml-and-soap-serialization.md)  
  描述随公共语言运行库一起提供的 XML 和 SOAP 序列化机制。

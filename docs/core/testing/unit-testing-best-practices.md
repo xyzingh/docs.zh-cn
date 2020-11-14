@@ -4,12 +4,12 @@ description: 了解有关编写单元测试的最佳做法，以提高 .NET Core
 author: jpreese
 ms.author: wiwagn
 ms.date: 07/28/2018
-ms.openlocfilehash: 18f17839361d0cb60a52fbf4415665855f1d53be
-ms.sourcegitcommit: 67ebdb695fd017d79d9f1f7f35d145042d5a37f7
+ms.openlocfilehash: 6c1e9a665ad541bf6109634a6df857880ee47042
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92223482"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93281644"
 ---
 # <a name="unit-testing-best-practices-with-net-core-and-net-standard"></a>.NET Core 和 .NET Standard 单元测试最佳做法
 
@@ -227,7 +227,7 @@ Assert.True(mockOrder.Validated);
 
 ### <a name="prefer-helper-methods-to-setup-and-teardown"></a>更偏好 helper 方法而非 setup 和 teardown
 
-如果测试需要类似的对象或状态，那么比起使用 Setup 和 Teardown 属性（如果存在），更偏好使用 helper 方法。
+如果测试需要类似的对象或状态，那么比起使用 `Setup` 和 `Teardown` 属性（如果存在），更偏好使用 helper 方法。
 
 #### <a name="why"></a>为什么？
 

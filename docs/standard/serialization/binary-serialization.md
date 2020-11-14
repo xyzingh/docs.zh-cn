@@ -11,12 +11,12 @@ helpviewer_keywords:
 - serialization, cross-framework
 ms.assetid: 2b1ea3be-1152-4032-b2b3-07794054c405
 author: ViktorHofer
-ms.openlocfilehash: 2ede74dd8a48735a7ded450d1da6d9cda8fc5ae6
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: bfb504862232345db07bdc92993069fc87afdbeb
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90554490"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282090"
 ---
 # <a name="binary-serialization"></a>二进制序列化
 
@@ -25,7 +25,7 @@ ms.locfileid: "90554490"
 在面向对象的环境中实现序列化机制时，必须多在易用性与灵活性之间做出权衡。 很大程度上，这个过程可以自动完成，但前提是您对该过程拥有足够的控制权。 例如，如果简单的二进制序列化不足，或者可能有特定原因决定需要对类中的哪些字段进行序列化，可能就会出现这种情况。 以下章节验证了随 .NET Framework 一起提供的可靠序列化机制，并强调了根据需要自定义该过程所能使用的一些重要功能。
 
 > [!NOTE]
-> 如果使用不同的 .NET Framework 版本序列化和反序列化以 UTF-8 或 UTF-7 编码的对象，则不保留该对象的状态。
+> 如果使用不同的 .NET 版本序列化和反序列化以 UTF-8 或 UTF-7 编码的对象，则不保留该对象的状态。
 
 [!INCLUDE [binary-serialization-warning](../../../includes/binary-serialization-warning.md)]
 
@@ -351,7 +351,7 @@ ms.locfileid: "90554490"
 描述写入执行序列化的代码时需要遵循的安全编码原则。
 
 - [.NET 远程处理](/previous-versions/dotnet/netframework-4.0/72x4h507(v=vs.100))\
-描述从 .NET Framework 开始提供的用于远程通信的多种方法。
+描述 .NET Framework 中提供的用于远程通信的多种方法。
 
 - [使用 ASP.NET 创建的 XML Web service 以及 XML Web service 客户端](/previous-versions/dotnet/netframework-4.0/7bkzywba(v=vs.100))\
 描述并解释如何对使用 ASP.NET 创建的 XML Web services 进行编程的文章。

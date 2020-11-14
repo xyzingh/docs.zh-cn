@@ -1,6 +1,6 @@
 ---
 title: 版本容错序列化
-description: .NET Framework 2.0 引入了版本容错序列化，这组功能使修改可序列化类型更加容易。
+description: 了解版本容错序列化，这组功能使修改可序列化类型更加容易。
 ms.date: 08/08/2017
 dev_langs:
 - csharp
@@ -14,21 +14,21 @@ helpviewer_keywords:
 - BinaryFormatter class, samples
 - serialization, attributes
 ms.assetid: bea0ffe3-2708-4a16-ac7d-e586ed6b8e8d
-ms.openlocfilehash: afc822e1f8873bac069f6634fdf1d4665d392e69
-ms.sourcegitcommit: c76c8b2c39ed2f0eee422b61a2ab4c05ca7771fa
+ms.openlocfilehash: e7c4d6ca4c72390c3e0803502aa9c1a675e02345
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83762586"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282413"
 ---
 # <a name="version-tolerant-serialization"></a>版本容错序列化
 
-在 .NET Framework 1.0 和 1.1 版本中，创建可从应用程序的一个版本重用至下一个版本的可序列化类型时会产生问题。 如果通过添加额外字段来修改类型，则会出现以下问题：
+在最早版本的 .NET Framework 中，创建可从应用程序的一个版本重用至下一个版本的可序列化类型时会产生问题。 如果通过添加额外字段来修改类型，则会出现以下问题：
 
 - 要求应用程序的较旧版本反序列化旧类型的新版本时，会引发异常。
 - 应用程序的较新版本反序列化缺少数据的类型的较旧版本时，会引发异常。
 
-版本容错序列化 (VTS) 是 .NET Framework 2.0 中引入的一组功能，它使得修改可序列化类型随着时间推移而变得更加容易。 VTS 功能尤其是为应用了 <xref:System.SerializableAttribute> 特性的类（包括泛型类型）而启用的。 VTS 允许向这些类添加新字段，而不破坏与该类型其他版本的兼容性。 有关可用的示例应用程序，请参阅[版本容错序列化技术示例](basic-serialization-technology-sample.md)。
+版本容错序列化 (VTS) 是一组功能，它使得修改可序列化类型随着时间推移而变得更加容易。 VTS 功能尤其是为应用了 <xref:System.SerializableAttribute> 特性的类（包括泛型类型）而启用的。 VTS 允许向这些类添加新字段，而不破坏与该类型其他版本的兼容性。 有关可用的示例应用程序，请参阅[版本容错序列化技术示例](basic-serialization-technology-sample.md)。
 
 当使用 <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> 时，将启用 VTS 功能。 此外，当使用 <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter> 时，也会启用除外来数据容错以外的其他所有功能。 有关将这些类用于序列化的详细信息，请参见[二进制序列化](binary-serialization.md)。
 
@@ -188,9 +188,7 @@ End Class
 
 ## <a name="the-versionadded-property"></a>VersionAdded 属性
 
-OptionalFieldAttribute 具有 VersionAdded 属性。  在 .NET Framework 2.0 版中，未使用这一属性。 然而，为确保类型与将来的序列化引擎兼容，需要正确设置此属性，这一点非常重要。
-
-该属性指示向给定字段添加了类型的哪个版本。 每次修改类型时，版本应该正好增加一（从 2 开始），如下例所示：
+OptionalFieldAttribute 具有 VersionAdded 属性。  该属性指示向给定字段添加了类型的哪个版本。 每次修改类型时，版本应该正好增加一（从 2 开始），如下例所示：
 
 ```csharp
 // Version 1.0

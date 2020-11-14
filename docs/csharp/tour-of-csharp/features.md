@@ -2,12 +2,12 @@
 title: C# 教程 - 主要语言区域
 description: 刚开始接触 C#？ 了解 C# 语言的基础知识。
 ms.date: 08/06/2020
-ms.openlocfilehash: 9069bb194169a7743f12d998b2842186ed0ef404
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: a73399643ada05a4bfb17fadd17bf3267514e99d
+ms.sourcegitcommit: 48466b8fb7332ececff5dc388f19f6b3ff503dd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90558170"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93400743"
 ---
 # <a name="major-language-areas"></a>主要语言区域
 
@@ -17,7 +17,7 @@ C# 和 .NET 提供了许多不同的集合类型。 数组包含由语言定义�
 
 ### <a name="arrays"></a>数组
 
-[数组](../programming-guide/arrays/index.md)是一种数据结构，其中包含许多通过计算索引访问的变量。 数组中的变量（亦称为数组的“元素”）均为同一种类型。 我们将这种类型称为数组的“元素类型”。
+[数组](../programming-guide/arrays/index.md)是一种数据结构*_，其中包含许多通过计算索引访问的变量。 数组中的变量（亦称为数组的“元素”）均为同一种类型。 我们将这种类型称为数组的“元素类型”。
 
 数组类型是引用类型，声明数组变量只是为引用数组实例预留空间。 实际的数组实例是在运行时使用 `new` 运算符动态创建而成。 `new` 运算指定了新数组实例的长度，然后在此实例的生存期内固定使用这个长度。 数组元素的索引介于 `0` 到 `Length - 1` 之间。 `new` 运算符自动将数组元素初始化为其默认值（例如，所有数值类型的默认值为 0，所有引用类型的默认值为 `null`）。
 
@@ -25,7 +25,7 @@ C# 和 .NET 提供了许多不同的集合类型。 数组包含由语言定义�
 
 :::code language="csharp" source="./snippets/shared/Features.cs" ID="ArraysSample":::
 
-上面的示例创建***一维数组***，并对其执行运算。 C# 还支持***多维数组***。 数组类型的维数（亦称为数组类型的***秩***）是 1 与数组类型方括号内的逗号数量相加的结果。 以下示例分别分配一维、二维、三维数组。
+上面的示例创建一维数组，并对其执行运算。 C# 还支持多维数组。 数组类型的维数（亦称为数组类型的秩）是 1 与数组类型方括号内的逗号数量相加的结果。 以下示例分别分配一维、二维、三维数组。
 
 :::code language="csharp" source="./snippets/shared/Features.cs" ID="DeclareArrays":::
 
@@ -40,7 +40,7 @@ C# 和 .NET 提供了许多不同的集合类型。 数组包含由语言定义�
 
 :::code language="csharp" source="./snippets/shared/Features.cs" ID="InitializeArray":::
 
-可从 `{` 和 `}` 内的表达式数量推断出数组的长度。 局部变量和字段声明可以进一步缩短，这样就不用重新声明数组类型了。
+可从 `{` 和 `}` 内的表达式数量推断出数组的长度。 数组初始化可以进一步缩短，这样就不用重新声明数组类型了。
 
 :::code language="csharp" source="./snippets/shared/Features.cs" ID="InitializeShortened":::
 
@@ -60,11 +60,11 @@ C# [字符串内插](../language-reference/tokens/interpolated.md)使你能够�
 
 :::code language="csharp" source="./snippets/shared/Features.cs" ID="StringInterpolation":::
 
-内插字符串通过 `$` 标记来声明。 字符串插内插计算 `{` 和 `}` 之间的表达式，然后将结果转换为 `string`，并将括号内的文本替换为表达式的字符串结果。 第一个表达式 (`{weatherData.Date:MM-DD-YYYY}`) 中的 `:` 指定格式字符串。 在前一个示例中，这指定日期应以“MM-DD-YYYY”格式显示。
+内插字符串通过 `$` 标记来声明。 字符串插内插计算 `{` 和 `}` 之间的表达式，然后将结果转换为 `string`，并将括号内的文本替换为表达式的字符串结果。 第一个表达式 (`{weatherData.Date:MM-DD-YYYY}`) 中的 `:` 指定格式字符串_*。 在前一个示例中，这指定日期应以“MM-DD-YYYY”格式显示。
 
 ## <a name="pattern-matching"></a>模式匹配
 
-C# 语言提供[模式匹配](../pattern-matching.md)表达式来查询对象的状态并基于该状态执行代码。 你可以检查属性和字段的类型和值，以确定要执行的操作。 `switch` 表达式是模式匹配的主要表达式。
+C# 语言提供[模式匹配](../pattern-matching.md)*_表达式来查询对象的状态并基于该状态执行代码。 你可以检查属性和字段的类型和值，以确定要执行的操作。 `switch` 表达式是模式匹配的主要表达式。
 
 ## <a name="delegates-and-lambda-expressions"></a>委托和 Lambda 表达式
 
@@ -98,7 +98,7 @@ C# 支持含两个关键字的异步程序：`async` 和 `await`。 将 `async` 
 
 ## <a name="attributes"></a>属性
 
-C# 程序中的类型、成员和其他实体支持使用修饰符来控制其行为的某些方面。 例如，方法的可访问性是由 `public`、`protected`、`internal` 和 `private` 修饰符控制。 C# 整合了这种能力，以便可以将用户定义类型的声明性信息附加到程序实体，并在运行时检索此类信息。 程序通过定义和使用[特性](../programming-guide/concepts/attributes/index.md)来指定此类额外的声明性信息。
+C# 程序中的类型、成员和其他实体支持使用修饰符来控制其行为的某些方面。 例如，方法的可访问性是由 `public`、`protected`、`internal` 和 `private` 修饰符控制。 C# 整合了这种能力，以便可以将用户定义类型的声明性信息附加到程序实体，并在运行时检索此类信息。 程序通过定义和使用 [特性](../programming-guide/concepts/attributes/index.md) *_* *来指定此类额外的声明性信息。
 
 以下示例声明了 `HelpAttribute` 特性，可将其附加到程序实体，以提供指向关联文档的链接。
 

@@ -4,12 +4,12 @@ description: 了解什么是 ReadyToRun 部署，以及通过 .NET 5 和 .NET Co
 author: davidwr
 ms.author: davidwr
 ms.date: 09/21/2020
-ms.openlocfilehash: b4052a0c0f4ed9f6cfd273abe5ef45d018bd0ae0
-ms.sourcegitcommit: 4d45bda8cd9558ea8af4be591e3d5a29360c1ece
+ms.openlocfilehash: cd8eaebd05d79b11e90e255e702a52220fffda76
+ms.sourcegitcommit: ffd4d5e824db6c5f0c3521c0e802fd9e8f0edcbe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91654944"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342626"
 ---
 # <a name="readytorun-compilation"></a>ReadyToRun 编译
 
@@ -45,7 +45,7 @@ R2R 二进制文件通过减少应用程序加载时实时 (JIT) 编译器需要
 
 ## <a name="impact-of-using-the-readytorun-feature"></a>使用 ReadyToRun 功能的影响
 
-预先编译会对应用程序性能产生复杂的性能影响，这种影响可能很难预测。 通常情况下，程序集的大小将增长到两到三倍。 这种文件物理大小的增加可能会降低从磁盘加载程序集的性能，并增加进程的工作集。 但相对地，在运行时编译的方法数通常会大幅减少。 因此，启用ReadyToRun，包含大量代码的大多数应用程序都会获得很大的性能增益。 由于 .NET 运行时库已使用 ReadyToRun 进行预编译，因此启用 ReadyToRun 时，具有少量代码的应用程序很可能不会获得显著改进。
+预先编译会对应用程序性能产生复杂的性能影响，这种影响可能很难预测。 通常情况下，程序集的大小将增长到两到三倍。 这种文件物理大小的增加可能会降低从磁盘加载程序集的性能，并增加进程的工作集。 但相对地，在运行时编译的方法数通常会大幅减少。 因此，启用 ReadyToRun，包含大量代码的大多数应用程序都会获得很大的性能增益。 由于 .NET 运行时库已使用 ReadyToRun 进行预编译，因此启用 ReadyToRun 时，具有少量代码的应用程序很可能不会获得显著改进。
 
 这里讨论的启动改进不仅适用于应用程序启动，还适用于在应用程序中首次使用任何代码。 例如，ReadyToRun 可用于降低在 ASP.NET 应用程序中首次使用 Web API 时的响应延迟。
 

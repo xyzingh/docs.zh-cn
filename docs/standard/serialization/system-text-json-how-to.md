@@ -1,21 +1,22 @@
 ---
 title: 如何使用 C# 对 JSON 进行序列化和反序列化 - .NET
-description: 了解如何使用 System.Text.Json 命名空间在 .NET 中向/从 JSON 进行序列化和反序列化。 文中包含示例代码。
-ms.date: 10/09/2020
+description: 了解如何使用 System.Text.Json 命名空间在 .NET 中向/从 JSON 进行序列化和反序列化。 包含示例代码。
+ms.date: 11/05/2020
 no-loc:
 - System.Text.Json
 - Newtonsoft.Json
+zone_pivot_groups: dotnet-version
 helpviewer_keywords:
 - JSON serialization
 - serializing objects
 - serialization
 - objects, serializing
-ms.openlocfilehash: 0fda248b7d2e5a7cfa748447d0265565cb160b7e
-ms.sourcegitcommit: e078b7540a8293ca1b604c9c0da1ff1506f0170b
+ms.openlocfilehash: 2c1358b2b63a92cb50b853043adbfaae23ccd897
+ms.sourcegitcommit: 6bef8abde346c59771a35f4f76bf037ff61c5ba3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997781"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329867"
 ---
 # <a name="how-to-serialize-and-deserialize-marshal-and-unmarshal-json-in-net"></a>如何在 .NET 中对 JSON 进行序列化和反序列化（封送和拆收）
 
@@ -38,7 +39,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 ```
 
-`System.Text.Json`中当前不支持 <xref:System.Runtime.Serialization> 命名空间中的特性。
+`System.Text.Json` 中不支持 <xref:System.Runtime.Serialization> 命名空间中的特性。
 
 ## <a name="how-to-write-net-objects-to-json-serialize"></a>如何将 .NET 对象编写为 JSON（序列化）
 
@@ -115,15 +116,44 @@ using System.Text.Json.Serialization;
 序列化为 UTF-8 比使用基于字符串的方法大约快 5-10%。 出现这种差别的原因是字节（作为 UTF-8）不需要转换为字符串 (UTF-16)。
 
 ## <a name="serialization-behavior"></a>序列化行为
+::: zone pivot="dotnet-5-0"
 
-* 默认情况下，所有公共属性都会序列化。 可以[指定要排除的属性](#exclude-properties-from-serialization)。
+* 默认情况下，所有公共属性都会序列化。 可以[指定要忽略的属性](#ignore-properties)。
+* [默认编码器](xref:System.Text.Encodings.Web.JavaScriptEncoder.Default)会转义非 ASCII 字符、ASCII 范围内的 HTML 敏感字符以及根据 [RFC 8259 JSON 规范](https://tools.ietf.org/html/rfc8259#section-7)必须进行转义的字符。
+* 默认情况下，JSON 会缩小。 可以[对 JSON 进行优质打印](#serialize-to-formatted-json)。
+* 默认情况下，JSON 名称的大小写与 .NET 名称匹配。 可以[自定义 JSON 名称大小写](#customize-json-names-and-values)。
+* 默认情况下，检测到循环引用并引发异常。 可以[保留引用并处理循环引用](#preserve-references-and-handle-circular-references)。
+* 默认情况下忽略[字段](../../csharp/programming-guide/classes-and-structs/fields.md)。 可以[包含字段](#include-fields)。
+
+当你在 ASP.NET Core 应用中间接使用 System.Text.Json 时，某些默认行为会有所不同。 有关详细信息，请参阅 [JsonSerializerOptions 的 Web 默认值](#web-defaults-for-jsonserializeroptions)。
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
+
+* 默认情况下，所有公共属性都会序列化。 可以[指定要忽略的属性](#ignore-properties)。
 * [默认编码器](xref:System.Text.Encodings.Web.JavaScriptEncoder.Default)会转义非 ASCII 字符、ASCII 范围内的 HTML 敏感字符以及根据 [RFC 8259 JSON 规范](https://tools.ietf.org/html/rfc8259#section-7)必须进行转义的字符。
 * 默认情况下，JSON 会缩小。 可以[对 JSON 进行优质打印](#serialize-to-formatted-json)。
 * 默认情况下，JSON 名称的大小写与 .NET 名称匹配。 可以[自定义 JSON 名称大小写](#customize-json-names-and-values)。
 * 检测到循环引用并引发异常。
-* 当前不包括[字段](../../csharp/programming-guide/classes-and-structs/fields.md)。
+* 将忽略[字段](../../csharp/programming-guide/classes-and-structs/fields.md)。
+::: zone-end
 
 支持的类型包括：
+::: zone pivot="dotnet-5-0"
+
+* 映射到 JavaScript 基元的 .NET 基元，如数值类型、字符串和布尔。
+* 用户定义的[普通旧 CLR 对象 (POCO)](https://en.wikipedia.org/wiki/Plain_old_CLR_object)。
+* 一维和交错数组 (`T[][]`)。
+* 以下命名空间中的集合和字典。
+  * <xref:System.Collections>
+  * <xref:System.Collections.Generic>
+  * <xref:System.Collections.Immutable>
+  * <xref:System.Collections.Concurrent>
+  * <xref:System.Collections.Specialized>
+  * <xref:System.Collections.ObjectModel>
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
 
 * 映射到 JavaScript 基元的 .NET 基元，如数值类型、字符串和布尔。
 * 用户定义的[普通旧 CLR 对象 (POCO)](https://en.wikipedia.org/wiki/Plain_old_CLR_object)。
@@ -133,6 +163,10 @@ using System.Text.Json.Serialization;
   * <xref:System.Collections>
   * <xref:System.Collections.Generic>
   * <xref:System.Collections.Immutable>
+  * <xref:System.Collections.Concurrent>
+  * <xref:System.Collections.Specialized>
+  * <xref:System.Collections.ObjectModel>
+::: zone-end
 
 可以[实现自定义转换器](system-text-json-converters-how-to.md)以处理其他类型或提供内置转换器不支持的功能。
 
@@ -164,16 +198,33 @@ using System.Text.Json.Serialization;
 
 对 JSON 进行反序列化时，以下行为适用：
 
+::: zone pivot="dotnet-5-0"
+
 * 默认情况下，属性名称匹配区分大小写。 可以[指定不区分大小写](#case-insensitive-property-matching)。
 * 如果 JSON 包含只读属性的值，则会忽略该值，并且不引发异常。
-* 用于反序列化的构造函数：
-  - 在 .NET Core 3.0 和 3.1 上，无参数构造函数（可以是公共的、内部的或专用的）用于反序列化。
-  - 在 .NET 5.0 和更高版本中，序列化程序会忽略非公共构造函数。 但是，如果无参数构造函数不可用，则可以使用参数化构造函数。
+* 序列化程序会忽略非公共构造函数。
+* 支持反序列化为不可变对象或只读属性。 请参阅[不可变类型和记录](#immutable-types-and-records)。
+* 默认情况下，支持将枚举作为数字。 可以[将枚举名称序列化为字符串](#enums-as-strings)。
+* 默认情况下忽略字段。 可以[包含字段](#include-fields)。
+* 默认情况下，JSON 中的注释或尾随逗号会引发异常。 可以[允许注释和尾随逗号](#allow-comments-and-trailing-commas)。
+* [默认最大深度](xref:System.Text.Json.JsonReaderOptions.MaxDepth)为 64。
+
+当你在 ASP.NET Core 应用中间接使用 System.Text.Json 时，某些默认行为会有所不同。 有关详细信息，请参阅 [JsonSerializerOptions 的 Web 默认值](#web-defaults-for-jsonserializeroptions)。
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
+
+* 默认情况下，属性名称匹配区分大小写。 可以[指定不区分大小写](#case-insensitive-property-matching)。 ASP.NET Core 应用[默认指定不区分大小写](#web-defaults-for-jsonserializeroptions)。
+* 如果 JSON 包含只读属性的值，则会忽略该值，并且不引发异常。
+* 无参数构造函数（可以是公共的、内部的或专用的）用于反序列化。
 * 不支持反序列化为不可变对象或只读属性。
 * 默认情况下，支持将枚举作为数字。 可以[将枚举名称序列化为字符串](#enums-as-strings)。
 * 不支持字段。
 * 默认情况下，JSON 中的注释或尾随逗号会引发异常。 可以[允许注释和尾随逗号](#allow-comments-and-trailing-commas)。
 * [默认最大深度](xref:System.Text.Json.JsonReaderOptions.MaxDepth)为 64。
+
+当你在 ASP.NET Core 应用中间接使用 System.Text.Json 时，某些默认行为会有所不同。 有关详细信息，请参阅 [JsonSerializerOptions 的 Web 默认值](#web-defaults-for-jsonserializeroptions)。
+::: zone-end
 
 可以[实现自定义转换器](system-text-json-converters-how-to.md)以提供内置转换器不支持的功能。
 
@@ -194,6 +245,20 @@ using System.Text.Json.Serialization;
   "Summary": "Hot"
 }
 ```
+
+## <a name="include-fields"></a>包含字段
+
+::: zone pivot="dotnet-5-0"
+在序列化或反序列化时，使用 <xref:System.Text.Json.JsonSerializerOptions.IncludeFields?displayProperty=nameWithType> 全局设置或 [[JsonInclude]](xref:System.Text.Json.Serialization.JsonIncludeAttribute) 特性来包含字段，如以下示例中所示：
+
+:::code language="csharp" source="snippets/system-text-json-how-to-5-0/csharp/Fields.cs" highlight="15,17,19,31":::
+
+若要忽略只读字段，请使用 <xref:System.Text.Json.JsonSerializerOptions.IgnoreReadOnlyFields%2A?displayProperty=nameWithType> 全局设置。
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
+.NET Core 3.1 的 System.Text.Json 中不支持字段。 [自定义转换器](system-text-json-converters-how-to.md)可提供此功能。
+::: zone-end
 
 ## <a name="customize-json-names-and-values"></a>自定义 JSON 名称和值
 
@@ -339,15 +404,26 @@ JSON 属性命名策略：
 
 [!code-csharp[](snippets/system-text-json-how-to/csharp/RoundtripEnumAsString.cs?name=SnippetDeserialize)]
 
-## <a name="exclude-properties-from-serialization"></a>从序列化中排除属性
+## <a name="ignore-properties"></a>忽略属性
 
-默认情况下，所有公共属性都会序列化。 如果不想让某些属性出现在 JSON 输出中，则有几个选项可用。 本部分介绍如何排除：
+默认情况下，所有公共属性都会序列化。 如果不想让某些属性出现在 JSON 输出中，则有几个选项可用。 本部分介绍如何忽略：
 
-* [单个属性](#exclude-individual-properties)
-* [所有只读属性](#exclude-all-read-only-properties)
-* [所有 null 值属性](#exclude-all-null-value-properties)
+::: zone pivot="dotnet-5-0"
 
-### <a name="exclude-individual-properties"></a>排除单个属性
+* [单个属性](#ignore-individual-properties)
+* [所有只读属性](#ignore-all-read-only-properties)
+* [所有 null 值属性](#ignore-all-null-value-properties)
+* [所有默认值属性](#ignore-all-default-value-properties)
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
+
+* [单个属性](#ignore-individual-properties)
+* [所有只读属性](#ignore-all-read-only-properties)
+* [所有 null 值属性](#ignore-all-null-value-properties)
+::: zone-end
+
+### <a name="ignore-individual-properties"></a>忽略单个属性
 
 若要忽略单个属性，请使用 [[JsonIgnore]](xref:System.Text.Json.Serialization.JsonIgnoreAttribute) 特性。
 
@@ -362,9 +438,22 @@ JSON 属性命名策略：
 }
 ```
 
-### <a name="exclude-all-read-only-properties"></a>排除所有只读属性
+::: zone pivot="dotnet-5-0"
+可以通过设置 [[JsonIgnore]](xref:System.Text.Json.Serialization.JsonIgnoreAttribute) 特性的 `Condition` 属性来指定条件排除。 <xref:System.Text.Json.Serialization.JsonIgnoreCondition> 枚举提供下列选项：
 
-如果属性包含公共 getter 而不是公共 setter，则属性为只读。 若要排除所有只读属性，请将 <xref:System.Text.Json.JsonSerializerOptions.IgnoreReadOnlyProperties?displayProperty=nameWithType> 设置为 `true`，如以下示例中所示：
+* `Always` - 始终忽略属性。 如果未指定 `Condition`，则假设此选项。
+* `Never` - 无论 `DefaultIgnoreCondition`、`IgnoreReadOnlyProperties` 和 `IgnoreReadOnlyFields` 全局设置如何，始终序列化和反序列化属性。
+* `WhenWritingDefault` - 如果属性是引用类型 `null` 或值类型 `default`，则在序列化中忽略属性。
+* `WhenWritingNull` - 如果属性是引用类型 `null`，则在序列化中忽略属性。
+
+下面的示例说明 [[JsonIgnore]](xref:System.Text.Json.Serialization.JsonIgnoreAttribute) 特性的 `Condition` 属性的用法：
+
+:::code language="csharp" source="snippets/system-text-json-how-to-5-0/csharp/JsonIgnoreAttributeExample.cs" highlight="10,13,16":::
+::: zone-end
+
+### <a name="ignore-all-read-only-properties"></a>忽略所有只读属性
+
+如果属性包含公共 getter 而不是公共 setter，则属性为只读。 若要在序列化时忽略所有只读属性，请将 <xref:System.Text.Json.JsonSerializerOptions.IgnoreReadOnlyProperties?displayProperty=nameWithType> 设置为 `true`，如以下示例中所示：
 
 [!code-csharp[](snippets/system-text-json-how-to/csharp/SerializeExcludeReadOnlyProperties.cs?name=SnippetSerialize)]
 
@@ -382,9 +471,21 @@ JSON 属性命名策略：
 
 此选项仅适用于序列化。 在反序列化过程中，默认情况下会忽略只读属性。
 
-### <a name="exclude-all-null-value-properties"></a>排除所有 null 值属性
+::: zone pivot="dotnet-5-0"
+此选项仅适用于属性。 若要在[序列化字段](#include-fields)时忽略只读字段，请使用 <xref:System.Text.Json.JsonSerializerOptions.IgnoreReadOnlyFields%2A?displayProperty=nameWithType> 全局设置。
+::: zone-end
 
-若要排除所有 null 值属性，请将 <xref:System.Text.Json.JsonSerializerOptions.IgnoreNullValues> 属性设置为 `true`，如以下示例中所示：
+### <a name="ignore-all-null-value-properties"></a>忽略所有 null 值属性
+
+::: zone pivot="dotnet-5-0"
+若要忽略所有 null 值属性，请将 <xref:System.Text.Json.JsonSerializerOptions.DefaultIgnoreCondition> 属性设置为 <xref:System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull>，如以下示例中所示：
+
+:::code language="csharp" source="snippets/system-text-json-how-to-5-0/csharp/IgnoreNullOnSerialize.cs" highlight="28":::
+
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
+若要在序列化时忽略所有 null 值属性，请将 <xref:System.Text.Json.JsonSerializerOptions.IgnoreNullValues> 属性设置为 `true`，如以下示例中所示：
 
 [!code-csharp[](snippets/system-text-json-how-to/csharp/SerializeExcludeNullValueProperties.cs?name=SnippetSerialize)]
 
@@ -403,7 +504,21 @@ JSON 属性命名策略：
 }
 ```
 
-此设置适用于序列化和反序列化。 有关对反序列化的影响的信息，请参阅[在反序列化时忽略 null](#ignore-null-when-deserializing)。
+::: zone-end
+
+### <a name="ignore-all-default-value-properties"></a>忽略所有默认值属性
+
+::: zone pivot="dotnet-5-0"
+若要防止对值类型属性中的默认值进行序列化，请将 <xref:System.Text.Json.JsonSerializerOptions.DefaultIgnoreCondition> 属性设置为 <xref:System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault>，如以下示例中所示：
+
+:::code language="csharp" source="snippets/system-text-json-how-to-5-0/csharp/IgnoreValueDefaultOnSerialize.cs" highlight="28":::
+::: zone-end
+
+`WhenWritingDefault` 设置还会阻止对 null 值引用类型属性进行序列化。
+
+::: zone pivot="dotnet-core-3-1"
+在 .NET Core 3.1 的 System.Text.Json 中，无内置方式来阻止对值类型为默认值的属性进行序列化。
+::: zone-end
 
 ## <a name="customize-character-encoding"></a>自定义字符编码
 
@@ -640,13 +755,13 @@ JSON 属性命名策略：
 }
 ```
 
-如果将显示的 JSON 反序列化为显示的类型，则 `DatesAvailable` 和 `SummaryWords` 属性无处可去，会丢失。 若要捕获额外数据（如这些属性），请将 [JsonExtensionData](xref:System.Text.Json.Serialization.JsonExtensionDataAttribute) 特性应用于类型 `Dictionary<string,object>` 或 `Dictionary<string,JsonElement>` 的属性：
+如果将显示的 JSON 反序列化为显示的类型，则 `DatesAvailable` 和 `SummaryWords` 属性无处可去，会丢失。 若要捕获额外数据（如这些属性），请将 [[JsonExtensionData]](xref:System.Text.Json.Serialization.JsonExtensionDataAttribute) 特性应用于类型 `Dictionary<string,object>` 或 `Dictionary<string,JsonElement>` 的属性：
 
 [!code-csharp[](snippets/system-text-json-how-to/csharp/WeatherForecast.cs?name=SnippetWFWithExtensionData)]
 
 将前面显示的 JSON 反序列化为此示例类型时，额外数据会成为 `ExtensionData` 属性的键值对：
 
-|Property |“值”  |说明  |
+|Property |值  |说明  |
 |---------|---------|---------|
 | 日期    | 8/1/2019 12:00:00 AM -07:00||
 | TemperatureCelsius| 0 | 区分大小写的不匹配（JSON 中的 `temperatureCelsius`），因此未设置属性。 |
@@ -677,33 +792,138 @@ JSON 属性命名策略：
 
 请注意，`ExtensionData` 属性名称不会出现在 JSON 中。 此行为使 JSON 可以进行往返，而不会丢失任何不会以其他方式进行反序列化的额外数据。
 
-## <a name="ignore-null-when-deserializing"></a>反序列化时忽略 null
+## <a name="preserve-references-and-handle-circular-references"></a>保留引用并处理循环引用
 
-默认情况下，如果 JSON 中的属性为 null，则目标对象中的对应属性会设置为 null。 在某些情况下，目标属性可能具有默认值，并且你不希望 null 值替代默认值。
+::: zone pivot="dotnet-5-0"
 
-例如，假设以下代码表示目标对象：
+若要保留引用并处理循环引用，请将 <xref:System.Text.Json.JsonSerializerOptions.ReferenceHandler%2A> 设置为 <xref:System.Text.Json.Serialization.ReferenceHandler.Preserve%2A>。 此设置会导致以下行为：
 
-[!code-csharp[](snippets/system-text-json-how-to/csharp/WeatherForecast.cs?name=SnippetWFWithDefault)]
+* 在序列化时：
 
-假设反序列化以下 JSON：
+  编写复杂类型时，序列化程序还会写入元数据属性（`$id`、`$values` 和 `$ref`）。
 
-```json
-{
-  "Date": "2019-08-01T00:00:00-07:00",
-  "TemperatureCelsius": 25,
-  "Summary": null
-}
-```
+* 在反序列化时：
 
-反序列化之后，`WeatherForecastWithDefault` 对象的 `Summary` 属性为 null。
+  需要元数据（虽然不是必需的），并且反序列化程序会尝试理解它。
 
-若要更改此行为，请将 <xref:System.Text.Json.JsonSerializerOptions.IgnoreNullValues?displayProperty=nameWithType> 设置为 `true`，如下面的示例中所示：
+下面的代码演示 `Preserve` 属性的用法。
 
-[!code-csharp[](snippets/system-text-json-how-to/csharp/DeserializeIgnoreNull.cs?name=SnippetDeserialize)]
+:::code language="csharp" source="snippets/system-text-json-how-to-5-0/csharp/PreserveReferences.cs" highlight="34":::
 
-利用此选项时，`WeatherForecastWithDefault` 对象的 `Summary` 属性在反序列化之后是默认值“No summary”。
+此功能不能用于保留值类型或不可变类型。 在反序列化时，将在读取整个有效负载后创建不可变类型的实例。 因此，如果对同一实例的引用出现在 JSON 有效负载中，则无法对其进行反序列化。
 
-JSON 中的 Null 值仅在有效时才会被忽略。 不可为 null 的值类型的 Null 值会导致异常。
+对于值类型、不可变类型和数组，不会序列化任何引用元数据。 反序列化时，如果发现 `$ref` 或 `$id`，则会引发异常。 但是，值类型忽略 `$id`（对于集合，则为 `$values`），以便可以反序列化使用 Newtonsoft.Json 序列化的有效负载。  Newtonsoft.Json 为此类类型序列化元数据。
+
+为了确定对象是否相等，System.Text.Json 在比较两个对象实例时使用引用相等性 (<xref:System.Object.ReferenceEquals(System.Object,System.Object)?displayProperty=nameWithType>) 而不是值相等性 (<xref:System.Object.Equals(System.Object)?displayProperty=nameWithType> 的 <xref:System.Collections.Generic.ReferenceEqualityComparer.Instance%2A?displayProperty=nameWithType>。
+
+有关如何序列化和反序列化引用的详细信息，请参阅 <xref:System.Text.Json.Serialization.ReferenceHandler.Preserve%2A?displayProperty=nameWithType>。
+
+<xref:System.Text.Json.Serialization.ReferenceResolver> 类定义在序列化和反序列化过程中保留引用的行为。 创建派生类以指定自定义行为。 有关示例，请参阅 [GuidReferenceResolver](https://github.com/dotnet/docs/blob/9d5e88edbd7f12be463775ffebbf07ac8415fe18/docs/standard/serialization/snippets/system-text-json-how-to-5-0/csharp/GuidReferenceResolverExample.cs)。
+
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
+.NET Core 3.1 中的 System.Text.Json 仅支持按值进行进行序列化，并对循环引用引发异常。
+::: zone-end
+
+## <a name="allow-or-write-numbers-in-quotes"></a>允许或写入带引号的数字
+
+::: zone pivot="dotnet-5-0"
+
+某些序列化程序将数字编码为 JSON 字符串（括在引号中）。 例如，`{"DegreesCelsius":"23"}` 而非 `{"DegreesCelsius":23}`。 若要在整个输入对象图中序列化带引号的数字或接受带引号的数字，请设置 <xref:System.Text.Json.JsonSerializerOptions.NumberHandling%2A?displayProperty=nameWithType>，如以下示例中所示：
+
+:::code language="csharp" source="snippets/system-text-json-how-to-5-0/csharp/QuotedNumbers.cs" highlight="27-28":::
+
+在通过 ASP.NET Core 间接使用 System.Text.Json 时，反序列化时允许使用带引号的数字，因为 ASP.NET Core 指定 [Web 默认选项](xref:System.Text.Json.JsonSerializerDefaults.Web)。
+
+若要允许或写入特定属性、字段或类型的带引号的数字，请使用 [[JsonNumberHandling]](xref:System.Text.Json.Serialization.JsonNumberHandlingAttribute) 特性。
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
+.NET Core 3.1 中的 System.Text.Json 不支持序列化或反序列化用引号引起来的数字。 有关详细信息，请参阅[允许或写入带引号的数字](system-text-json-migrate-from-newtonsoft-how-to.md#allow-or-write-numbers-in-quotes)。
+::: zone-end
+
+## <a name="immutable-types-and-records"></a>不可变类型和记录
+
+::: zone pivot="dotnet-5-0"
+System.Text.Json 可以使用参数化构造函数，这可以反序列化不可变的类或结构。 对于类，如果唯一构造函数是参数化的构造函数，则将使用该构造函数。 对于结构或包含多个构造函数的类，通过应用 [[JsonConstructor]](xref:System.Text.Json.Serialization.JsonConstructorAttribute.%23ctor%2A) 特性来指定要使用的构造函数。 如果未使用该特性，则始终使用公共无参数构造函数（如果存在）。 该特性只能与公共构造函数一起使用。 以下示例使用 `[JsonConstructor]` 特性：
+
+:::code language="csharp" source="snippets/system-text-json-how-to-5-0/csharp/ImmutableTypes.cs" highlight="13":::
+
+还支持 C# 9 记录，如以下示例中所示：
+
+:::code language="csharp" source="snippets/system-text-json-how-to-5-0/csharp/Records.cs":::
+
+对于因其所有属性资源库都是非公共的而不可变的类型，请参阅以下部分，了解[非公共属性访问器](#non-public-property-accessors)。
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
+.NET Core 3.1 不支持 `JsonConstructorAttribute` 和 C# 9 记录。
+::: zone-end
+
+## <a name="non-public-property-accessors"></a>非公共属性访问器
+
+::: zone pivot="dotnet-5-0"
+若要允许使用非公共属性访问器，请使用 [[JsonInclude]](xref:System.Text.Json.Serialization.JsonIncludeAttribute) 特性，如以下示例中所示：
+
+:::code language="csharp" source="snippets/system-text-json-how-to-5-0/csharp/NonPublicAccessors.cs" highlight="12,15":::
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
+.NET Core 3.1 不支持非公共属性访问器。 有关详细信息，请参阅[从 Newtonsoft.Json 迁移一文](system-text-json-migrate-from-newtonsoft-how-to.md#non-public-property-setters-and-getters)。
+::: zone-end
+
+## <a name="copy-jsonserializeroptions"></a>复制 JsonSerializerOptions
+
+::: zone pivot="dotnet-5-0"
+存在 [JsonSerializerOptions constructor](xref:System.Text.Json.JsonSerializerOptions.%23ctor(System.Text.Json.JsonSerializerOptions)) ，可让你使用与现有实例相同的选项来创建新的实例，如以下示例中所示：
+
+:::code language="csharp" source="snippets/system-text-json-how-to-5-0/csharp/CopyOptions.cs" highlight="29":::
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
+使用现有实例的 `JsonSerializerOptions` 构造函数在 .NET Core 3.1 中不可用。
+::: zone-end
+
+## <a name="web-defaults-for-jsonserializeroptions"></a>JsonSerializerOptions 的 Web 默认值
+
+::: zone pivot="dotnet-5-0"
+下面是具有 Web 应用不同默认值的选项：
+
+* <xref:System.Text.Json.JsonSerializerOptions.PropertyNameCaseInsensitive%2A> = `true`
+* <xref:System.Text.Json.JsonNamingPolicy> = <xref:System.Text.Json.JsonNamingPolicy.CamelCase>
+* <xref:System.Text.Json.JsonSerializerOptions.NumberHandling%2A> = <xref:System.Text.Json.Serialization.JsonNumberHandling.AllowReadingFromString>
+
+存在 [JsonSerializerOptions constructor](xref:System.Text.Json.JsonSerializerOptions.%23ctor(System.Text.Json.JsonSerializerDefaults)?view=net-5.0&preserve-view=true)，可让你通过 ASP.NET Core 对 Web 应用使用的默认选项创建新的实例，如以下示例中所示：
+
+:::code language="csharp" source="snippets/system-text-json-how-to-5-0/csharp/OptionsDefaults.cs" highlight="24":::
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
+下面是具有 Web 应用不同默认值的选项：
+
+* <xref:System.Text.Json.JsonSerializerOptions.PropertyNameCaseInsensitive%2A> = `true`
+* <xref:System.Text.Json.JsonNamingPolicy> = <xref:System.Text.Json.JsonNamingPolicy.CamelCase>
+
+指定一组默认值的 `JsonSerializerOptions` 构造函数在 .NET Core 3.1 中不可用。
+::: zone-end
+
+## <a name="httpclient-and-httpcontent-extension-methods"></a>HttpClient 和 HttpContent 扩展方法
+
+::: zone pivot="dotnet-5-0"
+
+序列化和反序列化来自网络的 JSON 有效负载是常见的操作。 [HttpClient](xref:System.Net.Http.Json.HttpClientJsonExtensions) 和 [HttpContent](xref:System.Net.Http.Json.HttpContentJsonExtensions) 上的扩展方法允许在单个代码行中执行这些操作。 这些扩展方法使用 [JsonSerializerOptions 的 Web 默认值](#web-defaults-for-jsonserializeroptions)。
+
+以下示例说明了 <xref:System.Net.Http.Json.HttpClientJsonExtensions.GetFromJsonAsync%2A?displayProperty=nameWithType> 和 <xref:System.Net.Http.Json.HttpClientJsonExtensions.PostAsJsonAsync%2A?displayProperty=nameWithType> 的用法：
+
+:::code language="csharp" source="snippets/system-text-json-how-to-5-0/csharp/HttpClientExtensionMethods.cs" highlight="23,30":::
+
+此外还有 [HttpContent](xref:System.Net.Http.Json.HttpContentJsonExtensions) 上的 System.Text.Json 的扩展方法。
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
+`HttpClient` 和 `HttpContent` 上的扩展方法在 .NET Core 3.1 的 System.Text.Json 中不可用。
+::: zone-end
 
 ## <a name="utf8jsonreader-utf8jsonwriter-and-jsondocument"></a>Utf8JsonReader、Utf8JsonWriter 和 JsonDocument
 
@@ -802,7 +1022,7 @@ JSON 中的 Null 值仅在有效时才会被忽略。 不可为 null 的值类�
 
 下面的代码演示了如何从流中读取。 本示例显示了 <xref:System.IO.MemoryStream>。 类似的代码将使用 <xref:System.IO.FileStream>，当 `FileStream` 在开头包含 UTF-8 BOM 时除外。 在这种情况下，需要先从缓冲区中去除这三个字节，然后再将剩余字节传递到 `Utf8JsonReader`。 否则，读取器将引发异常，因为 BOM 不被视为 JSON 的有效部分。
 
-示例代码从 4KB 缓冲区开始，每当发现大小不足以容纳完整的 JSON 令牌（必须容纳完整的令牌，读取器才能推动处理 JSON 有效负载）时，就会使缓冲区大小成倍增加。 仅当设置的初始缓冲区非常小（例如 10 个字节）时，代码片段中提供的 JSON 示例才会触发缓冲区大小增加。 如果将初始缓冲区大小设置为 10，则 `Console.WriteLine` 语句会说明缓冲区大小增加的原因和影响。 在初始缓冲区大小为 4KB 时，每个 `Console.WriteLine` 都会显示整个示例 JSON，并且不必增加缓冲区大小。
+示例代码从 4 KB 缓冲区开始，每当发现大小不足以容纳完整的 JSON 令牌（必须容纳完整的令牌，读取器才能推动处理 JSON 有效负载）时，就会使缓冲区大小成倍增加。 仅当设置的初始缓冲区非常小（例如 10 个字节）时，代码片段中提供的 JSON 示例才会触发缓冲区大小增加。 如果将初始缓冲区大小设置为 10，则 `Console.WriteLine` 语句会说明缓冲区大小增加的原因和影响。 在初始缓冲区大小为 4KB 时，每个 `Console.WriteLine` 都会显示整个示例 JSON，并且不必增加缓冲区大小。
 
 [!code-csharp[](snippets/system-text-json-how-to/csharp/Utf8ReaderPartialRead.cs)]
 

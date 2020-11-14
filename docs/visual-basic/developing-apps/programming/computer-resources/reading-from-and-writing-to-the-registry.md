@@ -6,18 +6,18 @@ helpviewer_keywords:
 - registry [Visual Basic], writing to
 - registry [Visual Basic], reading
 ms.assetid: a13da106-185b-41d7-b23c-416da65e21e4
-ms.openlocfilehash: bb400ef89edaa4eb743aee3a7f2cc5b9dfec4534
-ms.sourcegitcommit: f8c270376ed905f6a8896ce0fe25b4f4b38ff498
+ms.openlocfilehash: fe0714f25cd41ca9ce4eabf135c82d1dbb1fe524
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84360054"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282226"
 ---
 # <a name="reading-from-and-writing-to-the-registry-visual-basic"></a>读取和写入注册表 (Visual Basic)
 
 本主题介绍与注册表相关的任务和概念性主题。  
   
- 在 Visual Basic 中编程时，可以通过 Visual Basic 提供的函数或者通过 .NET Framework 的注册表类访问注册表。 注册表托管有关操作系统的信息，以及有关计算机上托管的应用程序的信息。 对注册表进行操作时，如果允许对系统资源或受保护的信息进行不适当的访问，则可能会降低安全性。  
+ 在 Visual Basic 中编程时，可以通过 Visual Basic 提供的函数或者通过 .NET 的注册表类访问注册表。 注册表托管有关操作系统的信息，以及有关计算机上托管的应用程序的信息。 对注册表进行操作时，如果允许对系统资源或受保护的信息进行不适当的访问，则可能会降低安全性。  
   
 ## <a name="in-this-section"></a>本节内容  
 
@@ -31,7 +31,7 @@ ms.locfileid: "84360054"
  介绍如何使用 `My.Computer.Registry.CurrentUser` 属性的 `DeleteSubKey` 方法删除注册表项。  
   
  [使用 Microsoft.Win32 命名空间读取和写入注册表](reading-from-and-writing-to-the-registry-using-the-microsoft-win32-namespace.md)  
- 介绍如何使用 .NET Framework 的 `Registry` 和 `RegistryKey` 类访问注册表。  
+ 介绍如何使用 .NET 的 `Registry` 和 `RegistryKey` 类访问注册表。  
   
  [安全性与注册表](security-and-the-registry.md)  
  讨论与注册表相关的安全问题。  

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 18718ebc934e0175c20411055b8c0a90ef6b175f
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 02b5dc181abe384c1a5f47c042e475f67a0afe1c
+ms.sourcegitcommit: 48466b8fb7332ececff5dc388f19f6b3ff503dd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90539440"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93400796"
 ---
 ### <a name="globalization-apis-use-icu-libraries-on-windows"></a>全球化 API 在 Windows 上使用 ICU 库
 
@@ -12,14 +12,51 @@ ms.locfileid: "90539440"
 
 #### <a name="change-description"></a>更改描述
 
-以前，.NET 库使用[区域语言支持 (NLS)](/windows/win32/intl/national-language-support) API 来实现全球化功能。 例如，NLS 函数用于获取区域性数据（例如日期和时间格式模式），比较字符串，并在适当的区域中执行字符串大小写。
+在 .NET Core 1.0 - 3.1 和 .NET Framework 4 及更高版本中，.NET 库使用[本地语言支持 (NLS)](/windows/win32/intl/national-language-support) API 来实现 Windows 上的全球化功能。 例如，NLS 函数用于比较字符串，获取区域性信息，并在适当的区域中执行字符串大小写。
 
-从 .NET 5.0 开始，如果应用在 Windows 10 2019 年 5 月更新或更高版本上运行，.NET 库将使用 [ICU](http://site.icu-project.org/home) 全球化 API。 Windows 10 2019 年 5 月更新及更高版本随 ICU 本机库一起提供。 如果 .NET 运行时无法加载 ICU，它将改用 NLS。
+默认情况下，从 .NET 5.0 开始，如果应用在 Windows 10 2019 年 5 月更新或更高版本上运行，.NET 库将使用 [ICU](http://site.icu-project.org/home) 全球化 API。
 
-引入此更改的原因有两个：
+> [!NOTE]
+> Windows 10 2019 年 5 月更新及更高版本随 ICU 本机库一起提供。 如果 .NET 运行时无法加载 ICU，它将改用 NLS。
 
-- 应用跨平台（包括 Linux、macOS 和 Windows）具有相同的全球化行为。
-- 应用可以通过使用自定义 ICU 库来控制全球化行为。
+#### <a name="behavioral-differences"></a>行为差异
+
+即使你不知道正在使用全球化设施，你也可能会在应用中看到更改。 本部分列出了你可能会看到的一些行为更改，但还有其他一些行为更改。
+
+##### <a name="stringindexof"></a>String.IndexOf
+
+请考虑使用以下代码，它调用 <xref:System.String.IndexOf(System.String)?displayProperty=nameWithType> 来查找字符串中的换行符索引。
+
+```csharp
+string s = "Hello\r\nworld!";
+int idx = s.IndexOf("\n");
+Console.WriteLine(idx);
+```
+
+- 在 Windows 上的早期版本的 .NET 中，代码片段打印 `6`。
+- 在 Windows 19H1 和更高版本上的 .NET 5.0 及更高版本中，代码片段打印 `-1`。
+
+若要通过执行序号搜索而不是区分区域性的搜索来修复此代码，请调用 <xref:System.String.IndexOf(System.String,System.StringComparison)> 重载，并传入 <xref:System.StringComparison.Ordinal?displayProperty=nameWithType> 作为参数。
+
+可以运行代码分析规则 [CA1307：为了清晰起见，请指定 StringComparison](../../../../docs/fundamentals/code-analysis/quality-rules/ca1307.md) 和 [CA1309：使用序号 StringComparison](../../../../docs/fundamentals/code-analysis/quality-rules/ca1309.md) 在代码中查找这些调用站点。
+
+有关详细信息，请参阅[在 .NET 5 及更高版本中比较字符串时的行为更改](../../../../docs/standard/base-types/string-comparison-net-5-plus.md)。
+
+##### <a name="currency-symbol"></a>货币符号
+
+请考虑使用以下代码，它使用货币格式说明符 `C` 设置字符串格式。 当前线程的区域性设置为仅包括语言（而非国家/地区）的区域性。
+
+```csharp
+System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("de");
+string text = string.Format("{0:C}", 100);
+```
+
+- 在 Windows 上的早期版本的 .NET 中，文本值为 `"100,00 €"`。
+- 在 Windows 19H1 和更高版本上的 .NET 5.0 及更高版本中，文本值为 `"100,00 ¤"`，它使用国际货币符号而不是欧元。 在 ICU 中，这种设计是指，货币是国家或地区的属性，而不是语言。
+
+#### <a name="reason-for-change"></a>更改原因
+
+引入此更改是为了统一所有支持的操作系统上的 .NET 的全球化行为。 它还能让应用程序捆绑自己的全球化库，而不是依赖于操作系统的内置库。
 
 #### <a name="version-introduced"></a>引入的版本
 
@@ -31,13 +68,19 @@ ms.locfileid: "90539440"
 
 #### <a name="category"></a>类别
 
-全球化
+- Core .NET 库
+- 全球化
 
 #### <a name="affected-apis"></a>受影响的 API
 
 - <xref:System.Span%601?displayProperty=fullName>
 - <xref:System.String?displayProperty=fullName>
 - <xref:System.Globalization?displayProperty=fullName> 命名空间中的大多数类型
+- <xref:System.Array.Sort%2A?displayProperty=fullName>（对字符串数组进行排序时）
+- <xref:System.Collections.Generic.List%601.Sort?displayProperty=fullName>（当列表元素为字符串时）
+- <xref:System.Collections.Generic.SortedDictionary%602?displayProperty=fullName>（当键为字符串时）
+- <xref:System.Collections.Generic.SortedList%602?displayProperty=fullName>（当键为字符串时）
+- <xref:System.Collections.Generic.SortedSet%601?displayProperty=fullName>（当集包含字符串时）
 
 <!--
 
@@ -46,5 +89,10 @@ ms.locfileid: "90539440"
 - ``T:System.Span`1``
 - `T:System.String`
 - `N:System.Globalization`
+- `Overload:System.Array.Sort`
+- ``M:System.Collections.Generic.List`1.Sort``
+- ``T:System.Collections.Generic.SortedDictionary`2``
+- ``T:System.Collections.Generic.SortedList`2``
+- ``T:System.Collections.Generic.SortedSet`1``
 
 -->

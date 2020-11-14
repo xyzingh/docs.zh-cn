@@ -4,18 +4,18 @@ ms.date: 07/20/2015
 helpviewer_keywords:
 - components [Visual Basic]
 ms.assetid: ee6a4156-73f7-4e9b-8e01-c74c4798b65c
-ms.openlocfilehash: e4d4fa092363a5e76658f2770c0d655bb225f3f3
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 106b8791ee5cb3db95759ccca2fddd799661ef3c
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90544578"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282059"
 ---
 # <a name="creating-and-using-components-in-visual-basic"></a>创建和使用组件 (Visual Basic)
 
-组件  是一个类，该类实现 <xref:System.ComponentModel.IComponent?displayProperty=nameWithType> 接口或直接/间接派生自实现 <xref:System.ComponentModel.IComponent> 的类。 .NET Framework 组件是可重复使用的对象，可以和其他对象进行交互，并提供对外部资源和设计时支持的控制。  
+组件  是一个类，该类实现 <xref:System.ComponentModel.IComponent?displayProperty=nameWithType> 接口或直接/间接派生自实现 <xref:System.ComponentModel.IComponent> 的类。 NET 组件是可重复使用的对象，可以和其他对象进行交互，并提供对外部资源和设计时支持的控制。  
   
- 组件的一个重要特性在于它们是可设计的，这意味着可在 Visual Studio 集成开发环境中使用作为组件的类。 可以将组件添加到“工具箱”、拖放到窗体以及在设计图面上操作。 请注意，对组件的基本设计时支持已内置于 .NET Framework 中；组件开发人员不必执行任何附加工作便可利用基本设计时功能。  
+ 组件的一个重要特性在于它们是可设计的，这意味着可在 Visual Studio 集成开发环境中使用作为组件的类。 可以将组件添加到“工具箱”、拖放到窗体以及在设计图面上操作。 对组件的基本设计时支持已内置于 .NET 中。 组件开发人员不必执行任何附加工作便可利用基本设计时功能。  
   
  控件与组件类似，二者都是可设计的。  不过，控件提供用户界面，而组件不提供。 控件必须派生自基控件类之一：<xref:System.Windows.Forms.Control> 或 <xref:System.Web.UI.Control>。  
   
@@ -37,29 +37,29 @@ ms.locfileid: "90544578"
   
  核心组件类包括：  
   
-- <xref:System.ComponentModel.Component>。 <xref:System.ComponentModel.IComponent> 接口的基实现。 此类可以实现在应用程序之间共享对象。  
+- <xref:System.ComponentModel.Component>. <xref:System.ComponentModel.IComponent> 接口的基实现。 此类可以实现在应用程序之间共享对象。  
   
-- <xref:System.ComponentModel.MarshalByValueComponent>。 <xref:System.ComponentModel.IComponent> 接口的基实现。  
+- <xref:System.ComponentModel.MarshalByValueComponent>. <xref:System.ComponentModel.IComponent> 接口的基实现。  
   
-- <xref:System.ComponentModel.Container>。 <xref:System.ComponentModel.IContainer> 接口的基实现。 此类封装零个或多个组件。  
+- <xref:System.ComponentModel.Container>. <xref:System.ComponentModel.IContainer> 接口的基实现。 此类封装零个或多个组件。  
   
  部分用于组件授权的类包括：  
   
-- <xref:System.ComponentModel.License>。 所有许可证的抽象基类。 对组件的特定实例授予许可证。  
+- <xref:System.ComponentModel.License>. 所有许可证的抽象基类。 对组件的特定实例授予许可证。  
   
-- <xref:System.ComponentModel.LicenseManager>。 提供属性和方法，用以将许可证添加到组件和管理 <xref:System.ComponentModel.LicenseProvider>。  
+- <xref:System.ComponentModel.LicenseManager>. 提供属性和方法，用以将许可证添加到组件和管理 <xref:System.ComponentModel.LicenseProvider>。  
   
-- <xref:System.ComponentModel.LicenseProvider>。 实现许可证提供程序的抽象基类。  
+- <xref:System.ComponentModel.LicenseProvider>. 实现许可证提供程序的抽象基类。  
   
-- <xref:System.ComponentModel.LicenseProviderAttribute>。 指定要与某个类一起使用的 <xref:System.ComponentModel.LicenseProvider> 类。  
+- <xref:System.ComponentModel.LicenseProviderAttribute>. 指定要与某个类一起使用的 <xref:System.ComponentModel.LicenseProvider> 类。  
   
  常用于描述和保存组件的类。  
   
-- <xref:System.ComponentModel.TypeDescriptor>。 提供有关组件特征的信息，如组件的特性、属性和事件。  
+- <xref:System.ComponentModel.TypeDescriptor>. 提供有关组件特征的信息，如组件的特性、属性和事件。  
   
-- <xref:System.ComponentModel.EventDescriptor>。 提供有关事件的信息。  
+- <xref:System.ComponentModel.EventDescriptor>. 提供有关事件的信息。  
   
-- <xref:System.ComponentModel.PropertyDescriptor>。 提供有关属性的信息。  
+- <xref:System.ComponentModel.PropertyDescriptor>. 提供有关属性的信息。  
   
 ## <a name="related-sections"></a>相关章节  
 

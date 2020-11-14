@@ -1,21 +1,23 @@
 ---
 title: 如何编写用于 JSON 序列化的自定义转换器 - .NET
+description: 了解如何为 System.Text.Json 命名空间中提供的 JSON 序列化类创建自定义转换器。
 ms.date: 01/10/2020
 no-loc:
 - System.Text.Json
 - Newtonsoft.Json
+zone_pivot_groups: dotnet-version
 helpviewer_keywords:
 - JSON serialization
 - serializing objects
 - serialization
 - objects, serializing
 - converters
-ms.openlocfilehash: e0b769d7bb6b336d226cd48de1932524c4d7e74d
-ms.sourcegitcommit: 9c45035b781caebc63ec8ecf912dc83fb6723b1f
+ms.openlocfilehash: ba6b61232ccf7ed493fe5809e5c0b8ba21091d3d
+ms.sourcegitcommit: 6bef8abde346c59771a35f4f76bf037ff61c5ba3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88811062"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329802"
 ---
 # <a name="how-to-write-custom-converters-for-json-serialization-marshalling-in-net"></a>如何在 .NET 中编写用于 JSON 序列化（封送）的自定义转换器
 
@@ -28,10 +30,20 @@ ms.locfileid: "88811062"
 
 还可以编写自定义转换器，以使用当前版本中未包含的功能自定义或扩展 `System.Text.Json`。 本文后面部分介绍了以下方案：
 
+::: zone pivot="dotnet-5-0"
+
+* [将推断类型反序列化为对象属性](#deserialize-inferred-types-to-object-properties)。
+* [支持多态反序列化](#support-polymorphic-deserialization)。
+* [支持堆栈的往返\<T>](#support-round-trip-for-stackt)。
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
+
 * [将推断类型反序列化为对象属性](#deserialize-inferred-types-to-object-properties)。
 * [支持包含非字符串键的字典](#support-dictionary-with-non-string-key)。
 * [支持多态反序列化](#support-polymorphic-deserialization)。
 * [支持堆栈的往返\<T>](#support-round-trip-for-stackt)。
+::: zone-end
 
 ## <a name="custom-converter-patterns"></a>自定义转换器模式
 
@@ -177,10 +189,20 @@ Path: $.Date | LineNumber: 1 | BytePositionInLine: 37.
 
 以下各部分提供的转换器示例用于解决内置功能不处理的一些常见方案。
 
-* [将推断类型反序列化为对象属性](#deserialize-inferred-types-to-object-properties)
-* [支持包含非字符串键的字典](#support-dictionary-with-non-string-key)
-* [支持多态反序列化](#support-polymorphic-deserialization)
+::: zone pivot="dotnet-5-0"
+
+* [将推断类型反序列化为对象属性](#deserialize-inferred-types-to-object-properties)。
+* [支持多态反序列化](#support-polymorphic-deserialization)。
 * [支持堆栈的往返\<T>](#support-round-trip-for-stackt)。
+::: zone-end
+
+::: zone pivot="dotnet-core-3-1"
+
+* [将推断类型反序列化为对象属性](#deserialize-inferred-types-to-object-properties)。
+* [支持包含非字符串键的字典](#support-dictionary-with-non-string-key)。
+* [支持多态反序列化](#support-polymorphic-deserialization)。
+* [支持堆栈的往返\<T>](#support-round-trip-for-stackt)。
+::: zone-end
 
 ### <a name="deserialize-inferred-types-to-object-properties"></a>将推断类型反序列化为对象属性
 
@@ -221,6 +243,8 @@ Path: $.Date | LineNumber: 1 | BytePositionInLine: 37.
 
 `System.Text.Json.Serialization` 命名空间中的[单元测试文件夹](https://github.com/dotnet/runtime/blob/81bf79fd9aa75305e55abe2f7e9ef3f60624a3a1/src/libraries/System.Text.Json/tests/Serialization/)包含处理到 `object` 属性的反序列化的自定义转换器的更多示例。
 
+::: zone pivot="dotnet-core-3-1"
+
 ### <a name="support-dictionary-with-non-string-key"></a>支持包含非字符串键的字典
 
 对字典集合的内置支持适用于 `Dictionary<string, TValue>`。 即，键必须是字符串。 若要支持将整数或某种其他类型用作键的字典，需要自定义转换器。
@@ -252,6 +276,7 @@ Path: $.Date | LineNumber: 1 | BytePositionInLine: 37.
 ```
 
 `System.Text.Json.Serialization` 命名空间中的[单元测试文件夹](https://github.com/dotnet/runtime/blob/81bf79fd9aa75305e55abe2f7e9ef3f60624a3a1/src/libraries/System.Text.Json/tests/Serialization/)包含处理非字符串键字典的自定义转换器的更多示例。
+::: zone-end
 
 ### <a name="support-polymorphic-deserialization"></a>支持多态反序列化
 
@@ -307,6 +332,29 @@ Path: $.Date | LineNumber: 1 | BytePositionInLine: 37.
 下面的代码注册转换器：
 
 [!code-csharp[](snippets/system-text-json-how-to/csharp/RoundtripStackOfT.cs?name=SnippetRegister)]
+
+## <a name="handle-null-values"></a>处理 NULL 值
+
+默认情况下，序列化程序处理 null 值，如下所示：
+
+* 对于引用类型和 `Nullable<T>` 类型：
+
+  * 它在序列化时不会将 `null` 传递到自定义转换器。
+  * 它在反序列化时不会将 `JsonTokenType.Null` 传递到自定义转换器。
+  * 它在反序列化时返回 `null` 实例。
+  * 它在序列化时直接使用编写器写入 `null`。
+
+* 对于不可为 null 的值类型：
+
+  * 它在反序列化时将 `JsonTokenType.Null` 传递到自定义转换器。 （如果没有可用的自定义转换器，则由该类型的内部转换器引发 `JsonException` 异常。）
+
+此 null 处理行为主要用于，通过跳过对转换器的额外调用来优化性能。 此外，它可避免在每个 `Read` 和 `Write` 方法重写开始时强制可以为 null 的类型的转换器检查 `null`。
+
+::: zone pivot="dotnet-5-0"
+若要启用自定义转换器来处理引用或值类型的 `null`，请重写 <xref:System.Text.Json.Serialization.JsonConverter%601.HandleNull%2A?displayProperty=nameWithType> 以返回 `true`，如以下示例中所示：
+
+:::code language="csharp" source="snippets/system-text-json-how-to-5-0/csharp/CustomConverterHandleNull.cs" highlight="19":::
+::: zone-end
 
 ## <a name="other-custom-converter-samples"></a>其他自定义转换器示例
 

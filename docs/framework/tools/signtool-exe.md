@@ -6,17 +6,20 @@ helpviewer_keywords:
 - Sign tool
 - SignTool.exe
 ms.assetid: 0c25ff6c-bff3-422e-b017-146a3ee86cb9
-ms.openlocfilehash: f1254f345a8b3bb796217442cbad36d2e942b403
-ms.sourcegitcommit: b4f8849c47c1a7145eb26ce68bc9f9976e0dbec3
+ms.openlocfilehash: ff330691483b56740ee72e280c1471af4282c638
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87517199"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282245"
 ---
 # <a name="signtoolexe-sign-tool"></a>SignTool.exe（签名工具）
 签名工具是一个命令行工具，用于对文件进行数字签名，以及验证文件和时间戳文件中的签名。  
   
- 此工具会自动随 Visual Studio 一起安装。 若要运行此工具，请使用 Visual Studio 开发人员命令提示（或 Windows 7 中的 Visual Studio 命令提示）。 有关详细信息，请参阅[命令提示](developer-command-prompt-for-vs.md)。  
+ 此工具会自动随 Visual Studio 一起安装。 若要运行此工具，请使用 Visual Studio 开发人员命令提示（或 Windows 7 中的 Visual Studio 命令提示）。 有关详细信息，请参阅[命令提示](developer-command-prompt-for-vs.md)。
+
+> [!Note]  
+> Windows 10 SDK、Windows 10 HLK、Windows 10 WDK 和 Windows 10 ADK 内部版本 20236 及更高版本需要指定摘要算法。 SignTool `sign` 命令需要 `/fd` 文件摘要算法和 `/td` 时间戳摘要算法选项在签名和添加时间戳期间分别指定。 如果在签名期间未指定 `/fd` 并且在添加时间戳期间未指定 `/td`，将引发警告（最初称为错误代码 0）。 在 SignTool 的更高版本中，警告将变成错误。 建议使用 SHA256，它被认为比行业 SHA1 更安全。  
   
  在命令提示符处，键入以下内容：  
   
@@ -76,7 +79,8 @@ signtool [command] [options] [file_name | ...]
 |`/d`  Desc|指定已签名内容的说明。|  
 |`/du`  URL|为已签名内容的详细说明指定统一资源定位器 (URL)。|  
 |`/f`  SignCertFile|指定文件中的签名证书。 如果文件采用个人信息交换 (PFX) 格式且受密码保护，则使用 `/p` 选项指定密码。 如果文件不包含私钥，则使用 `/csp` 和 `/kc` 选项指定 CSP 和私钥容器名。|  
-|`/fd`|指定要用于创建文件签名的文件摘要算法。 默认值为 SHA1。|  
+|`/fd`|指定要用于创建文件签名的文件摘要算法。 </br> **注意：** 如果在签名时未提供 `/fd` 开关，则会生成警告。 默认算法为 SHA1，但建议使用 SHA256。|
+|`/fd` certHash|指定字符串 certHash 将默认使用用于签名证书的算法。 </br> **注意：** 仅适用于 Windows 10 工具包内部版本 20236 及更高版本。|  
 |`/i`  IssuerName|指定签名证书的颁发者的名称。 该值可以是整个颁发者名称的子字符串。|  
 |`/kc`  PrivKeyContainerName|指定私钥容器名。|  
 |`/n`  SubjectName|指定签名证书的主题的名称。 该值可以是整个主题名称的子字符串。|  
@@ -91,8 +95,8 @@ signtool [command] [options] [file_name | ...]
 |`/sha1`  Hash|指定签名证书的 SHA1 哈希。 当多个证书满足剩余开关指定的条件时，通常会指定 SHA1 哈希。|  
 |`/sm`|指定使用计算机存储，而不是用户存储。|  
 |`/t`  URL|指定时间戳服务器的 URL。 如果该选项（或 `/tr`）不存在，将不会对签名文件执行时间戳操作。 如果时间戳操作失败，将生成一个警告。 此选项不能与 `/tr` 选项一起使用。|  
-|`/td`  alg|将此选项与 `/tr` 选项一起使用可请求 RFC 3161 时间戳服务器使用的摘要算法。|  
-|`/tr`  URL|指定 RFC 3161 时间戳服务器的 URL。 如果该选项（或 `/t`）不存在，将不会对签名文件执行时间戳操作。 如果时间戳操作失败，将生成一个警告。 此选项不能与 `/t` 选项一起使用。|  
+|`/td`  alg|将此选项与 `/tr` 选项一起使用可请求 RFC 3161 时间戳服务器使用的摘要算法。 </br> **注意：** 如果在添加时间戳时未提供 `/td` 开关，则会生成警告。 默认算法为 SHA1，但建议使用 SHA256。 <br/> `/td` 开关必须在 `/tr` 开关之后（而不是之前）声明。 如果 `/td` 开关在 `/tr` 开关之前声明，则返回的时间戳来自 SHA1 算法，而不是来自预期的 SHA256 算法。 |
+|`/tr`  URL|指定 RFC 3161 时间戳服务器的 URL。 如果该选项（或 `/t`）不存在，将不会对签名文件执行时间戳操作。 如果时间戳操作失败，将生成一个警告。 此选项不能与 `/t` 选项一起使用。|
 |`/u`  Usage|指定签名证书中必须存在的增强型密钥用法 (EKU)。 可以通过 OID 或字符串指定该用法的值。 默认用法为“代码签名”(1.3.6.1.5.5.7.3.3)。|  
 |`/uw`|指定“Windows 系统组件验证”(1.3.6.1.4.1.311.10.3.6) 的用法。|  
   
@@ -106,7 +110,7 @@ signtool [command] [options] [file_name | ...]
 |----------------------|-----------------|  
 |`/p7`|对 PKCS #7 文件执行时间戳操作。|  
 |`/t`  URL|指定时间戳服务器的 URL。 要执行时间戳操作的文件必须在以前已进行签名。 需要 `/t` 或 `/tr` 选项。|  
-|`/td`  alg|请求 RFC 3161 时间戳服务器使用的摘要算法。 `/td` 与 `/tr` 选项一起使用。|  
+|`/td`  alg|将此选项与 `/tr` 选项一起使用可请求 RFC 3161 时间戳服务器使用的摘要算法。 </br> **注意：** 如果在添加时间戳时未提供 `/td` 开关，则会生成警告。 默认算法为 SHA1，但建议使用 SHA256。 <br/> `/td` 开关必须在 `/tr` 开关之后（而不是之前）声明。 如果 `/td` 开关在 `/tr` 开关之前声明，则返回的时间戳来自 SHA1 算法，而不是来自预期的 SHA256 算法。 |
 |`/tp` index|对 index 处的签名进行时间戳操作。|  
 |`/tr`  URL|指定 RFC 3161 时间戳服务器的 URL。 要执行时间戳操作的文件必须在以前已进行签名。 需要 `/tr` 或 `/t` 选项。|  
   
@@ -146,7 +150,7 @@ signtool [command] [options] [file_name | ...]
 |0|执行成功。|  
 |1|执行失败。|  
 |2|执行完成，但出现警告。|  
-  
+
 ## <a name="examples"></a>示例  
  以下命令将目录文件 MyCatalogFileName.cat 添加到系统组件和驱动程序数据库中。 如有必要阻止替换名为 `/u` 的现有目录文件，`MyCatalogFileName.cat` 选项会生成唯一名称。  
   
@@ -156,38 +160,44 @@ signtool catdb /v /u MyCatalogFileName.cat
   
  以下命令通过使用最佳证书对文件进行自动签名。  
   
-```console  
-signtool sign /a MyFile.exe  
-```  
-  
+```console
+signtool sign /a /fd SHA256 MyFile.exe
+```
+
  以下命令使用存储在受密码保护的 PFX 文件中的证书对文件进行数字签名。  
   
 ```console  
-signtool sign /f MyCert.pfx /p MyPassword MyFile.exe  
+signtool sign /f MyCert.pfx /p MyPassword /fd SHA256 MyFile.exe
 ```  
   
  以下命令对文件进行数字签名并加盖时间戳。 用于对文件进行签名的证书存储在 PFX 文件中。  
   
 ```console  
-signtool sign /f MyCert.pfx /t http://timestamp.digicert.com MyFile.exe  
+signtool sign /f MyCert.pfx /t http://timestamp.digicert.com /fd SHA256 MyFile.exe
 ```  
   
  以下命令通过使用位于 `My` 存储中的证书对文件进行签名，该证书的主题名为 `My Company Certificate`。  
   
 ```console  
-signtool sign /n "My Company Certificate" MyFile.exe  
+signtool sign /n "My Company Certificate" /fd SHA256 MyFile.exe
 ```  
   
  以下命令对 ActiveX 控件进行签名，并提供在系统提示用户安装此控件时由 Internet Explorer 显示的信息。  
   
 ```console  
-Signtool sign /f MyCert.pfx /d: "MyControl" /du http://www.example.com/MyControl/info.html MyControl.exe  
+Signtool sign /f MyCert.pfx /d: "MyControl" /du http://www.example.com/MyControl/info.html /fd SHA256 MyControl.exe
 ```  
   
  以下命令对已进行数字签名的文件加盖时间戳。  
   
 ```console  
-signtool timestamp /t http://timestamp.digicert.com MyFile.exe  
+signtool timestamp /t http://timestamp.digicert.com MyFile.exe
+```  
+
+以下命令使用 RFC 3161 时间戳服务器为文件添加时间戳。  
+  
+```console  
+signtool timestamp /tr http://timestamp.digicert.com /td SHA256 MyFile.exe
 ```  
   
  以下命令确认文件已签名。  

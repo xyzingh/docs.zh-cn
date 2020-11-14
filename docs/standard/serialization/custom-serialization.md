@@ -18,23 +18,25 @@ helpviewer_keywords:
 - OnDeserializedAttribute class, custom serialization
 - OnSerializingAttribute class, custom serialization
 ms.assetid: 12ed422d-5280-49b8-9b71-a2ed129c0384
-ms.openlocfilehash: 1532c4eeb09e7110d0f369ec47f342256889e576
-ms.sourcegitcommit: b16c00371ea06398859ecd157defc81301c9070f
+ms.openlocfilehash: 8e8d8d38ab8170a9bf9fae098e267be1a38f27d0
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84289650"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93281796"
 ---
 # <a name="custom-serialization"></a>自定义序列化
+
 自定义序列化是控制类型的序列化和反序列化的过程。 通过控制序列化，可以确保序列化兼容性。换而言之，在不中断类型核心功能的情况下，可在类型的不同版本之间序列化和反序列化。 例如，在类型的第一个版本中，可能只有两个字段。 在类型的下一个版本中，添加了其他几个字段。 但是，第二个版本的应用程序必须可对这两种类型进行序列化和反序列化。 以下各节说明如何控制序列化。
 
 [!INCLUDE [binary-serialization-warning](../../../includes/binary-serialization-warning.md)]
   
 > [!IMPORTANT]
-> 在早于 .NET Framework 4.0 的版本中，部分受信任的程序集中自定义用户数据的序列化是使用 GetObjectData 完成的。 从版本 4.0 开始，该方法将标记有 <xref:System.Security.SecurityCriticalAttribute> 特性，该特性阻止在部分受信任的程序集中执行。 若要解决此情况，请实现 <xref:System.Runtime.Serialization.ISafeSerializationData> 接口。  
+> 在早于 .NET Framework 4.0 的版本中，部分受信任的程序集中自定义用户数据的序列化是使用 `GetObjectData` 完成的。 从版本 4.0 开始，该方法将标记有 <xref:System.Security.SecurityCriticalAttribute> 特性，该特性阻止在部分受信任的程序集中执行。 若要解决此情况，请实现 <xref:System.Runtime.Serialization.ISafeSerializationData> 接口。  
   
-## <a name="running-custom-methods-during-and-after-serialization"></a>在序列化期间和序列化之后运行自定义方法  
- 最实用且最简便的方法（已引入 .NET Framework 2.0 版）是在序列化期间和序列化之后，将下列属性应用于更正数据所用的方法：  
+## <a name="running-custom-methods-during-and-after-serialization"></a>在序列化期间和序列化之后运行自定义方法
+
+序列化期间和序列化之后运行自定义方法的建议方法，是在序列化期间和序列化之后，将下列属性应用于更正数据所用的方法：  
   
 - <xref:System.Runtime.Serialization.OnDeserializedAttribute>  
   

@@ -1,6 +1,6 @@
 ---
-title: 使用 String.Split 分析字符串（C# 指南）
-description: Split 方法返回从一组分隔符中拆分的字符串数组。 这是分析字符串的一种简单方法。
+title: 使用 String.Split 拆分字符串（C# 指南）
+description: Split 方法返回从一组分隔符中拆分的字符串数组。 这是从字符串中提取子字符串的一种简单方法。
 ms.date: 01/03/2018
 helpviewer_keywords:
 - splitting strings [C#]
@@ -9,14 +9,14 @@ helpviewer_keywords:
 - parse strings
 ms.assetid: 729c2923-4169-41c6-9c90-ef176c1e2953
 ms.custom: mvc
-ms.openlocfilehash: 7c5d8fa462775c6f3a9981693129997dda6c2286
-ms.sourcegitcommit: dc2feef0794cf41dbac1451a13b8183258566c0e
+ms.openlocfilehash: 5361a3c60905edd19b180c5ddb14064a85f64337
+ms.sourcegitcommit: 48466b8fb7332ececff5dc388f19f6b3ff503dd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85324136"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93400495"
 ---
-# <a name="how-to-parse-strings-using-stringsplit-in-c"></a>如何使用 String.Split 分析字符串（C\# 指南）
+# <a name="how-to-separate-strings-using-stringsplit-in-c"></a>如何在 C\# 中使用 String.Split 分隔字符串
 
 <xref:System.String.Split%2A?displayProperty=nameWithType> 方法通过基于一个或多个分隔符拆分输入字符串来创建子字符串数组。 此方法通常是分隔字边界上的字符串的最简单方法。 它也用于拆分其他特定字符或字符串上的字符串。
 
@@ -50,6 +50,7 @@ ms.locfileid: "85324136"
 
 ## <a name="see-also"></a>请参阅
 
+- [从字符串中提取元素](../../standard/base-types/divide-up-strings.md)
 - [C# 编程指南](../programming-guide/index.md)
 - [字符串](../programming-guide/strings/index.md)
 - [.NET 正则表达式](../../standard/base-types/regular-expressions.md)

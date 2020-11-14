@@ -4,13 +4,13 @@ description: dotnet new 命令可根据指定模板新建 .NET Core 项目。
 no-loc:
 - Blazor
 - WebAssembly
-ms.date: 09/01/2020
-ms.openlocfilehash: 4a4c8e2806fee663b5f6aa255a6f24250a072a85
-ms.sourcegitcommit: 532b03d5bbab764d63356193b04cd2281bc01239
+ms.date: 09/04/2020
+ms.openlocfilehash: 2ee06c37cd950f3b9771db2f30fe353435641d67
+ms.sourcegitcommit: 48466b8fb7332ececff5dc388f19f6b3ff503dd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92526612"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93400586"
 ---
 # <a name="dotnet-new"></a>dotnet new
 
@@ -78,7 +78,7 @@ dotnet new -h|--help
 | MVC ViewImports                              | [viewimports](#namespace)       | [C#]         | Web/ASP.NET                           | 2.0        |
 | MVC ViewStart                                | `viewstart`                     | [C#]         | Web/ASP.NET                           | 2.0        |
 | Blazor 服务器应用                            | [blazorserver](#blazorserver)   | [C#]         | Web/Blazor                            | 3.0        |
-| Blazor WebAssembly 应用                       | `blazorwasm`                    | [C#]         | Web/Blazor/WebAssembly                | 3.1.300    |
+| Blazor WebAssembly 应用                       | [blazorwasm](#blazorwasm)       | [C#]         | Web/Blazor/WebAssembly                | 3.1.300    |
 | ASP.NET Core 空                           | [web](#web)                     | [C#]，F#     | Web/空                             | 1.0        |
 | ASP.NET Core Web 应用程序 (Model-View-Controller) | [mvc](#web-options)             | [C#]，F#     | Web/MVC                               | 1.0        |
 | ASP.NET Core Web 应用程序                         | [webapp、razor](#web-options)   | [C#]         | Web/MVC/Razor Pages                   | 2.2、2.0   |
@@ -394,6 +394,110 @@ dotnet new -h|--help
 - **`--no-restore`**
 
   在项目创建期间不执行隐式还原。
+
+**_
+
+### <a name="blazorwasm"></a>blazorwasm
+
+- _ *`-f|--framework <FRAMEWORK>`**
+
+  指定目标[框架](../../standard/frameworks.md)。
+
+  下表根据所使用的 SDK 版本号列出了默认值：
+
+  | SDK 版本 | 默认值   |
+  |-------------|-----------------|
+  | 5.0         | `net5.0`        |
+  | 3.1         | `netcoreapp3.1` |
+
+- **`--no-restore`**
+
+  在项目创建期间不执行隐式还原。
+
+- **`-ho|--hosted`**
+
+  包括 Blazor WebAssembly 应用的 ASP.NET Core 主机。
+
+- **`-au|--auth <AUTHENTICATION_TYPE>`**
+
+  要使用的身份验证类型。 可能的值为：
+
+  - `None` - 不进行身份验证（默认）。
+  - `Individual` - 个人身份验证。
+  - `IndividualB2C` - 使用 Azure AD B2C 进行个人身份验证。
+  - `SingleOrg` - 对一个租户进行组织身份验证。
+
+- **`--authority <AUTHORITY>`**
+
+  OIDC 提供程序所属的机构。 与 `Individual` 身份验证结合使用。 默认值为 `https://login.microsoftonline.com/`。
+
+- **`--aad-b2c-instance <INSTANCE>`**
+
+  要连接到的 Azure Active Directory B2C 实例。 与 `IndividualB2C` 身份验证结合使用。 默认值为 `https://aadB2CInstance.b2clogin.com/`。
+
+- **`-ssp|--susi-policy-id <ID>`**
+
+  此项目的登录和注册策略 ID。 与 `IndividualB2C` 身份验证结合使用。
+
+- **`--aad-instance <INSTANCE>`**
+
+  要连接到的 Azure Active Directory 实例。 与 `SingleOrg` 身份验证结合使用。 默认值为 `https://login.microsoftonline.com/`。
+
+- **`--client-id <ID>`**
+
+  此项目的客户端 ID。 在独立方案中与 `IndividualB2C`、`SingleOrg` 或 `Individual` 身份验证一起使用。 默认值为 `33333333-3333-3333-33333333333333333`。
+
+- **`--domain <DOMAIN>`**
+
+  目录租户的域。 与 `SingleOrg` 或 `IndividualB2C` 身份验证结合使用。 默认值为 `qualified.domain.name`。
+
+- **`--app-id-uri <URI>`**
+
+  要调用的服务器 API 的应用 ID URI。 与 `SingleOrg` 或 `IndividualB2C` 身份验证结合使用。 默认值为 `api.id.uri`。
+
+- **`--api-client-id <ID>`**
+
+  服务器承载的 API 的客户端 ID。 与 `SingleOrg` 或 `IndividualB2C` 身份验证结合使用。 默认值为 `11111111-1111-1111-11111111111111111`。
+
+- **`-s|--default-scope <SCOPE>`**
+
+  客户端为预配访问令牌所需请求的 API 作用域。 与 `SingleOrg` 或 `IndividualB2C` 身份验证结合使用。 默认值为 `user_impersonation`。
+
+- **`--tenant-id <ID>`**
+
+  要连接到的目录的 TenantId ID。 与 `SingleOrg` 身份验证结合使用。 默认值为 `22222222-2222-2222-2222-222222222222`。
+
+- **`-r|--org-read-access`**
+
+  允许此应用程序对目录进行读取访问。 仅适用于 `SingleOrg` 身份验证。
+
+- **`--exclude-launch-settings`**
+
+  从生成的模板中排除 launchSettings.json。
+
+- **`-p|--pwa`**
+
+  生成支持安装和脱机使用的渐进式 Web 应用程序 (PWA)。
+
+- **`--no-https`**
+
+  关闭 HTTPS。 此选项仅适用于 `Individual`、`IndividualB2C` 和 `SingleOrg` 未用于 `--auth` 的情况。
+
+- **`-uld|--use-local-db`**
+
+  指定应使用 LocalDB，而不使用 SQLite。 仅适用于 `Individual` 或 `IndividualB2C` 身份验证。
+
+- **`--called-api-url <URL>`**
+
+  要从 Web 应用调用的 API 的 URL。 仅适用于未指定 ASP.NET Core 主机的 `SingleOrg` 或 `IndividualB2C` 身份验证。 默认值为 `https://graph.microsoft.com/v1.0/me`。
+
+- **`--calls-graph`**
+
+  指定 Web 应用是否调用 Microsoft Graph。 仅适用于 `SingleOrg` 身份验证。
+
+- **`--called-api-scopes <SCOPES>`**
+
+  为从 Web 应用调用 API 而请求的作用域。 仅适用于未指定 ASP.NET Core 主机的 `SingleOrg` 或 `IndividualB2C` 身份验证。 默认值为 `user.read`。
 
 **_
 

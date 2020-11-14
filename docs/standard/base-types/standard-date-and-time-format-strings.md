@@ -1,7 +1,7 @@
 ---
 title: 标准日期和时间格式字符串
-description: 本文介绍如何在 .NET 中使用标准日期和时间格式字符串来定义日期和时间值的文本表示形式。
-ms.date: 03/30/2017
+description: 介绍如何在 .NET 中使用标准日期和时间格式字符串来定义日期和时间值的文本表示形式。
+ms.date: 11/05/2020
 ms.technology: dotnet-standard
 dev_langs:
 - csharp
@@ -14,30 +14,30 @@ helpviewer_keywords:
 - custom date and time format strings
 - formatting [.NET], time
 - date and time strings
-ms.assetid: bb79761a-ca08-44ee-b142-b06b3e2fc22b
-ms.openlocfilehash: 36aaef2676383263b2009fd283f1671ef970f20e
-ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
+ms.custom: contperfq2
+ms.openlocfilehash: dc294322317560344a6e3cdba1dbe2cce4f6a3fd
+ms.sourcegitcommit: 6bef8abde346c59771a35f4f76bf037ff61c5ba3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92888628"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329750"
 ---
 # <a name="standard-date-and-time-format-strings"></a>标准日期和时间格式字符串
 
-标准日期和时间格式字符串使用单个格式说明符来定义日期和时间值的文本表示形式。 包含一个以上字符（包括空白）的任何日期和时间格式字符串都会被解释为自定义日期和时间格式字符串；有关更多信息，请参见[自定义日期和时间格式字符串](custom-date-and-time-format-strings.md)。 可通过两种方式使用标准或自定义格式字符串：
+标准日期和时间格式字符串使用单个字符作为格式说明符来定义 <xref:System.DateTime> 或 <xref:System.DateTimeOffset> 值的文本表示形式。 任何包含一个以上字符（包括空白）的日期和时间格式字符串都会作为[自定义日期和时间格式字符串](custom-date-and-time-format-strings.md)进行解释。 可通过两种方式使用标准或自定义格式字符串：
 
 - 定义由格式设置操作生成的字符串。
 
 - 定义可通过分析操作转换为 <xref:System.DateTime> 或 <xref:System.DateTimeOffset> 值的日期和时间值的文本表示形式。
 
 > [!TIP]
-> 你可以下载格式设置实用工具，它属于一种 .NET Core Windows 窗体应用程序，通过该应用程序，你可将格式字符串应用于数值或日期和时间值并显示结果字符串。 源代码适用于 [C#](/samples/dotnet/samples/windowsforms-formatting-utility-cs) 和 [Visual Basic](/samples/dotnet/samples/windowsforms-formatting-utility-vb)。
-
-标准日期和时间格式字符串可以与 <xref:System.DateTime> 和 <xref:System.DateTimeOffset> 值一起使用。
+> 你可以下载格式设置实用工具，它属于一种 .NET Windows 窗体应用程序，通过该应用程序，你可将格式字符串应用于数值或日期和时间值并显示结果字符串。 源代码适用于 [C#](/samples/dotnet/samples/windowsforms-formatting-utility-cs) 和 [Visual Basic](/samples/dotnet/samples/windowsforms-formatting-utility-vb)。
 
 [!INCLUDE[C# interactive-note](~/includes/csharp-interactive-with-utc-partial-note.md)]
 
-<a name="table"></a>下表描述了标准日期和时间格式说明符。 除非另行说明，否则，特定的标准日期和时间格式说明符将产生相同的字符串表示形式，这与它是与 <xref:System.DateTime> 值还是 <xref:System.DateTimeOffset> 值一起使用无关。 有关使用标准日期和时间格式字符串的其他信息，请参见[注释](#Notes)部分。
+## <a name="table-of-format-specifiers"></a>格式说明符表
+
+<a name="table"></a>下表描述了标准日期和时间格式说明符。 除非另行说明，否则，特定的标准日期和时间格式说明符将产生相同的字符串表示形式，这与它是与 <xref:System.DateTime> 值还是 <xref:System.DateTimeOffset> 值一起使用无关。 有关使用标准日期和时间格式字符串的更多信息，请参阅[控制面板设置](#control-panel-settings)和[DateTimeFormatInfo 属性](#datetimeformatinfo-properties)。
 
 |格式说明符|描述|示例|
 |----------------------|-----------------|--------------|
@@ -51,7 +51,7 @@ ms.locfileid: "92888628"
 |“O”、“o”|往返日期/时间模式。<br /><br /> 更多信息：[往返（“O”、“o”）格式说明符](#Roundtrip)。|<xref:System.DateTime> 值：<br /><br /> 2009-06-15T13:45:30 (DateTimeKind.Local) --> 2009-06-15T13:45:30.0000000-07:00<br /><br /> 2009-06-15T13:45:30 (DateTimeKind.Utc) --> 2009-06-15T13:45:30.0000000Z<br /><br /> 2009-06-15T13:45:30 (DateTimeKind.Unspecified) --> 2009-06-15T13:45:30.0000000<br /><br /> <xref:System.DateTimeOffset> 值：<br /><br /> 2009-06-15T13:45:30-07:00 --> 2009-06-15T13:45:30.0000000-07:00|
 |“R”、“r”|RFC1123 模式。<br /><br /> 更多信息：[RFC1123（“R”、“r”）格式说明符](#RFC1123)。|2009-06-15T13:45:30 -> Mon, 15 Jun 2009 20:45:30 GMT|
 |“s”|可排序日期/时间模式。<br /><br /> 更多信息：[可排序（“s”）格式说明符](#Sortable)。|2009-06-15T13:45:30 (DateTimeKind.Local) -> 2009-06-15T13:45:30<br /><br /> 2009-06-15T13:45:30 (DateTimeKind.Utc) -> 2009-06-15T13:45:30|
-|“t”|短时间模式。<br /><br /> 更多信息：[可排序（“s”）格式说明符](#ShortTime)。|2009-06-15T13:45:30 -> 1:45 PM (en-US)<br /><br /> 2009-06-15T13:45:30 -> 13:45 (hr-HR)<br /><br /> 2009-06-15T13:45:30 -> 01:45 م (ar-EG)|
+|“t”|短时间模式。<br /><br /> 更多信息：[短时间（“t”）格式说明符](#ShortTime)。|2009-06-15T13:45:30 -> 1:45 PM (en-US)<br /><br /> 2009-06-15T13:45:30 -> 13:45 (hr-HR)<br /><br /> 2009-06-15T13:45:30 -> 01:45 م (ar-EG)|
 |“T”|长时间模式。<br /><br /> 更多信息：[长时间（“T”）格式说明符](#LongTime)。|2009-06-15T13:45:30 -> 1:45:30 PM (en-US)<br /><br /> 2009-06-15T13:45:30 -> 13:45:30 (hr-HR)<br /><br /> 2009-06-15T13:45:30 -> 01:45:30 م (ar-EG)|
 |“u”|通用可排序日期/时间模式。<br /><br /> 更多信息：[通用可排序（“u”）格式说明符](#UniversalSortable)。|带有 <xref:System.DateTime> 值：2009-06-15T13:45:30 -> 2009-06-15 13:45:30Z<br /><br /> 带有 <xref:System.DateTimeOffset> 值：2009-06-15T13:45:30 -> 2009-06-15 20:45:30Z|
 |“U”|通用完整日期/时间模式。<br /><br /> 更多信息：[通用完整（“U”）格式说明符](#UniversalFull)。|2009-06-15T13:45:30 -> Monday, June 15, 2009 8:45:30 PM (en-US)<br /><br /> 2009-06-15T13:45:30 -> den 15 juni 2009 20:45:30 (sv-SE)<br /><br /> 2009-06-15T13:45:30 -> Δευτέρα, 15 Ιουνίου 2009 8:45:30 μμ (el-GR)|
@@ -98,9 +98,16 @@ ms.locfileid: "92888628"
 
 以下几节描述了 <xref:System.DateTime> 和 <xref:System.DateTimeOffset> 值的标准格式说明符。
 
+## <a name="date-formats"></a>日期格式
+
+此组包括以下格式：
+
+- [短日期（“d”）格式说明符](#the-short-date-d-format-specifier)
+- [长日期（“D”）格式说明符](#the-long-date-d-format-specifier)
+
 <a name="ShortDate"></a>
 
-## <a name="the-short-date-d-format-specifier"></a>短日期（“d”）格式说明符
+### <a name="the-short-date-d-format-specifier"></a>短日期（“d”）格式说明符
 
 “d”标准格式说明符表示通过特定区域性的 <xref:System.Globalization.DateTimeFormatInfo.ShortDatePattern%2A?displayProperty=nameWithType> 属性定义的自定义日期和时间格式字符串。 例如，由固定区域性的 <xref:System.Globalization.DateTimeFormatInfo.ShortDatePattern%2A> 属性返回的自定义格式字符串为“MM/dd/yyyy”。
 
@@ -120,7 +127,7 @@ ms.locfileid: "92888628"
 
 <a name="LongDate"></a>
 
-## <a name="the-long-date-d-format-specifier"></a>长日期（“D”）格式说明符
+### <a name="the-long-date-d-format-specifier"></a>长日期（“D”）格式说明符
 
 “D”标准格式说明符表示由当前的 <xref:System.Globalization.DateTimeFormatInfo.LongDatePattern%2A?displayProperty=nameWithType> 属性定义的自定义日期和时间格式字符串。 例如，用于固定区域性的自定义格式字符串为“dddd, dd MMMM yyyy”。
 
@@ -139,9 +146,23 @@ ms.locfileid: "92888628"
 
 [返回表首](#table)
 
+## <a name="date-and-time-formats"></a>日期和时间格式
+
+此组包括以下格式：
+
+- [完整日期短时间（“f”）格式说明符](#the-full-date-short-time-f-format-specifier)
+- [完整日期长时间（“F”）格式说明符](#the-full-date-long-time-f-format-specifier)
+- [常规日期短时间（“g”）格式说明符](#the-general-date-short-time-g-format-specifier)
+- [常规日期长时间（“G”）格式说明符](#the-general-date-long-time-g-format-specifier)
+- [往返（“O”、“o”）格式说明符](#the-round-trip-o-o-format-specifier)
+- [RFC1123（“R”、“r”）格式说明符](#the-rfc1123-r-r-format-specifier)
+- [可排序（“s”）格式说明符](#the-sortable-s-format-specifier)
+- [通用可排序（“u”）格式说明符](#the-universal-sortable-u-format-specifier)
+- [通用完整（“U”）格式说明符](#the-universal-full-u-format-specifier)
+
 <a name="FullDateShortTime"></a>
 
-## <a name="the-full-date-short-time-f-format-specifier"></a>完整日期短时间（“f”）格式说明符
+### <a name="the-full-date-short-time-f-format-specifier"></a>完整日期短时间（“f”）格式说明符
 
 “f”标准格式说明符表示长日期（“D”）和短时间（“t”）模式的组合，由空格分隔。
 
@@ -166,7 +187,7 @@ ms.locfileid: "92888628"
 
 <a name="FullDateLongTime"></a>
 
-## <a name="the-full-date-long-time-f-format-specifier"></a>完整日期长时间（“F”）格式说明符
+### <a name="the-full-date-long-time-f-format-specifier"></a>完整日期长时间（“F”）格式说明符
 
 “F”标准格式说明符表示由当前的 <xref:System.Globalization.DateTimeFormatInfo.FullDateTimePattern%2A?displayProperty=nameWithType> 属性定义的自定义日期和时间格式字符串。 例如，用于固定区域性的自定义格式字符串为“dddd, dd MMMM yyyy HH:mm:ss”。
 
@@ -190,7 +211,7 @@ ms.locfileid: "92888628"
 
 <a name="GeneralDateShortTime"></a>
 
-## <a name="the-general-date-short-time-g-format-specifier"></a>常规日期短时间（“g”）格式说明符
+### <a name="the-general-date-short-time-g-format-specifier"></a>常规日期短时间（“g”）格式说明符
 
 “g”标准格式说明符表示短日期（“d”）和短时间（“t”）模式的组合，由空格分隔。
 
@@ -214,7 +235,7 @@ ms.locfileid: "92888628"
 
 <a name="GeneralDateLongTime"></a>
 
-## <a name="the-general-date-long-time-g-format-specifier"></a>常规日期长时间（“G”）格式说明符
+### <a name="the-general-date-long-time-g-format-specifier"></a>常规日期长时间（“G”）格式说明符
 
 “G”标准格式说明符表示短日期（“d”）和长时间（“T”）模式的组合，由空格分隔。
 
@@ -236,29 +257,9 @@ ms.locfileid: "92888628"
 
 [返回表首](#table)
 
-<a name="MonthDay"></a>
-
-## <a name="the-month-m-m-format-specifier"></a>月（“M”、“m”）格式说明符
-
-“M”或“m”标准格式说明符表示由当前的 <xref:System.Globalization.DateTimeFormatInfo.MonthDayPattern%2A?displayProperty=nameWithType> 属性定义的自定义日期和时间格式字符串。 例如，用于固定区域性的自定义格式字符串为“MMMM dd”。
-
-下表列出用于控制返回字符串格式的 <xref:System.Globalization.DateTimeFormatInfo> 对象属性。
-
-|Property|描述|
-|--------------|-----------------|
-|<xref:System.Globalization.DateTimeFormatInfo.MonthDayPattern%2A>|定义结果字符串的总体格式。|
-|<xref:System.Globalization.DateTimeFormatInfo.MonthNames%2A>|定义可在结果字符串中出现的本地化月份名称。|
-
-下面的示例使用“m”格式说明符来显示日期和时间值。
-
-[!code-csharp[Formatting.DateAndTime.Standard#7](../../../samples/snippets/csharp/VS_Snippets_CLR/Formatting.DateAndTime.Standard/cs/Standard1.cs#7)]
-[!code-vb[Formatting.DateAndTime.Standard#7](../../../samples/snippets/visualbasic/VS_Snippets_CLR/Formatting.DateAndTime.Standard/vb/Standard1.vb#7)]
-
-[返回表首](#table)
-
 <a name="Roundtrip"></a>
 
-## <a name="the-round-trip-o-o-format-specifier"></a>往返（“O”、“o”）格式说明符
+### <a name="the-round-trip-o-o-format-specifier"></a>往返（“O”、“o”）格式说明符
 
 “O”或“o”标准格式说明符表示使用保留时区信息的模式的自定义日期和时间格式字符串，并发出符合 ISO8601 的结果字符串。 对于 <xref:System.DateTime> 值，此格式说明符设计用于在文本中将日期和时间值与 <xref:System.DateTime.Kind%2A?displayProperty=nameWithType> 属性一起保留。 如果将 <xref:System.DateTime.Parse%28System.String%2CSystem.IFormatProvider%2CSystem.Globalization.DateTimeStyles%29?displayProperty=nameWithType> 参数设置为 <xref:System.DateTime.ParseExact%2A?displayProperty=nameWithType>，则可通过使用 `styles` 或 <xref:System.Globalization.DateTimeStyles.RoundtripKind?displayProperty=nameWithType> 方法对设置了格式的字符串进行反向分析。
 
@@ -290,7 +291,7 @@ ms.locfileid: "92888628"
 
 <a name="RFC1123"></a>
 
-## <a name="the-rfc1123-r-r-format-specifier"></a>RFC1123（“R”、“r”）格式说明符
+### <a name="the-rfc1123-r-r-format-specifier"></a>RFC1123（“R”、“r”）格式说明符
 
 “R”或“r”标准格式说明符表示由 <xref:System.Globalization.DateTimeFormatInfo.RFC1123Pattern%2A?displayProperty=nameWithType> 属性定义的自定义日期和时间格式字符串。 该模式反映已定义的标准，并且属性是只读的。 因此，无论所使用的区域性或所提供的格式提供程序是什么，它总是相同的。 定义格式字符串为“ddd, dd MMM yyyy HH':'mm':'ss 'GMT'”。 当使用此标准格式说明符时，格式设置或分析操作始终使用固定区域性。
 
@@ -313,7 +314,7 @@ ms.locfileid: "92888628"
 
 <a name="Sortable"></a>
 
-## <a name="the-sortable-s-format-specifier"></a>可排序（“s”）格式说明符
+### <a name="the-sortable-s-format-specifier"></a>可排序（“s”）格式说明符
 
 “s”标准格式说明符表示由 <xref:System.Globalization.DateTimeFormatInfo.SortableDateTimePattern%2A?displayProperty=nameWithType> 属性定义的自定义日期和时间格式字符串。 该模式反映已定义的标准 (ISO 8601)，并且属性是只读的。 因此，无论所使用的区域性或所提供的格式提供程序是什么，它总是相同的。 自定义格式字符串为“yyyy'-'MM'-'dd'T'HH':'mm':'ss”。
 
@@ -328,53 +329,9 @@ ms.locfileid: "92888628"
 
 [返回表首](#table)
 
-<a name="ShortTime"></a>
-
-## <a name="the-short-time-t-format-specifier"></a>短时间（“t”）格式说明符
-
-“t”标准格式说明符表示由当前的 <xref:System.Globalization.DateTimeFormatInfo.ShortTimePattern%2A?displayProperty=nameWithType> 属性定义的自定义日期和时间格式字符串。 例如，用于固定区域性的自定义格式字符串为“HH:mm”。
-
-结果字符串受特定 <xref:System.Globalization.DateTimeFormatInfo> 对象的格式信息的影响。 下表列出了 <xref:System.Globalization.DateTimeFormatInfo> 对象属性，这些属性可控制返回字符串的格式。 由某些区域性的 <xref:System.Globalization.DateTimeFormatInfo.ShortTimePattern%2A?displayProperty=nameWithType> 属性返回的自定义格式说明符可能未利用所有属性。
-
-|Property|描述|
-|--------------|-----------------|
-|<xref:System.Globalization.DateTimeFormatInfo.ShortTimePattern%2A>|定义结果字符串中时间部分的格式。|
-|<xref:System.Globalization.DateTimeFormatInfo.TimeSeparator%2A>|定义分隔时间中小时、分钟和秒钟几个组成部分的字符串。|
-|<xref:System.Globalization.DateTimeFormatInfo.AMDesignator%2A>|定义以 12 小时时钟制表示午夜至正午之前这段时间的字符串。|
-|<xref:System.Globalization.DateTimeFormatInfo.PMDesignator%2A>|定义以 12 小时时钟制表示正午至午夜之前这段时间的字符串。|
-
-下面的示例使用“t”格式说明符来显示日期和时间值。
-
-[!code-csharp[Formatting.DateAndTime.Standard#11](../../../samples/snippets/csharp/VS_Snippets_CLR/Formatting.DateAndTime.Standard/cs/Standard1.cs#11)]
-[!code-vb[Formatting.DateAndTime.Standard#11](../../../samples/snippets/visualbasic/VS_Snippets_CLR/Formatting.DateAndTime.Standard/vb/Standard1.vb#11)]
-
-[返回表首](#table)
-
-<a name="LongTime"></a>
-
-## <a name="the-long-time-t-format-specifier"></a>长时间（“T”）格式说明符
-
-“T”标准格式说明符表示由特定区域性的 <xref:System.Globalization.DateTimeFormatInfo.LongTimePattern%2A?displayProperty=nameWithType> 属性定义的自定义日期和时间格式字符串。 例如，用于固定区域性的自定义格式字符串为“HH:mm:ss”。
-
-下表列出了 <xref:System.Globalization.DateTimeFormatInfo> 对象属性，这些属性可控制返回字符串的格式。 由某些区域性的 <xref:System.Globalization.DateTimeFormatInfo.LongTimePattern%2A?displayProperty=nameWithType> 属性返回的自定义格式说明符可能未利用所有属性。
-
-|Property|描述|
-|--------------|-----------------|
-|<xref:System.Globalization.DateTimeFormatInfo.LongTimePattern%2A>|定义结果字符串中时间部分的格式。|
-|<xref:System.Globalization.DateTimeFormatInfo.TimeSeparator%2A>|定义分隔时间中小时、分钟和秒钟几个组成部分的字符串。|
-|<xref:System.Globalization.DateTimeFormatInfo.AMDesignator%2A>|定义以 12 小时时钟制表示午夜至正午之前这段时间的字符串。|
-|<xref:System.Globalization.DateTimeFormatInfo.PMDesignator%2A>|定义以 12 小时时钟制表示正午至午夜之前这段时间的字符串。|
-
-下面的示例使用“T”格式说明符来显示日期和时间值。
-
-[!code-csharp[Formatting.DateAndTime.Standard#12](../../../samples/snippets/csharp/VS_Snippets_CLR/Formatting.DateAndTime.Standard/cs/Standard1.cs#12)]
-[!code-vb[Formatting.DateAndTime.Standard#12](../../../samples/snippets/visualbasic/VS_Snippets_CLR/Formatting.DateAndTime.Standard/vb/Standard1.vb#12)]
-
-[返回表首](#table)
-
 <a name="UniversalSortable"></a>
 
-## <a name="the-universal-sortable-u-format-specifier"></a>通用可排序（“u”）格式说明符
+### <a name="the-universal-sortable-u-format-specifier"></a>通用可排序（“u”）格式说明符
 
 “u”标准格式说明符表示由 <xref:System.Globalization.DateTimeFormatInfo.UniversalSortableDateTimePattern%2A?displayProperty=nameWithType> 属性定义的自定义日期和时间格式字符串。 该模式反映已定义的标准，并且属性是只读的。 因此，无论所使用的区域性或所提供的格式提供程序是什么，它总是相同的。 自定义格式字符串为“yyyy'-'MM'-'dd HH':'mm':'ss'Z'”。 当使用此标准格式说明符时，格式设置或分析操作始终使用固定区域性。
 
@@ -389,7 +346,7 @@ ms.locfileid: "92888628"
 
 <a name="UniversalFull"></a>
 
-## <a name="the-universal-full-u-format-specifier"></a>通用完整（“U”）格式说明符
+### <a name="the-universal-full-u-format-specifier"></a>通用完整（“U”）格式说明符
 
 “U”标准格式说明符表示由特定区域性的 <xref:System.Globalization.DateTimeFormatInfo.FullDateTimePattern%2A?displayProperty=nameWithType> 属性定义的自定义日期和时间格式字符串。 此模式与“F”模式相同。 但是，在对 <xref:System.DateTime> 值进行格式设置之前，该值自动转换为 UTC。
 
@@ -413,9 +370,87 @@ ms.locfileid: "92888628"
 
 [返回表首](#table)
 
+## <a name="time-formats"></a>时间格式
+
+此组包括以下格式：
+
+- [短时间（“t”）格式说明符](#the-short-time-t-format-specifier)
+- [长时间（“T”）格式说明符](#the-long-time-t-format-specifier)
+
+<a name="ShortTime"></a>
+
+### <a name="the-short-time-t-format-specifier"></a>短时间（“t”）格式说明符
+
+“t”标准格式说明符表示由当前的 <xref:System.Globalization.DateTimeFormatInfo.ShortTimePattern%2A?displayProperty=nameWithType> 属性定义的自定义日期和时间格式字符串。 例如，用于固定区域性的自定义格式字符串为“HH:mm”。
+
+结果字符串受特定 <xref:System.Globalization.DateTimeFormatInfo> 对象的格式信息的影响。 下表列出了 <xref:System.Globalization.DateTimeFormatInfo> 对象属性，这些属性可控制返回字符串的格式。 由某些区域性的 <xref:System.Globalization.DateTimeFormatInfo.ShortTimePattern%2A?displayProperty=nameWithType> 属性返回的自定义格式说明符可能未利用所有属性。
+
+|Property|描述|
+|--------------|-----------------|
+|<xref:System.Globalization.DateTimeFormatInfo.ShortTimePattern%2A>|定义结果字符串中时间部分的格式。|
+|<xref:System.Globalization.DateTimeFormatInfo.TimeSeparator%2A>|定义分隔时间中小时、分钟和秒钟几个组成部分的字符串。|
+|<xref:System.Globalization.DateTimeFormatInfo.AMDesignator%2A>|定义以 12 小时时钟制表示午夜至正午之前这段时间的字符串。|
+|<xref:System.Globalization.DateTimeFormatInfo.PMDesignator%2A>|定义以 12 小时时钟制表示正午至午夜之前这段时间的字符串。|
+
+下面的示例使用“t”格式说明符来显示日期和时间值。
+
+[!code-csharp[Formatting.DateAndTime.Standard#11](../../../samples/snippets/csharp/VS_Snippets_CLR/Formatting.DateAndTime.Standard/cs/Standard1.cs#11)]
+[!code-vb[Formatting.DateAndTime.Standard#11](../../../samples/snippets/visualbasic/VS_Snippets_CLR/Formatting.DateAndTime.Standard/vb/Standard1.vb#11)]
+
+[返回表首](#table)
+
+<a name="LongTime"></a>
+
+### <a name="the-long-time-t-format-specifier"></a>长时间（“T”）格式说明符
+
+“T”标准格式说明符表示由特定区域性的 <xref:System.Globalization.DateTimeFormatInfo.LongTimePattern%2A?displayProperty=nameWithType> 属性定义的自定义日期和时间格式字符串。 例如，用于固定区域性的自定义格式字符串为“HH:mm:ss”。
+
+下表列出了 <xref:System.Globalization.DateTimeFormatInfo> 对象属性，这些属性可控制返回字符串的格式。 由某些区域性的 <xref:System.Globalization.DateTimeFormatInfo.LongTimePattern%2A?displayProperty=nameWithType> 属性返回的自定义格式说明符可能未利用所有属性。
+
+|Property|描述|
+|--------------|-----------------|
+|<xref:System.Globalization.DateTimeFormatInfo.LongTimePattern%2A>|定义结果字符串中时间部分的格式。|
+|<xref:System.Globalization.DateTimeFormatInfo.TimeSeparator%2A>|定义分隔时间中小时、分钟和秒钟几个组成部分的字符串。|
+|<xref:System.Globalization.DateTimeFormatInfo.AMDesignator%2A>|定义以 12 小时时钟制表示午夜至正午之前这段时间的字符串。|
+|<xref:System.Globalization.DateTimeFormatInfo.PMDesignator%2A>|定义以 12 小时时钟制表示正午至午夜之前这段时间的字符串。|
+
+下面的示例使用“T”格式说明符来显示日期和时间值。
+
+[!code-csharp[Formatting.DateAndTime.Standard#12](../../../samples/snippets/csharp/VS_Snippets_CLR/Formatting.DateAndTime.Standard/cs/Standard1.cs#12)]
+[!code-vb[Formatting.DateAndTime.Standard#12](../../../samples/snippets/visualbasic/VS_Snippets_CLR/Formatting.DateAndTime.Standard/vb/Standard1.vb#12)]
+
+[返回表首](#table)
+
+## <a name="partial-date-formats"></a>部分日期格式
+
+此组包括以下格式：
+
+- [月（“M”、“m”）格式说明符](#the-month-m-m-format-specifier)
+- [年月（“Y”、“y”）格式说明符](#the-year-month-y-y-format-specifier)
+
+<a name="MonthDay"></a>
+
+### <a name="the-month-m-m-format-specifier"></a>月（“M”、“m”）格式说明符
+
+“M”或“m”标准格式说明符表示由当前的 <xref:System.Globalization.DateTimeFormatInfo.MonthDayPattern%2A?displayProperty=nameWithType> 属性定义的自定义日期和时间格式字符串。 例如，用于固定区域性的自定义格式字符串为“MMMM dd”。
+
+下表列出用于控制返回字符串格式的 <xref:System.Globalization.DateTimeFormatInfo> 对象属性。
+
+|Property|描述|
+|--------------|-----------------|
+|<xref:System.Globalization.DateTimeFormatInfo.MonthDayPattern%2A>|定义结果字符串的总体格式。|
+|<xref:System.Globalization.DateTimeFormatInfo.MonthNames%2A>|定义可在结果字符串中出现的本地化月份名称。|
+
+下面的示例使用“m”格式说明符来显示日期和时间值。
+
+[!code-csharp[Formatting.DateAndTime.Standard#7](../../../samples/snippets/csharp/VS_Snippets_CLR/Formatting.DateAndTime.Standard/cs/Standard1.cs#7)]
+[!code-vb[Formatting.DateAndTime.Standard#7](../../../samples/snippets/visualbasic/VS_Snippets_CLR/Formatting.DateAndTime.Standard/vb/Standard1.vb#7)]
+
+[返回表首](#table)
+
 <a name="YearMonth"></a>
 
-## <a name="the-year-month-y-y-format-specifier"></a>年月（“Y”、“y”）格式说明符
+### <a name="the-year-month-y-y-format-specifier"></a>年月（“Y”、“y”）格式说明符
 
 “Y”或“y”标准格式说明符表示由指定区域性的 <xref:System.Globalization.DateTimeFormatInfo.YearMonthPattern%2A?displayProperty=nameWithType> 属性定义的自定义日期和时间格式字符串。 例如，用于固定区域性的自定义格式字符串为“yyyy MMMM”。
 
@@ -435,15 +470,13 @@ ms.locfileid: "92888628"
 
 <a name="Notes"></a>
 
-## <a name="notes"></a>说明
+## <a name="control-panel-settings"></a>控制面板设置
 
-### <a name="control-panel-settings"></a>控制面板设置
-
-控制面板中 **“区域和语言选项”** 项中的设置会影响由格式化操作产生的结果字符串。 这些设置用于初始化与当前线程区域性关联的 <xref:System.Globalization.DateTimeFormatInfo> 对象，当前线程区域性提供用于控制格式设置的值。 使用不同设置的计算机将生成不同的结果字符串。
+Windows 控制面板中“区域和语言选项”项的设置会影响由格式化操作产生的结果字符串。 这些设置用于初始化与当前线程区域性关联的 <xref:System.Globalization.DateTimeFormatInfo> 对象，当前线程区域性提供用于控制格式设置的值。 使用不同设置的计算机将生成不同的结果字符串。
 
 此外，如果使用 <xref:System.Globalization.CultureInfo.%23ctor%28System.String%29> 构造函数实例化一个新的 <xref:System.Globalization.CultureInfo> 对象以表示与当前的系统区域性相同的区域性，则通过控制面板中的 **“区域和语言选项”** 建立的任何自定义都将应用到新的 <xref:System.Globalization.CultureInfo> 对象。 可以使用 <xref:System.Globalization.CultureInfo.%23ctor%28System.String%2CSystem.Boolean%29> 构造函数来创建不会反映系统的自定义项的 <xref:System.Globalization.CultureInfo> 对象。
 
-### <a name="datetimeformatinfo-properties"></a>DateTimeFormatInfo 属性
+## <a name="datetimeformatinfo-properties"></a>DateTimeFormatInfo 属性
 
 格式化受当前的 <xref:System.Globalization.DateTimeFormatInfo> 对象的属性影响，其由当前线程区域性隐式提供或由调用格式化的方法的 <xref:System.IFormatProvider> 参数显式提供。 对于 <xref:System.IFormatProvider> 参数，应用程序应指定一个表示区域性的 <xref:System.Globalization.CultureInfo> 对象或表示特定区域性的日期和时间格式设置约定的 <xref:System.Globalization.DateTimeFormatInfo> 对象。 许多标准日期和时间格式说明符是由当前的 <xref:System.Globalization.DateTimeFormatInfo> 对象的属性定义的格式设置模式的别名。 应用程序通过更改相应 <xref:System.Globalization.DateTimeFormatInfo> 属性的相应日期和时间格式模式，可以更改由某些标准日期和时间格式说明符产生的结果。
 

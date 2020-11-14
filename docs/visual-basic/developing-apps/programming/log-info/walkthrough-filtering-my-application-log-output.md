@@ -6,12 +6,12 @@ helpviewer_keywords:
 - My.Application.Log object, filtering output
 - application event logs, output filtering
 ms.assetid: 2c0a457a-38a4-49e1-934d-a51320b7b4ca
-ms.openlocfilehash: aa63e7d23641ad71b135f15236e29399a535784f
-ms.sourcegitcommit: f8c270376ed905f6a8896ce0fe25b4f4b38ff498
+ms.openlocfilehash: e77a56b2be33555bc02157c8e643ac655b083bc3
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84398248"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282205"
 ---
 # <a name="walkthrough-filtering-myapplicationlog-output-visual-basic"></a>演练：筛选 My.Application.Log 输出 (Visual Basic)
 
@@ -84,7 +84,7 @@ ms.locfileid: "84398248"
 
     2. 在“添加新项”  对话框中，选择“应用程序配置文件”  。
 
-    3. 单击 **添加**。
+    3. 单击 **添加** 。
 
 2. 找到 `<switches>` 部分，该部分位于 `<system.diagnostics>` 部分中，后者位于顶级 `<configuration>` 部分中。
 
@@ -138,7 +138,7 @@ ms.locfileid: "84398248"
 9. 将 `value` 属性的值改回“信息”。
 
     > [!NOTE]
-    > `DefaultSwitch` 开关设置仅控制 `My.Application.Log`。 它不会更改 .NET Framework <xref:System.Diagnostics.Trace?displayProperty=nameWithType> 和 <xref:System.Diagnostics.Debug?displayProperty=nameWithType> 类的行为方式。
+    > `DefaultSwitch` 开关设置仅控制 `My.Application.Log`。 它不会更改 .NET <xref:System.Diagnostics.Trace?displayProperty=nameWithType> 和 <xref:System.Diagnostics.Debug?displayProperty=nameWithType> 类的行为方式。
 
 ## <a name="individual-filtering-for-myapplicationlog-listeners"></a>对 My.Application.Log 侦听器的单独筛选
 
@@ -160,7 +160,7 @@ ms.locfileid: "84398248"
 
     2. 在“添加新项”  对话框中，选择“应用程序配置文件”  。
 
-    3. 单击 **添加**。
+    3. 单击 **添加** 。
 
 2. 在“解决方案资源管理器”中右键单击 app.config。  选择“打开”。 
 

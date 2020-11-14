@@ -4,12 +4,12 @@ description: 了解如何在运行 .NET Core CLI 命令时使用 global.json 文
 ms.topic: how-to
 ms.date: 05/01/2020
 ms.custom: updateeachrelease
-ms.openlocfilehash: 7e372c75812e79f85bb8965895d5fef694d9af1a
-ms.sourcegitcommit: d2db216e46323f73b32ae312c9e4135258e5d68e
+ms.openlocfilehash: 714e32ec841cee214f801de65bccf0041af66b0b
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90872386"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93281540"
 ---
 # <a name="globaljson-overview"></a>global.json 概述
 
@@ -64,6 +64,7 @@ ms.locfileid: "90872386"
 - 自 .NET Core 3.0 SDK 起可用。
 
 选择 SDK 版本时要使用的前滚策略，可作为特定 SDK 版本缺失时的回退，或者作为使用更高版本的指令。 必须使用 `rollForward` 值指定[版本](#version)，除非将其设置为 `latestMajor`。
+默认的前滚行为由[匹配规则](#matching-rules)确定。
 
 要了解可用策略及其行为，请考虑以下格式为 `x.y.znn` 的 SDK 版本定义：
 
@@ -163,7 +164,7 @@ dotnet new globaljson --sdk-version 3.0.100
 ## <a name="matching-rules"></a>匹配规则
 
 > [!NOTE]
-> 匹配规则由 `dotnet.exe` 入口点控制，该入口点在所有已安装的 .NET Core 运行时中很常见。 如果并行安装了多个运行时，则使用已安装的最新版 .NET Core 运行时的匹配规则。
+> 匹配规则由 `dotnet.exe` 入口点控制，该入口点在所有已安装的 .NET Core 运行时中很常见。 如果并行安装了多个运行时，或者正在使用 global.json 文件，则使用已安装的最新版 .NET Core 运行时的匹配规则。
 
 ## <a name="net-core-3x"></a>[.NET Core 3.x](#tab/netcore3x)
 

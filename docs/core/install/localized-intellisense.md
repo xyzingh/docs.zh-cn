@@ -2,12 +2,12 @@
 title: 安装本地化的 IntelliSense 文件
 description: 了解如何设置开发计算机，以便在 Visual Studio 中为 .NET 5+ 项目（包含 .NET Core）使用本地化的 IntelliSense 文件。
 ms.date: 11/06/2020
-ms.openlocfilehash: 121439199f0de6d29a18ea55031976680fc1f833
-ms.sourcegitcommit: 30a686fd4377fe6472aa04e215c0de711bc1c322
+ms.openlocfilehash: 45eeae12ca79179cacb3d48fca28118de70e0a4f
+ms.sourcegitcommit: bc9c63541c3dc756d48a7ce9d22b5583a18cf7fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94439815"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506761"
 ---
 # <a name="how-to-install-localized-intellisense-files-for-net"></a>如何为 .NET 安装本地化的 IntelliSense 文件
 
@@ -43,7 +43,7 @@ ms.locfileid: "94439815"
       | Windows 桌面       | Microsoft.WindowsDesktop.App.Ref  |
       | .NET Standard         | NETStandard.Library.Ref           |
 
-   1. 导航到要为其安装本地化 IntelliSense 的版本。 例如，3.1.0  。
+   1. 导航到要为其安装本地化 IntelliSense 的版本。 例如，5.0.0。
    1. 打开 ref 文件夹  。
    1. 打开 moniker 文件夹。 例如 net5.0。
 

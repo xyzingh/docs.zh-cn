@@ -1,6 +1,6 @@
 ---
-title: 有关使用 .NET 中字符串的最佳做法
-description: 了解如何在 .NET 应用程序中有效地使用字符串。
+title: 有关比较 .NET 中字符串的最佳做法
+description: 了解如何在 .NET 应用程序中有效地比较字符串。
 ms.date: 05/01/2019
 ms.technology: dotnet-standard
 dev_langs:
@@ -18,22 +18,22 @@ helpviewer_keywords:
 - comparing strings
 - strings [.NET],comparing
 ms.assetid: b9f0bf53-e2de-4116-8ce9-d4f91a1df4f7
-ms.openlocfilehash: ed85d04ffbee0493745c4a5ef63313571b44628b
-ms.sourcegitcommit: 4a938327bad8b2e20cabd0f46a9dc50882596f13
+ms.openlocfilehash: 167b9b865fb0f674559e2b87db3ed4d6d5048ffe
+ms.sourcegitcommit: 48466b8fb7332ececff5dc388f19f6b3ff503dd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889096"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93400821"
 ---
-# <a name="best-practices-for-using-strings-in-net"></a>有关使用 .NET 中字符串的最佳做法
+# <a name="best-practices-for-comparing-strings-in-net"></a>有关比较 .NET 中字符串的最佳做法
 
 .NET 为开发本地化和全球化应用程序提供广泛支持，在执行排序和显示字符串等常见操作时，轻松应用当前区域性或特定区域性的约定。 但排序或比较字符串并不总是区分区域性的操作。 例如，对于应用程序内部使用的字符串，通常应该跨所有区域性以相同的方式对其进行处理。 如果将 XML 标记、HTML 标记、用户名、文件路径和系统对象名称等与区域性无关的字符串数据解释为区分区域性，则应用程序代码会遭遇细微的错误、不佳的性能，在某些情况下，还会遭遇安全性问题。
 
-本主题介绍了 .NET 中的字符串排序、比较和大小写转换方法，提出了有关如何选择适当的字符串处理方法的建议，以及有关字符串处理方法的其他信息。 它还讨论如何处理数据格式（如数字数据以及日期和时间数据）以用于显示和存储。
+本文介绍 .NET 中的字符串排序、比较和大小写方法，针对如何选择适当的字符串处理方法提出建议，并提供有关字符串处理方法的其他信息。
 
 ## <a name="recommendations-for-string-usage"></a>对字符串用法的建议
 
-使用 .NET 进行开发时，请遵循以下简要建议使用字符串：
+使用 .NET 进行开发时，请遵循以下简要建议比较字符串：
 
 - 使用为字符串操作显式指定字符串比较规则的重载。 通常情况下，这涉及调用具有 <xref:System.StringComparison>类型的参数的方法重载。
 - 使用 <xref:System.StringComparison.Ordinal?displayProperty=nameWithType> 或 <xref:System.StringComparison.OrdinalIgnoreCase?displayProperty=nameWithType> 进行比较，并以此作为匹配区域性不明确的字符串的安全默认设置。
@@ -45,12 +45,11 @@ ms.locfileid: "92889096"
 - 使用 <xref:System.String.Compare%2A?displayProperty=nameWithType> 和 <xref:System.String.CompareTo%2A?displayProperty=nameWithType> 方法可对字符串进行排序，而不是检查字符串是否相等。
 - 在用户界面，使用区分区域性的格式显示非字符串数据，如数字和日期。 使用格式以[固定区域性](xref:System.Globalization.CultureInfo.InvariantCulture)使非字符串数据显示为字符串形式。
 
-使用字符串时，请避免采用以下做法：
+比较字符串时，请避免采用以下做法：
 
 - 不要使用未显式或隐式为字符串操作指定字符串比较规则的重载。
 - 在大多数情况下，不要使用基于 <xref:System.StringComparison.InvariantCulture?displayProperty=nameWithType> 的字符串操作。 其中的一个少数例外情况是，保存在语言上有意义但区域性不明确的数据。
 - 不要使用 <xref:System.String.Compare%2A?displayProperty=nameWithType> 或 <xref:System.String.CompareTo%2A> 方法的重载和用于确定两个字符串是否相等的返回值为 0 的测试。
-- 不要使用区分区域性格式以字符串形式来保存数值数据或日期和时间数据。
 
 ## <a name="specifying-string-comparisons-explicitly"></a>显式指定字符串比较
 
@@ -153,7 +152,7 @@ ms.locfileid: "92889096"
  [!code-vb[Conceptual.Strings.BestPractices#19](~/samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.strings.bestpractices/vb/embeddednulls1.vb#19)]
 
 但是，当使用序号比较时，这两个字符串不会视为相等，如下面的示例所示：
-  
+
 [!code-csharp[Conceptual.Strings.BestPractices#20](~/samples/snippets/csharp/VS_Snippets_CLR/conceptual.strings.bestpractices/cs/embeddednulls2.cs#20)]
 [!code-vb[Conceptual.Strings.BestPractices#20](~/samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.strings.bestpractices/vb/embeddednulls2.vb#20)]
 
@@ -304,51 +303,6 @@ InvariantCulture: a + ̊ = å
 [!code-csharp[Conceptual.Strings.BestPractices#10](~/samples/snippets/csharp/VS_Snippets_CLR/conceptual.strings.bestpractices/cs/indirect2.cs#10)]
 [!code-vb[Conceptual.Strings.BestPractices#10](~/samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.strings.bestpractices/vb/indirect2.vb#10)]
 
-## <a name="displaying-and-persisting-formatted-data"></a>显示和保存有格式的数据
+## <a name="see-also"></a>请参阅
 
-当给用户显示非字符串数据（如数字、日期和时间）时，使用用户的区域性设置来格式化他们。 默认情况下，以下所有内容都在格式设置操作中使用当前线程区域性：
-
-- [C#](../../csharp/language-reference/tokens/interpolated.md) 和 [Visual Basic](../../visual-basic/programming-guide/language-features/strings/interpolated-strings.md) 编译器支持的内插字符串。
-- 字符串串联操作，它使用 [C#](../../csharp/language-reference/operators/addition-operator.md#string-concatenation) 或 [Visual Basic](../../visual-basic/programming-guide/language-features/operators-and-expressions/concatenation-operators.md) 串联运算符或直接调用 <xref:System.String.Concat%2A?displayProperty=nameWithType> 方法。
-- <xref:System.String.Format%2A?displayProperty=nameWithType> 方法。
-- 数值类型的 `ToString` 方法以及日期和时间类型。
-
-若要显式指定应使用指定区域性约定或[固定区域性](xref:System.Globalization.CultureInfo.InvariantCulture)设置字符串的格式，可以执行以下操作：
-
-- 当使用 <xref:System.String.Format%2A?displayProperty=nameWithType> 和 `ToString` 方法时，调用具有 `provider` 参数（如 <xref:System.String.Format%28System.IFormatProvider%2CSystem.String%2CSystem.Object%5B%5D%29?displayProperty=nameWithType> 或 <xref:System.DateTime.ToString%28System.IFormatProvider%29?displayProperty=nameWithType>）的重载，并将 <xref:System.Globalization.CultureInfo.CurrentCulture%2A?displayProperty=nameWithType> 属性（表示所需区域性的 <xref:System.Globalization.CultureInfo> 实例）或 <xref:System.Globalization.CultureInfo.InvariantCulture?displayProperty=nameWithType> 属性传递给它。
-
-- 对于字符串串联，不允许编译器执行任何隐式转换。 可通过调用具有 `provider` 参数的 `ToString` 重载来执行显式转换。 例如，在将 <xref:System.Double> 值转换为以下代码中的字符串时，编译器隐式使用当前区域性：
-
-  [!code-csharp[Implicit String Conversion](./snippets/best-practices-strings/csharp/tostring/Program.cs#1)]
-  [!code-vb[Implicit String Conversion](./snippets/best-practices-strings/vb/tostring/Program.vb#1)]
-
-  可以通过调用 <xref:System.Double.ToString(System.IFormatProvider)?displayProperty=nameWithType> 方法显式指定在转换中使用格式约定的区域性，如下面的代码所示：
-
-  [!code-csharp[Explicit String Conversion](./snippets/best-practices-strings/csharp/tostring/Program.cs#2)]
-  [!code-vb[Implicit String Conversion](./snippets/best-practices-strings/vb/tostring/Program.vb#2)]
-
-- 对于字符串内插，不是将内插字符串分配给 <xref:System.String> 实例，而是将其分配给 <xref:System.FormattableString>。 然后，可以调用其 <xref:System.FormattableString.ToString?displayProperty=nameWithType> 方法生成反映当前区域性约定的结果字符串，也可以调用 <xref:System.FormattableString.ToString(System.IFormatProvider)?displayProperty=nameWithType> 方法生成反映指定区域性约定的结果字符串。 还可以将可格式化字符串传递给静态 <xref:System.FormattableString.Invariant%2A?displayProperty=nameWithType> 方法，以生成反映固定区域性约定的结果字符串。 下面的示例阐释了这种方法。 （该示例的输出反映了当前的 zh-CN 区域性。）
-
-  [!code-csharp[String interpolation](./snippets/best-practices-strings/csharp/formattable/Program.cs)]
-  [!code-vb[String interpolation](./snippets/best-practices-strings/vb/formattable/Program.vb)]
-
-您可以保留非字符串数据作为二进制数据或作为格式化数据。 如果您选择将其保存为格式化数据，您应调用包括 `provider` 参数的格式设置方法重载，并向其传递 <xref:System.Globalization.CultureInfo.InvariantCulture%2A?displayProperty=nameWithType> 属性。 固定区域性为独立于区域性和计算机的格式化数据提供一致的格式。 相反，使用区域性而非固定区域性进行格式化的持久性数据具有许多限制：
-
-- 如果在具有不同区域性的系统上检索数据，或者如果当前系统用户更改当前区域性或者尝试检索数据时，该数据可能不可用。
-- 特定计算机上的区域性属性可能与标准值不同。 任何时候，用户都可以自定义区分区域性的显示设置。 因此，在系统保存的格式化数据在用户自定义区域性设置之后可能无法读取。 格式化数据在计算机之间移植可能会受到更多的限制。
-- 管理数值或日期时间格式的国际、区域或国家标准会随着时间发生更改，这些更改会合并到 Windows 操作系统更新中。 在格式设置约定更改时，将无法读取使用以前的约定格式化的数据。
-
-下面的示例演示了使用区分区域性格式设置进行持久化数据导致的有限可移植性。 该示例将日期和时间数组值保存到文件中。 这些数据通过使用英语（美国）区域性约定进行格式化。 在应用程序将当前线程区域性更改为法语（瑞士）后，它尝试使用当前区域性的格式设置约定来读取保存的值。 尝试读取两个数据条目时引发 <xref:System.FormatException> 异常，现在日期数组包含相当于 <xref:System.DateTime.MinValue>的两个错误元素。
-
-[!code-csharp[Conceptual.Strings.BestPractices#21](~/samples/snippets/csharp/VS_Snippets_CLR/conceptual.strings.bestpractices/cs/persistence.cs#21)]
-[!code-vb[Conceptual.Strings.BestPractices#21](~/samples/snippets/visualbasic/VS_Snippets_CLR/conceptual.strings.bestpractices/vb/persistence.vb#21)]
-
-然而，如果你在对 <xref:System.DateTime.ToString%28System.String%2CSystem.IFormatProvider%29?displayProperty=nameWithType> 和 <xref:System.DateTime.Parse%28System.String%2CSystem.IFormatProvider%29?displayProperty=nameWithType> 的调用中将 <xref:System.Globalization.CultureInfo.CurrentCulture%2A?displayProperty=nameWithType> 属性替换为 <xref:System.Globalization.CultureInfo.InvariantCulture%2A?displayProperty=nameWithType>，则会成功还原持久的日期和时间数据，如以下输出所示：
-
-```console
-06.05.1758 21:26
-05.05.1818 07:19
-22.04.1870 23:54
-08.09.1890 06:47
-18.02.1905 15:12
-```
+- [.NET 应用中的全球化](../globalization-localization/globalization.md)

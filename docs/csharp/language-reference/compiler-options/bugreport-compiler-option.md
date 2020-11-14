@@ -9,12 +9,12 @@ helpviewer_keywords:
 - -bugreport compiler option [C#]
 - bugreport compiler option [C#]
 ms.assetid: f39665e3-4f6f-4357-88a2-3274c7bec0c1
-ms.openlocfilehash: 2afab44eec0c7bcc9809b458be0348093cb6dd07
-ms.sourcegitcommit: 5b475c1855b32cf78d2d1bbb4295e4c236f39464
+ms.openlocfilehash: 1fb2efc9b12680e95767746c7e4e1ddacbdd2594
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91196814"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93281501"
 ---
 # <a name="-bugreport-c-compiler-options"></a>-bugreport（C# 编译器选项）
 
@@ -41,7 +41,7 @@ ms.locfileid: "91196814"
   
 - 有关编译器、运行时和操作系统的版本信息。  
   
-- 引用的程序集和模块（保存为十六进制数字），.NET Framework 和 SDK 随附的程序集除外。  
+- 引用的程序集和模块（保存为十六进制数字），.NET 和 .NET SDK 随附的程序集除外。  
   
 - 编译器输出（如有）。  
   
@@ -49,7 +49,7 @@ ms.locfileid: "91196814"
   
 - 有关你认为应如何修复问题的说明（系统会提示你提供此信息）。  
   
- 如果此选项与 -errorreport: prompt 或 -errorreport:send 一起使用，文件中的信息将发送到 Microsoft Corporation********。  
+ 如果此选项与 -errorreport: prompt 或 -errorreport:send 一起使用，文件中的信息将发送到 Microsoft Corporation。  
   
  所有源代码文件的副本将放入 `file`，因此你可能希望在尽可能短小的程序中重现可疑代码缺陷。  
   

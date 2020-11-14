@@ -8,12 +8,12 @@ helpviewer_keywords:
 ms.assetid: d899d43c-335a-433e-a589-cd187192984f
 dev_langs:
 - CSharp
-ms.openlocfilehash: 98ea6f23467b85dc270aa323e72a8a9b0934994a
-ms.sourcegitcommit: d6bd7903d7d46698e9d89d3725f3bb4876891aa3
+ms.openlocfilehash: 2b75ba6875b2a4430b6776c27dead72476884fff
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83378426"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282074"
 ---
 # <a name="basic-serialization"></a>基本序列化
 
@@ -59,7 +59,7 @@ Console.WriteLine("n2: {0}", obj.n2);
 Console.WriteLine("str: {0}", obj.str);  
 ```  
   
-上面使用的 <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> 非常有效，还可生成压缩字节流。 使用此格式化程序序列化的所有对象也可使用它进行反序列化，这使得它成为对将在 .NET Framework 上反序列化的对象进行序列化的理想工具。 需要特别注意的是，反序列化对象时不调用构造函数。 这是出于性能原因而对反序列化进行的约束。 然而，这违反了运行库对对象编写器制定的某些常用协定，并且将对象标记为可序列化时开发人员应确保了解其后果。  
+上面使用的 <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> 非常有效，还可生成压缩字节流。 使用此格式化程序序列化的所有对象也可使用它进行反序列化，这使得它成为对将在 .NET 上反序列化的对象进行序列化的理想工具。 需要特别注意的是，反序列化对象时不调用构造函数。 这是出于性能原因而对反序列化进行的约束。 然而，这违反了运行库对对象编写器制定的某些常用协定，并且将对象标记为可序列化时开发人员应确保了解其后果。  
   
 如果要求可迁移性，请改用 <xref:System.Runtime.Serialization.Formatters.Soap.SoapFormatter>。 只需将以上代码中的 BinaryFormatter 替换为 SoapFormatter，然后同前面一样调用 Serialize 和 Deserialize   。 此格式化程序针对以上使用的示例产生下面的输出：  
   

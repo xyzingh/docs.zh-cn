@@ -13,12 +13,12 @@ helpviewer_keywords:
 - DataSet class, serializing
 - XML Schema, serializing
 ms.assetid: 8c63200d-db63-4a03-a93d-21641623df62
-ms.openlocfilehash: 334cb3fe40c310189018d924aef552ecd87e9a65
-ms.sourcegitcommit: 27a15a55019f6b5f2733961738babe94aec0def3
+ms.openlocfilehash: 2971f5bbd587dabb62d095da3fef0b428ea9f039
+ms.sourcegitcommit: 74d05613d6c57106f83f82ce8ee71176874ea3f0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90535405"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93282280"
 ---
 # <a name="xml-serialization"></a>XML 序列化
 
@@ -29,11 +29,11 @@ ms.locfileid: "90535405"
 > [!NOTE]
 > XML 序列化不能转换方法、索引器、私有字段或只读属性（只读集合除外）。 若要序列化对象的所有公共和私有字段和属性，请使用 <xref:System.Runtime.Serialization.DataContractSerializer> 而不要使用 XML 序列化。
 
- XML 序列化中的中心类是 <xref:System.Xml.Serialization.XmlSerializer> 类，此类中最重要的方法是 Serialize 和 Deserialize 方法 。 <xref:System.Xml.Serialization.XmlSerializer> 创建 C# 文件并将其编译为 .dll 文件，以执行此序列化。 在 .NET Framework 2.0 中，[XML 序列化程序生成器工具 (Sgen.exe)](xml-serializer-generator-tool-sgen-exe.md) 旨在预先生成要与应用程序一起部署的这些序列化程序集，并改进启动性能。 XmlSerializer 生成的 XML 流符合万维网联合会 (W3C) [XML 架构定义语言 (XSD) 1.0 建议](https://www.w3.org/TR/xslt)。 而且，生成的数据类型符合文档“XML 架构第 2 部分：数据类型”。
+ XML 序列化中的中心类是 <xref:System.Xml.Serialization.XmlSerializer> 类，此类中最重要的方法是 Serialize 和 Deserialize 方法 。 <xref:System.Xml.Serialization.XmlSerializer> 创建 C# 文件并将其编译为 .dll 文件，以执行此序列化。 [XML 序列化程序生成器工具 (Sgen.exe)](xml-serializer-generator-tool-sgen-exe.md) 旨在预先生成要与应用程序一起部署的这些序列化程序集，并改进启动性能。 XmlSerializer 生成的 XML 流符合万维网联合会 (W3C) [XML 架构定义语言 (XSD) 1.0 建议](https://www.w3.org/TR/xslt)。 而且，生成的数据类型符合文档“XML 架构第 2 部分：数据类型”。
 
  对象中的数据是用编程语言构造来描述的，如类、字段、属性、基元类型、数组，甚至是 XmlElement 或 XmlAttribute 对象形式的嵌入 XML 。 您可以创建自己的用特性批注的类，也可以使用 XML 架构定义工具生成基于现有 XML 架构的类。
 
- 如果有 XML 架构，则可以运行 XML 架构定义工具生成一组类，将这组类的类型强制为此架构，并用特性进行批注。 当序列化这种类的实例时，生成的 XML 符合 XML 架构。 对于这种类，可以采用易于操作的对象模型进行编程，同时确保生成的 XML 符合 XML 架构。 这是使用 .NET Framework 中的其他类（如 XmlReader 和 XmlWriter 类）分析和编写 XML 流的另一种方法 。 有关详细信息，请参阅 [XML 文档和数据](../data/xml/index.md)。 这些类可让您分析任何 XML 流。 相反，如果 XML 流应符合已知的 XML 架构，则使用 XmlSerializer。
+ 如果有 XML 架构，则可以运行 XML 架构定义工具生成一组类，将这组类的类型强制为此架构，并用特性进行批注。 当序列化这种类的实例时，生成的 XML 符合 XML 架构。 对于这种类，可以采用易于操作的对象模型进行编程，同时确保生成的 XML 符合 XML 架构。 这是使用 .NET 中的其他类（如 XmlReader 和 XmlWriter 类）分析和编写 XML 流的另一种方法 。 有关详细信息，请参阅 [XML 文档和数据](../data/xml/index.md)。 这些类可让您分析任何 XML 流。 相反，如果 XML 流应符合已知的 XML 架构，则使用 XmlSerializer。
 
  特性可控制 XmlSerializer 类生成的 XML 流，使你能够设置 XML 流的 XML 命名空间、元素名称、特性名称等。 有关这些特性以及它们如何控制 XML 序列化的详细信息，请参阅[使用特性控制 XML 序列化](controlling-xml-serialization-using-attributes.md)。 有关那些用于控制生成的 XML 的特性的表格，请参阅[控制 XML 序列化的特性](attributes-that-control-xml-serialization.md)。
 
@@ -148,7 +148,7 @@ XML 序列化的另一个优点是，只要生成的 XML 流符合给定的架�
 
 ## <a name="xsd-data-type-mapping"></a>XSD 数据类型映射
 
-标题为 [XML 架构第 2 部分：数据类型](https://www.w3.org/TR/xmlschema-2/)的 W3C 文档指定 XML 架构定义语言 (XSD) 架构中允许的简单数据类型。 对于其中的许多数据类型（如“int”和“decimal”），.NET Framework 中都有相应的数据类型 。 然而，某些 XML 数据类型在 .NET Framework 中没有相应的数据类型（如“NMTOKEN”数据类型）。 在这种情况下，如果使用 XML 架构定义工具（[XML 架构定义工具 (Xsd.exe)](xml-schema-definition-tool-xsd-exe.md)）从架构中生成类，相应的特性会应用到字符串类型的成员，其“DataType”属性会设置为 XML 数据类型名称。 例如，如果架构包含 XML 数据类型为“NMTOKEN”且名为“MyToken”的元素，则生成的类可能包含下例中所示的成员。
+标题为 [XML 架构第 2 部分：数据类型](https://www.w3.org/TR/xmlschema-2/)的 W3C 文档指定 XML 架构定义语言 (XSD) 架构中允许的简单数据类型。 对于其中的许多数据类型（如“int”和“decimal”），.NET 中都有相应的数据类型 。 然而，某些 XML 数据类型没有相应的 .NET 数据类型（如“NMTOKEN”数据类型）。 在这种情况下，如果使用 XML 架构定义工具（[XML 架构定义工具 (Xsd.exe)](xml-schema-definition-tool-xsd-exe.md)）从架构中生成类，相应的特性会应用到字符串类型的成员，其“DataType”属性会设置为 XML 数据类型名称。 例如，如果架构包含 XML 数据类型为“NMTOKEN”且名为“MyToken”的元素，则生成的类可能包含下例中所示的成员。
 
 ```vb
 <XmlElement(DataType:="NMTOKEN")> _

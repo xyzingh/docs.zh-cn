@@ -4,12 +4,12 @@ description: Microsoft WCF Web Service Reference Provider 工具概述，该工�
 author: dasetser
 ms.date: 10/29/2019
 ms.custom: mvc
-ms.openlocfilehash: cdd6b457d289dd7b752c97c5645f0797f24b72aa
-ms.sourcegitcommit: 7588136e355e10cbc2582f389c90c127363c02a5
+ms.openlocfilehash: 1f7b1831a956553dbef26f58f4f257c2f3914ede
+ms.sourcegitcommit: 48466b8fb7332ececff5dc388f19f6b3ff503dd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "75715673"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93400599"
 ---
 # <a name="use-the-wcf-web-service-reference-provider-tool"></a>使用 WCF Web Service Reference Provider 工具
 
@@ -55,7 +55,7 @@ ms.locfileid: "75715673"
 
     3c. 单击“下一步”按钮，打开“数据类型选项”页和“客户端选项”页    。 或者，单击“完成”按钮，使用默认选项  。
 
-4. “数据类型选项”窗体可用于优化生成的服务引用配置设置  ：
+4. “数据类型选项”窗体可用于优化生成的服务引用配置设置：
 
     ![.NET Core 的“Visual Studio 数据类型选项”选项卡](./media/wcf-web-service-reference-guide/wcfcs-DataTypesPage.png)
 
@@ -84,7 +84,7 @@ ms.locfileid: "75715673"
 
 ## <a name="feedback--questions"></a>反馈和问题
 
-如果你有任何问题或反馈，请使用[报告问题](/visualstudio/ide/how-to-report-a-problem-with-visual-studio)工具在[开发者社区](https://developercommunity.visualstudio.com/)进行报告。
+如果你有任何产品反馈，请使用[报告问题](/visualstudio/ide/how-to-report-a-problem-with-visual-studio)工具在[开发者社区](https://aka.ms/feedback/report?space=61)进行报告。
 
 ## <a name="release-notes"></a>发行说明
 
