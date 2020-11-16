@@ -122,31 +122,31 @@ ms.locfileid: "92223360"
 * microsoft-spark-2.3.x-0.3.0.jar
 * input.txt。
 
-1. 打开 Azure 存储资源管理器，然后从左侧菜单导航到存储帐户。 在存储帐户中的“Blob 容器”下，向下钻取到群集的 blob 容器  。
+1. 打开 Azure 存储资源管理器，然后从左侧菜单导航到存储帐户。 在存储帐户中的“Blob 容器”下，向下钻取到群集的 blob 容器。
 
-2. Microsoft.Spark.Worker 可帮助 Apache Spark 执行你的应用，例如你可能已编写的任何用户定义函数 (UDF)。 下载 [Microsoft.Spark.Worker](https://github.com/dotnet/spark/releases/download/v0.3.0/Microsoft.Spark.Worker.netcoreapp2.1.linux-x64-0.3.0.tar.gz)。 然后，在 Azure 存储资源管理器中选择“上传”以上传辅助角色  。
+2. Microsoft.Spark.Worker 可帮助 Apache Spark 执行你的应用，例如你可能已编写的任何用户定义函数 (UDF)。 下载 [Microsoft.Spark.Worker](https://github.com/dotnet/spark/releases/download/v0.3.0/Microsoft.Spark.Worker.netcoreapp2.1.linux-x64-0.3.0.tar.gz)。 然后，在 Azure 存储资源管理器中选择“上传”以上传辅助角色。
 
    ![将文件上传到 Azure 存储资源管理器](./media/hdinsight-deployment/upload-files-to-storage.png)
 
 3. install-worker.sh 是一个脚本，可使用该脚本将 .NET for Apache Spark 依赖项文件复制到群集的节点中。
 
-   在本地计算机上创建一个名为 install-worker.sh 的新文件，并粘贴位于 GitHub 上的  。 然后，将 install-worker.sh 上传到 blob 容器中  。
+   在本地计算机上创建一个名为 install-worker.sh 的新文件，并粘贴位于 GitHub 上的 [install-worker.sh 内容](https://raw.githubusercontent.com/dotnet/spark/master/deployment/install-worker.sh)。 然后，将 install-worker.sh 上传到 blob 容器中。
 
-4. 群集需要 publish.zip 文件，后者包含应用的已发布文件。 导航到已发布文件夹“mySparkApp/bin/Release/netcoreapp3.0/ubuntu.16.04-x64”，并找到“publish.zip”  。 然后，将 publish.zip 上传到 blob 容器  。
+4. 群集需要 publish.zip 文件，后者包含应用的已发布文件。 导航到已发布文件夹“mySparkApp/bin/Release/netcoreapp3.0/ubuntu.16.04-x64”，并找到“publish.zip”。 然后，将 publish.zip 上传到 blob 容器。
 
-5. 群集需要已打包到 jar 文件中的应用程序代码。 导航到已发布文件夹“mySparkApp/bin/Release/netcoreapp3.0/ubuntu.16.04-x64”，并找到“microsoft-spark-2.3.x-0.3.0.jar”  。 然后，将 jar 文件上传到 blob 容器。
+5. 群集需要已打包到 jar 文件中的应用程序代码。 导航到已发布文件夹“mySparkApp/bin/Release/netcoreapp3.0/ubuntu.16.04-x64”，并找到“microsoft-spark-2.3.x-0.3.0.jar”。 然后，将 jar 文件上传到 blob 容器。
 
-   对于 2.3.x 和 2.4.x 版的 Spark，可能存在多个 .jar 文件。 你需要选择与在群集创建期间选择的 Spark 版本相匹配的 .jar 文件。 例如，如果在群集创建期间选择了 Spark 2.3.2，请选择 microsoft-spark-2.3.x-0.3.0.jar  。
+   对于 2.3.x 和 2.4.x 版的 Spark，可能存在多个 .jar 文件。 你需要选择与在群集创建期间选择的 Spark 版本相匹配的 .jar 文件。 例如，如果在群集创建期间选择了 Spark 2.3.2，请选择 microsoft-spark-2.3.x-0.3.0.jar。
 
-6. 群集需要应用的输入。 导航到 mySparkApp 目录，并找到“input.txt”  。 将输入文件上传到 blob 容器中的 user/sshuser 目录  。 你将通过 ssh 连接到群集，群集将在此文件夹中查找其输入。 input.txt 文件是上传到特定目录的唯一文件  。
+6. 群集需要应用的输入。 导航到 mySparkApp 目录，并找到“input.txt”。 将输入文件上传到 blob 容器中的 user/sshuser 目录。 你将通过 ssh 连接到群集，群集将在此文件夹中查找其输入。 input.txt 文件是上传到特定目录的唯一文件。
 
 ## <a name="run-the-hdinsight-script-action"></a>运行 HDInsight 脚本操作
 
-群集运行并将文件上传到 Azure 后，可在群集上运行 install-worker.sh 脚本  。
+群集运行并将文件上传到 Azure 后，可在群集上运行 install-worker.sh 脚本。
 
-1. 导航到 Azure 门户中的 HDInsight Spark 群集，然后选择“脚本操作”  。
+1. 导航到 Azure 门户中的 HDInsight Spark 群集，然后选择“脚本操作”。
 
-2. 选择“+ 提交新脚本”并提供以下值  ：
+2. 选择“+ 提交新脚本”并提供以下值：
 
    |属性  |描述  |
    |---------|---------|
@@ -156,15 +156,15 @@ ms.locfileid: "92223360"
    | 节点类型| 辅助角色|
    | 参数 | azure </br> wasbs://mycontainer@myStorageAccount.blob.core.windows.net/Microsoft.Spark.Worker.netcoreapp2.1.linux-x64-0.6.0.tar.gz </br> /usr/local/bin
 
-3. 选择“创建”，提交脚本  。
+3. 选择“创建”，提交脚本。
 
 ## <a name="run-your-app"></a>运行应用
 
-1. 导航到 Azure 门户中的 HDInsight Spark 群集，然后选择“SSH + 群集登录名”  。
+1. 导航到 Azure 门户中的 HDInsight Spark 群集，然后选择“SSH + 群集登录名”。
 
 2. 复制 ssh 登录信息，并将登录名粘贴到终端。 使用在群集创建期间设置的密码登录到群集。 应会看到“欢迎使用 Ubuntu 和 Spark”的消息。
 
-3. 使用 spark-submit 命令在 HDInsight 群集上运行应用  。 请记得将示例脚本中的 mycontainer 和 mystorageaccount 替换为 blob 容器和存储帐户的实际名称  。
+3. 使用 spark-submit 命令在 HDInsight 群集上运行应用。 请记得将示例脚本中的 mycontainer 和 mystorageaccount 替换为 blob 容器和存储帐户的实际名称。
 
    ```bash
    $SPARK_HOME/bin/spark-submit \
