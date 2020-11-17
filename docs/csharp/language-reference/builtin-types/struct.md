@@ -22,7 +22,7 @@ ms.locfileid: "92526595"
 
 [!code-csharp[struct example](snippets/shared/StructType.cs#StructExample)]
 
-结构类型具有值语义  。 也就是说，结构类型的变量包含类型的实例。 默认情况下，在分配中，通过将参数传递给方法并返回方法结果来复制变量值。 对于结构类型变量，将复制该类型的实例。 有关更多信息，请参阅[值类型](value-types.md)。
+结构类型具有值语义  。 也就是说，结构类型的变量包含类型的实例。 默认情况下，在赋值中，通过将参数传递给方法并返回方法结果来复制变量值。 对于结构类型变量，将复制该类型的实例。 有关更多信息，请参阅[值类型](value-types.md)。
 
 通常，可以使用结构类型来设计以数据为中心的较小类型，这些类型只有很少的行为或没有行为。 例如，.NET 使用结构类型来表示数字（[整数](integral-numeric-types.md)和[实数](floating-point-numeric-types.md)）、[布尔值](bool.md)、[Unicode 字符](char.md)以及[时间实例](xref:System.DateTime)。 如果侧重于类型的行为，请考虑定义一个[类](../keywords/class.md)。 类类型具有引用语义  。 也就是说，类类型的变量包含的是对类型的实例的引用，而不是实例本身。
 
